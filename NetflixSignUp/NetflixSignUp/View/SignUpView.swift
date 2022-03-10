@@ -67,6 +67,13 @@ final class SignUpView: UIView {
         $0.axis = .vertical
     }
     
+    let signUpButtion = UIButton().then {
+        $0.backgroundColor = .white
+        $0.setTitle("회원가입", for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .heavy)
+        $0.setTitleColor(.black, for: .normal)
+        $0.layer.cornerRadius = 5
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -88,6 +95,7 @@ final class SignUpView: UIView {
         [
             idTextField, pwTextField,
             nicknameTextField, locationTextField, referralTexrField,
+            signUpButtion
             
         ]
             .forEach { stackView.addArrangedSubview($0) }
@@ -112,13 +120,18 @@ final class SignUpView: UIView {
         [
             idTextField, pwTextField,
             nicknameTextField, locationTextField, referralTexrField,
-            
         ].forEach {
             $0.snp.makeConstraints {
                 $0.centerX.equalToSuperview()
                 $0.horizontalEdges.equalToSuperview()
                 $0.height.equalTo(40)
             }
+        }
+        
+        signUpButtion.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(50)
         }
     }
 }
