@@ -75,6 +75,23 @@ final class SignUpView: UIView {
         $0.layer.cornerRadius = 5
     }
     
+    let moreInfoLabel = UILabel().then {
+        $0.backgroundColor = .clear
+        $0.text = "추가 정보 입력"
+        $0.textColor = .white
+        $0.textAlignment = .center
+    }
+    
+    let moreInfoSwitch = UISwitch().then {
+        $0.thumbTintColor = .white
+        $0.onTintColor = .red
+        $0.isOn = true
+        
+        $0.backgroundColor = .darkGray
+        $0.layer.cornerRadius = $0.frame.height / 2
+        $0.clipsToBounds = true
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -101,6 +118,8 @@ final class SignUpView: UIView {
             .forEach { stackView.addArrangedSubview($0) }
         
         
+        addSubview(moreInfoLabel)
+        addSubview(moreInfoSwitch)
     }
     
     private func setupConstaints() {
@@ -132,6 +151,16 @@ final class SignUpView: UIView {
             $0.centerX.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(50)
+        }
+        
+        moreInfoLabel.snp.makeConstraints {
+            $0.leading.equalTo(signUpButtion)
+            $0.top.equalTo(signUpButtion.snp.bottom).offset(20)
+        }
+        
+        moreInfoSwitch.snp.makeConstraints {
+            $0.trailing.equalTo(signUpButtion)
+            $0.centerY.equalTo(moreInfoLabel)
         }
     }
 }
