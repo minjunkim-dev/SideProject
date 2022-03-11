@@ -14,7 +14,7 @@ final class SignUpViewController: UIViewController {
     private let scrollView = UIScrollView()
     private let mainView = SignUpView()
     private let viewModel = SignUpViewModel()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +36,7 @@ final class SignUpViewController: UIViewController {
         }
         
         mainView.signUpButtion.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
-        mainView.moreInfoSwitch.addTarget(self, action: #selector(moreInfoSwitchClicked), for: .valueChanged)
+        mainView.moreInfoSwitch.addTarget(self, action: #selector(moreInfoSwitchClicked(_:)), for: .valueChanged)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
@@ -55,7 +55,14 @@ final class SignUpViewController: UIViewController {
         if let referralCode = viewModel.user.referralCode { print("CODE: \(referralCode)") }
     }
     
-    @objc func moreInfoSwitchClicked() {
+    @objc func moreInfoSwitchClicked(_ sender: UISwitch) {
         print(#function)
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.mainView.stackView.arrangedSubviews[2].isHidden = !(sender.isOn)
+            self.mainView.stackView.arrangedSubviews[3].isHidden = !(sender.isOn)
+            self.mainView.stackView.arrangedSubviews[4].isHidden = !(sender.isOn)
+        })
+    
     }
 }
