@@ -87,6 +87,7 @@ final class SignUpView: UIView {
         $0.onTintColor = .red
         $0.isOn = true
         
+        /* off시 tintColor를 설정하기 위함 */
         $0.backgroundColor = .darkGray
         $0.layer.cornerRadius = $0.frame.height / 2
         $0.clipsToBounds = true
@@ -103,10 +104,8 @@ final class SignUpView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .black
-        
+    
         addSubview(titleLabel)
-        
         
         addSubview(stackView)
         [
@@ -120,19 +119,20 @@ final class SignUpView: UIView {
         
         addSubview(moreInfoLabel)
         addSubview(moreInfoSwitch)
+  
     }
     
     private func setupConstaints() {
-        
+
         titleLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview().multipliedBy(0.4)
+            $0.top.equalTo(safeAreaLayoutGuide).inset(80)
             $0.horizontalEdges.lessThanOrEqualToSuperview().inset(40)
         }
         
         stackView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.top.equalTo(titleLabel.snp.bottom).offset(80)
             $0.horizontalEdges.lessThanOrEqualToSuperview().inset(40)
         }
         
@@ -141,26 +141,25 @@ final class SignUpView: UIView {
             nicknameTextField, locationTextField, referralTexrField,
         ].forEach {
             $0.snp.makeConstraints {
-                $0.centerX.equalToSuperview()
                 $0.horizontalEdges.equalToSuperview()
                 $0.height.equalTo(40)
             }
         }
         
         signUpButtion.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(50)
         }
         
         moreInfoLabel.snp.makeConstraints {
-            $0.leading.equalTo(signUpButtion)
-            $0.top.equalTo(signUpButtion.snp.bottom).offset(20)
+            $0.leading.equalTo(stackView)
+            $0.top.equalTo(stackView.snp.bottom).offset(20)
         }
         
         moreInfoSwitch.snp.makeConstraints {
-            $0.trailing.equalTo(signUpButtion)
+            $0.trailing.equalTo(stackView)
             $0.centerY.equalTo(moreInfoLabel)
+            $0.bottom.lessThanOrEqualToSuperview().inset(80)
         }
     }
 }

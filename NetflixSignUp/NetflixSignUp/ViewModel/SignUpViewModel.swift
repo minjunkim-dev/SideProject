@@ -7,6 +7,6 @@
 
 import Foundation
 
-class SignUpViewModel {
+final class SignUpViewModel {
     
 }
