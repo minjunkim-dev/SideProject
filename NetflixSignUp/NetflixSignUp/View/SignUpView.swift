@@ -111,11 +111,10 @@ final class SignUpView: UIView {
         [
             idTextField, pwTextField,
             nicknameTextField, locationTextField, referralTexrField,
-            signUpButtion
-            
         ]
             .forEach { stackView.addArrangedSubview($0) }
         
+        addSubview(signUpButtion)
         
         addSubview(moreInfoLabel)
         addSubview(moreInfoSwitch)
@@ -147,17 +146,19 @@ final class SignUpView: UIView {
         }
         
         signUpButtion.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(stackView.snp.bottom).offset(20)
+            $0.horizontalEdges.lessThanOrEqualToSuperview().inset(40)
             $0.height.equalTo(50)
         }
         
         moreInfoLabel.snp.makeConstraints {
-            $0.leading.equalTo(stackView)
-            $0.top.equalTo(stackView.snp.bottom).offset(20)
+            $0.leading.equalTo(signUpButtion)
+            $0.top.equalTo(signUpButtion.snp.bottom).offset(20)
         }
         
         moreInfoSwitch.snp.makeConstraints {
-            $0.trailing.equalTo(stackView)
+            $0.trailing.equalTo(signUpButtion)
             $0.centerY.equalTo(moreInfoLabel)
             $0.bottom.lessThanOrEqualToSuperview().inset(80)
         }

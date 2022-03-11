@@ -14,9 +14,9 @@ struct User {
     /* 추가정보 */
     var nickname: String?
     var location: String?
-    var referralCode: String?
+    var referralCode: Int?
     
-    init(identifier: String = "", password: String = "", nickname: String?, location: String?, referralCode: String?) {
+    init(identifier: String, password: String, nickname: String?, location: String?, referralCode: Int?) {
         self.identifier = identifier
         self.password = password
         self.nickname = nickname

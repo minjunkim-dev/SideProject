@@ -18,8 +18,8 @@ final class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.backgroundColor = .green
-        mainView.backgroundColor = .blue
+        scrollView.backgroundColor = .black
+        mainView.backgroundColor = .black
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints {
@@ -34,5 +34,28 @@ final class SignUpViewController: UIViewController {
             $0.centerX.equalToSuperview()
             $0.width.equalToSuperview()
         }
+        
+        mainView.signUpButtion.addTarget(self, action: #selector(signUpButtonClicked), for: .touchUpInside)
+        mainView.moreInfoSwitch.addTarget(self, action: #selector(moreInfoSwitchClicked), for: .valueChanged)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc func signUpButtonClicked() {
+        print(#function)
+        print("회원가입 정보 확인")
+        
+        print("ID: \(viewModel.user.identifier)")
+        print("PW: \(viewModel.user.password)")
+        
+        if let nickname = viewModel.user.nickname { print("NICK: \(nickname)") }
+        if let location = viewModel.user.location { print("LOCATION: \(location)") }
+        if let referralCode = viewModel.user.referralCode { print("CODE: \(referralCode)") }
+    }
+    
+    @objc func moreInfoSwitchClicked() {
+        print(#function)
     }
 }

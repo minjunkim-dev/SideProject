@@ -9,4 +9,11 @@ import Foundation
 
 final class SignUpViewModel {
     
+    var user = User(
+        identifier: "abc@.acom",
+        password: "123456",
+        nickname: "hi",
+        location: "seoul",
+        referralCode: 452312
+    )
 }
