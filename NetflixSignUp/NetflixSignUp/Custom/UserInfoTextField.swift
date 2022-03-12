@@ -27,5 +27,6 @@ final class UserInfoTextField: UITextField {
         self.textAlignment = .center
         self.backgroundColor = .darkGray
         self.borderStyle = .roundedRect
+        self.autocapitalizationType = .none
     }
 }

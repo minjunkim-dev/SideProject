@@ -19,7 +19,6 @@ final class SignUpView: UIView {
         $0.font = .systemFont(ofSize: 40, weight: .heavy)
     }
     
-    
     /* 필수정보 */
     let idTextField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
@@ -34,7 +33,9 @@ final class SignUpView: UIView {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .default
+        
         $0.isSecureTextEntry = true
+        $0.textContentType = .oneTimeCode
     }
     
     /* 추가정보 */
@@ -44,6 +45,7 @@ final class SignUpView: UIView {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .default
+        $0.textContentType = .nickname
     }
     let locationTextField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
@@ -51,13 +53,14 @@ final class SignUpView: UIView {
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .default
+        $0.textContentType = .location
     }
     let referralTexrField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
             string: "추천 코드 입력",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
-        $0.keyboardType = .default
+        $0.keyboardType = .numberPad
     }
     
     let stackView = UIStackView().then {
