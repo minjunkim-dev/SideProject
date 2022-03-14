@@ -18,8 +18,8 @@ final class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView.backgroundColor = .systemOrange
-        mainView.backgroundColor = .systemIndigo
+        scrollView.backgroundColor = .black
+        mainView.backgroundColor = .black
         
         scrollView.alwaysBounceVertical = true // set always scrollable
         scrollView.keyboardDismissMode = .onDrag
