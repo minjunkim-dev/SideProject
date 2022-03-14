@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  NetflixSignUp
+
+  Created by beneDev on 2022/03/14.
+  
+*/
+
+"identifierPlaceholder" = "email or phone number";
+"passwordPlaceholder" = "password";
+"nicknamePlaceholder" = "nickname";
+"locationPlaceholder" = "location";
+"referralCodePlaceholder" = "referral code";
+"signUpButtonTitle" = "Sign Up";
+"additionalInfoLabelTitle" = "Additional Info";

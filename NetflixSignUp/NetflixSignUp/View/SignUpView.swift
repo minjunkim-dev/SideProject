@@ -22,14 +22,14 @@ final class SignUpView: UIView {
     /* 필수정보 */
     let idTextField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
-            string: "이메일 주소 또는 전화번호",
+            string: "identifierPlaceholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .emailAddress
     }
     let pwTextField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
-            string: "비밀번호",
+            string: "passwordPlaceholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .default
@@ -41,7 +41,7 @@ final class SignUpView: UIView {
     /* 추가정보 */
     let nicknameTextField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
-            string: "닉네임",
+            string: "nicknamePlaceholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .default
@@ -49,7 +49,7 @@ final class SignUpView: UIView {
     }
     let locationTextField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
-            string: "위치",
+            string: "locationPlaceholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .default
@@ -57,7 +57,7 @@ final class SignUpView: UIView {
     }
     let referralTexrField = UserInfoTextField().then {
         $0.attributedPlaceholder = NSAttributedString(
-            string: "추천 코드 입력",
+            string: "referralCodePlaceholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
         )
         $0.keyboardType = .numberPad
@@ -72,7 +72,7 @@ final class SignUpView: UIView {
     
     let signUpButtion = UIButton().then {
         $0.backgroundColor = .white
-        $0.setTitle("회원가입", for: .normal)
+        $0.setTitle("signUpButtonTitle".localized(), for: .normal)
         $0.titleLabel?.font = .systemFont(ofSize: 18, weight: .heavy)
         $0.setTitleColor(.black, for: .normal)
         $0.layer.cornerRadius = 5
@@ -80,7 +80,7 @@ final class SignUpView: UIView {
     
     let moreInfoLabel = UILabel().then {
         $0.backgroundColor = .clear
-        $0.text = "추가 정보 입력"
+        $0.text = "additionalInfoLabelTitle".localized()
         $0.textColor = .white
         $0.textAlignment = .center
     }

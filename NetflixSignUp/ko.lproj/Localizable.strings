@@ -1,0 +1,15 @@
+/* 
+  Localization.strings
+  NetflixSignUp
+
+  Created by beneDev on 2022/03/14.
+  
+*/
+
+"identifierPlaceholder" = "이메일 주소 또는 전화번호";
+"passwordPlaceholder" = "비밀번호";
+"nicknamePlaceholder" = "닉네임";
+"locationPlaceholder" = "위치";
+"referralCodePlaceholder" = "추천 코드 입력";
+"signUpButtonTitle" = "회원가입";
+"additionalInfoLabelTitle" = "추가 정보 입력";
