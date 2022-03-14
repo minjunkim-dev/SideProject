@@ -14,6 +14,8 @@
 		B9484EB527D888B800B6354B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = B9484EB427D888B800B6354B /* SnapKit */; };
 		CA14840427DB317300D748E2 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA14840327DB317300D748E2 /* UIViewController+Extension.swift */; };
 		CA50202127DC56270085A13B /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50202027DC56270085A13B /* UIScrollView+Extension.swift */; };
+		CA50202327DC9A440085A13B /* SignUpValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50202227DC9A440085A13B /* SignUpValidationType.swift */; };
+		CA50202527DCA8410085A13B /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50202427DCA8410085A13B /* Observable.swift */; };
 		CA57513327D9DEF0009B806A /* UserInfoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA57513227D9DEF0009B806A /* UserInfoTextField.swift */; };
 		CA8F792727D8AB3C00107209 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F792627D8AB3C00107209 /* SignUpViewController.swift */; };
 		CA8F792927D8AB6700107209 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8F792827D8AB6700107209 /* SignUpView.swift */; };
@@ -31,6 +33,8 @@
 		B9484EAD27D8885800B6354B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA14840327DB317300D748E2 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CA50202027DC56270085A13B /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		CA50202227DC9A440085A13B /* SignUpValidationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpValidationType.swift; sourceTree = "<group>"; };
+		CA50202427DCA8410085A13B /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		CA57513227D9DEF0009B806A /* UserInfoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTextField.swift; sourceTree = "<group>"; };
 		CA8F792627D8AB3C00107209 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CA8F792827D8AB6700107209 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				CA57513227D9DEF0009B806A /* UserInfoTextField.swift */,
+				CA50202227DC9A440085A13B /* SignUpValidationType.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				CABA92F127D9C7800004C5E5 /* User.swift */,
+				CA50202427DCA8410085A13B /* Observable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,8 +210,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA50202527DCA8410085A13B /* Observable.swift in Sources */,
 				CA14840427DB317300D748E2 /* UIViewController+Extension.swift in Sources */,
 				CA8F792927D8AB6700107209 /* SignUpView.swift in Sources */,
+				CA50202327DC9A440085A13B /* SignUpValidationType.swift in Sources */,
 				B9484EA027D8885600B6354B /* AppDelegate.swift in Sources */,
 				CA8F792727D8AB3C00107209 /* SignUpViewController.swift in Sources */,
 				CA50202127DC56270085A13B /* UIScrollView+Extension.swift in Sources */,

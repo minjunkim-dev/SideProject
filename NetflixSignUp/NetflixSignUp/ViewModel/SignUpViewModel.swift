@@ -9,11 +9,11 @@ import Foundation
 
 final class SignUpViewModel {
     
-    var user = User(
-        identifier: "abc@.acom",
-        password: "123456",
-        nickname: "hi",
-        location: "seoul",
-        referralCode: 452312
-    )
+    var user = User()
+    
+    var identifier: Observable<String> = Observable("")
+    var password: Observable<String> = Observable("")
+    var nickname: Observable<String?> = Observable(nil)
+    var location: Observable<String?> = Observable(nil)
+    var referralCode: Observable<String?> = Observable(nil)
 }
