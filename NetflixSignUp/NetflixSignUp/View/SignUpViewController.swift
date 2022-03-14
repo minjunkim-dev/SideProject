@@ -179,13 +179,15 @@ final class SignUpViewController: UIViewController {
 
             }
         }
+        
+        showAlert(title: nil, message:  "회원가입이 완료되었습니다.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
     }
     
     func validateRequiredUserInfo() -> Bool {
         /* 아이디와 비밀번호는 필수 기입 */
         guard !(viewModel.identifier.value.isEmpty),
               !(viewModel.password.value.isEmpty) else {
-            print("아이디와 비밀번호를 모두 입력해주세요.")
+            showAlert(title: nil, message: "아이디와 비밀번호를 모두 입력해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
             return false
         }
         
@@ -195,16 +197,14 @@ final class SignUpViewController: UIViewController {
         let passwordRegex = SignUpValidationType.password.regex
         
         if !(SignUpValidationType.validate(value: viewModel.identifier.value, regex: emailRegex) || SignUpValidationType.validate(value: viewModel.identifier.value, regex: phoneNumberRegex)) {
-            print("아이디 형식이 올바른지 확인해주세요.")
-            
-            print(viewModel.identifier.value)
-            print(emailRegex)
+            showAlert(title: nil, message: "아이디 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
             
             return false
         }
         
         if !(SignUpValidationType.validate(value: viewModel.password.value, regex: passwordRegex)) {
-            print("비밀번호 형식이 올바른지 확인해주세요.")
+    
+            showAlert(title: nil, message: "비밀번호 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
             return false
         }
         
@@ -222,7 +222,7 @@ final class SignUpViewController: UIViewController {
         
         if let nickname = viewModel.nickname.value, !(nickname.isEmpty) {
             if !(SignUpValidationType.validate(value: nickname, regex: nicknameRegex)) {
-                print("닉네임 형식이 올바른지 확인해주세요.")
+                showAlert(title: nil, message: "닉네임 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
                 return false
             }
         }
@@ -230,7 +230,8 @@ final class SignUpViewController: UIViewController {
         
         if let location = viewModel.location.value, !(location.isEmpty) {
             if !(SignUpValidationType.validate(value: location, regex: locationRegex)) {
-                print("위치 형식이 올바른지 확인해주세요.")
+                
+                showAlert(title: nil, message: "위치 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
                 return false
             }
         }
@@ -238,7 +239,8 @@ final class SignUpViewController: UIViewController {
         
         if let referralCode = viewModel.referralCode.value, !(referralCode.isEmpty) {
             if !(SignUpValidationType.validate(value: referralCode, regex: referralRegex)) {
-                print("추천코드 형식이 올바른지 확인해주세요.")
+                
+                showAlert(title: nil, message: "추천코드 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
                 return false
             }
         }
