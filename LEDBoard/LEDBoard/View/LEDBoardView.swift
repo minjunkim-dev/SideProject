@@ -17,9 +17,7 @@ final class LEDBoardView: UIView {
         $0.clipsToBounds = true
     }
     
-    let inputTextField = UITextField().then {
-        $0.placeholder = "텍스트를 입력해주세요"
-    }
+    let inputTextField = LEDBoardTextField()
     
     let sendTextButton = UIButton().then {
         $0.setTitle("보내기", for: .normal)
