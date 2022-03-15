@@ -26,6 +26,7 @@ final class LEDBoardTextField: UITextField {
     private func setupView() {
         
         placeholder = "텍스트를 입력해주세요"
+        autocapitalizationType = .none
         
     }
     

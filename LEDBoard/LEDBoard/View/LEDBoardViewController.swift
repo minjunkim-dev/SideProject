@@ -20,11 +20,12 @@ final class LEDBoardViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        
         mainView.changeColorButton.addTarget(self, action: #selector(changeColorButtonClicked), for: .touchUpInside)
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+        mainView.inputTextField.addTarget(self, action: #selector(UIViewController.dismissKeyboard), for: .editingDidEndOnExit)
     }
 
     @objc private func changeColorButtonClicked() {
@@ -34,4 +35,3 @@ final class LEDBoardViewController: UIViewController {
         mainView.boardLabel.textColor = color
     }
 }
-
