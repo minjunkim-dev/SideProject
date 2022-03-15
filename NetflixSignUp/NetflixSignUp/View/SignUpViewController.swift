@@ -72,7 +72,7 @@ final class SignUpViewController: UIViewController {
         }
     }
     
-    @objc func idTextFieldEditingChanged(_ textField: UITextField) {
+    @objc private func idTextFieldEditingChanged(_ textField: UITextField) {
         
         let maxLength = max(SignUpValidationType.email.range.upperBound, SignUpValidationType.phoneNumber.range.upperBound)
           
@@ -84,7 +84,7 @@ final class SignUpViewController: UIViewController {
         viewModel.identifier.value = textField.text ?? ""
     }
     
-    @objc func pwTextFieldEditingChanged(_ textField: UITextField) {
+    @objc private func pwTextFieldEditingChanged(_ textField: UITextField) {
         
         let maxLength = SignUpValidationType.password.range.upperBound
           
@@ -96,7 +96,7 @@ final class SignUpViewController: UIViewController {
         viewModel.password.value = textField.text ?? ""
     }
     
-    @objc func nicknameTextFieldEditingChanged(_ textField: UITextField) {
+    @objc private func nicknameTextFieldEditingChanged(_ textField: UITextField) {
         
         let maxLength = SignUpValidationType.nickname.range.upperBound
           
@@ -108,7 +108,7 @@ final class SignUpViewController: UIViewController {
         viewModel.nickname.value = textField.text ?? ""
     }
     
-    @objc func locationTextFieldEditingChanged(_ textField: UITextField) {
+    @objc private func locationTextFieldEditingChanged(_ textField: UITextField) {
         
         let maxLength = SignUpValidationType.location.range.upperBound
           
@@ -150,7 +150,7 @@ final class SignUpViewController: UIViewController {
         scrollView.scrollVertically(position: .zero)
     }
 
-    @objc func signUpButtonClicked() {
+    @objc private func signUpButtonClicked() {
         print(#function)
         
         if !(validateRequiredUserInfo()) { return }
@@ -183,7 +183,7 @@ final class SignUpViewController: UIViewController {
         showAlert(title: nil, message:  "회원가입이 완료되었습니다.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
     }
     
-    func validateRequiredUserInfo() -> Bool {
+    private func validateRequiredUserInfo() -> Bool {
         /* 아이디와 비밀번호는 필수 기입 */
         guard !(viewModel.identifier.value.isEmpty),
               !(viewModel.password.value.isEmpty) else {
@@ -214,7 +214,7 @@ final class SignUpViewController: UIViewController {
         return true
     }
     
-    func validateAdditionalUserInfo() -> Bool {
+    private func validateAdditionalUserInfo() -> Bool {
         
         let nicknameRegex = SignUpValidationType.nickname.regex
         let locationRegex = SignUpValidationType.location.regex
@@ -253,7 +253,7 @@ final class SignUpViewController: UIViewController {
         return true
     }
     
-    @objc func moreInfoSwitchClicked(_ sender: UISwitch) {
+    @objc private func moreInfoSwitchClicked(_ sender: UISwitch) {
         print(#function)
         
         UIView.animate(withDuration: 0.5, animations: {
