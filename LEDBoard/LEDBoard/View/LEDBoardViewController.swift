@@ -19,8 +19,16 @@ final class LEDBoardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        mainView.changeColorButton.addTarget(self, action: #selector(changeColorButtonClicked), for: .touchUpInside)
     }
 
-
+    @objc private func changeColorButtonClicked() {
+        
+        let color = UIColor.random
+        mainView.changeColorButton.setTitleColor(color, for: .normal)
+        mainView.boardLabel.textColor = color
+    }
 }
 

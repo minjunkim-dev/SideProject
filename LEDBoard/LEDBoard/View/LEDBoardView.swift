@@ -29,7 +29,7 @@ final class LEDBoardView: UIView {
     
     let changeColorButton = UIButton().then {
         $0.setTitle("Aa", for: .normal)
-        $0.setTitleColor(.red, for: .normal)
+        $0.setTitleColor(.random, for: .normal)
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 2
         $0.layer.cornerRadius = 10
@@ -47,7 +47,7 @@ final class LEDBoardView: UIView {
     }
     
     private func setupView() {
-        backgroundColor = .systemOrange
+        backgroundColor = .black
         
         containerView.backgroundColor = .white
         addSubview(containerView)
@@ -58,6 +58,7 @@ final class LEDBoardView: UIView {
         }
         
         addSubview(boardLabel)
+        boardLabel.textColor = changeColorButton.currentTitleColor
     }
     
     private func setupConstraints() {
