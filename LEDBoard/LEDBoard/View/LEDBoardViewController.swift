@@ -22,6 +22,9 @@ final class LEDBoardViewController: UIViewController {
         
         
         mainView.changeColorButton.addTarget(self, action: #selector(changeColorButtonClicked), for: .touchUpInside)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 
     @objc private func changeColorButtonClicked() {
