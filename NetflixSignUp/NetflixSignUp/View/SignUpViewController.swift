@@ -153,14 +153,54 @@ final class SignUpViewController: UIViewController {
     @objc private func signUpButtonClicked() {
         print(#function)
         
-        if !(validateRequiredUserInfo()) { return }
+        let (isValid, invalidType) = viewModel.validateRequiredUserInfo()
+        
+        if !isValid, let type = invalidType {
+            
+            var message = String()
+            
+            switch type {
+            case .notEnteredIDorPassword:
+                message = "아이디와 비밀번호를 모두 입력해주세요."
+            case .identifierInvalid:
+                message = "아이디 형식이 올바른지 확인해주세요."
+            case .passwordInvalid:
+                message = "비밀번호 형식이 올바른지 확인해주세요."
+            }
+            
+            self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+            
+            return
+        }
         
         /* 추가 정보 입력을 하고자 하는 경우에만 유효성 검사 필요 */
         if mainView.moreInfoSwitch.isOn {
-            if !(validateAdditionalUserInfo()) { return }
+            
+            let (isValid, invalidType) = viewModel.validateAdditionalUserInfo()
+            
+            if !isValid, let type = invalidType {
+                
+                var message = String()
+                
+                switch type {
+                case .nicknameInvalid:
+                    message = "닉네임 형식이 올바른지 확인해주세요."
+                case .locationInvalid:
+                    message = "위치 형식이 올바른지 확인해주세요."
+                case .refferalCodeInvalid:
+                    message = "추천 코드 형식이 올바른지 확인해주세요."
+                }
+                
+                self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+                
+                return
+            }
         }
         
+        showAlert(title: nil, message:  "회원가입이 완료되었습니다.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
         
+        
+        /* 콘솔로 결과 확인하는 용도 */
         print("회원가입 정보 확인")
         
         print("ID: \(viewModel.user.identifier)")
@@ -179,78 +219,6 @@ final class SignUpViewController: UIViewController {
 
             }
         }
-        
-        showAlert(title: nil, message:  "회원가입이 완료되었습니다.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-    }
-    
-    private func validateRequiredUserInfo() -> Bool {
-        /* 아이디와 비밀번호는 필수 기입 */
-        guard !(viewModel.identifier.value.isEmpty),
-              !(viewModel.password.value.isEmpty) else {
-            showAlert(title: nil, message: "아이디와 비밀번호를 모두 입력해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-            return false
-        }
-        
-        let emailRegex = SignUpValidationType.email.regex
-        let phoneNumberRegex = SignUpValidationType.phoneNumber.regex
-        
-        let passwordRegex = SignUpValidationType.password.regex
-        
-        if !(SignUpValidationType.validate(value: viewModel.identifier.value, regex: emailRegex) || SignUpValidationType.validate(value: viewModel.identifier.value, regex: phoneNumberRegex)) {
-            showAlert(title: nil, message: "아이디 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-            
-            return false
-        }
-        
-        if !(SignUpValidationType.validate(value: viewModel.password.value, regex: passwordRegex)) {
-    
-            showAlert(title: nil, message: "비밀번호 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-            return false
-        }
-        
-        viewModel.user.identifier = viewModel.identifier.value
-        viewModel.user.password = viewModel.password.value
-        
-        return true
-    }
-    
-    private func validateAdditionalUserInfo() -> Bool {
-        
-        let nicknameRegex = SignUpValidationType.nickname.regex
-        let locationRegex = SignUpValidationType.location.regex
-        let referralRegex = SignUpValidationType.referralCode.regex
-        
-        if let nickname = viewModel.nickname.value, !(nickname.isEmpty) {
-            if !(SignUpValidationType.validate(value: nickname, regex: nicknameRegex)) {
-                showAlert(title: nil, message: "닉네임 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-                return false
-            }
-        }
-       
-        
-        if let location = viewModel.location.value, !(location.isEmpty) {
-            if !(SignUpValidationType.validate(value: location, regex: locationRegex)) {
-                
-                showAlert(title: nil, message: "위치 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-                return false
-            }
-        }
-        
-        
-        if let referralCode = viewModel.referralCode.value, !(referralCode.isEmpty) {
-            if !(SignUpValidationType.validate(value: referralCode, regex: referralRegex)) {
-                
-                showAlert(title: nil, message: "추천코드 형식이 올바른지 확인해주세요.", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-                return false
-            }
-        }
-        
-        
-        viewModel.user.nickname = viewModel.nickname.value
-        viewModel.user.location = viewModel.location.value
-        viewModel.user.referralCode = viewModel.referralCode.value
-        
-        return true
     }
     
     @objc private func moreInfoSwitchClicked(_ sender: UISwitch) {
