@@ -5,18 +5,6 @@
 //  Created by beneDev on 2022/03/10.
 //
 
-enum SignUpRequiredUserInfoInvalid {
-    case notEnteredIDorPassword
-    case identifierInvalid
-    case passwordInvalid
-}
-
-enum SignUpAdditionalUserInfoInvalid {
-    case nicknameInvalid
-    case locationInvalid
-    case refferalCodeInvalid
-}
-
 import Foundation
 
 final class SignUpViewModel {
@@ -38,17 +26,17 @@ final class SignUpViewModel {
             return (false, .notEnteredIDorPassword)
         }
         
-        let emailRegex = SignUpValidationType.email.regex
-        let phoneNumberRegex = SignUpValidationType.phoneNumber.regex
+        let emailRegex = SignUpUserInfoValid.email.regex
+        let phoneNumberRegex = SignUpUserInfoValid.phoneNumber.regex
         
-        let passwordRegex = SignUpValidationType.password.regex
+        let passwordRegex = SignUpUserInfoValid.password.regex
         
-        if !(SignUpValidationType.validate(value: identifier.value, regex: emailRegex) || SignUpValidationType.validate(value: identifier.value, regex: phoneNumberRegex)) {
+        if !(SignUpUserInfoValid.validate(value: identifier.value, regex: emailRegex) || SignUpUserInfoValid.validate(value: identifier.value, regex: phoneNumberRegex)) {
             
             return (false, .identifierInvalid)
         }
         
-        if !(SignUpValidationType.validate(value: password.value, regex: passwordRegex)) {
+        if !(SignUpUserInfoValid.validate(value: password.value, regex: passwordRegex)) {
     
             return (false, .passwordInvalid)
         }
@@ -61,12 +49,12 @@ final class SignUpViewModel {
     
     func validateAdditionalUserInfo() -> (Bool, SignUpAdditionalUserInfoInvalid?) {
         
-        let nicknameRegex = SignUpValidationType.nickname.regex
-        let locationRegex = SignUpValidationType.location.regex
-        let referralRegex = SignUpValidationType.referralCode.regex
+        let nicknameRegex = SignUpUserInfoValid.nickname.regex
+        let locationRegex = SignUpUserInfoValid.location.regex
+        let referralRegex = SignUpUserInfoValid.referralCode.regex
         
         if let nickname = nickname.value, !(nickname.isEmpty) {
-            if !(SignUpValidationType.validate(value: nickname, regex: nicknameRegex)) {
+            if !(SignUpUserInfoValid.validate(value: nickname, regex: nicknameRegex)) {
                 
                 return (false, .nicknameInvalid)
             }
@@ -74,7 +62,7 @@ final class SignUpViewModel {
        
         
         if let location = location.value, !(location.isEmpty) {
-            if !(SignUpValidationType.validate(value: location, regex: locationRegex)) {
+            if !(SignUpUserInfoValid.validate(value: location, regex: locationRegex)) {
           
                 return (false, .locationInvalid)
             }
@@ -82,7 +70,7 @@ final class SignUpViewModel {
         
         
         if let referralCode = referralCode.value, !(referralCode.isEmpty) {
-            if !(SignUpValidationType.validate(value: referralCode, regex: referralRegex)) {
+            if !(SignUpUserInfoValid.validate(value: referralCode, regex: referralRegex)) {
                 
           
                 return (false, .refferalCodeInvalid)

@@ -74,7 +74,7 @@ final class SignUpViewController: UIViewController {
     
     @objc private func idTextFieldEditingChanged(_ textField: UITextField) {
         
-        let maxLength = max(SignUpValidationType.email.range.upperBound, SignUpValidationType.phoneNumber.range.upperBound)
+        let maxLength = max(SignUpUserInfoValid.email.range.upperBound, SignUpUserInfoValid.phoneNumber.range.upperBound)
           
         guard let text = textField.text, text.count <= maxLength else {
             textField.deleteBackward()
@@ -86,7 +86,7 @@ final class SignUpViewController: UIViewController {
     
     @objc private func pwTextFieldEditingChanged(_ textField: UITextField) {
         
-        let maxLength = SignUpValidationType.password.range.upperBound
+        let maxLength = SignUpUserInfoValid.password.range.upperBound
           
         guard let text = textField.text, text.count <= maxLength else {
             textField.deleteBackward()
@@ -98,7 +98,7 @@ final class SignUpViewController: UIViewController {
     
     @objc private func nicknameTextFieldEditingChanged(_ textField: UITextField) {
         
-        let maxLength = SignUpValidationType.nickname.range.upperBound
+        let maxLength = SignUpUserInfoValid.nickname.range.upperBound
           
         guard let text = textField.text, text.count <= maxLength else {
             textField.deleteBackward()
@@ -110,7 +110,7 @@ final class SignUpViewController: UIViewController {
     
     @objc private func locationTextFieldEditingChanged(_ textField: UITextField) {
         
-        let maxLength = SignUpValidationType.location.range.upperBound
+        let maxLength = SignUpUserInfoValid.location.range.upperBound
           
         guard let text = textField.text, text.count <= maxLength else {
             textField.deleteBackward()
@@ -122,7 +122,7 @@ final class SignUpViewController: UIViewController {
     
     @objc func referralCodeTextFieldEditingChanged(_ textField: UITextField) {
         
-        let maxLength = SignUpValidationType.referralCode.range.upperBound
+        let maxLength = SignUpUserInfoValid.referralCode.range.upperBound
           
         guard let text = textField.text, text.count <= maxLength else {
             textField.deleteBackward()

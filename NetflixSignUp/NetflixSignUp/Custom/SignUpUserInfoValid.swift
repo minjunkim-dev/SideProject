@@ -7,7 +7,19 @@
 
 import Foundation
 
-enum SignUpValidationType {
+enum SignUpRequiredUserInfoInvalid {
+    case notEnteredIDorPassword
+    case identifierInvalid
+    case passwordInvalid
+}
+
+enum SignUpAdditionalUserInfoInvalid {
+    case nicknameInvalid
+    case locationInvalid
+    case refferalCodeInvalid
+}
+
+enum SignUpUserInfoValid {
     
     /* identifier */
     case email
@@ -27,7 +39,7 @@ enum SignUpValidationType {
 }
 
 
-extension SignUpValidationType {
+extension SignUpUserInfoValid {
     
     var range: ClosedRange<Int> {
         switch self {
