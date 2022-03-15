@@ -16,6 +16,7 @@
 		CA50207027E057600085A13B /* LEDBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50206F27E057600085A13B /* LEDBoardViewModel.swift */; };
 		CA50207127E06C520085A13B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA50203B27DF080B0085A13B /* Assets.xcassets */; };
 		CA50207227E06C520085A13B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA50203D27DF080B0085A13B /* LaunchScreen.storyboard */; };
+		CA927A3C27E08D3900F90049 /* LEDBoardTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A3B27E08D3900F90049 /* LEDBoardTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA50204027DF080B0085A13B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA50206D27E0570F0085A13B /* LEDBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDBoardView.swift; sourceTree = "<group>"; };
 		CA50206F27E057600085A13B /* LEDBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDBoardViewModel.swift; sourceTree = "<group>"; };
+		CA927A3B27E08D3900F90049 /* LEDBoardTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDBoardTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		CA50203127DF080A0085A13B /* LEDBoard */ = {
 			isa = PBXGroup;
 			children = (
+				CA927A3A27E08D1400F90049 /* Custom */,
 				CA50204027DF080B0085A13B /* Info.plist */,
 				CA50203227DF080A0085A13B /* AppDelegate.swift */,
 				CA50203427DF080A0085A13B /* SceneDelegate.swift */,
@@ -96,6 +99,14 @@
 				CA50206F27E057600085A13B /* LEDBoardViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CA927A3A27E08D1400F90049 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				CA927A3B27E08D3900F90049 /* LEDBoardTextField.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 				CA50203727DF080A0085A13B /* LEDBoardViewController.swift in Sources */,
 				CA50203327DF080A0085A13B /* AppDelegate.swift in Sources */,
 				CA50207027E057600085A13B /* LEDBoardViewModel.swift in Sources */,
+				CA927A3C27E08D3900F90049 /* LEDBoardTextField.swift in Sources */,
 				CA50203527DF080A0085A13B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

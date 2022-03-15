@@ -54,10 +54,9 @@ final class LEDBoardView: UIView {
         containerView.backgroundColor = .white
         addSubview(containerView)
         
-        containerView.addSubview(inputTextField)
-        
-        [sendTextButton, changeColorButton].forEach {
-            inputTextField.addSubview($0)
+        [inputTextField,
+         sendTextButton, changeColorButton].forEach {
+            containerView.addSubview($0)
         }
         
         addSubview(boardLabel)
@@ -72,7 +71,9 @@ final class LEDBoardView: UIView {
         }
         
         inputTextField.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.verticalEdges.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalTo(sendTextButton.snp.leading)
         }
         
         changeColorButton.snp.makeConstraints {
@@ -84,6 +85,7 @@ final class LEDBoardView: UIView {
         sendTextButton.snp.makeConstraints {
             $0.trailing.equalTo(changeColorButton.snp.leading).offset(-5)
             $0.verticalEdges.equalToSuperview().inset(5)
+            $0.width.equalTo(sendTextButton.snp.height).multipliedBy(2)
         }
         
         boardLabel.snp.makeConstraints {
