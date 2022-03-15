@@ -10,10 +10,12 @@
 		CA50203327DF080A0085A13B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50203227DF080A0085A13B /* AppDelegate.swift */; };
 		CA50203527DF080A0085A13B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50203427DF080A0085A13B /* SceneDelegate.swift */; };
 		CA50203727DF080A0085A13B /* LEDBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50203627DF080A0085A13B /* LEDBoardViewController.swift */; };
-		CA50203C27DF080B0085A13B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA50203B27DF080B0085A13B /* Assets.xcassets */; };
-		CA50203F27DF080B0085A13B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA50203D27DF080B0085A13B /* LaunchScreen.storyboard */; };
 		CA50204827DF0A9A0085A13B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA50204727DF0A9A0085A13B /* Then */; };
 		CA50204B27DF0AAC0085A13B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA50204A27DF0AAC0085A13B /* SnapKit */; };
+		CA50206E27E0570F0085A13B /* LEDBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50206D27E0570F0085A13B /* LEDBoardView.swift */; };
+		CA50207027E057600085A13B /* LEDBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA50206F27E057600085A13B /* LEDBoardViewModel.swift */; };
+		CA50207127E06C520085A13B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA50203B27DF080B0085A13B /* Assets.xcassets */; };
+		CA50207227E06C520085A13B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA50203D27DF080B0085A13B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		CA50203B27DF080B0085A13B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA50203E27DF080B0085A13B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA50204027DF080B0085A13B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA50206D27E0570F0085A13B /* LEDBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDBoardView.swift; sourceTree = "<group>"; };
+		CA50206F27E057600085A13B /* LEDBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDBoardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +62,40 @@
 		CA50203127DF080A0085A13B /* LEDBoard */ = {
 			isa = PBXGroup;
 			children = (
+				CA50204027DF080B0085A13B /* Info.plist */,
 				CA50203227DF080A0085A13B /* AppDelegate.swift */,
 				CA50203427DF080A0085A13B /* SceneDelegate.swift */,
-				CA50203627DF080A0085A13B /* LEDBoardViewController.swift */,
 				CA50203B27DF080B0085A13B /* Assets.xcassets */,
 				CA50203D27DF080B0085A13B /* LaunchScreen.storyboard */,
-				CA50204027DF080B0085A13B /* Info.plist */,
+				CA50206B27E056FB0085A13B /* Model */,
+				CA50206A27E056F30085A13B /* View */,
+				CA50206C27E057010085A13B /* ViewModel */,
 			);
 			path = LEDBoard;
+			sourceTree = "<group>";
+		};
+		CA50206A27E056F30085A13B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CA50203627DF080A0085A13B /* LEDBoardViewController.swift */,
+				CA50206D27E0570F0085A13B /* LEDBoardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CA50206B27E056FB0085A13B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CA50206C27E057010085A13B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA50206F27E057600085A13B /* LEDBoardViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +164,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA50203F27DF080B0085A13B /* LaunchScreen.storyboard in Resources */,
-				CA50203C27DF080B0085A13B /* Assets.xcassets in Resources */,
+				CA50207127E06C520085A13B /* Assets.xcassets in Resources */,
+				CA50207227E06C520085A13B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,8 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA50206E27E0570F0085A13B /* LEDBoardView.swift in Sources */,
 				CA50203727DF080A0085A13B /* LEDBoardViewController.swift in Sources */,
 				CA50203327DF080A0085A13B /* AppDelegate.swift in Sources */,
+				CA50207027E057600085A13B /* LEDBoardViewModel.swift in Sources */,
 				CA50203527DF080A0085A13B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,7 +326,7 @@
 				INFOPLIST_FILE = LEDBoard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -323,7 +355,7 @@
 				INFOPLIST_FILE = LEDBoard/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
