@@ -19,20 +19,14 @@ final class LEDBoardView: UIView {
     
     let inputTextField = LEDBoardTextField()
     
-    let sendTextButton = UIButton().then {
+    let sendTextButton = LEDBoardButton().then {
         $0.setTitle("보내기", for: .normal)
         $0.setTitleColor(.black, for: .normal)
-        $0.layer.borderColor = UIColor.black.cgColor
-        $0.layer.borderWidth = 2
-        $0.layer.cornerRadius = 10
     }
     
-    let changeColorButton = UIButton().then {
+    let changeColorButton = LEDBoardButton().then {
         $0.setTitle("Aa", for: .normal)
         $0.setTitleColor(.random, for: .normal)
-        $0.layer.borderColor = UIColor.black.cgColor
-        $0.layer.borderWidth = 2
-        $0.layer.cornerRadius = 10
     }
     
     let boardLabel = UILabel().then {
