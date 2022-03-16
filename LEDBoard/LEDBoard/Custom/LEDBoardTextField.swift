@@ -25,9 +25,12 @@ final class LEDBoardTextField: UITextField {
     
     private func setupView() {
         
-        placeholder = "텍스트를 입력해주세요"
+        textColor = .black
+        attributedPlaceholder = NSAttributedString(
+            string: "텍스트를 입력해주세요",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
         autocapitalizationType = .none
-        
     }
     
     required init?(coder: NSCoder) {

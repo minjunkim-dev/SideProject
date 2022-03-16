@@ -26,6 +26,16 @@ final class LEDBoardViewController: UIViewController {
         view.addGestureRecognizer(tap)
         
         mainView.inputTextField.addTarget(self, action: #selector(UIViewController.dismissKeyboard), for: .editingDidEndOnExit)
+        
+        mainView.sendTextButton.addTarget(self, action: #selector(sendTextButtonClicked), for: .touchUpInside)
+        viewModel.text.bind {
+            self.mainView.boardLabel.text = $0
+        }
+        mainView.boardLabel.text = mainView.inputTextField.placeholder
+    }
+    
+    @objc private func sendTextButtonClicked() {
+        viewModel.text.value = mainView.inputTextField.text ?? ""
     }
     
     @objc private func viewTapped() {

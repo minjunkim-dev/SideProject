@@ -20,6 +20,7 @@
 		CA927A3F27E0994000F90049 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A3E27E0994000F90049 /* UIColor+Extension.swift */; };
 		CA927A4127E09D5E00F90049 /* LEDBoardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A4027E09D5E00F90049 /* LEDBoardButton.swift */; };
 		CA927A4327E0A05D00F90049 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A4227E0A05D00F90049 /* UIViewController+Extension.swift */; };
+		CA927A4527E19FBD00F90049 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A4427E19FBD00F90049 /* Observable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CA927A3E27E0994000F90049 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CA927A4027E09D5E00F90049 /* LEDBoardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDBoardButton.swift; sourceTree = "<group>"; };
 		CA927A4227E0A05D00F90049 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CA927A4427E19FBD00F90049 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		CA50206B27E056FB0085A13B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CA927A4427E19FBD00F90049 /* Observable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				CA50206E27E0570F0085A13B /* LEDBoardView.swift in Sources */,
 				CA50203727DF080A0085A13B /* LEDBoardViewController.swift in Sources */,
 				CA50203327DF080A0085A13B /* AppDelegate.swift in Sources */,
+				CA927A4527E19FBD00F90049 /* Observable.swift in Sources */,
 				CA50207027E057600085A13B /* LEDBoardViewModel.swift in Sources */,
 				CA927A3C27E08D3900F90049 /* LEDBoardTextField.swift in Sources */,
 				CA50203527DF080A0085A13B /* SceneDelegate.swift in Sources */,

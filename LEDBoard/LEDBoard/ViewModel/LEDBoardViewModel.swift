@@ -9,5 +9,5 @@ import Foundation
 
 final class LEDBoardViewModel {
     
-    
+    var text: Observable<String> = Observable("")
 }

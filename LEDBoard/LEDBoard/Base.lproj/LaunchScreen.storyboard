@@ -37,7 +37,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="mono_launch" width="512" height="512"/>
+        <image name="mono_launch" width="2208" height="1242"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

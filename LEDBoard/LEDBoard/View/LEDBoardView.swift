@@ -29,8 +29,7 @@ final class LEDBoardView: UIView {
         $0.setTitleColor(.random, for: .normal)
     }
     
-    let boardLabel = UILabel().then {
-        $0.text = "정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요 정숙해주세요"
+    lazy var boardLabel = UILabel().then {
         $0.textAlignment = .center
         
         /* 폰트 크기가 텍스트 길이에 따라 달라지게 하기 위함 */
