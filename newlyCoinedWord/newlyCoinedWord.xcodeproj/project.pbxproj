@@ -16,6 +16,7 @@
 		CA927A7E27E1C78A00F90049 /* newlyCoinedWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A7D27E1C78A00F90049 /* newlyCoinedWordViewController.swift */; };
 		CA927A8327E1C7C800F90049 /* newlyCoinedWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8227E1C7C800F90049 /* newlyCoinedWordViewModel.swift */; };
 		CA927A8527E1C7DA00F90049 /* newlyCoinedWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8427E1C7DA00F90049 /* newlyCoinedWordView.swift */; };
+		CA927A8B27E1D3BE00F90049 /* InsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA927A7D27E1C78A00F90049 /* newlyCoinedWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordViewController.swift; sourceTree = "<group>"; };
 		CA927A8227E1C7C800F90049 /* newlyCoinedWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordViewModel.swift; sourceTree = "<group>"; };
 		CA927A8427E1C7DA00F90049 /* newlyCoinedWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordView.swift; sourceTree = "<group>"; };
+		CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,8 @@
 		CA927A6227E1C5C100F90049 /* newlyCoinedWord */ = {
 			isa = PBXGroup;
 			children = (
+				CA927A8727E1D2C700F90049 /* Extension */,
+				CA927A8627E1D2C200F90049 /* Custom */,
 				CA927A7127E1C5C300F90049 /* Info.plist */,
 				CA927A6327E1C5C100F90049 /* AppDelegate.swift */,
 				CA927A6527E1C5C100F90049 /* SceneDelegate.swift */,
@@ -96,6 +100,21 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CA927A8627E1D2C200F90049 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		CA927A8727E1D2C700F90049 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +198,7 @@
 				CA927A8527E1C7DA00F90049 /* newlyCoinedWordView.swift in Sources */,
 				CA927A6427E1C5C100F90049 /* AppDelegate.swift in Sources */,
 				CA927A7E27E1C78A00F90049 /* newlyCoinedWordViewController.swift in Sources */,
+				CA927A8B27E1D3BE00F90049 /* InsetsTextField.swift in Sources */,
 				CA927A8327E1C7C800F90049 /* newlyCoinedWordViewModel.swift in Sources */,
 				CA927A6627E1C5C100F90049 /* SceneDelegate.swift in Sources */,
 			);
