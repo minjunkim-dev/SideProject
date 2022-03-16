@@ -26,7 +26,8 @@ final class LEDBoardView: UIView {
     
     let changeColorButton = LEDBoardButton().then {
         $0.setTitle("Aa", for: .normal)
-        $0.setTitleColor(.random, for: .normal)
+        let color = UIColor.init(red: UserDefaults.color[0], green: UserDefaults.color[1], blue: UserDefaults.color[2], alpha: UserDefaults.color[3])
+        $0.setTitleColor(color, for: .normal)
     }
     
     lazy var boardLabel = UILabel().then {

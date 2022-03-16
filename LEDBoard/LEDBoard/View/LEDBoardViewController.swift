@@ -31,11 +31,11 @@ final class LEDBoardViewController: UIViewController {
         viewModel.text.bind {
             self.mainView.boardLabel.text = $0
         }
-        mainView.boardLabel.text = mainView.inputTextField.placeholder
     }
     
     @objc private func sendTextButtonClicked() {
         viewModel.text.value = mainView.inputTextField.text ?? ""
+        UserDefaults.text = viewModel.text.value
     }
     
     @objc private func viewTapped() {
@@ -50,6 +50,7 @@ final class LEDBoardViewController: UIViewController {
         let color = UIColor.random
         mainView.changeColorButton.setTitleColor(color, for: .normal)
         mainView.boardLabel.textColor = color
+        UserDefaults.color = color.cgColor.components!
     }
     
     @objc private func toggleContainerView() {
