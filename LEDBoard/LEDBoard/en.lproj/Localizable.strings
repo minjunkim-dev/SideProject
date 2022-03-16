@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  LEDBoard
+
+  Created by beneDev on 2022/03/16.
+  
+*/
+
+"textFiedlPlaceholder" = "Enter Text";
+"sendTextButtonTitle" = "Send";

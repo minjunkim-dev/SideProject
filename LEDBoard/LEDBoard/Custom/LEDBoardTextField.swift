@@ -27,7 +27,7 @@ final class LEDBoardTextField: UITextField {
         
         textColor = .black
         attributedPlaceholder = NSAttributedString(
-            string: "텍스트를 입력해주세요",
+            string: "textFiedlPlaceholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
         )
         autocapitalizationType = .none

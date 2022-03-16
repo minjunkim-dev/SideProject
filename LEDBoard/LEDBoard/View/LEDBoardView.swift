@@ -20,7 +20,7 @@ final class LEDBoardView: UIView {
     let inputTextField = LEDBoardTextField()
     
     let sendTextButton = LEDBoardButton().then {
-        $0.setTitle("보내기", for: .normal)
+        $0.setTitle("sendTextButtonTitle".localized(), for: .normal)
         $0.setTitleColor(.black, for: .normal)
     }
     

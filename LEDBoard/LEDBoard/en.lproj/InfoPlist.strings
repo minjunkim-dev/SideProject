@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  LEDBoard
+
+  Created by beneDev on 2022/03/16.
+  
+*/
+
+"CFBundleDisplayName" = "LED Board";

@@ -22,6 +22,9 @@
 		CA927A4327E0A05D00F90049 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A4227E0A05D00F90049 /* UIViewController+Extension.swift */; };
 		CA927A4527E19FBD00F90049 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A4427E19FBD00F90049 /* Observable.swift */; };
 		CA927A4727E1A92A00F90049 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A4627E1A92A00F90049 /* UserDefaults+Extension.swift */; };
+		CA927A4D27E1C38B00F90049 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA927A4F27E1C38B00F90049 /* InfoPlist.strings */; };
+		CA927A5127E1C39300F90049 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA927A5327E1C39300F90049 /* Localizable.strings */; };
+		CA927A5627E1C44400F90049 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A5527E1C44400F90049 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,12 @@
 		CA927A4227E0A05D00F90049 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CA927A4427E19FBD00F90049 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		CA927A4627E1A92A00F90049 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		CA927A4C27E1C38100F90049 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CA927A4E27E1C38B00F90049 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CA927A5027E1C38E00F90049 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CA927A5227E1C39300F90049 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CA927A5427E1C39400F90049 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CA927A5527E1C44400F90049 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +93,8 @@
 				CA50206B27E056FB0085A13B /* Model */,
 				CA50206A27E056F30085A13B /* View */,
 				CA50206C27E057010085A13B /* ViewModel */,
+				CA927A4F27E1C38B00F90049 /* InfoPlist.strings */,
+				CA927A5327E1C39300F90049 /* Localizable.strings */,
 			);
 			path = LEDBoard;
 			sourceTree = "<group>";
@@ -128,6 +139,7 @@
 				CA927A3E27E0994000F90049 /* UIColor+Extension.swift */,
 				CA927A4227E0A05D00F90049 /* UIViewController+Extension.swift */,
 				CA927A4627E1A92A00F90049 /* UserDefaults+Extension.swift */,
+				CA927A5527E1C44400F90049 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -178,6 +190,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = CA50202627DF08090085A13B;
 			packageReferences = (
@@ -199,6 +212,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA50207127E06C520085A13B /* Assets.xcassets in Resources */,
+				CA927A5127E1C39300F90049 /* Localizable.strings in Resources */,
+				CA927A4D27E1C38B00F90049 /* InfoPlist.strings in Resources */,
 				CA50207227E06C520085A13B /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -214,6 +229,7 @@
 				CA927A4127E09D5E00F90049 /* LEDBoardButton.swift in Sources */,
 				CA927A3F27E0994000F90049 /* UIColor+Extension.swift in Sources */,
 				CA927A4727E1A92A00F90049 /* UserDefaults+Extension.swift in Sources */,
+				CA927A5627E1C44400F90049 /* String+Extension.swift in Sources */,
 				CA50206E27E0570F0085A13B /* LEDBoardView.swift in Sources */,
 				CA50203727DF080A0085A13B /* LEDBoardViewController.swift in Sources */,
 				CA50203327DF080A0085A13B /* AppDelegate.swift in Sources */,
@@ -231,8 +247,27 @@
 			isa = PBXVariantGroup;
 			children = (
 				CA50203E27DF080B0085A13B /* Base */,
+				CA927A4C27E1C38100F90049 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CA927A4F27E1C38B00F90049 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA927A4E27E1C38B00F90049 /* en */,
+				CA927A5027E1C38E00F90049 /* ko */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CA927A5327E1C39300F90049 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA927A5227E1C39300F90049 /* en */,
+				CA927A5427E1C39400F90049 /* ko */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -242,6 +277,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -303,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
