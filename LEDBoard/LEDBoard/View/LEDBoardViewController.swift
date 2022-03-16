@@ -39,10 +39,8 @@ final class LEDBoardViewController: UIViewController {
     }
     
     @objc private func viewTapped() {
-        if !(mainView.inputTextField.isEditing) {
-            toggleContainerView()
-        }
-        dismissKeyboard()
+        
+        mainView.inputTextField.isEditing ? dismissKeyboard() : toggleContainerView()
     }
 
     @objc private func changeColorButtonClicked() {
@@ -54,6 +52,7 @@ final class LEDBoardViewController: UIViewController {
     }
     
     @objc private func toggleContainerView() {
-        mainView.containerView.isHidden.toggle()
+    
+        self.mainView.containerView.isHidden.toggle()
     }
 }
