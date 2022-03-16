@@ -224,11 +224,11 @@ final class SignUpViewController: UIViewController {
     @objc private func moreInfoSwitchClicked(_ sender: UISwitch) {
         print(#function)
         
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.5) {
             self.mainView.stackView.arrangedSubviews[2].isHidden = !(sender.isOn)
             self.mainView.stackView.arrangedSubviews[3].isHidden = !(sender.isOn)
             self.mainView.stackView.arrangedSubviews[4].isHidden = !(sender.isOn)
-        })
+        }
     }
 }
 
