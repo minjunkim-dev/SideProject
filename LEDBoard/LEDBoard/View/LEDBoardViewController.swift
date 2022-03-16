@@ -22,10 +22,17 @@ final class LEDBoardViewController: UIViewController {
         
         mainView.changeColorButton.addTarget(self, action: #selector(changeColorButtonClicked), for: .touchUpInside)
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tap)
         
         mainView.inputTextField.addTarget(self, action: #selector(UIViewController.dismissKeyboard), for: .editingDidEndOnExit)
+    }
+    
+    @objc private func viewTapped() {
+        if !(mainView.inputTextField.isEditing) {
+            toggleContainerView()
+        }
+        dismissKeyboard()
     }
 
     @objc private func changeColorButtonClicked() {
@@ -33,5 +40,9 @@ final class LEDBoardViewController: UIViewController {
         let color = UIColor.random
         mainView.changeColorButton.setTitleColor(color, for: .normal)
         mainView.boardLabel.textColor = color
+    }
+    
+    @objc private func toggleContainerView() {
+        mainView.containerView.isHidden.toggle()
     }
 }
