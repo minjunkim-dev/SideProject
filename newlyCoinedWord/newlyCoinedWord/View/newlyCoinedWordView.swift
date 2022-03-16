@@ -38,14 +38,38 @@ final class newlyCoinedWordView: UIView {
         $0.layer.borderWidth = 2
     }
     
+    let backgroundImageView = UIImageView().then {
+        let image = UIImage(named: "background")
+        $0.image = image
+        $0.contentMode = .scaleAspectFill
+    }
+    
+    let newlyCoinedWordMeaningLabel = UILabel().then {
+        $0.textColor = .black
+        $0.textAlignment = .center
+        $0.numberOfLines = 4
+        $0.font = .systemFont(ofSize: 20, weight: .heavy)
+        $0.lineBreakMode = .byClipping
+    }
+    
     private func setupView() {
         backgroundColor = .white
+        
+        addSubview(backgroundImageView)
+        
+        backgroundImageView.addSubview(newlyCoinedWordMeaningLabel)
+        
+        
+        newlyCoinedWordMeaningLabel.text = """
+        신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미
+        """
         
         addSubview(searchStackView)
         
         [searchTextField, searchButton].forEach {
             searchStackView.addArrangedSubview($0)
         }
+        
     }
     
     private func setupConstraints() {
@@ -65,7 +89,25 @@ final class newlyCoinedWordView: UIView {
         searchTextField.snp.makeConstraints {
             $0.verticalEdges.equalToSuperview()
             $0.leading.equalToSuperview()
-//            $0.trailing.equalTo(<#T##other: ConstraintRelatableTarget##ConstraintRelatableTarget#>)
+        }
+        
+        let isPortrait = UIDevice.current.orientation.isPortrait
+        isPortrait ?
+        backgroundImageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
+        } :
+        backgroundImageView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().multipliedBy(1.1)
+            $0.width.equalToSuperview().multipliedBy(0.5)
+        }
+        
+        backgroundImageView.backgroundColor = .systemOrange
+        
+        newlyCoinedWordMeaningLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(40)
         }
     }
     
