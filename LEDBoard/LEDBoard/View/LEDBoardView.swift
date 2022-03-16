@@ -36,6 +36,7 @@ final class LEDBoardView: UIView {
         $0.numberOfLines = 0
         $0.font = .systemFont(ofSize: 200)
         $0.adjustsFontSizeToFitWidth = true
+        $0.minimumScaleFactor = 0.1
         $0.lineBreakMode = .byClipping
     }
     
