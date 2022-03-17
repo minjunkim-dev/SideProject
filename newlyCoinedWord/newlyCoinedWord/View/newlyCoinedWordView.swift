@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class newlyCoinedWordView: UIView {
+final class newlyCoinedWordView: UIView, ViewPresentable {
     
     let searchButton = UIButton().then {
         
@@ -52,7 +52,7 @@ final class newlyCoinedWordView: UIView {
         $0.lineBreakMode = .byClipping
     }
     
-    private func setupView() {
+    func setupView() {
         backgroundColor = .white
         
         addSubview(backgroundImageView)
@@ -72,7 +72,7 @@ final class newlyCoinedWordView: UIView {
         
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         
         searchStackView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(20)
@@ -91,7 +91,9 @@ final class newlyCoinedWordView: UIView {
             $0.leading.equalToSuperview()
         }
         
-        let isPortrait = UIDevice.current.orientation.isPortrait
+//        print(UIDevice.current.orientation.isValidInterfaceOrientation)
+        let isPortrait =
+        UIApplication.shared.windows.first?.windowScene?.interfaceOrientation.isPortrait ?? false
         isPortrait ?
         backgroundImageView.snp.makeConstraints {
             $0.center.equalToSuperview()

@@ -17,6 +17,10 @@
 		CA927A8327E1C7C800F90049 /* newlyCoinedWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8227E1C7C800F90049 /* newlyCoinedWordViewModel.swift */; };
 		CA927A8527E1C7DA00F90049 /* newlyCoinedWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8427E1C7DA00F90049 /* newlyCoinedWordView.swift */; };
 		CA927A8B27E1D3BE00F90049 /* InsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */; };
+		CA927A8D27E1F69A00F90049 /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8C27E1F69A00F90049 /* HashTagCollectionViewCell.swift */; };
+		CA927A8F27E1F6B900F90049 /* ViewPresentable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8E27E1F6B900F90049 /* ViewPresentable+Protocol.swift */; };
+		CA927A9527E1FA7600F90049 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A9427E1FA7600F90049 /* UICollectionViewCell+Extension.swift */; };
+		CA927A9827E1FAA500F90049 /* ReusableView+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A9727E1FAA500F90049 /* ReusableView+Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		CA927A8227E1C7C800F90049 /* newlyCoinedWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordViewModel.swift; sourceTree = "<group>"; };
 		CA927A8427E1C7DA00F90049 /* newlyCoinedWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordView.swift; sourceTree = "<group>"; };
 		CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsTextField.swift; sourceTree = "<group>"; };
+		CA927A8C27E1F69A00F90049 /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA927A8E27E1F6B900F90049 /* ViewPresentable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewPresentable+Protocol.swift"; sourceTree = "<group>"; };
+		CA927A9427E1FA7600F90049 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		CA927A9727E1FAA500F90049 /* ReusableView+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReusableView+Protocol.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,7 @@
 		CA927A6227E1C5C100F90049 /* newlyCoinedWord */ = {
 			isa = PBXGroup;
 			children = (
+				CA927A9627E1FA9100F90049 /* Protocol */,
 				CA927A8727E1D2C700F90049 /* Extension */,
 				CA927A8627E1D2C200F90049 /* Custom */,
 				CA927A7127E1C5C300F90049 /* Info.plist */,
@@ -74,6 +83,7 @@
 				CA927A8127E1C7B200F90049 /* Model */,
 				CA927A7F27E1C7A600F90049 /* View */,
 				CA927A8027E1C7AB00F90049 /* ViewModel */,
+				CA927A8C27E1F69A00F90049 /* HashTagCollectionViewCell.swift */,
 			);
 			path = newlyCoinedWord;
 			sourceTree = "<group>";
@@ -113,8 +123,18 @@
 		CA927A8727E1D2C700F90049 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				CA927A9427E1FA7600F90049 /* UICollectionViewCell+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CA927A9627E1FA9100F90049 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CA927A8E27E1F6B900F90049 /* ViewPresentable+Protocol.swift */,
+				CA927A9727E1FAA500F90049 /* ReusableView+Protocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +216,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA927A8527E1C7DA00F90049 /* newlyCoinedWordView.swift in Sources */,
+				CA927A9527E1FA7600F90049 /* UICollectionViewCell+Extension.swift in Sources */,
+				CA927A9827E1FAA500F90049 /* ReusableView+Protocol.swift in Sources */,
 				CA927A6427E1C5C100F90049 /* AppDelegate.swift in Sources */,
 				CA927A7E27E1C78A00F90049 /* newlyCoinedWordViewController.swift in Sources */,
 				CA927A8B27E1D3BE00F90049 /* InsetsTextField.swift in Sources */,
+				CA927A8F27E1F6B900F90049 /* ViewPresentable+Protocol.swift in Sources */,
+				CA927A8D27E1F69A00F90049 /* HashTagCollectionViewCell.swift in Sources */,
 				CA927A8327E1C7C800F90049 /* newlyCoinedWordViewModel.swift in Sources */,
 				CA927A6627E1C5C100F90049 /* SceneDelegate.swift in Sources */,
 			);
