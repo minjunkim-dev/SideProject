@@ -23,6 +23,9 @@ final class NewlyCoinedWordViewController: UIViewController {
         
         mainView.hashTagCollectionView.delegate = self
         mainView.hashTagCollectionView.dataSource = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
 }
 
