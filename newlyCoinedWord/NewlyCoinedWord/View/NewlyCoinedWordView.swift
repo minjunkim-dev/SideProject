@@ -1,6 +1,6 @@
 //
-//  newlyCoinedWordView.swift
-//  newlyCoinedWord
+//  NewlyCoinedWordView.swift
+//  NewlyCoinedWord
 //
 //  Created by beneDev on 2022/03/16.
 //
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class newlyCoinedWordView: UIView, ViewPresentable {
+final class NewlyCoinedWordView: UIView, ViewPresentable {
     
     let searchButton = UIButton().then {
         
@@ -29,6 +29,16 @@ final class newlyCoinedWordView: UIView, ViewPresentable {
         $0.textColor = .black
         $0.autocapitalizationType = .none
     }
+    
+    var hashTagCollectionView: DynamicHeightCollectionView = {
+//        let flowLayout = UICollectionViewFlowLayout()
+        let flowLayout = LeftAlignedCollectionViewFlowLayout()
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize // self-sizing cell
+        flowLayout.minimumLineSpacing = 5
+        flowLayout.minimumInteritemSpacing = 5
+        
+        return DynamicHeightCollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    }()
     
     lazy var searchStackView = UIStackView().then {
         $0.axis = .horizontal
@@ -70,12 +80,14 @@ final class newlyCoinedWordView: UIView, ViewPresentable {
             searchStackView.addArrangedSubview($0)
         }
         
+        addSubview(hashTagCollectionView)
+        hashTagCollectionView.register(HashTagCollectionViewCell.self, forCellWithReuseIdentifier: HashTagCollectionViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
         
         searchStackView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
             $0.top.equalTo(safeAreaLayoutGuide).inset(20)
             $0.height.equalTo(50)
         }
@@ -91,6 +103,11 @@ final class newlyCoinedWordView: UIView, ViewPresentable {
             $0.leading.equalToSuperview()
         }
         
+        hashTagCollectionView.snp.makeConstraints {
+            $0.top.equalTo(searchStackView.snp.bottom).offset(10)
+            $0.horizontalEdges.equalTo(searchStackView)
+        }
+        
 //        print(UIDevice.current.orientation.isValidInterfaceOrientation)
         let isPortrait =
         UIApplication.shared.windows.first?.windowScene?.interfaceOrientation.isPortrait ?? false
@@ -101,8 +118,8 @@ final class newlyCoinedWordView: UIView, ViewPresentable {
         } :
         backgroundImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview().multipliedBy(1.1)
-            $0.width.equalToSuperview().multipliedBy(0.5)
+            $0.centerY.equalToSuperview().multipliedBy(1.3)
+            $0.width.equalToSuperview().multipliedBy(0.6)
         }
         
         backgroundImageView.backgroundColor = .systemOrange

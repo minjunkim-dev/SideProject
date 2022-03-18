@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  newlyCoinedWord
+//  NewlyCoinedWord
 //
 //  Created by beneDev on 2022/03/16.
 //

@@ -1,6 +1,6 @@
 //
-//  UICollectionView+Protocol.swift
-//  newlyCoinedWord
+//  ViewPresentable+Protocol.swift
+//  NewlyCoinedWord
 //
 //  Created by beneDev on 2022/03/16.
 //

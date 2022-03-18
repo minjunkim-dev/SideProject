@@ -13,31 +13,39 @@
 		CA927A7027E1C5C300F90049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA927A6E27E1C5C300F90049 /* LaunchScreen.storyboard */; };
 		CA927A7927E1C71300F90049 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA927A7827E1C71300F90049 /* Then */; };
 		CA927A7C27E1C72B00F90049 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA927A7B27E1C72B00F90049 /* SnapKit */; };
-		CA927A7E27E1C78A00F90049 /* newlyCoinedWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A7D27E1C78A00F90049 /* newlyCoinedWordViewController.swift */; };
-		CA927A8327E1C7C800F90049 /* newlyCoinedWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8227E1C7C800F90049 /* newlyCoinedWordViewModel.swift */; };
-		CA927A8527E1C7DA00F90049 /* newlyCoinedWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8427E1C7DA00F90049 /* newlyCoinedWordView.swift */; };
+		CA927A7E27E1C78A00F90049 /* NewlyCoinedWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A7D27E1C78A00F90049 /* NewlyCoinedWordViewController.swift */; };
+		CA927A8327E1C7C800F90049 /* NewlyCoinedWordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8227E1C7C800F90049 /* NewlyCoinedWordViewModel.swift */; };
+		CA927A8527E1C7DA00F90049 /* NewlyCoinedWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8427E1C7DA00F90049 /* NewlyCoinedWordView.swift */; };
 		CA927A8B27E1D3BE00F90049 /* InsetsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */; };
 		CA927A8D27E1F69A00F90049 /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8C27E1F69A00F90049 /* HashTagCollectionViewCell.swift */; };
-		CA927A8F27E1F6B900F90049 /* ViewPresentable+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8E27E1F6B900F90049 /* ViewPresentable+Protocol.swift */; };
+		CA927A8F27E1F6B900F90049 /* ViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A8E27E1F6B900F90049 /* ViewPresentable.swift */; };
 		CA927A9527E1FA7600F90049 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A9427E1FA7600F90049 /* UICollectionViewCell+Extension.swift */; };
-		CA927A9827E1FAA500F90049 /* ReusableView+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A9727E1FAA500F90049 /* ReusableView+Protocol.swift */; };
+		CA927A9827E1FAA500F90049 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A9727E1FAA500F90049 /* ReusableView.swift */; };
+		CA927A9B27E4344900F90049 /* UICollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A9A27E4344900F90049 /* UICollectionViewCellRepresentable.swift */; };
+		CA927AA127E4765400F90049 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA027E4765400F90049 /* DynamicHeightCollectionView.swift */; };
+		CA927AA327E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA227E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift */; };
+		CA927AA527E4B1B000F90049 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA427E4B1B000F90049 /* UIViewController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CA927A6027E1C5C100F90049 /* newlyCoinedWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newlyCoinedWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA927A6027E1C5C100F90049 /* NewlyCoinedWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewlyCoinedWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA927A6327E1C5C100F90049 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA927A6527E1C5C100F90049 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CA927A6C27E1C5C300F90049 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA927A6F27E1C5C300F90049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA927A7127E1C5C300F90049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA927A7D27E1C78A00F90049 /* newlyCoinedWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordViewController.swift; sourceTree = "<group>"; };
-		CA927A8227E1C7C800F90049 /* newlyCoinedWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordViewModel.swift; sourceTree = "<group>"; };
-		CA927A8427E1C7DA00F90049 /* newlyCoinedWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newlyCoinedWordView.swift; sourceTree = "<group>"; };
+		CA927A7D27E1C78A00F90049 /* NewlyCoinedWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewlyCoinedWordViewController.swift; sourceTree = "<group>"; };
+		CA927A8227E1C7C800F90049 /* NewlyCoinedWordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewlyCoinedWordViewModel.swift; sourceTree = "<group>"; };
+		CA927A8427E1C7DA00F90049 /* NewlyCoinedWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewlyCoinedWordView.swift; sourceTree = "<group>"; };
 		CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsTextField.swift; sourceTree = "<group>"; };
 		CA927A8C27E1F69A00F90049 /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		CA927A8E27E1F6B900F90049 /* ViewPresentable+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewPresentable+Protocol.swift"; sourceTree = "<group>"; };
+		CA927A8E27E1F6B900F90049 /* ViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentable.swift; sourceTree = "<group>"; };
 		CA927A9427E1FA7600F90049 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
-		CA927A9727E1FAA500F90049 /* ReusableView+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReusableView+Protocol.swift"; sourceTree = "<group>"; };
+		CA927A9727E1FAA500F90049 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		CA927A9A27E4344900F90049 /* UICollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellRepresentable.swift; sourceTree = "<group>"; };
+		CA927AA027E4765400F90049 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
+		CA927AA227E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		CA927AA427E4B1B000F90049 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +64,7 @@
 		CA927A5727E1C5C100F90049 = {
 			isa = PBXGroup;
 			children = (
-				CA927A6227E1C5C100F90049 /* newlyCoinedWord */,
+				CA927A6227E1C5C100F90049 /* NewlyCoinedWord */,
 				CA927A6127E1C5C100F90049 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,35 +72,35 @@
 		CA927A6127E1C5C100F90049 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CA927A6027E1C5C100F90049 /* newlyCoinedWord.app */,
+				CA927A6027E1C5C100F90049 /* NewlyCoinedWord.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CA927A6227E1C5C100F90049 /* newlyCoinedWord */ = {
+		CA927A6227E1C5C100F90049 /* NewlyCoinedWord */ = {
 			isa = PBXGroup;
 			children = (
-				CA927A9627E1FA9100F90049 /* Protocol */,
-				CA927A8727E1D2C700F90049 /* Extension */,
-				CA927A8627E1D2C200F90049 /* Custom */,
 				CA927A7127E1C5C300F90049 /* Info.plist */,
 				CA927A6327E1C5C100F90049 /* AppDelegate.swift */,
 				CA927A6527E1C5C100F90049 /* SceneDelegate.swift */,
 				CA927A6C27E1C5C300F90049 /* Assets.xcassets */,
+				CA927A9927E4316500F90049 /* Cell */,
+				CA927A8627E1D2C200F90049 /* Custom */,
+				CA927A8727E1D2C700F90049 /* Extension */,
 				CA927A6E27E1C5C300F90049 /* LaunchScreen.storyboard */,
 				CA927A8127E1C7B200F90049 /* Model */,
+				CA927A9627E1FA9100F90049 /* Protocol */,
 				CA927A7F27E1C7A600F90049 /* View */,
 				CA927A8027E1C7AB00F90049 /* ViewModel */,
-				CA927A8C27E1F69A00F90049 /* HashTagCollectionViewCell.swift */,
 			);
-			path = newlyCoinedWord;
+			path = NewlyCoinedWord;
 			sourceTree = "<group>";
 		};
 		CA927A7F27E1C7A600F90049 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA927A7D27E1C78A00F90049 /* newlyCoinedWordViewController.swift */,
-				CA927A8427E1C7DA00F90049 /* newlyCoinedWordView.swift */,
+				CA927A7D27E1C78A00F90049 /* NewlyCoinedWordViewController.swift */,
+				CA927A8427E1C7DA00F90049 /* NewlyCoinedWordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -100,7 +108,7 @@
 		CA927A8027E1C7AB00F90049 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				CA927A8227E1C7C800F90049 /* newlyCoinedWordViewModel.swift */,
+				CA927A8227E1C7C800F90049 /* NewlyCoinedWordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -116,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				CA927A8A27E1D3BE00F90049 /* InsetsTextField.swift */,
+				CA927AA027E4765400F90049 /* DynamicHeightCollectionView.swift */,
+				CA927AA227E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -124,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				CA927A9427E1FA7600F90049 /* UICollectionViewCell+Extension.swift */,
+				CA927AA427E4B1B000F90049 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -131,18 +142,27 @@
 		CA927A9627E1FA9100F90049 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				CA927A8E27E1F6B900F90049 /* ViewPresentable+Protocol.swift */,
-				CA927A9727E1FAA500F90049 /* ReusableView+Protocol.swift */,
+				CA927A8E27E1F6B900F90049 /* ViewPresentable.swift */,
+				CA927A9727E1FAA500F90049 /* ReusableView.swift */,
+				CA927A9A27E4344900F90049 /* UICollectionViewCellRepresentable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CA927A9927E4316500F90049 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA927A8C27E1F69A00F90049 /* HashTagCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CA927A5F27E1C5C100F90049 /* newlyCoinedWord */ = {
+		CA927A5F27E1C5C100F90049 /* NewlyCoinedWord */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA927A7427E1C5C300F90049 /* Build configuration list for PBXNativeTarget "newlyCoinedWord" */;
+			buildConfigurationList = CA927A7427E1C5C300F90049 /* Build configuration list for PBXNativeTarget "NewlyCoinedWord" */;
 			buildPhases = (
 				CA927A5C27E1C5C100F90049 /* Sources */,
 				CA927A5D27E1C5C100F90049 /* Frameworks */,
@@ -152,13 +172,13 @@
 			);
 			dependencies = (
 			);
-			name = newlyCoinedWord;
+			name = NewlyCoinedWord;
 			packageProductDependencies = (
 				CA927A7827E1C71300F90049 /* Then */,
 				CA927A7B27E1C72B00F90049 /* SnapKit */,
 			);
 			productName = newlyCoinedWord;
-			productReference = CA927A6027E1C5C100F90049 /* newlyCoinedWord.app */;
+			productReference = CA927A6027E1C5C100F90049 /* NewlyCoinedWord.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -176,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CA927A5B27E1C5C100F90049 /* Build configuration list for PBXProject "newlyCoinedWord" */;
+			buildConfigurationList = CA927A5B27E1C5C100F90049 /* Build configuration list for PBXProject "NewlyCoinedWord" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -193,7 +213,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CA927A5F27E1C5C100F90049 /* newlyCoinedWord */,
+				CA927A5F27E1C5C100F90049 /* NewlyCoinedWord */,
 			);
 		};
 /* End PBXProject section */
@@ -215,16 +235,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA927A8527E1C7DA00F90049 /* newlyCoinedWordView.swift in Sources */,
+				CA927A8527E1C7DA00F90049 /* NewlyCoinedWordView.swift in Sources */,
 				CA927A9527E1FA7600F90049 /* UICollectionViewCell+Extension.swift in Sources */,
-				CA927A9827E1FAA500F90049 /* ReusableView+Protocol.swift in Sources */,
+				CA927A9827E1FAA500F90049 /* ReusableView.swift in Sources */,
 				CA927A6427E1C5C100F90049 /* AppDelegate.swift in Sources */,
-				CA927A7E27E1C78A00F90049 /* newlyCoinedWordViewController.swift in Sources */,
+				CA927AA527E4B1B000F90049 /* UIViewController+Extension.swift in Sources */,
+				CA927A7E27E1C78A00F90049 /* NewlyCoinedWordViewController.swift in Sources */,
+				CA927A9B27E4344900F90049 /* UICollectionViewCellRepresentable.swift in Sources */,
 				CA927A8B27E1D3BE00F90049 /* InsetsTextField.swift in Sources */,
-				CA927A8F27E1F6B900F90049 /* ViewPresentable+Protocol.swift in Sources */,
+				CA927A8F27E1F6B900F90049 /* ViewPresentable.swift in Sources */,
 				CA927A8D27E1F69A00F90049 /* HashTagCollectionViewCell.swift in Sources */,
-				CA927A8327E1C7C800F90049 /* newlyCoinedWordViewModel.swift in Sources */,
+				CA927AA327E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
+				CA927A8327E1C7C800F90049 /* NewlyCoinedWordViewModel.swift in Sources */,
 				CA927A6627E1C5C100F90049 /* SceneDelegate.swift in Sources */,
+				CA927AA127E4765400F90049 /* DynamicHeightCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +391,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UN2K8CY256;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = newlyCoinedWord/Info.plist;
+				INFOPLIST_FILE = NewlyCoinedWord/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -379,7 +403,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bene.newlyCoinedWord;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bene.NewlyCoinedWord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -396,7 +420,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UN2K8CY256;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = newlyCoinedWord/Info.plist;
+				INFOPLIST_FILE = NewlyCoinedWord/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -408,7 +432,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bene.newlyCoinedWord;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bene.NewlyCoinedWord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -419,7 +443,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA927A5B27E1C5C100F90049 /* Build configuration list for PBXProject "newlyCoinedWord" */ = {
+		CA927A5B27E1C5C100F90049 /* Build configuration list for PBXProject "NewlyCoinedWord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA927A7227E1C5C300F90049 /* Debug */,
@@ -428,7 +452,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA927A7427E1C5C300F90049 /* Build configuration list for PBXNativeTarget "newlyCoinedWord" */ = {
+		CA927A7427E1C5C300F90049 /* Build configuration list for PBXNativeTarget "NewlyCoinedWord" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA927A7527E1C5C300F90049 /* Debug */,
