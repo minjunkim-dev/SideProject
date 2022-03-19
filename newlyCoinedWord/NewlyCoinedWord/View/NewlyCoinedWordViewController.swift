@@ -9,6 +9,9 @@ import UIKit
 
 import SnapKit
 
+import Alamofire
+import SwiftSoup
+
 final class NewlyCoinedWordViewController: UIViewController {
     
     private let mainView = NewlyCoinedWordView()
@@ -26,13 +29,33 @@ final class NewlyCoinedWordViewController: UIViewController {
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
+        
+      
+        
+        let query = "(신조어)"
+        let endpoint = Endpoint.searchEncyc(query: query, display: 100, start: 1)
+        let url = endpoint.url
+        AF.request(url, method: .get, parameters: endpoint.parameter, encoding: URLEncoding.queryString, headers: APIDefault.header)
+            .validate(statusCode: 200..<400)
+            .responseDecodable(of: SearchResult.self) { response in
+                
+                switch response.result {
+                case .success(let result):
+                    print(result)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        
+        
+        
     }
 }
 
 extension NewlyCoinedWordViewController {
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)
-    
+        
         let isPortrait = UIDevice.current.orientation.isPortrait
         isPortrait ?
         mainView.backgroundImageView.snp.remakeConstraints {

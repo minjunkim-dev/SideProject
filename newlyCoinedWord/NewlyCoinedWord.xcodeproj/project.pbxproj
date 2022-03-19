@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA4BD59F27E5CE64007E718E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BD59E27E5CE64007E718E /* Constants.swift */; };
 		CA927A6427E1C5C100F90049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A6327E1C5C100F90049 /* AppDelegate.swift */; };
 		CA927A6627E1C5C100F90049 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A6527E1C5C100F90049 /* SceneDelegate.swift */; };
 		CA927A6D27E1C5C300F90049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA927A6C27E1C5C300F90049 /* Assets.xcassets */; };
@@ -25,9 +26,15 @@
 		CA927AA127E4765400F90049 /* DynamicHeightCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA027E4765400F90049 /* DynamicHeightCollectionView.swift */; };
 		CA927AA327E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA227E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift */; };
 		CA927AA527E4B1B000F90049 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA427E4B1B000F90049 /* UIViewController+Extension.swift */; };
+		CA927AA727E5879600F90049 /* NewlyCoinedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA627E5879600F90049 /* NewlyCoinedWord.swift */; };
+		CA927AB027E5894B00F90049 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AAF27E5894B00F90049 /* Endpoint.swift */; };
+		CA927AB627E59A9600F90049 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CA927AB527E59A9600F90049 /* Alamofire */; };
+		CA927AB927E59AA400F90049 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = CA927AB827E59AA400F90049 /* SwiftSoup */; };
+		CA927ABC27E5A40A00F90049 /* Selenops in Frameworks */ = {isa = PBXBuildFile; productRef = CA927ABB27E5A40A00F90049 /* Selenops */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA4BD59E27E5CE64007E718E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CA927A6027E1C5C100F90049 /* NewlyCoinedWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewlyCoinedWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA927A6327E1C5C100F90049 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA927A6527E1C5C100F90049 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +53,8 @@
 		CA927AA027E4765400F90049 /* DynamicHeightCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicHeightCollectionView.swift; sourceTree = "<group>"; };
 		CA927AA227E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftAlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		CA927AA427E4B1B000F90049 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		CA927AA627E5879600F90049 /* NewlyCoinedWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewlyCoinedWord.swift; sourceTree = "<group>"; };
+		CA927AAF27E5894B00F90049 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA927ABC27E5A40A00F90049 /* Selenops in Frameworks */,
+				CA927AB627E59A9600F90049 /* Alamofire in Frameworks */,
+				CA927AB927E59AA400F90049 /* SwiftSoup in Frameworks */,
 				CA927A7927E1C71300F90049 /* Then in Frameworks */,
 				CA927A7C27E1C72B00F90049 /* SnapKit in Frameworks */,
 			);
@@ -89,6 +101,7 @@
 				CA927A8727E1D2C700F90049 /* Extension */,
 				CA927A6E27E1C5C300F90049 /* LaunchScreen.storyboard */,
 				CA927A8127E1C7B200F90049 /* Model */,
+				CA927AAE27E5894300F90049 /* Network */,
 				CA927A9627E1FA9100F90049 /* Protocol */,
 				CA927A7F27E1C7A600F90049 /* View */,
 				CA927A8027E1C7AB00F90049 /* ViewModel */,
@@ -116,6 +129,7 @@
 		CA927A8127E1C7B200F90049 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CA927AA627E5879600F90049 /* NewlyCoinedWord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -157,6 +171,15 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		CA927AAE27E5894300F90049 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CA927AAF27E5894B00F90049 /* Endpoint.swift */,
+				CA4BD59E27E5CE64007E718E /* Constants.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -176,6 +199,9 @@
 			packageProductDependencies = (
 				CA927A7827E1C71300F90049 /* Then */,
 				CA927A7B27E1C72B00F90049 /* SnapKit */,
+				CA927AB527E59A9600F90049 /* Alamofire */,
+				CA927AB827E59AA400F90049 /* SwiftSoup */,
+				CA927ABB27E5A40A00F90049 /* Selenops */,
 			);
 			productName = newlyCoinedWord;
 			productReference = CA927A6027E1C5C100F90049 /* NewlyCoinedWord.app */;
@@ -208,6 +234,9 @@
 			packageReferences = (
 				CA927A7727E1C71300F90049 /* XCRemoteSwiftPackageReference "Then" */,
 				CA927A7A27E1C72B00F90049 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CA927AB427E59A9600F90049 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CA927AB727E59AA400F90049 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				CA927ABA27E5A40A00F90049 /* XCRemoteSwiftPackageReference "Selenops" */,
 			);
 			productRefGroup = CA927A6127E1C5C100F90049 /* Products */;
 			projectDirPath = "";
@@ -236,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA927A8527E1C7DA00F90049 /* NewlyCoinedWordView.swift in Sources */,
+				CA4BD59F27E5CE64007E718E /* Constants.swift in Sources */,
 				CA927A9527E1FA7600F90049 /* UICollectionViewCell+Extension.swift in Sources */,
+				CA927AA727E5879600F90049 /* NewlyCoinedWord.swift in Sources */,
 				CA927A9827E1FAA500F90049 /* ReusableView.swift in Sources */,
 				CA927A6427E1C5C100F90049 /* AppDelegate.swift in Sources */,
 				CA927AA527E4B1B000F90049 /* UIViewController+Extension.swift in Sources */,
@@ -244,6 +275,7 @@
 				CA927A9B27E4344900F90049 /* UICollectionViewCellRepresentable.swift in Sources */,
 				CA927A8B27E1D3BE00F90049 /* InsetsTextField.swift in Sources */,
 				CA927A8F27E1F6B900F90049 /* ViewPresentable.swift in Sources */,
+				CA927AB027E5894B00F90049 /* Endpoint.swift in Sources */,
 				CA927A8D27E1F69A00F90049 /* HashTagCollectionViewCell.swift in Sources */,
 				CA927AA327E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CA927A8327E1C7C800F90049 /* NewlyCoinedWordViewModel.swift in Sources */,
@@ -480,6 +512,30 @@
 				kind = branch;
 			};
 		};
+		CA927AB427E59A9600F90049 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CA927AB727E59AA400F90049 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scinfu/SwiftSoup";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CA927ABA27E5A40A00F90049 /* XCRemoteSwiftPackageReference "Selenops" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/zntfdr/Selenops";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -492,6 +548,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CA927A7A27E1C72B00F90049 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		CA927AB527E59A9600F90049 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA927AB427E59A9600F90049 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		CA927AB827E59AA400F90049 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA927AB727E59AA400F90049 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
+			productName = SwiftSoup;
+		};
+		CA927ABB27E5A40A00F90049 /* Selenops */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA927ABA27E5A40A00F90049 /* XCRemoteSwiftPackageReference "Selenops" */;
+			productName = Selenops;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
