@@ -11,11 +11,6 @@ struct NewlyCoinedWord {
     
     var title: String
     var description: String
-    
-    init(title: String, description: String) {
-        self.title = title
-        self.description = description
-    }
 }
 
 // This file was generated from JSON Schema using quicktype, do not modify it directly.

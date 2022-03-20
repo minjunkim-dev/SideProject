@@ -9,9 +9,6 @@ import UIKit
 
 import SnapKit
 
-import Alamofire
-import SwiftSoup
-
 final class NewlyCoinedWordViewController: UIViewController {
     
     private let mainView = NewlyCoinedWordView()
@@ -24,31 +21,45 @@ final class NewlyCoinedWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.searchWords(query: "신조어")
+        
         mainView.hashTagCollectionView.delegate = self
         mainView.hashTagCollectionView.dataSource = self
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
-      
+        mainView.searchButton.addTarget(self, action: #selector(searchButtonClicked), for: .touchUpInside)
+        mainView.searchTextField.addTarget(self, action: #selector(searchTextFieldReturnKeyClicked), for: .editingDidEndOnExit)
         
-        let query = "(신조어)"
-        let endpoint = Endpoint.searchEncyc(query: query, display: 100, start: 1)
-        let url = endpoint.url
-        AF.request(url, method: .get, parameters: endpoint.parameter, encoding: URLEncoding.queryString, headers: APIDefault.header)
-            .validate(statusCode: 200..<400)
-            .responseDecodable(of: SearchResult.self) { response in
-                
-                switch response.result {
-                case .success(let result):
-                    print(result)
-                case .failure(let error):
-                    print(error)
-                }
-            }
+        viewModel.hashTags.bind { _ in
+            self.mainView.hashTagCollectionView.reloadData()
+        }
         
+        viewModel.searchWord.bind { word in
+            
+            self.mainView.newlyCoinedWordMeaningLabel.text = word.description
+        }
+    }
+    
+    @objc private func searchTextFieldReturnKeyClicked() {
         
+        guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
+            print("텍스트가 입력이 되어 있지 않음!")
+            return
+        }
         
+        viewModel.searchQuery(query: query, display: 1, start: 1)
+    }
+    
+    @objc private func searchButtonClicked() {
+        
+        guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
+            print("텍스트가 입력이 되어 있지 않음!")
+            return
+        }
+        
+        viewModel.searchQuery(query: query, display: 1, start: 1)
     }
 }
 

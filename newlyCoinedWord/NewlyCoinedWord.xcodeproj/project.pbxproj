@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CA4BD59F27E5CE64007E718E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BD59E27E5CE64007E718E /* Constants.swift */; };
+		CA4BD5A127E73F3A007E718E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BD5A027E73F3A007E718E /* APIService.swift */; };
+		CA4BD5A327E747F8007E718E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BD5A227E747F8007E718E /* Observable.swift */; };
 		CA927A6427E1C5C100F90049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A6327E1C5C100F90049 /* AppDelegate.swift */; };
 		CA927A6627E1C5C100F90049 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927A6527E1C5C100F90049 /* SceneDelegate.swift */; };
 		CA927A6D27E1C5C300F90049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA927A6C27E1C5C300F90049 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 
 /* Begin PBXFileReference section */
 		CA4BD59E27E5CE64007E718E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		CA4BD5A027E73F3A007E718E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		CA4BD5A227E747F8007E718E /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		CA927A6027E1C5C100F90049 /* NewlyCoinedWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewlyCoinedWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA927A6327E1C5C100F90049 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA927A6527E1C5C100F90049 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				CA927AA627E5879600F90049 /* NewlyCoinedWord.swift */,
+				CA4BD5A227E747F8007E718E /* Observable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			children = (
 				CA927AAF27E5894B00F90049 /* Endpoint.swift */,
 				CA4BD59E27E5CE64007E718E /* Constants.swift */,
+				CA4BD5A027E73F3A007E718E /* APIService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4BD5A327E747F8007E718E /* Observable.swift in Sources */,
 				CA927A8527E1C7DA00F90049 /* NewlyCoinedWordView.swift in Sources */,
 				CA4BD59F27E5CE64007E718E /* Constants.swift in Sources */,
 				CA927A9527E1FA7600F90049 /* UICollectionViewCell+Extension.swift in Sources */,
@@ -280,6 +287,7 @@
 				CA927AA327E4A2AF00F90049 /* LeftAlignedCollectionViewFlowLayout.swift in Sources */,
 				CA927A8327E1C7C800F90049 /* NewlyCoinedWordViewModel.swift in Sources */,
 				CA927A6627E1C5C100F90049 /* SceneDelegate.swift in Sources */,
+				CA4BD5A127E73F3A007E718E /* APIService.swift in Sources */,
 				CA927AA127E4765400F90049 /* DynamicHeightCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
