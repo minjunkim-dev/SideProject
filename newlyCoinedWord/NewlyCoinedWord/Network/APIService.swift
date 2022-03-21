@@ -17,9 +17,15 @@ final class APIService {
         
         let url = endpoint.url
         
+        let queue = DispatchQueue.global(qos: .utility)
+        
+        /* async && concurrent
+         alamofire는 기본적으로 async로 동작하고,
+         queue는 global 큐를 사용하기로 했기 때문에 concurrent로 동작함
+         */
         AF.request(url, method: .get, parameters: endpoint.parameter, encoding: URLEncoding.queryString, headers: APIDefault.header)
             .validate(statusCode: 200..<400)
-            .responseDecodable(of: SearchResult.self) { response in
+            .responseDecodable(of: SearchResult.self, queue: queue) { response in
                 
                 switch response.result {
                 case .success(let result):

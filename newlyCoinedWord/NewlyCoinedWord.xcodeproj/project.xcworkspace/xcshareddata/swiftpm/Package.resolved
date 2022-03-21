@@ -11,11 +11,11 @@
         }
       },
       {
-        "package": "Selenops",
-        "repositoryURL": "https://github.com/zntfdr/Selenops",
+        "package": "JGProgressHUD",
+        "repositoryURL": "https://github.com/JonasGessner/JGProgressHUD",
         "state": {
           "branch": "master",
-          "revision": "8c2ee90339cf47edf8087ac40a924bb1db6e4fec",
+          "revision": "103d67f308b8c0c18926061025549af98cdfd6fc",
           "version": null
         }
       },
@@ -25,33 +25,6 @@
         "state": {
           "branch": "develop",
           "revision": "466db39ee4ef32b0f7c8cd9f009aaf42f80beace",
-          "version": null
-        }
-      },
-      {
-        "package": "swift-argument-parser",
-        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
-        "state": {
-          "branch": null,
-          "revision": "223d62adc52d51669ae2ee19bdb8b7d9fd6fcd9c",
-          "version": "0.0.6"
-        }
-      },
-      {
-        "package": "swift-tools-support-core",
-        "repositoryURL": "https://github.com/apple/swift-tools-support-core.git",
-        "state": {
-          "branch": null,
-          "revision": "693aba4c4c9dcc4767cc853a0dd38bf90ad8c258",
-          "version": "0.0.1"
-        }
-      },
-      {
-        "package": "SwiftSoup",
-        "repositoryURL": "https://github.com/scinfu/SwiftSoup",
-        "state": {
-          "branch": "master",
-          "revision": "13ba661fd1146967270fca92ce8195b223631436",
           "version": null
         }
       },

@@ -8,6 +8,8 @@
 import UIKit
 
 import SnapKit
+import Then
+
 
 final class NewlyCoinedWordViewController: UIViewController {
     
@@ -21,7 +23,12 @@ final class NewlyCoinedWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel.searchWords(query: "신조어")
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            self.mainView.hud.show(in: self.mainView, animated: true)
+            self.viewModel.searchWords(query: "신조어") {
+                self.mainView.hud.dismiss(animated: true)
+            }
+        }
         
         mainView.hashTagCollectionView.delegate = self
         mainView.hashTagCollectionView.dataSource = self
@@ -44,22 +51,33 @@ final class NewlyCoinedWordViewController: UIViewController {
     
     @objc private func searchTextFieldReturnKeyClicked() {
         
+        print(#function)
+        
         guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
             print("텍스트가 입력이 되어 있지 않음!")
             return
         }
-        
-        viewModel.searchQuery(query: query, display: 1, start: 1)
+    
+        self.mainView.hud.show(in: self.mainView, animated: true)
+        self.viewModel.searchQuery(query: query, display: 1, start: 1) {
+            self.mainView.hud.dismiss(animated: true)
+        }
     }
     
     @objc private func searchButtonClicked() {
         
+        print(#function)
+        
         guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
             print("텍스트가 입력이 되어 있지 않음!")
             return
         }
-        
-        viewModel.searchQuery(query: query, display: 1, start: 1)
+
+        self.mainView.hud.show(in: self.mainView, animated: true)
+        self.viewModel.searchQuery(query: query, display: 1, start: 1) {
+            self.mainView.hud.dismiss(animated: true)
+        }
+    
     }
 }
 

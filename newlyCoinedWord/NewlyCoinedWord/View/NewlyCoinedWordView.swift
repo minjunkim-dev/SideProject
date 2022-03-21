@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import Then
+import JGProgressHUD
 
 final class NewlyCoinedWordView: UIView, ViewPresentable {
     
@@ -60,6 +61,15 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
         $0.numberOfLines = 4
         $0.font = .systemFont(ofSize: 20, weight: .heavy)
         $0.lineBreakMode = .byClipping
+    }
+    
+    let hud = JGProgressHUD().then {
+        $0.textLabel.text = "로딩중"
+        $0.style = .dark
+        $0.interactionType = .blockAllTouches
+        $0.position = .center
+        $0.square = true
+        $0.vibrancyEnabled = true
     }
     
     func setupView() {

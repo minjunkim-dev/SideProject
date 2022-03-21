@@ -31,9 +31,8 @@
 		CA927AA527E4B1B000F90049 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA427E4B1B000F90049 /* UIViewController+Extension.swift */; };
 		CA927AA727E5879600F90049 /* NewlyCoinedWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AA627E5879600F90049 /* NewlyCoinedWord.swift */; };
 		CA927AB027E5894B00F90049 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA927AAF27E5894B00F90049 /* Endpoint.swift */; };
-		CA927AB627E59A9600F90049 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CA927AB527E59A9600F90049 /* Alamofire */; };
-		CA927AB927E59AA400F90049 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = CA927AB827E59AA400F90049 /* SwiftSoup */; };
-		CA927ABC27E5A40A00F90049 /* Selenops in Frameworks */ = {isa = PBXBuildFile; productRef = CA927ABB27E5A40A00F90049 /* Selenops */; };
+		CABC848227E8372300F3708A /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = CABC848127E8372300F3708A /* JGProgressHUD */; };
+		CABC848527E839DB00F3708A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CABC848427E839DB00F3708A /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,9 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA927ABC27E5A40A00F90049 /* Selenops in Frameworks */,
-				CA927AB627E59A9600F90049 /* Alamofire in Frameworks */,
-				CA927AB927E59AA400F90049 /* SwiftSoup in Frameworks */,
+				CABC848227E8372300F3708A /* JGProgressHUD in Frameworks */,
+				CABC848527E839DB00F3708A /* Alamofire in Frameworks */,
 				CA927A7927E1C71300F90049 /* Then in Frameworks */,
 				CA927A7C27E1C72B00F90049 /* SnapKit in Frameworks */,
 			);
@@ -208,9 +206,8 @@
 			packageProductDependencies = (
 				CA927A7827E1C71300F90049 /* Then */,
 				CA927A7B27E1C72B00F90049 /* SnapKit */,
-				CA927AB527E59A9600F90049 /* Alamofire */,
-				CA927AB827E59AA400F90049 /* SwiftSoup */,
-				CA927ABB27E5A40A00F90049 /* Selenops */,
+				CABC848127E8372300F3708A /* JGProgressHUD */,
+				CABC848427E839DB00F3708A /* Alamofire */,
 			);
 			productName = newlyCoinedWord;
 			productReference = CA927A6027E1C5C100F90049 /* NewlyCoinedWord.app */;
@@ -243,9 +240,8 @@
 			packageReferences = (
 				CA927A7727E1C71300F90049 /* XCRemoteSwiftPackageReference "Then" */,
 				CA927A7A27E1C72B00F90049 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				CA927AB427E59A9600F90049 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				CA927AB727E59AA400F90049 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
-				CA927ABA27E5A40A00F90049 /* XCRemoteSwiftPackageReference "Selenops" */,
+				CABC848027E8372300F3708A /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				CABC848327E839DB00F3708A /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = CA927A6127E1C5C100F90049 /* Products */;
 			projectDirPath = "";
@@ -524,25 +520,17 @@
 				kind = branch;
 			};
 		};
-		CA927AB427E59A9600F90049 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+		CABC848027E8372300F3708A /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CABC848327E839DB00F3708A /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		CA927AB727E59AA400F90049 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scinfu/SwiftSoup";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		CA927ABA27E5A40A00F90049 /* XCRemoteSwiftPackageReference "Selenops" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/zntfdr/Selenops";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -561,20 +549,15 @@
 			package = CA927A7A27E1C72B00F90049 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		CA927AB527E59A9600F90049 /* Alamofire */ = {
+		CABC848127E8372300F3708A /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CA927AB427E59A9600F90049 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			package = CABC848027E8372300F3708A /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		CABC848427E839DB00F3708A /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CABC848327E839DB00F3708A /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		CA927AB827E59AA400F90049 /* SwiftSoup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CA927AB727E59AA400F90049 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
-			productName = SwiftSoup;
-		};
-		CA927ABB27E5A40A00F90049 /* Selenops */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CA927ABA27E5A40A00F90049 /* XCRemoteSwiftPackageReference "Selenops" */;
-			productName = Selenops;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
