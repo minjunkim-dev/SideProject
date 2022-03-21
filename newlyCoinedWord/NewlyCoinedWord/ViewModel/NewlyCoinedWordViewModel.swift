@@ -22,7 +22,7 @@ final class NewlyCoinedWordViewModel {
         group.enter()
         
         let results = wordList.value.filter {
-            $0.title.contains(query)
+            $0.title.compare(query, options: .caseInsensitive) == .orderedSame
         }
         
         print(wordList.value.count)
