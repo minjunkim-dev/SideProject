@@ -16,44 +16,23 @@ final class NewlyCoinedWordViewModel {
     var searchWord: Observable<NewlyCoinedWord> = Observable(NewlyCoinedWord(title: "", description: ""))
     
     
-    func searchQuery(query: String, display: Int, start: Int, completion: @escaping () -> Void) {
-        
-        var word = NewlyCoinedWord(title: "", description: "")
+    func searchQuery(query: String, completion: @escaping () -> Void) {
         
         let group = DispatchGroup()
         group.enter()
-        APIService.searchEncyc(query: query, display: display, start: start) { result, error in
-            
-            if let error = error {
-                print("신조어 검색 실패!")
-                dump(error)
-                
-                group.leave()
-                return
-            }
-            
-            if let result = result {
-                print("신조어 검색 성공!")
-                
-                /* sort=sim이므로,
-                 가장 유사도가 높을 first로 선택
-                 */
-                if let item = result.items.first  {
-                    
-                    let title = item.title.withoutHTMLTags
-                    let description = item.itemDescription.withoutHTMLTags.components(separatedBy: ". ").first ?? ""
-                    
-                    word = NewlyCoinedWord(title: title, description: description)
-                }
-                
-                group.leave()
-            }
+        
+        let results = wordList.value.filter {
+            $0.title.contains(query)
         }
         
-        group.notify(queue: .main) {
-            self.searchWord.value = word
-            completion()
+        if let result = results.first {
+            print("신조어 검색 성공!")
+            self.searchWord.value = result
+        } else {
+            print("신조어 검색 실패!")
         }
+        
+        completion()
     }
     
     func searchWords(query: String, completion: @escaping () -> Void) {

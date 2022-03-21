@@ -59,7 +59,7 @@ final class NewlyCoinedWordViewController: UIViewController {
         }
     
         self.mainView.hud.show(in: self.mainView, animated: true)
-        self.viewModel.searchQuery(query: query, display: 1, start: 1) {
+        self.viewModel.searchQuery(query: query) {
             self.mainView.hud.dismiss(animated: true)
         }
     }
@@ -74,7 +74,7 @@ final class NewlyCoinedWordViewController: UIViewController {
         }
 
         self.mainView.hud.show(in: self.mainView, animated: true)
-        self.viewModel.searchQuery(query: query, display: 1, start: 1) {
+        self.viewModel.searchQuery(query: query) {
             self.mainView.hud.dismiss(animated: true)
         }
     
