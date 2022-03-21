@@ -65,7 +65,7 @@ final class NewlyCoinedWordViewModel {
         var words: [NewlyCoinedWord] = []
         
         let group = DispatchGroup()
-    
+        
         while offset <= maxStart {
             
             let tempOffset = offset
@@ -73,8 +73,6 @@ final class NewlyCoinedWordViewModel {
             
             group.enter()
             APIService.searchEncyc(query: query, display: maxDisplay, start: offset) { result, error in
-                
-                print("offset: \(tempOffset) / API 호출 종료")
                 
                 if let error = error {
                     print("신조어 리스트 가져오기 실패!")
@@ -87,12 +85,14 @@ final class NewlyCoinedWordViewModel {
                 if let result = result {
                     print("신조어 리스트 가져오기 성공!")
                     
-                    result.items.forEach { item in
+                    words = result.items.map { item in
                         
                         let word = NewlyCoinedWord(title: item.title.withoutHTMLTags, description: item.itemDescription.withoutHTMLTags)
                         
-                        words.append(word)
+                        return word
                     }
+                    
+                    print("offset: \(tempOffset) / 후처리 완료")
                 }
                 
                 group.leave()
@@ -107,7 +107,7 @@ final class NewlyCoinedWordViewModel {
             print("notify")
             
             self.wordList.value = words
-    
+            
             /* 해시태그 생성 필요 */
             self.wordList.value.count > self.maxHashTagsNumber ?
             self.makeHashTags(number: self.maxHashTagsNumber) :
