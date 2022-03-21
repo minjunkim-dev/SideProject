@@ -34,7 +34,11 @@ final class NewlyCoinedWordViewModel {
                  가장 유사도가 높을 first로 선택
                  */
                 if let item = result.items.first  {
-                    let word = NewlyCoinedWord(title: item.title, description: item.itemDescription)
+                    
+                    let title = item.title.withoutHTMLTags
+                    let description = item.itemDescription.withoutHTMLTags.components(separatedBy: ". ").first ?? ""
+                    
+                    let word = NewlyCoinedWord(title: title, description: description)
                     
                     self.searchWord.value = word
                     print(self.searchWord.value)
@@ -65,7 +69,7 @@ final class NewlyCoinedWordViewModel {
                     
                     result.items.forEach { item in
                         
-                        let word = NewlyCoinedWord(title: item.title, description: item.itemDescription) 
+                        let word = NewlyCoinedWord(title: item.title.withoutHTMLTags, description: item.itemDescription.withoutHTMLTags)
                         
                         words.append(word)
                         

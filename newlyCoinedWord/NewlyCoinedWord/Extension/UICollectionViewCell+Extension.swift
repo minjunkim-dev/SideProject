@@ -1,5 +1,5 @@
 //
-//  UICollectionViewCell+Extension+Extension.swift
+//  UICollectionViewCell+Extension.swift
 //  NewlyCoinedWord
 //
 //  Created by beneDev on 2022/03/16.
