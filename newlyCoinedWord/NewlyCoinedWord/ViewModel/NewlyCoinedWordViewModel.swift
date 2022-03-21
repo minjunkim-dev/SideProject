@@ -65,7 +65,6 @@ final class NewlyCoinedWordViewModel {
         var words: [NewlyCoinedWord] = []
         
         let group = DispatchGroup()
-        
         while offset <= maxStart {
             
             let tempOffset = offset
@@ -85,12 +84,14 @@ final class NewlyCoinedWordViewModel {
                 if let result = result {
                     print("신조어 리스트 가져오기 성공!")
                     
-                    words = result.items.map { item in
+                    words = result.items
+                        .map { item in
                         
                         let word = NewlyCoinedWord(title: item.title.withoutHTMLTags, description: item.itemDescription.withoutHTMLTags)
                         
-                        return word
-                    }
+                            return word
+                        }
+                        .filter { $0.description.contains("신조어") }
                     
                     print("offset: \(tempOffset) / 후처리 완료")
                 }
