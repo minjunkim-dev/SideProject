@@ -25,6 +25,8 @@ final class NewlyCoinedWordViewModel {
             $0.title.contains(query)
         }
         
+        print(wordList.value.count)
+        
         if let result = results.first {
             print("신조어 검색 성공!")
             self.searchWord.value = result
@@ -63,14 +65,24 @@ final class NewlyCoinedWordViewModel {
                 if let result = result {
                     print("신조어 리스트 가져오기 성공!")
                     
-                    words = result.items
+                    let postProcessed: [NewlyCoinedWord] = result.items
                         .map { item in
-                        
-                        let word = NewlyCoinedWord(title: item.title.withoutHTMLTags, description: item.itemDescription.withoutHTMLTags)
+                            
+                            let description = item.itemDescription.withoutHTMLTags
+                                .components(separatedBy: ".").first ?? ""
+                            
+                            let word = NewlyCoinedWord(title: item.title.withoutHTMLTags, description: description)
                         
                             return word
                         }
-                        .filter { $0.description.contains("신조어") }
+                        .filter {
+                            !($0.title.contains("신어")) &&
+                            !($0.title.contains("신조어")) &&
+                            $0.description.contains("신조어") &&
+                            $0.description.last == "다"
+                        }
+                    
+                    words.append(contentsOf: postProcessed)
                     
                     print("offset: \(tempOffset) / 후처리 완료")
                 }
@@ -86,6 +98,7 @@ final class NewlyCoinedWordViewModel {
             
             print("notify")
             
+            print(words.count)
             self.wordList.value = words
             
             /* 해시태그 생성 필요 */

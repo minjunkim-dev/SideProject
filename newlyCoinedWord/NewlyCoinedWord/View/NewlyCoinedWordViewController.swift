@@ -45,6 +45,7 @@ final class NewlyCoinedWordViewController: UIViewController {
         
         viewModel.searchWord.bind { word in
             
+            print(word.description)
             self.mainView.newlyCoinedWordMeaningLabel.text = word.description
         }
     }

@@ -55,12 +55,15 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
         $0.contentMode = .scaleAspectFill
     }
     
-    let newlyCoinedWordMeaningLabel = UILabel().then {
+    lazy var newlyCoinedWordMeaningLabel = UILabel().then {
         $0.textColor = .black
         $0.textAlignment = .center
-        $0.numberOfLines = 4
+        
+        /* 폰트 크기가 텍스트 길이에 따라 달라지게 하기 위함 */
+        $0.numberOfLines = 0
         $0.font = .systemFont(ofSize: 20, weight: .heavy)
-        $0.lineBreakMode = .byClipping
+        $0.adjustsFontSizeToFitWidth = true
+        $0.minimumScaleFactor = 0.25
     }
     
     let hud = JGProgressHUD().then {
@@ -78,11 +81,6 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
         addSubview(backgroundImageView)
         
         backgroundImageView.addSubview(newlyCoinedWordMeaningLabel)
-        
-        
-        newlyCoinedWordMeaningLabel.text = """
-        신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미 신조어 단어의 뜻 더미더미
-        """
         
         addSubview(searchStackView)
         
@@ -137,6 +135,7 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
         newlyCoinedWordMeaningLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(40)
+            $0.height.equalTo(newlyCoinedWordMeaningLabel.snp.width).multipliedBy(0.25)
         }
     }
     
