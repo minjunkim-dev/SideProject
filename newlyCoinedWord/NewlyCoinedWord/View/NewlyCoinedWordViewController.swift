@@ -51,30 +51,36 @@ final class NewlyCoinedWordViewController: UIViewController {
     
     @objc private func searchTextFieldReturnKeyClicked() {
         
-        print(#function)
-        
         guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
-            print("텍스트가 입력이 되어 있지 않음!")
+            showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
             return
         }
     
         self.mainView.hud.show(in: self.mainView, animated: true)
-        self.viewModel.searchQuery(query: query) {
+        self.viewModel.searchQuery(query: query) { result in
+            
+            if result == .failure {
+                self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+            }
+            
             self.mainView.hud.dismiss(animated: true)
         }
     }
     
     @objc private func searchButtonClicked() {
-        
-        print(#function)
-        
+    
         guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
-            print("텍스트가 입력이 되어 있지 않음!")
+            showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
             return
         }
 
         self.mainView.hud.show(in: self.mainView, animated: true)
-        self.viewModel.searchQuery(query: query) {
+        self.viewModel.searchQuery(query: query) { result in
+            
+            if result == .failure {
+                self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+            }
+            
             self.mainView.hud.dismiss(animated: true)
         }
     

@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum SearchResult {
+    case success
+    case failure
+}
+
 struct NewlyCoinedWord {
     
     var title: String
@@ -20,8 +25,8 @@ struct NewlyCoinedWord {
 
 import Foundation
 
-// MARK: - SearchResult
-struct SearchResult: Codable {
+// MARK: - SearchEncycResult
+struct SearchEncycResult: Codable {
     let lastBuildDate: String
     let total, start, display: Int
     let items: [Item]

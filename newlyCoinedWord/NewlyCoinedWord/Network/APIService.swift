@@ -11,7 +11,7 @@ import Alamofire
 
 final class APIService {
     
-    static func searchEncyc(query: String, display: Int, start: Int, completion: @escaping (SearchResult?, AFError?) -> Void) {
+    static func searchEncyc(query: String, display: Int, start: Int, completion: @escaping (SearchEncycResult?, AFError?) -> Void) {
         
         let endpoint = Endpoint.searchEncyc(query: query, display: display, start: start)
         
@@ -25,7 +25,7 @@ final class APIService {
          */
         AF.request(url, method: .get, parameters: endpoint.parameter, encoding: URLEncoding.queryString, headers: APIDefault.header)
             .validate(statusCode: 200..<400)
-            .responseDecodable(of: SearchResult.self, queue: queue) { response in
+            .responseDecodable(of: SearchEncycResult.self, queue: queue) { response in
                 
                 switch response.result {
                 case .success(let result):

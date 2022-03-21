@@ -16,7 +16,7 @@ final class NewlyCoinedWordViewModel {
     var searchWord: Observable<NewlyCoinedWord> = Observable(NewlyCoinedWord(title: "", description: ""))
     
     
-    func searchQuery(query: String, completion: @escaping () -> Void) {
+    func searchQuery(query: String, completion: @escaping (SearchResult) -> Void) {
         
         let group = DispatchGroup()
         group.enter()
@@ -28,11 +28,11 @@ final class NewlyCoinedWordViewModel {
         if let result = results.first {
             print("신조어 검색 성공!")
             self.searchWord.value = result
+            completion(.success)
         } else {
             print("신조어 검색 실패!")
+            completion(.failure)
         }
-        
-        completion()
     }
     
     func searchWords(query: String, completion: @escaping () -> Void) {
