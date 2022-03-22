@@ -7,7 +7,13 @@
 
 import UIKit
 
-class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
+protocol HashTagDelegate {
+    func searchByHashTag(query: String)
+}
+
+final class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
+    
+    var delegate: HashTagDelegate?
     
     let button = UIButton().then {
         $0.titleLabel?.numberOfLines = 1
@@ -27,6 +33,11 @@ class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     func configureCell(newlyCoinedWord: String) {
         button.setTitle(newlyCoinedWord, for: .normal)
+        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+    }
+    
+    @objc func buttonClicked(_ sender: UIButton) {
+        delegate?.searchByHashTag(query: sender.currentTitle ?? "")
     }
     
     func setupView() {
@@ -49,7 +60,13 @@ class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        print(#function)
         setupView()
         setupConstraints()
+    }
+    
+    deinit {
+        print(#function)
     }
 }

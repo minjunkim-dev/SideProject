@@ -101,7 +101,6 @@ final class NewlyCoinedWordViewModel {
             print(words.count)
             self.wordList.value = words
             
-            /* 해시태그 생성 필요 */
             self.wordList.value.count > self.maxHashTagsNumber ?
             self.makeHashTags(number: self.maxHashTagsNumber) :
             self.makeHashTags(number: self.wordList.value.count)
@@ -136,18 +135,5 @@ extension NewlyCoinedWordViewModel: UICollectionViewCellRepresentable {
     
     var numberOfItemsInSection: Int {
         return hashTags.value.count
-    }
-    
-    func cellForItemAt(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HashTagCollectionViewCell.reuseIdentifier, for: indexPath) as? HashTagCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        
-        let row = indexPath.row
-        let word = hashTags.value[row]
-        cell.configureCell(newlyCoinedWord: word.title)
-        
-        return cell
     }
 }

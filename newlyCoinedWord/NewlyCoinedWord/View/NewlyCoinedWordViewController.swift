@@ -106,6 +106,15 @@ extension NewlyCoinedWordViewController {
     }
 }
 
+extension NewlyCoinedWordViewController: HashTagDelegate {
+    
+    func searchByHashTag(query: String) {
+        
+        mainView.searchTextField.text = query
+        searchButtonClicked()
+    }
+}
+
 extension NewlyCoinedWordViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -114,7 +123,15 @@ extension NewlyCoinedWordViewController: UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HashTagCollectionViewCell.reuseIdentifier, for: indexPath) as? HashTagCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         
-        return viewModel.cellForItemAt(collectionView, indexPath)
+        let row = indexPath.row
+        let word = viewModel.hashTags.value[row]
+        cell.configureCell(newlyCoinedWord: word.title)
+        cell.delegate = self
+        
+        return cell
     }
 }
