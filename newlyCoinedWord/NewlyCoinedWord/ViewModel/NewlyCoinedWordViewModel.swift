@@ -25,8 +25,6 @@ final class NewlyCoinedWordViewModel {
             $0.title.compare(query, options: .caseInsensitive) == .orderedSame
         }
         
-        print(wordList.value.count)
-        
         if let result = results.first {
             print("신조어 검색 성공!")
             self.searchWord.value = result
@@ -98,7 +96,6 @@ final class NewlyCoinedWordViewModel {
             
             print("notify")
             
-            print(words.count)
             self.wordList.value = words
             
             self.wordList.value.count > self.maxHashTagsNumber ?
@@ -110,7 +107,7 @@ final class NewlyCoinedWordViewModel {
         
     }
     
-    private func makeHashTags(number: Int) {
+    func makeHashTags(number: Int) {
         
         repeat {
             

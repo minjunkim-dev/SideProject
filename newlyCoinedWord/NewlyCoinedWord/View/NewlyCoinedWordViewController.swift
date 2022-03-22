@@ -52,11 +52,20 @@ final class NewlyCoinedWordViewController: UIViewController {
     
     @objc private func searchTextFieldReturnKeyClicked() {
         
-        guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
-            showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-            return
-        }
+        searchButtonClicked()
+    }
     
+    private func validateQuery() -> (String, Bool) {
+        
+        guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
+            return ("", false)
+        }
+        
+        return (query, true)
+    }
+    
+    private func searchWithProgressHUD(query: String) {
+        
         self.mainView.hud.show(in: self.mainView, animated: true)
         self.viewModel.searchQuery(query: query) { result in
             
@@ -70,21 +79,22 @@ final class NewlyCoinedWordViewController: UIViewController {
     
     @objc private func searchButtonClicked() {
     
-        guard let query = mainView.searchTextField.text, !(query.isEmpty) else {
+        let (query, isValid) = validateQuery()
+        if !isValid {
             showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-            return
         }
 
-        self.mainView.hud.show(in: self.mainView, animated: true)
-        self.viewModel.searchQuery(query: query) { result in
-            
-            if result == .failure {
-                self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-            }
-            
-            self.mainView.hud.dismiss(animated: true)
-        }
+        searchWithProgressHUD(query: query)
+        refreshHashTags()
+    }
     
+    private func refreshHashTags() {
+        
+        viewModel.hashTags.value.removeAll()
+        
+        viewModel.wordList.value.count > viewModel.maxHashTagsNumber ?
+        viewModel.makeHashTags(number: viewModel.maxHashTagsNumber) :
+        viewModel.makeHashTags(number: viewModel.wordList.value.count)
     }
 }
 
@@ -123,6 +133,7 @@ extension NewlyCoinedWordViewController: UICollectionViewDataSource, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HashTagCollectionViewCell.reuseIdentifier, for: indexPath) as? HashTagCollectionViewCell else {
             return UICollectionViewCell()
         }
