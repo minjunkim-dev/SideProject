@@ -16,7 +16,6 @@ final class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
     var delegate: HashTagDelegate?
     
     let button = UIButton().then {
-        $0.titleLabel?.numberOfLines = 1
         $0.setTitleColor(.black, for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.black.cgColor
@@ -32,8 +31,12 @@ final class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
     }
     
     func configureCell(newlyCoinedWord: String) {
+        
+        print(#function)
+        
+        button.titleLabel?.numberOfLines = 1
         button.setTitle(newlyCoinedWord, for: .normal)
-        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        
     }
     
     @objc func buttonClicked(_ sender: UIButton) {
@@ -60,8 +63,11 @@ final class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        print(#function)
         
         setupView()
         setupConstraints()
+        
+        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
     }
 }
