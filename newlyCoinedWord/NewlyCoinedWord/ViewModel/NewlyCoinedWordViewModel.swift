@@ -64,21 +64,22 @@ final class NewlyCoinedWordViewModel {
                     print("신조어 리스트 가져오기 성공!")
                     
                     let postProcessed: [NewlyCoinedWord] = result.items
-                        .map { item in
+                        .filter {
+                            !($0.title.withoutHTMLTags.contains("신조어")) &&
+                            !($0.itemDescription.withoutHTMLTags.contains("영상")) &&
+                            !($0.itemDescription.withoutHTMLTags.contains("..")) &&
+                            $0.itemDescription.withoutHTMLTags.contains("신조어")
+                        }
+                        .map {
                             
-                            let description = item.itemDescription.withoutHTMLTags
-                                .components(separatedBy: ".").first ?? ""
+                            let description = $0.itemDescription.withoutHTMLTags
+                                .components(separatedBy: ". ").first ?? ""
                             
-                            let word = NewlyCoinedWord(title: item.title.withoutHTMLTags, description: description)
+                            let word = NewlyCoinedWord(title: $0.title.withoutHTMLTags, description: description)
                         
                             return word
                         }
-                        .filter {
-                            !($0.title.contains("신어")) &&
-                            !($0.title.contains("신조어")) &&
-                            $0.description.contains("신조어") &&
-                            $0.description.last == "다"
-                        }
+                        
                     
                     words.append(contentsOf: postProcessed)
                     

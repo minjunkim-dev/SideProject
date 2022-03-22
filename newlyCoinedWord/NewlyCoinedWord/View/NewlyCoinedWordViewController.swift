@@ -13,8 +13,8 @@ import Then
 
 final class NewlyCoinedWordViewController: UIViewController {
     
-    private let mainView = NewlyCoinedWordView()
-    private let viewModel = NewlyCoinedWordViewModel()
+    let mainView = NewlyCoinedWordView()
+    let viewModel = NewlyCoinedWordViewModel()
     
     override func loadView() {
         view = mainView
@@ -24,6 +24,8 @@ final class NewlyCoinedWordViewController: UIViewController {
         super.viewDidLoad()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            
+            self.mainView.hud.textLabel.text = "로딩중"
             self.mainView.hud.show(in: self.mainView, animated: true)
             self.viewModel.searchWords(query: "신조어") {
                 self.mainView.hud.dismiss(animated: true)
@@ -40,19 +42,23 @@ final class NewlyCoinedWordViewController: UIViewController {
         mainView.searchTextField.addTarget(self, action: #selector(searchTextFieldReturnKeyClicked), for: .editingDidEndOnExit)
         
         viewModel.hashTags.bind { _ in
+            
             self.mainView.hashTagCollectionView.reloadData()
         }
         
         viewModel.searchWord.bind { word in
             
-            print(word.description)
-            self.mainView.newlyCoinedWordMeaningLabel.text = word.description
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+                self.mainView.newlyCoinedWordMeaningLabel.text = word.description
+            }
         }
     }
     
     @objc private func searchTextFieldReturnKeyClicked() {
         
-        searchButtonClicked()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            self.searchButtonClicked()
+        }
     }
     
     private func validateQuery() -> (String, Bool) {
@@ -64,28 +70,36 @@ final class NewlyCoinedWordViewController: UIViewController {
         return (query, true)
     }
     
-    private func searchWithProgressHUD(query: String) {
+    private func searchWithProgressHUD(query: String, completion: @escaping (SearchResult) -> Void) {
         
         self.mainView.hud.show(in: self.mainView, animated: true)
         self.viewModel.searchQuery(query: query) { result in
             
-            if result == .failure {
-                self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+            self.mainView.hud.dismiss(afterDelay: .zero, animated: true) {
+                if result == .failure {
+                    self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+                }
+                
+                completion(result)
             }
-            
-            self.mainView.hud.dismiss(animated: true)
         }
     }
     
     @objc private func searchButtonClicked() {
     
-        let (query, isValid) = validateQuery()
+        mainView.hud.textLabel.text = "검색중"
+        
+        let (query, isValid) = self.validateQuery()
         if !isValid {
-            showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+            self.showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+            return
         }
 
-        searchWithProgressHUD(query: query)
-        refreshHashTags()
+        self.searchWithProgressHUD(query: query) { result in
+            if result == .success {
+                self.refreshHashTags()
+            }
+        }
     }
     
     private func refreshHashTags() {
@@ -121,8 +135,10 @@ extension NewlyCoinedWordViewController: HashTagDelegate {
     
     func searchByHashTag(query: String) {
         
-        mainView.searchTextField.text = query
-        searchButtonClicked()
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
+            self.mainView.searchTextField.text = query
+            self.searchButtonClicked()
+        }
     }
 }
 

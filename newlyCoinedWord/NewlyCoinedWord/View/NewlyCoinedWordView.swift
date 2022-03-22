@@ -66,8 +66,7 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
         $0.minimumScaleFactor = 0.25
     }
     
-    let hud = JGProgressHUD().then {
-        $0.textLabel.text = "로딩중"
+    lazy var hud = JGProgressHUD().then {
         $0.style = .dark
         $0.interactionType = .blockAllTouches
         $0.position = .center
