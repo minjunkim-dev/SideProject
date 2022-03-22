@@ -88,6 +88,7 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
             searchStackView.addArrangedSubview($0)
         }
         
+        hashTagCollectionView.backgroundColor = .white
         addSubview(hashTagCollectionView)
         hashTagCollectionView.register(HashTagCollectionViewCell.self, forCellWithReuseIdentifier: HashTagCollectionViewCell.reuseIdentifier)
     }
