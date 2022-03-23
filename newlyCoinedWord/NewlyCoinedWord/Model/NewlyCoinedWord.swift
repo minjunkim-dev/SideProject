@@ -12,18 +12,18 @@ enum SearchResult {
     case failure
 }
 
-struct NewlyCoinedWord {
+struct NewlyCoinedWord: Codable {
     
     var title: String
     var description: String
 }
 
+
+
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
 //   let searchResult = try? newJSONDecoder().decode(SearchResult.self, from: jsonData)
-
-import Foundation
 
 // MARK: - SearchEncycResult
 struct SearchEncycResult: Codable {

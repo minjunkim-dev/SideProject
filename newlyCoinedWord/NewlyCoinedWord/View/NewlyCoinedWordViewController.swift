@@ -23,15 +23,6 @@ final class NewlyCoinedWordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-            
-            self.mainView.hud.textLabel.text = "로딩중"
-            self.mainView.hud.show(in: self.mainView, animated: true)
-            self.viewModel.searchWords(query: "신조어") {
-                self.mainView.hud.dismiss(animated: true)
-            }
-        }
-        
         mainView.hashTagCollectionView.delegate = self
         mainView.hashTagCollectionView.dataSource = self
         
@@ -87,7 +78,7 @@ final class NewlyCoinedWordViewController: UIViewController {
     
     @objc private func searchButtonClicked() {
     
-        mainView.hud.textLabel.text = "검색중"
+        mainView.hud.textLabel.text = "검색중입니다"
         
         let (query, isValid) = self.validateQuery()
         if !isValid {

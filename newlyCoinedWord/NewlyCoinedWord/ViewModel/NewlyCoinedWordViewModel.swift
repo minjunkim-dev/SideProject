@@ -10,11 +10,12 @@ import UIKit
 final class NewlyCoinedWordViewModel {
     
     var wordList: Observable<[NewlyCoinedWord]> = Observable([])
+    
     var hashTags: Observable<[NewlyCoinedWord]> = Observable([])
-    let maxHashTagsNumber = 5
+    
+    var maxHashTagsNumber: Int = 5
     
     var searchWord: Observable<NewlyCoinedWord> = Observable(NewlyCoinedWord(title: "", description: ""))
-    
     
     func searchQuery(query: String, completion: @escaping (SearchResult) -> Void) {
         
@@ -45,9 +46,6 @@ final class NewlyCoinedWordViewModel {
         
         let group = DispatchGroup()
         while offset <= maxStart {
-            
-            let tempOffset = offset
-            print("offset: \(tempOffset) / API 호출 시작")
             
             group.enter()
             APIService.searchEncyc(query: query, display: maxDisplay, start: offset) { result, error in
@@ -82,8 +80,6 @@ final class NewlyCoinedWordViewModel {
                         
                     
                     words.append(contentsOf: postProcessed)
-                    
-                    print("offset: \(tempOffset) / 후처리 완료")
                 }
                 
                 group.leave()
@@ -95,9 +91,8 @@ final class NewlyCoinedWordViewModel {
         
         group.notify(queue: .main) {
             
-            print("notify")
-            
-            self.wordList.value = words
+            UserDefaults.wordList = words
+            self.wordList.value = UserDefaults.wordList
             
             self.wordList.value.count > self.maxHashTagsNumber ?
             self.makeHashTags(number: self.maxHashTagsNumber) :

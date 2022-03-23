@@ -64,7 +64,6 @@ final class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print(#function)
         
         setupView()
         setupConstraints()
