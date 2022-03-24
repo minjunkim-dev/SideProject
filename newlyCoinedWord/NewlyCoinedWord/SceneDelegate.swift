@@ -21,12 +21,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.resetUserDefaults() // for test
         
         let vc = NewlyCoinedWordViewController()
-        switch NetworkManager.checkMonitor() {
-        case .satisfied:
-            print("네트워크 연결 성공!")
-
-            /* 신조어 리스트가 아직 구성되지 않은 경우 */
-            if UserDefaults.wordList.isEmpty {
+        
+        /* 신조어 리스트가 아직 구성되지 않은 경우 */
+        if UserDefaults.wordList.isEmpty {
+            
+            switch NetworkManager.checkMonitor() {
+            case .satisfied:
+                print("네트워크 연결 성공!")
+                
                 DispatchQueue.main.async {
 
                     vc.mainView.hud.textLabel.text = "리스트를 구성중입니다.\n잠시만 기다려주세요."
@@ -36,17 +38,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         vc.mainView.hud.dismiss(animated: true)
                     }
                 }
-            } else {
-                vc.viewModel.wordList.value = UserDefaults.wordList
-
-                vc.viewModel.makeHashTags()
+                
+            case .unsatisfied, .requiresConnection:
+                print("네트워크 연결 실패!")
+            @unknown default:
+                print("네트워크 연결 실패!")
             }
-        case .unsatisfied, .requiresConnection:
-            print("네트워크 연결 실패!")
-        @unknown default:
-            print("네트워크 연결 실패!")
+            
+        } else {
+            vc.viewModel.wordList.value = UserDefaults.wordList
+
+            vc.viewModel.makeHashTags()
         }
 
+        NetworkManager.stopMonitor()
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }

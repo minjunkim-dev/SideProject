@@ -16,7 +16,13 @@ final class NewlyCoinedWordViewModel {
     
     var searchWord: Observable<NewlyCoinedWord> = Observable(NewlyCoinedWord(title: "", description: ""))
     
-    func searchQuery(query: String, completion: @escaping (SearchResult) -> Void) {
+    func searchQuery(query: String, completion: @escaping (SearchError?) -> Void) {
+        
+        if wordList.value.isEmpty {
+            print("신조어 리스트가 없음!")
+            completion(.isEmptyWordList)
+            return
+        }
         
         let group = DispatchGroup()
         group.enter()
@@ -28,10 +34,10 @@ final class NewlyCoinedWordViewModel {
         if let result = results.first {
             print("신조어 검색 성공!")
             self.searchWord.value = result
-            completion(.success)
+            completion(nil)
         } else {
             print("신조어 검색 실패!")
-            completion(.failure)
+            completion(.notExistWordInList)
         }
     }
     

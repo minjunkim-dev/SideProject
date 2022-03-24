@@ -71,17 +71,16 @@ final class NewlyCoinedWordViewController: UIViewController {
 
         mainView.hud.textLabel.text = "검색중입니다"
         mainView.hud.show(in: self.mainView, animated: true)
-        viewModel.searchQuery(query: query) { result in
+        viewModel.searchQuery(query: query) { error in
             self.mainView.hud.dismiss(afterDelay: .zero, animated: true) {
-                if result == .failure {
-                    self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-                    return
-                }
                 
-                if result == .success {
-                    self.viewModel.makeHashTags()
+                if let error = error {
+                    let message = error.description
+                    self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
                     return
                 }
+           
+                self.viewModel.makeHashTags()
             }
         }
     }

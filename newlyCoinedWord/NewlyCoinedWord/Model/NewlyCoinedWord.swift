@@ -7,9 +7,18 @@
 
 import Foundation
 
-enum SearchResult {
-    case success
-    case failure
+enum SearchError: Error {
+    case isEmptyWordList
+    case notExistWordInList
+    
+    var description: String {
+        switch self {
+        case .isEmptyWordList:
+            return "네트워크를 연결해주세요"
+        case .notExistWordInList:
+            return "신조어가 아닙니다"
+        }
+    }
 }
 
 struct NewlyCoinedWord: Codable {
