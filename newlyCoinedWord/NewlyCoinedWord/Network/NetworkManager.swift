@@ -14,6 +14,7 @@ final class NetworkManager {
     
     static func startMonitor() {
         monitor.start(queue: .global(qos: .background))
+        
         monitor.pathUpdateHandler = { path in
             
             let status = checkMonitor()

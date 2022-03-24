@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         /* 신조어 리스트가 아직 구성되지 않은 경우 */
         if UserDefaults.wordList.isEmpty {
-            
+
             switch NetworkManager.checkMonitor() {
             case .satisfied:
                 print("네트워크 연결 성공!")
@@ -38,20 +38,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                         vc.mainView.hud.dismiss(animated: true)
                     }
                 }
-                
+
             case .unsatisfied, .requiresConnection:
                 print("네트워크 연결 실패!")
             @unknown default:
                 print("네트워크 연결 실패!")
             }
-            
+
         } else {
             vc.viewModel.wordList.value = UserDefaults.wordList
 
             vc.viewModel.makeHashTags()
         }
 
-        NetworkManager.stopMonitor()
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }
