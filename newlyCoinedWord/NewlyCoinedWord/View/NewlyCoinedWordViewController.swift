@@ -61,41 +61,29 @@ final class NewlyCoinedWordViewController: UIViewController {
         return (query, true)
     }
     
-    private func searchWithProgressHUD(query: String, completion: @escaping (SearchResult) -> Void) {
-        
-        self.mainView.hud.show(in: self.mainView, animated: true)
-        self.viewModel.searchQuery(query: query) { result in
-            
-            self.mainView.hud.dismiss(afterDelay: .zero, animated: true) {
-                if result == .failure {
-                    self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
-                }
-                
-                completion(result)
-            }
-        }
-    }
-    
     @objc private func searchButtonClicked() {
     
-        mainView.hud.textLabel.text = "검색중입니다"
-        
-        let (query, isValid) = self.validateQuery()
+        let (query, isValid) = validateQuery()
         if !isValid {
             self.showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
             return
         }
 
-        self.searchWithProgressHUD(query: query) { result in
-            if result == .success {
-                self.refreshHashTags()
+        mainView.hud.textLabel.text = "검색중입니다"
+        mainView.hud.show(in: self.mainView, animated: true)
+        viewModel.searchQuery(query: query) { result in
+            self.mainView.hud.dismiss(afterDelay: .zero, animated: true) {
+                if result == .failure {
+                    self.showAlert(title: nil, message: "신조어가 아닙니다", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+                    return
+                }
+                
+                if result == .success {
+                    self.viewModel.makeHashTags()
+                    return
+                }
             }
         }
-    }
-    
-    private func refreshHashTags() {
-    
-        viewModel.makeHashTags()
     }
 }
 
