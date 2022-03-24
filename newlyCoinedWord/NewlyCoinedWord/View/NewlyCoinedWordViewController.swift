@@ -94,9 +94,7 @@ final class NewlyCoinedWordViewController: UIViewController {
     }
     
     private func refreshHashTags() {
-        
-        viewModel.hashTags.value.removeAll()
-        
+    
         viewModel.makeHashTags()
     }
 }

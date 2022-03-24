@@ -115,6 +115,7 @@ final class NewlyCoinedWordViewModel {
         
         let number = wordList.value.count > maxHashTagsNumber ? maxHashTagsNumber : wordList.value.count
         
+        hashTags.value.removeAll()
         repeat {
             
             guard let word = wordList.value.randomElement() else {
