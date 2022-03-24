@@ -18,7 +18,12 @@ struct NewlyCoinedWord: Codable {
     var description: String
 }
 
-
+extension NewlyCoinedWord: Equatable {
+    
+    static func ==(lhs: NewlyCoinedWord, rhs: NewlyCoinedWord) -> Bool {
+        return (lhs.title == rhs.title) && (lhs.description == rhs.description)
+    }
+}
 
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:

@@ -10,8 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
@@ -19,17 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-//        UserDefaults.resetUserDefaults() // for test
+        UserDefaults.resetUserDefaults() // for test
+        
         let vc = NewlyCoinedWordViewController()
         switch NetworkManager.checkMonitor() {
         case .satisfied:
             print("네트워크 연결 성공!")
-            
+
             /* 신조어 리스트가 아직 구성되지 않은 경우 */
             if UserDefaults.wordList.isEmpty {
-                DispatchQueue.main.asyncAfter(deadline: .now()) {
+                DispatchQueue.main.async {
 
-                    vc.mainView.hud.textLabel.text = "리스트를 구성중입니다. 잠시만 기다려주세요."
+                    vc.mainView.hud.textLabel.text = "리스트를 구성중입니다.\n잠시만 기다려주세요."
                     vc.mainView.hud.show(in: vc.mainView, animated: true)
                     vc.viewModel.searchWords(query: "신조어") {
                         vc.mainView.hud.dismiss(animated: true)
@@ -37,17 +37,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 }
             } else {
                 vc.viewModel.wordList.value = UserDefaults.wordList
-                
+
                 vc.viewModel.wordList.value.count > vc.viewModel.maxHashTagsNumber ?
                 vc.viewModel.makeHashTags(number: vc.viewModel.maxHashTagsNumber) :
                 vc.viewModel.makeHashTags(number: vc.viewModel.wordList.value.count)
             }
-            
         case .unsatisfied, .requiresConnection:
             print("네트워크 연결 실패!")
         @unknown default:
             print("네트워크 연결 실패!")
         }
+
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }

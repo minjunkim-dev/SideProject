@@ -11,9 +11,8 @@ final class NewlyCoinedWordViewModel {
     
     var wordList: Observable<[NewlyCoinedWord]> = Observable([])
     
-    var hashTags: Observable<[NewlyCoinedWord]> = Observable([])
-    
     var maxHashTagsNumber: Int = 5
+    var hashTags: Observable<[NewlyCoinedWord]> = Observable([])
     
     var searchWord: Observable<NewlyCoinedWord> = Observable(NewlyCoinedWord(title: "", description: ""))
     
@@ -45,6 +44,9 @@ final class NewlyCoinedWordViewModel {
         var words: [NewlyCoinedWord] = []
         
         let group = DispatchGroup()
+        
+        let start = CFAbsoluteTimeGetCurrent()
+        
         while offset <= maxStart {
             
             group.enter()
@@ -58,38 +60,54 @@ final class NewlyCoinedWordViewModel {
                     return
                 }
                 
+                print(Thread.current.description)
                 if let result = result {
                     print("신조어 리스트 가져오기 성공!")
                     
+                    let start = CFAbsoluteTimeGetCurrent()
+                    print("start 완료?", result.items.count)
+                    
+                    
                     let postProcessed: [NewlyCoinedWord] = result.items
-                        .filter {
-                            !($0.title.withoutHTMLTags.contains("신조어")) &&
-                            !($0.itemDescription.withoutHTMLTags.contains("영상")) &&
-                            !($0.itemDescription.withoutHTMLTags.contains("..")) &&
-                            $0.itemDescription.withoutHTMLTags.contains("신조어")
-                        }
                         .map {
                             
                             let description = $0.itemDescription.withoutHTMLTags
                                 .components(separatedBy: ". ").first ?? ""
                             
                             let word = NewlyCoinedWord(title: $0.title.withoutHTMLTags, description: description)
-                        
+                            
                             return word
                         }
-                        
+                        .filter {
+                            
+                            !($0.title.contains("신조어")) &&
+                            !($0.title.contains("신어")) &&
+                            !($0.description.contains("..")) &&
+                            !($0.description.contains("영상")) &&
+                            $0.description.contains("신조어")
+                        }
+                    print("preProcessed 완료?")
                     
+                    let end = CFAbsoluteTimeGetCurrent()
+                    print("elasped time: \(end - start)")
+                    
+                    print("후처리 완료!")
                     words.append(contentsOf: postProcessed)
+                    
                 }
                 
                 group.leave()
+                
             }
             
             offset += maxDisplay
         }
         
-        
+        print("notify 호출")
         group.notify(queue: .main) {
+            
+            let end = CFAbsoluteTimeGetCurrent()
+            print("total elasped time: \(end - start)")
             
             UserDefaults.wordList = words
             self.wordList.value = UserDefaults.wordList
@@ -107,14 +125,14 @@ final class NewlyCoinedWordViewModel {
         
         repeat {
             
-            let word = wordList.value.randomElement()!
+            guard let word = wordList.value.randomElement() else {
+                print("신조어 리스트가 없음!")
+                return
+            }
             
             let isContain = hashTags.value.contains(where: {
-                if $0.title == word.title, $0.description == word.description {
-                    return true
-                } else {
-                    return false
-                }
+                print($0 == word)
+                return $0 == word ? true : false
             })
             
             if !isContain { hashTags.value.append(word) }

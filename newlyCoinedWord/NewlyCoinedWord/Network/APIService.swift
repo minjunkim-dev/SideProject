@@ -17,7 +17,7 @@ final class APIService {
         
         let url = endpoint.url
         
-        let queue = DispatchQueue.global(qos: .userInitiated)
+        let queue = DispatchQueue.global(qos: .userInteractive)
         
         /* async && concurrent
          alamofire는 기본적으로 async로 동작하고,
