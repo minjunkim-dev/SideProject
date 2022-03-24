@@ -20,6 +20,12 @@ final class NetworkManager {
             let status = checkMonitor()
             switch status {
             case .satisfied: print("connected")
+                
+                /* 신조어 리스트가 비어있고 네트워크가 연결되었다면, 신조어 리스트를 가져오라고 노티 발송 */
+                if UserDefaults.wordList.isEmpty {
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "fetchWordList"), object: nil)
+                }
+                
             case .requiresConnection, .unsatisfied: print("not connected")
             @unknown default: print("unkown default")
             }

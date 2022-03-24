@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        NetworkManager.startMonitor()
+//        NetworkManager.startMonitor()
     
         sleep(2) // for splash
         
@@ -36,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         
-        NetworkManager.stopMonitor()
     }
 }
 

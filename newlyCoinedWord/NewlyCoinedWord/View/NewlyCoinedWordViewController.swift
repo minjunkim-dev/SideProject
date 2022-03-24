@@ -45,6 +45,35 @@ final class NewlyCoinedWordViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchWordList), name: Notification.Name("fetchWordList"), object: nil)
+        NetworkManager.startMonitor()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NotificationCenter.default.removeObserver(self)
+        NetworkManager.stopMonitor()
+    }
+    
+    @objc private func fetchWordList() {
+        print(#function)
+        
+        let query = "신조어"
+        
+        DispatchQueue.main.async {
+            self.mainView.hud.textLabel.text = "리스트를 구성중입니다.\n잠시만 기다려주세요."
+            self.mainView.hud.show(in: self.mainView, animated: true)
+            self.viewModel.searchWords(query: query) {
+                self.viewModel.makeHashTags()
+                self.mainView.hud.dismiss(animated: true)
+            }
+        }
+    }
+    
     @objc private func searchTextFieldReturnKeyClicked() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
