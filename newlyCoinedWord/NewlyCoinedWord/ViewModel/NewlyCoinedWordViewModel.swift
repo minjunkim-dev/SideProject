@@ -41,13 +41,14 @@ final class NewlyCoinedWordViewModel {
         }
     }
     
-    func searchWords(query: String, completion: @escaping () -> Void) {
+    func searchWords(query: String, completion: @escaping (SearchError?) -> Void) {
         
         let maxDisplay = 100
         let maxStart = 1000
         
         var offset = 1
         var words: [NewlyCoinedWord] = []
+        var isAPICallFailed = false
         
         let group = DispatchGroup()
         
@@ -60,6 +61,7 @@ final class NewlyCoinedWordViewModel {
                 if let error = error {
                     print("신조어 리스트 가져오기 실패!")
                     dump(error)
+                    isAPICallFailed = true
                     
                     group.leave()
                     return
@@ -109,10 +111,13 @@ final class NewlyCoinedWordViewModel {
             let end = CFAbsoluteTimeGetCurrent()  // for test
             print("total elasped time: \(end - start)")  // for test
             
-            UserDefaults.wordList = words
-            self.wordList.value = UserDefaults.wordList
-            
-            completion()
+            if isAPICallFailed {
+                completion(.isEmptyWordList)
+            } else {
+                UserDefaults.wordList = words
+                self.wordList.value = UserDefaults.wordList
+                completion(nil)
+            }
         }
         
     }

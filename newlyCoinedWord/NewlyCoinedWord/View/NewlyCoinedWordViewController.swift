@@ -67,8 +67,17 @@ final class NewlyCoinedWordViewController: UIViewController {
         DispatchQueue.main.async {
             self.mainView.hud.textLabel.text = "리스트를 구성중입니다.\n잠시만 기다려주세요."
             self.mainView.hud.show(in: self.mainView, animated: true)
-            self.viewModel.searchWords(query: query) {
-                self.viewModel.makeHashTags()
+            self.viewModel.searchWords(query: query) { error in
+                
+                if let error = error {
+                    
+                    let message = error.description
+                    self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+                } else {
+                
+                    self.viewModel.makeHashTags()
+                }
+            
                 self.mainView.hud.dismiss(animated: true)
             }
         }
