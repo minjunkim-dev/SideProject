@@ -97,9 +97,7 @@ final class NewlyCoinedWordViewController: UIViewController {
         
         viewModel.hashTags.value.removeAll()
         
-        viewModel.wordList.value.count > viewModel.maxHashTagsNumber ?
-        viewModel.makeHashTags(number: viewModel.maxHashTagsNumber) :
-        viewModel.makeHashTags(number: viewModel.wordList.value.count)
+        viewModel.makeHashTags()
     }
 }
 

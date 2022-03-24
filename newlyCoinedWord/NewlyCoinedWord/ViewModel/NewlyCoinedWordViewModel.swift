@@ -5,7 +5,7 @@
 //  Created by beneDev on 2022/03/16.
 //
 
-import UIKit
+import Foundation
 
 final class NewlyCoinedWordViewModel {
     
@@ -45,8 +45,7 @@ final class NewlyCoinedWordViewModel {
         
         let group = DispatchGroup()
         
-        let start = CFAbsoluteTimeGetCurrent()
-        
+        let start = CFAbsoluteTimeGetCurrent() // for test
         while offset <= maxStart {
             
             group.enter()
@@ -60,14 +59,12 @@ final class NewlyCoinedWordViewModel {
                     return
                 }
                 
-                print(Thread.current.description)
+                
                 if let result = result {
                     print("신조어 리스트 가져오기 성공!")
-                    
-                    let start = CFAbsoluteTimeGetCurrent()
-                    print("start 완료?", result.items.count)
-                    
-                    
+                
+                    print(Thread.current.description)  // for test
+                    let start = CFAbsoluteTimeGetCurrent()  // for test
                     let postProcessed: [NewlyCoinedWord] = result.items
                         .map {
                             
@@ -86,12 +83,10 @@ final class NewlyCoinedWordViewModel {
                             !($0.description.contains("영상")) &&
                             $0.description.contains("신조어")
                         }
-                    print("preProcessed 완료?")
                     
-                    let end = CFAbsoluteTimeGetCurrent()
-                    print("elasped time: \(end - start)")
+                    let end = CFAbsoluteTimeGetCurrent()  // for test
+                    print("elasped time: \(end - start)")  // for test
                     
-                    print("후처리 완료!")
                     words.append(contentsOf: postProcessed)
                     
                 }
@@ -103,25 +98,22 @@ final class NewlyCoinedWordViewModel {
             offset += maxDisplay
         }
         
-        print("notify 호출")
         group.notify(queue: .main) {
             
-            let end = CFAbsoluteTimeGetCurrent()
-            print("total elasped time: \(end - start)")
+            let end = CFAbsoluteTimeGetCurrent()  // for test
+            print("total elasped time: \(end - start)")  // for test
             
             UserDefaults.wordList = words
             self.wordList.value = UserDefaults.wordList
-            
-            self.wordList.value.count > self.maxHashTagsNumber ?
-            self.makeHashTags(number: self.maxHashTagsNumber) :
-            self.makeHashTags(number: self.wordList.value.count)
             
             completion()
         }
         
     }
     
-    func makeHashTags(number: Int) {
+    func makeHashTags() {
+        
+        let number = wordList.value.count > maxHashTagsNumber ? maxHashTagsNumber : wordList.value.count
         
         repeat {
             
@@ -131,7 +123,6 @@ final class NewlyCoinedWordViewModel {
             }
             
             let isContain = hashTags.value.contains(where: {
-                print($0 == word)
                 return $0 == word ? true : false
             })
             

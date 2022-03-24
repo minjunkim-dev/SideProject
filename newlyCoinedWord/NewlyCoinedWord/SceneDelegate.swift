@@ -32,15 +32,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     vc.mainView.hud.textLabel.text = "리스트를 구성중입니다.\n잠시만 기다려주세요."
                     vc.mainView.hud.show(in: vc.mainView, animated: true)
                     vc.viewModel.searchWords(query: "신조어") {
+                        vc.viewModel.makeHashTags()
                         vc.mainView.hud.dismiss(animated: true)
                     }
                 }
             } else {
                 vc.viewModel.wordList.value = UserDefaults.wordList
 
-                vc.viewModel.wordList.value.count > vc.viewModel.maxHashTagsNumber ?
-                vc.viewModel.makeHashTags(number: vc.viewModel.maxHashTagsNumber) :
-                vc.viewModel.makeHashTags(number: vc.viewModel.wordList.value.count)
+                vc.viewModel.makeHashTags()
             }
         case .unsatisfied, .requiresConnection:
             print("네트워크 연결 실패!")
