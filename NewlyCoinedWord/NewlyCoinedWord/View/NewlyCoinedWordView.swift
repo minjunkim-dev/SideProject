@@ -23,6 +23,8 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
     }
     
     let searchTextField = InsetsTextField().then {
+        $0.layer.borderColor = UIColor.black.cgColor
+        $0.layer.borderWidth = 2
         $0.attributedPlaceholder = NSAttributedString(
             string: "신조어를 입력해주세요",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
@@ -109,6 +111,7 @@ final class NewlyCoinedWordView: UIView, ViewPresentable {
         searchTextField.snp.makeConstraints {
             $0.verticalEdges.equalToSuperview()
             $0.leading.equalToSuperview()
+            $0.trailing.equalTo(searchButton.snp.leading)
         }
         
         hashTagCollectionView.snp.makeConstraints {
