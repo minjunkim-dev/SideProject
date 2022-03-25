@@ -10,6 +10,16 @@ import UIKit
 import SnapKit
 import Then
 
+extension UIView {
+    func transition (_ duration: CFTimeInterval) {
+        let animation:CATransition = CATransition()
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        animation.type = .fade
+        animation.subtype = .none
+        animation.duration = duration
+        layer.add(animation, forKey: CATransitionType.push.rawValue)
+    }
+}
 
 final class NewlyCoinedWordViewController: UIViewController {
     
@@ -34,14 +44,16 @@ final class NewlyCoinedWordViewController: UIViewController {
         
         viewModel.hashTags.bind { _ in
             
-            self.mainView.hashTagCollectionView.reloadData()
+            UIView.transition(with: self.mainView.hashTagCollectionView, duration: 0.5, options: .transitionCrossDissolve) {
+                self.mainView.hashTagCollectionView.reloadData()
+            }
         }
         
         viewModel.searchWord.bind { word in
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-                self.mainView.newlyCoinedWordMeaningLabel.text = word.description
-            }
+                
+            self.mainView.newlyCoinedWordMeaningLabel.transition(1.0)
+            self.mainView.newlyCoinedWordMeaningLabel.text = word.description
+        
         }
     }
     
@@ -117,6 +129,7 @@ final class NewlyCoinedWordViewController: UIViewController {
         mainView.hud.textLabel.text = "검색중입니다"
         mainView.hud.show(in: self.mainView, animated: true)
         viewModel.searchQuery(query: query) { error in
+            
             self.mainView.hud.dismiss(afterDelay: .zero, animated: true) {
                 
                 if let error = error {
@@ -160,11 +173,10 @@ extension NewlyCoinedWordViewController {
 extension NewlyCoinedWordViewController: HashTagDelegate {
     
     func searchByHashTag(query: String) {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500)) {
-            self.mainView.searchTextField.text = query
-            self.searchButtonClicked()
-        }
+    
+        self.mainView.searchTextField.text = query
+        self.searchButtonClicked()
+
     }
 }
 

@@ -29,7 +29,7 @@ struct NewlyCoinedWord: Codable {
 
 extension NewlyCoinedWord: Equatable {
     
-    static func ==(lhs: NewlyCoinedWord, rhs: NewlyCoinedWord) -> Bool {
+    static func == (lhs: NewlyCoinedWord, rhs: NewlyCoinedWord) -> Bool {
         return (lhs.title == rhs.title) && (lhs.description == rhs.description)
     }
 }

@@ -24,9 +24,6 @@ final class NewlyCoinedWordViewModel {
             return
         }
         
-        let group = DispatchGroup()
-        group.enter()
-        
         let results = wordList.value.filter {
             $0.title.compare(query, options: .caseInsensitive) == .orderedSame
         }
