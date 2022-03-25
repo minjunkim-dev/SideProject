@@ -47,7 +47,10 @@ final class NewlyCoinedWordViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        viewModel.wordList.value = UserDefaults.wordList
+        viewModel.makeHashTags()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(fetchWordList), name: Notification.Name("fetchWordList"), object: nil)
         NetworkManager.startMonitor()
     }
