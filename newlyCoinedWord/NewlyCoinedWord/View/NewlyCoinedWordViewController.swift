@@ -47,7 +47,7 @@ final class NewlyCoinedWordViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(fetchWordList), name: Notification.Name("fetchWordList"), object: nil)
         NetworkManager.startMonitor()
     }
@@ -72,7 +72,11 @@ final class NewlyCoinedWordViewController: UIViewController {
                 if let error = error {
                     
                     let message = error.description
-                    self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+        
+                    self.showAlert(title: nil, message: message, okTitle: "설정", okCompletion: {
+                        self.openSettings()
+                    }, cancleTitle: "확인", cancleCompletion: nil)
+                    
                 } else {
                 
                     self.viewModel.makeHashTags()
@@ -114,7 +118,14 @@ final class NewlyCoinedWordViewController: UIViewController {
                 
                 if let error = error {
                     let message = error.description
-                    self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+                    
+                    if message == SearchError.isEmptyWordList.description {
+                        self.showAlert(title: nil, message: message, okTitle: "설정", okCompletion: {
+                            self.openSettings()
+                        }, cancleTitle: "확인", cancleCompletion: nil)
+                    } else {
+                        self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+                    }
                     return
                 }
            

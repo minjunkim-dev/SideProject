@@ -33,4 +33,12 @@ extension UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    
+    func openSettings() {
+        
+        if let url = URL.init(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
 }
