@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  NewlyCoinedWord
+
+  Created by beneDev on 2022/03/25.
+  
+*/
+
+"CFBundleDisplayName" = "신조어 사전";

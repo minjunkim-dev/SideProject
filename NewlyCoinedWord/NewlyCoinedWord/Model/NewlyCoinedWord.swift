@@ -14,9 +14,9 @@ enum SearchError: Error {
     var description: String {
         switch self {
         case .isEmptyWordList:
-            return "네트워크를 연결해주세요"
+            return "requiredNetwork".localized()
         case .notExistWordInList:
-            return "신조어가 아닙니다"
+            return "isNotNeologism".localized()
         }
     }
 }

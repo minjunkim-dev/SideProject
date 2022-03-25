@@ -80,7 +80,7 @@ final class NewlyCoinedWordViewController: UIViewController {
         let query = "신조어"
         
         DispatchQueue.main.async {
-            self.mainView.hud.textLabel.text = "리스트를 구성중입니다.\n잠시만 기다려주세요."
+            self.mainView.hud.textLabel.text = "configuringWordList".localized()
             self.mainView.hud.show(in: self.mainView, animated: true)
             self.viewModel.searchWords(query: query) { error in
                 
@@ -88,9 +88,9 @@ final class NewlyCoinedWordViewController: UIViewController {
                     
                     let message = error.description
         
-                    self.showAlert(title: nil, message: message, okTitle: "설정", okCompletion: {
+                    self.showAlert(title: nil, message: message, okTitle: "settings".localized(), okCompletion: {
                         self.openSettings()
-                    }, cancleTitle: "확인", cancleCompletion: nil)
+                    }, cancleTitle: "confirm".localized(), cancleCompletion: nil)
                     
                 } else {
                 
@@ -122,11 +122,11 @@ final class NewlyCoinedWordViewController: UIViewController {
     
         let (query, isValid) = validateQuery()
         if !isValid {
-            self.showAlert(title: nil, message: "텍스트를 입력해주세요", okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+            self.showAlert(title: nil, message: "requiredText".localized(), okTitle: "confirm".localized(), okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
             return
         }
 
-        mainView.hud.textLabel.text = "검색중입니다"
+        mainView.hud.textLabel.text = "searching".localized()
         mainView.hud.show(in: self.mainView, animated: true)
         viewModel.searchQuery(query: query) { error in
             
@@ -136,11 +136,11 @@ final class NewlyCoinedWordViewController: UIViewController {
                     let message = error.description
                     
                     if message == SearchError.isEmptyWordList.description {
-                        self.showAlert(title: nil, message: message, okTitle: "설정", okCompletion: {
+                        self.showAlert(title: nil, message: message, okTitle: "settings".localized(), okCompletion: {
                             self.openSettings()
-                        }, cancleTitle: "확인", cancleCompletion: nil)
+                        }, cancleTitle: "confirm".localized(), cancleCompletion: nil)
                     } else {
-                        self.showAlert(title: nil, message: message, okTitle: "확인", okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
+                        self.showAlert(title: nil, message: message, okTitle: "confirm".localized(), okCompletion: nil, cancleTitle: nil, cancleCompletion: nil)
                     }
                     return
                 }

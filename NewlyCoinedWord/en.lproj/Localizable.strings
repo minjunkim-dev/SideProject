@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  NewlyCoinedWord
+
+  Created by beneDev on 2022/03/25.
+  
+*/
+
+"requiredText" = "Enter a neologism";
+"configuringWordList" = "Neologism list is being built.\nPlease wait...";
+"settings" = "Settings";
+"confirm" = "OK";
+"searching" = "Searching...";
+"requiredNetwork" = "Connect the network";
+"isNotNeologism" = "It's not neologism";

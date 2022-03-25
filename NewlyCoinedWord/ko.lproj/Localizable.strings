@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  NewlyCoinedWord
+
+  Created by beneDev on 2022/03/25.
+  
+*/
+
+"requiredText" = "신조어를 입력해주세요";
+"configuringWordList" = "신조어 리스트를 구성중입니다.\n잠시만 기다려주세요.";
+"settings" = "설정";
+"confirm" = "확인";
+"searching" = "검색중입니다";
+"requiredNetwork" = "네트워크를 연결해주세요";
+"isNotNeologism" = "신조어가 아닙니다";

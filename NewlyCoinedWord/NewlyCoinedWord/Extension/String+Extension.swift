@@ -22,4 +22,8 @@ extension String {
         
         return attributedString.string
     }
+    
+    func localized(comment: String = "") -> String {
+        return NSLocalizedString(self, comment: comment)
+    }
 }
