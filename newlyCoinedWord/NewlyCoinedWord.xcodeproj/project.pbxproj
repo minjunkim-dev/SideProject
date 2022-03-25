@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0BD50327ED5BA700929BB2 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0BD50227ED5BA700929BB2 /* Date+Extension.swift */; };
 		CA44F83627E9C5B300A780BA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA44F83527E9C5B300A780BA /* NetworkManager.swift */; };
 		CA4BD59F27E5CE64007E718E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BD59E27E5CE64007E718E /* Constants.swift */; };
 		CA4BD5A127E73F3A007E718E /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4BD5A027E73F3A007E718E /* APIService.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA0BD50227ED5BA700929BB2 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		CA44F83527E9C5B300A780BA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CA4BD59E27E5CE64007E718E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CA4BD5A027E73F3A007E718E /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				CA927AA427E4B1B000F90049 /* UIViewController+Extension.swift */,
 				CA4BD5A427E800A3007E718E /* String+Extension.swift */,
 				CA8C1E1B27EAAE190094D051 /* UserDefaults+Extension.swift */,
+				CA0BD50227ED5BA700929BB2 /* Date+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				CA44F83627E9C5B300A780BA /* NetworkManager.swift in Sources */,
 				CA4BD59F27E5CE64007E718E /* Constants.swift in Sources */,
 				CA927A9527E1FA7600F90049 /* UICollectionViewCell+Extension.swift in Sources */,
+				CA0BD50327ED5BA700929BB2 /* Date+Extension.swift in Sources */,
 				CA927AA727E5879600F90049 /* NewlyCoinedWord.swift in Sources */,
 				CA927A9827E1FAA500F90049 /* ReusableView.swift in Sources */,
 				CA927A6427E1C5C100F90049 /* AppDelegate.swift in Sources */,

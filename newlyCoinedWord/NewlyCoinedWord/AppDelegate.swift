@@ -13,8 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        NetworkManager.startMonitor()
-    
+        if Date.isFirstDayOfMonth() && !(UserDefaults.isFetchWordListOnFirstDayOfMonth) {
+            print("1일이고 신조어 리스트 리로드 필요")
+            UserDefaults.wordList.removeAll()
+        } else {
+
+            if !(Date.isFirstDayOfMonth()) {
+                print("1일이 아님")
+                UserDefaults.isFetchWordListOnFirstDayOfMonth = false
+            }
+//             else: 1일이지만 이미 신조어 리스트 로드 완료 상태
+        }
+
         sleep(2) // for splash
         
         return true

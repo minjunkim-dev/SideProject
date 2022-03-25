@@ -116,6 +116,12 @@ final class NewlyCoinedWordViewModel {
             } else {
                 UserDefaults.wordList = words
                 self.wordList.value = UserDefaults.wordList
+                
+                if Date.isFirstDayOfMonth() {
+                    UserDefaults.isFetchWordListOnFirstDayOfMonth = true
+                    print(UserDefaults.isFetchWordListOnFirstDayOfMonth)
+                }
+                    
                 completion(nil)
             }
         }

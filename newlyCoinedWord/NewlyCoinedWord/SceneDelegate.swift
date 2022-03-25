@@ -17,9 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        
-        UserDefaults.resetUserDefaults() // for test
-        
+      
         let vc = NewlyCoinedWordViewController()
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
