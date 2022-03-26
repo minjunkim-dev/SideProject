@@ -112,7 +112,7 @@ extension UserDefaults {
 9. 속상해 = upset
  */
 
-enum Emotion: Int {
+enum Emotion: Int, CaseIterable {
     case fun
     case happy
     case lovely

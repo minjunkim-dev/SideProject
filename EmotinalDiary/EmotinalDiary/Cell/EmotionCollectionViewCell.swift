@@ -66,10 +66,13 @@ class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         }
     }
     
-    @objc func buttonClicked(_ sender: UIButton) {
-        print(#function)
+    func configureCell(image: UIImage, text: String) {
+        button.setImage(image, for: .normal)
+        label.text = text
+    }
+    
+    @objc func buttonClicked() {
         
-        let tag = self.tag
         delegate?.addEmotionNumber(tag: tag)
     }
     
@@ -83,7 +86,7 @@ class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         setupView()
         setupConstraints()
         
-        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(buttonClicked), for: .touchUpInside)
     }
     
 }

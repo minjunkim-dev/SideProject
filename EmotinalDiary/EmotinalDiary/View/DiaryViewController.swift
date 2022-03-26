@@ -10,6 +10,7 @@ import UIKit
 class DiaryViewController: UIViewController, EmotionDelegate {
     
     private let mainView = DiaryView()
+    private let viewModel = EmotionalDiaryViewModel()
 
     override func loadView() {
         view = mainView
@@ -26,33 +27,86 @@ class DiaryViewController: UIViewController, EmotionDelegate {
         item.tintColor = .black
         navigationItem.leftBarButtonItem = item
         navigationItem.title = "감정 다이어리"
+        
+    
+        viewModel.fun.bind { count in
+            let indexPath = IndexPath(row: Emotion.fun.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+        
+        viewModel.happy.bind { count in
+            let indexPath = IndexPath(row: Emotion.happy.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+        
+        viewModel.lovely.bind { count in
+            let indexPath = IndexPath(row: Emotion.lovely.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+        
+        viewModel.angry.bind { count in
+            let indexPath = IndexPath(row: Emotion.angry.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+        
+        viewModel.helpless.bind { count in
+            let indexPath = IndexPath(row: Emotion.helpless.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+    
+        viewModel.tired.bind { count in
+            let indexPath = IndexPath(row: Emotion.tired.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+        
+        viewModel.embarrassing.bind { count in
+            let indexPath = IndexPath(row: Emotion.embarrassing.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+        
+        viewModel.depressed.bind { count in
+            let indexPath = IndexPath(row: Emotion.depressed.rawValue, section: 0)
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+        
+        viewModel.upset.bind { count in
+            let indexPath = IndexPath(row: Emotion.upset.rawValue, section: 0)
+//            UIView.performWithoutAnimation {
+//                <#code#>
+//            }
+            self.mainView.collectionView.reloadItems(at: [indexPath])
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        viewModel.storeEmotionNumber()
     }
     
     func addEmotionNumber(tag: Int) {
-        print(#function)
         
         if let emotion = Emotion(rawValue: tag) {
             switch emotion {
             case .fun:
-                UserDefaults.fun += 1
+                viewModel.fun.value += 1
             case .happy:
-                UserDefaults.happy += 1
+                viewModel.happy.value += 1
             case .lovely:
-                UserDefaults.lovely += 1
+                viewModel.lovely.value += 1
             case .angry:
-                UserDefaults.angry += 1
+                viewModel.angry.value += 1
             case .helpless:
-                UserDefaults.helpless += 1
+                viewModel.helpless.value += 1
             case .tired:
-                UserDefaults.tired += 1
+                viewModel.tired.value += 1
             case .embarrassing:
-                UserDefaults.embarrassing += 1
+                viewModel.embarrassing.value += 1
             case .depressed:
-                UserDefaults.depressed += 1
+                viewModel.depressed.value += 1
             case .upset:
-                UserDefaults.upset += 1
+                viewModel.upset.value += 1
             }
-            mainView.collectionView.reloadData()
         }
     }
 }
@@ -60,7 +114,7 @@ class DiaryViewController: UIViewController, EmotionDelegate {
 extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return Emotion.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,47 +128,49 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let row = indexPath.row
         cell.tag = row
         
+        var description = ""
+        var image = UIImage()
+        var count = 0
+        
         if let emotion = Emotion(rawValue: row) {
             
-            let description = emotion.description
-            
+            description = emotion.description
+        
             /* UserDefaults를 배열로 관리하면 더 깔끔하게 고칠 수 있지 않을까? */
-            var count: Int
-            var image: UIImage
             switch emotion {
             case .fun:
-                count = UserDefaults.fun
+                count = viewModel.fun.value
                 image = Assets.fun.image
             case .happy:
-                count = UserDefaults.happy
+                count = viewModel.happy.value
                 image = Assets.happy.image
             case .lovely:
-                count = UserDefaults.lovely
+                count = viewModel.lovely.value
                 image = Assets.lovely.image
             case .angry:
-                count = UserDefaults.angry
+                count = viewModel.angry.value
                 image = Assets.angry.image
             case .helpless:
-                count = UserDefaults.helpless
+                count = viewModel.helpless.value
                 image = Assets.helpless.image
             case .tired:
-                count = UserDefaults.tired
+                count = viewModel.tired.value
                 image = Assets.tired.image
             case .embarrassing:
-                count = UserDefaults.embarrassing
+                count = viewModel.embarrassing.value
                 image = Assets.embarrassing.image
             case .depressed:
-                count = UserDefaults.depressed
+                count = viewModel.depressed.value
                 image = Assets.depressed.image
             case .upset:
-                count = UserDefaults.upset
+                count = viewModel.upset.value
                 image = Assets.upset.image
             }
-            
-            /* configure cell */
-            cell.button.setImage(image, for: .normal)
-            cell.label.text = "\(description) \(count)"
         }
+        
+        /* configure cell */
+        let text = "\(description) \(count)"
+        cell.configureCell(image: image, text: text)
         
         return cell
     }
