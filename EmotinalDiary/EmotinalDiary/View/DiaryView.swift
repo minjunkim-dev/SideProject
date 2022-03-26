@@ -24,6 +24,12 @@ import Then
 
 class DiaryView: UIView, ViewPresentable {
     
+    let imageView = UIImageView().then {
+        let image = UIImage(asset: Asset.background)
+        $0.image = image
+        $0.contentMode = .scaleToFill
+    }
+    
     let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumLineSpacing = 10
@@ -33,7 +39,9 @@ class DiaryView: UIView, ViewPresentable {
     }()
     
     func setupView() {
-        backgroundColor = .orange
+        backgroundColor = .clear
+        
+        addSubview(imageView)
         
         addSubview(collectionView)
         collectionView.backgroundColor = .clear
@@ -41,6 +49,10 @@ class DiaryView: UIView, ViewPresentable {
     }
     
     func setupConstraints() {
+        
+        imageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         
         collectionView.snp.makeConstraints {
             $0.center.equalToSuperview()
