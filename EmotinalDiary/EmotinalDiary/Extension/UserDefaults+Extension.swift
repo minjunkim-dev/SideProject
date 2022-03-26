@@ -5,7 +5,7 @@
 //  Created by beneDev on 2022/03/26.
 //
 
-import Foundation
+import UIKit
 
 @propertyWrapper
 struct UserDefault<T: Codable> {
@@ -65,25 +65,25 @@ extension UserDefaults {
     @UserDefault(key: Emotion.happy.description, defaultValue: 0)
     static var happy: Int
     
-    @UserDefault(key: "lovely", defaultValue: 0)
+    @UserDefault(key: Emotion.lovely.description, defaultValue: 0)
     static var lovely: Int
     
-    @UserDefault(key: "angry", defaultValue: 0)
+    @UserDefault(key: Emotion.angry.description, defaultValue: 0)
     static var angry: Int
     
-    @UserDefault(key: "helpless", defaultValue: 0)
+    @UserDefault(key: Emotion.helpless.description, defaultValue: 0)
     static var helpless: Int
     
-    @UserDefault(key: "tired", defaultValue: 0)
+    @UserDefault(key: Emotion.tired.description, defaultValue: 0)
     static var tired: Int
     
-    @UserDefault(key: "embarrassing", defaultValue: 0)
+    @UserDefault(key: Emotion.embarrassing.description, defaultValue: 0)
     static var embarrassing: Int
     
-    @UserDefault(key: "depressed", defaultValue: 0)
+    @UserDefault(key: Emotion.depressed.description, defaultValue: 0)
     static var depressed: Int
     
-    @UserDefault(key: "upset", defaultValue: 0)
+    @UserDefault(key: Emotion.upset.description, defaultValue: 0)
     static var upset: Int
     
     // wrappedValue = projectedValue
@@ -99,18 +99,6 @@ extension UserDefaults {
         upset = $upset
     }
 }
-
-/*
-1. 즐거워 = fun
-2. 행복해 = happy
-3. 사랑스러워 = lovely
-4. 화나 = angry
-5. 무력해 = helpless
-6. 피곤해 = tired
-7. 난감해 = embarrassing
-8. 우울해 = depressed
-9. 속상해 = upset
- */
 
 enum Emotion: Int, CaseIterable {
     case fun
@@ -136,5 +124,18 @@ enum Emotion: Int, CaseIterable {
         case .upset: return "속상해"
         }
     }
+    
+    var image: UIImage {
+        switch self {
+        case .fun: return Assets.fun.image
+        case .happy: return Assets.happy.image
+        case .lovely: return Assets.lovely.image
+        case .angry: return Assets.angry.image
+        case .helpless: return Assets.helpless.image
+        case .tired: return Assets.tired.image
+        case .embarrassing: return Assets.embarrassing.image
+        case .depressed: return Assets.depressed.image
+        case .upset: return Assets.upset.image
+        }
+    }
 }
-

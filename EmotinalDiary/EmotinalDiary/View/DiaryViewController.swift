@@ -126,36 +126,27 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         if let emotion = Emotion(rawValue: row) {
             
             description = emotion.description
-        
-            /* UserDefaults를 배열로 관리하면 더 깔끔하게 고칠 수 있지 않을까? */
+            image = emotion.image
+            
             switch emotion {
             case .fun:
                 count = viewModel.fun.value
-                image = Assets.fun.image
             case .happy:
                 count = viewModel.happy.value
-                image = Assets.happy.image
             case .lovely:
                 count = viewModel.lovely.value
-                image = Assets.lovely.image
             case .angry:
                 count = viewModel.angry.value
-                image = Assets.angry.image
             case .helpless:
                 count = viewModel.helpless.value
-                image = Assets.helpless.image
             case .tired:
                 count = viewModel.tired.value
-                image = Assets.tired.image
             case .embarrassing:
                 count = viewModel.embarrassing.value
-                image = Assets.embarrassing.image
             case .depressed:
                 count = viewModel.depressed.value
-                image = Assets.depressed.image
             case .upset:
                 count = viewModel.upset.value
-                image = Assets.upset.image
             }
         }
         
@@ -164,14 +155,6 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         cell.configureCell(image: image, text: text)
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
