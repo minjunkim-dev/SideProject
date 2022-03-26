@@ -17,6 +17,10 @@
 		CA29C8CC27EDE86800EE6246 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8CB27EDE86800EE6246 /* DiaryView.swift */; };
 		CA29C8CE27EDE88100EE6246 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8CD27EDE88100EE6246 /* DiaryViewController.swift */; };
 		CA29C8D927EE05C100EE6246 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8D827EE05C100EE6246 /* Assets+Generated.swift */; };
+		CA29C8DC27EED10700EE6246 /* EmotionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8DB27EED10700EE6246 /* EmotionCollectionViewCell.swift */; };
+		CA29C8DE27EED4D400EE6246 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8DD27EED4D400EE6246 /* ReusableView.swift */; };
+		CA29C8E027EED50C00EE6246 /* UICollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8DF27EED50C00EE6246 /* UICollectionViewCellRepresentable.swift */; };
+		CA29C8E327EED6F700EE6246 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8E227EED6F700EE6246 /* UICollectionView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		CA29C8CB27EDE86800EE6246 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		CA29C8CD27EDE88100EE6246 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		CA29C8D827EE05C100EE6246 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
+		CA29C8DB27EED10700EE6246 /* EmotionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA29C8DD27EED4D400EE6246 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		CA29C8DF27EED50C00EE6246 /* UICollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellRepresentable.swift; sourceTree = "<group>"; };
+		CA29C8E227EED6F700EE6246 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +77,8 @@
 				CA29C8D827EE05C100EE6246 /* Assets+Generated.swift */,
 				CA29C8AF27EDE60200EE6246 /* SceneDelegate.swift */,
 				CA29C8B627EDE60300EE6246 /* Assets.xcassets */,
+				CA29C8DA27EED0E100EE6246 /* Cell */,
+				CA29C8E127EED6EB00EE6246 /* Extension */,
 				CA29C8B827EDE60300EE6246 /* LaunchScreen.storyboard */,
 				CA29C8C727EDE83E00EE6246 /* Protocol */,
 				CA29C8C827EDE84400EE6246 /* View */,
@@ -80,6 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				CA29C8C927EDE85400EE6246 /* ViewPresentable.swift */,
+				CA29C8DD27EED4D400EE6246 /* ReusableView.swift */,
+				CA29C8DF27EED50C00EE6246 /* UICollectionViewCellRepresentable.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -91,6 +103,22 @@
 				CA29C8CD27EDE88100EE6246 /* DiaryViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CA29C8DA27EED0E100EE6246 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CA29C8DB27EED10700EE6246 /* EmotionCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CA29C8E127EED6EB00EE6246 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA29C8E227EED6F700EE6246 /* UICollectionView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +224,13 @@
 				CA29C8CA27EDE85400EE6246 /* ViewPresentable.swift in Sources */,
 				CA29C8CE27EDE88100EE6246 /* DiaryViewController.swift in Sources */,
 				CA29C8D927EE05C100EE6246 /* Assets+Generated.swift in Sources */,
+				CA29C8DE27EED4D400EE6246 /* ReusableView.swift in Sources */,
 				CA29C8AE27EDE60200EE6246 /* AppDelegate.swift in Sources */,
 				CA29C8CC27EDE86800EE6246 /* DiaryView.swift in Sources */,
+				CA29C8E327EED6F700EE6246 /* UICollectionView+Extension.swift in Sources */,
 				CA29C8B027EDE60200EE6246 /* SceneDelegate.swift in Sources */,
+				CA29C8DC27EED10700EE6246 /* EmotionCollectionViewCell.swift in Sources */,
+				CA29C8E027EED50C00EE6246 /* UICollectionViewCellRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

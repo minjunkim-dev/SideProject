@@ -24,12 +24,29 @@ import Then
 
 class DiaryView: UIView, ViewPresentable {
     
+    let collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 10
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    }()
+    
     func setupView() {
         backgroundColor = .orange
+        
+        addSubview(collectionView)
+        collectionView.backgroundColor = .clear
+        collectionView.register(EmotionCollectionViewCell.self, forCellWithReuseIdentifier: EmotionCollectionViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
         
+        collectionView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(40)
+            $0.height.equalTo(collectionView.snp.width).multipliedBy(1.2)
+        }
     }
     
     override init(frame: CGRect) {
