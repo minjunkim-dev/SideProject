@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol EmotionDelegate {
+    func addEmotionNumber(tag: Int)
+}
+
 class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
+    
+    var delegate: EmotionDelegate?
     
     let button = UIButton().then {
         $0.setTitleColor(.black, for: .normal)
@@ -39,12 +45,6 @@ class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         [button, label].forEach {
             stackView.addArrangedSubview($0)
         }
-        
-        /* temp */
-        let image = UIImage(asset: Asset.lovely)
-        button.setImage(image, for: .normal)
-        let text = "사랑해 0"
-        label.text = text
     }
     
     func setupConstraints() {
@@ -66,6 +66,13 @@ class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         }
     }
     
+    @objc func buttonClicked(_ sender: UIButton) {
+        print(#function)
+        
+        let tag = self.tag
+        delegate?.addEmotionNumber(tag: tag)
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -76,7 +83,7 @@ class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         setupView()
         setupConstraints()
         
-
+        button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
     }
     
 }
