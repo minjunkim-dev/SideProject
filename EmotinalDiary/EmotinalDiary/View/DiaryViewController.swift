@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiaryViewController: UIViewController, EmotionDelegate {
+class DiaryViewController: UIViewController {
     
     private let mainView = DiaryView()
     private let viewModel = EmotionalDiaryViewModel()
@@ -98,32 +98,6 @@ class DiaryViewController: UIViewController, EmotionDelegate {
 
         viewModel.storeEmotionNumber()
     }
-    
-    func addEmotionNumber(tag: Int) {
-        
-        if let emotion = Emotion(rawValue: tag) {
-            switch emotion {
-            case .fun:
-                viewModel.fun.value += 1
-            case .happy:
-                viewModel.happy.value += 1
-            case .lovely:
-                viewModel.lovely.value += 1
-            case .angry:
-                viewModel.angry.value += 1
-            case .helpless:
-                viewModel.helpless.value += 1
-            case .tired:
-                viewModel.tired.value += 1
-            case .embarrassing:
-                viewModel.embarrassing.value += 1
-            case .depressed:
-                viewModel.depressed.value += 1
-            case .upset:
-                viewModel.upset.value += 1
-            }
-        }
-    }
 }
 
 extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -138,7 +112,7 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
             return UICollectionViewCell()
         }
         
-        cell.delegate = self
+        cell.delegate = viewModel
         
         let row = indexPath.row
         cell.tag = row

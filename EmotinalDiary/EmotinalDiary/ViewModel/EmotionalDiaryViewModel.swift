@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmotionalDiaryViewModel {
+class EmotionalDiaryViewModel: EmotionDelegate {
     
     var fun: Observable<Int>
     var happy: Observable<Int>
@@ -44,5 +44,31 @@ class EmotionalDiaryViewModel {
         UserDefaults.embarrassing = embarrassing.value
         UserDefaults.depressed = depressed.value
         UserDefaults.upset = upset.value
+    }
+    
+    func addEmotionNumber(tag: Int) {
+        
+        if let emotion = Emotion(rawValue: tag) {
+            switch emotion {
+            case .fun:
+                fun.value += 1
+            case .happy:
+                happy.value += 1
+            case .lovely:
+                lovely.value += 1
+            case .angry:
+                angry.value += 1
+            case .helpless:
+                helpless.value += 1
+            case .tired:
+                tired.value += 1
+            case .embarrassing:
+                embarrassing.value += 1
+            case .depressed:
+                depressed.value += 1
+            case .upset:
+                upset.value += 1
+            }
+        }
     }
 }
