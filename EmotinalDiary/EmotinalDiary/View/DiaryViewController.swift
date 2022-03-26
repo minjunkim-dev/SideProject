@@ -31,50 +31,65 @@ class DiaryViewController: UIViewController, EmotionDelegate {
     
         viewModel.fun.bind { count in
             let indexPath = IndexPath(row: Emotion.fun.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
         
         viewModel.happy.bind { count in
             let indexPath = IndexPath(row: Emotion.happy.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
         
         viewModel.lovely.bind { count in
             let indexPath = IndexPath(row: Emotion.lovely.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
         
         viewModel.angry.bind { count in
             let indexPath = IndexPath(row: Emotion.angry.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
         
         viewModel.helpless.bind { count in
             let indexPath = IndexPath(row: Emotion.helpless.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
     
         viewModel.tired.bind { count in
             let indexPath = IndexPath(row: Emotion.tired.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
         
         viewModel.embarrassing.bind { count in
             let indexPath = IndexPath(row: Emotion.embarrassing.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
         
         viewModel.depressed.bind { count in
             let indexPath = IndexPath(row: Emotion.depressed.rawValue, section: 0)
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
         
         viewModel.upset.bind { count in
             let indexPath = IndexPath(row: Emotion.upset.rawValue, section: 0)
-//            UIView.performWithoutAnimation {
-//                <#code#>
-//            }
-            self.mainView.collectionView.reloadItems(at: [indexPath])
+            UIView.performWithoutAnimation {
+                self.mainView.collectionView.reloadItems(at: [indexPath])
+            }
         }
     }
     
