@@ -16,6 +16,7 @@
 		CA29C8CA27EDE85400EE6246 /* ViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8C927EDE85400EE6246 /* ViewPresentable.swift */; };
 		CA29C8CC27EDE86800EE6246 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8CB27EDE86800EE6246 /* DiaryView.swift */; };
 		CA29C8CE27EDE88100EE6246 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8CD27EDE88100EE6246 /* DiaryViewController.swift */; };
+		CA29C8D927EE05C100EE6246 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA29C8D827EE05C100EE6246 /* Assets+Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA29C8C927EDE85400EE6246 /* ViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentable.swift; sourceTree = "<group>"; };
 		CA29C8CB27EDE86800EE6246 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		CA29C8CD27EDE88100EE6246 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		CA29C8D827EE05C100EE6246 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +64,14 @@
 		CA29C8AC27EDE60200EE6246 /* EmotinalDiary */ = {
 			isa = PBXGroup;
 			children = (
-				CA29C8C827EDE84400EE6246 /* View */,
-				CA29C8C727EDE83E00EE6246 /* Protocol */,
+				CA29C8BB27EDE60300EE6246 /* Info.plist */,
 				CA29C8AD27EDE60200EE6246 /* AppDelegate.swift */,
+				CA29C8D827EE05C100EE6246 /* Assets+Generated.swift */,
 				CA29C8AF27EDE60200EE6246 /* SceneDelegate.swift */,
 				CA29C8B627EDE60300EE6246 /* Assets.xcassets */,
 				CA29C8B827EDE60300EE6246 /* LaunchScreen.storyboard */,
-				CA29C8BB27EDE60300EE6246 /* Info.plist */,
+				CA29C8C727EDE83E00EE6246 /* Protocol */,
+				CA29C8C827EDE84400EE6246 /* View */,
 			);
 			path = EmotinalDiary;
 			sourceTree = "<group>";
@@ -100,6 +103,7 @@
 				CA29C8A627EDE60200EE6246 /* Sources */,
 				CA29C8A727EDE60200EE6246 /* Frameworks */,
 				CA29C8A827EDE60200EE6246 /* Resources */,
+				CA29C8D327EE011200EE6246 /* SwiftGen Run Script */,
 			);
 			buildRules = (
 			);
@@ -163,6 +167,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CA29C8D327EE011200EE6246 /* SwiftGen Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftGen Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nswiftgen xcassets ${TARGETNAME}/Assets.xcassets -t swift5 --output \"${TARGETNAME}/Assets+Generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CA29C8A627EDE60200EE6246 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -170,6 +195,7 @@
 			files = (
 				CA29C8CA27EDE85400EE6246 /* ViewPresentable.swift in Sources */,
 				CA29C8CE27EDE88100EE6246 /* DiaryViewController.swift in Sources */,
+				CA29C8D927EE05C100EE6246 /* Assets+Generated.swift in Sources */,
 				CA29C8AE27EDE60200EE6246 /* AppDelegate.swift in Sources */,
 				CA29C8CC27EDE86800EE6246 /* DiaryView.swift in Sources */,
 				CA29C8B027EDE60200EE6246 /* SceneDelegate.swift in Sources */,
@@ -297,6 +323,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
