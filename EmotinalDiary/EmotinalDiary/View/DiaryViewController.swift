@@ -20,6 +20,12 @@ class DiaryViewController: UIViewController {
         
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+        
+        let image = UIImage(systemName: "list.dash")
+        let item = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
+        item.tintColor = .black
+        navigationItem.leftBarButtonItem = item
+        navigationItem.title = "감정 다이어리"
     }
 }
 
