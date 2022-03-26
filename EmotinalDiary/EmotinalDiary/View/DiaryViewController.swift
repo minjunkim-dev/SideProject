@@ -22,13 +22,11 @@ class DiaryViewController: UIViewController {
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
         
-        let image = UIImage(systemName: "list.dash")
-        let item = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
+        let item = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetButtonClicked))
         item.tintColor = .black
         navigationItem.leftBarButtonItem = item
         navigationItem.title = "감정 다이어리"
         
-    
         viewModel.fun.bind { count in
             let indexPath = IndexPath(row: Emotion.fun.rawValue, section: 0)
             UIView.performWithoutAnimation {
@@ -91,6 +89,10 @@ class DiaryViewController: UIViewController {
                 self.mainView.collectionView.reloadItems(at: [indexPath])
             }
         }
+    }
+    
+    @objc func resetButtonClicked() {
+        viewModel.resetEmotionNumber()
     }
     
     override func viewDidDisappear(_ animated: Bool) {

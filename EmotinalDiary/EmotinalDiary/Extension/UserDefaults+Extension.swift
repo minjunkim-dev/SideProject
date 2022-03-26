@@ -102,7 +102,7 @@ extension UserDefaults {
 
 /*
 1. 즐거워 = fun
-2. 기뻐 = happy
+2. 행복해 = happy
 3. 사랑스러워 = lovely
 4. 화나 = angry
 5. 무력해 = helpless
@@ -126,7 +126,7 @@ enum Emotion: Int, CaseIterable {
     var description: String {
         switch self {
         case .fun: return "즐거워"
-        case .happy: return "기뻐"
+        case .happy: return "행복해"
         case .lovely: return "사랑스러워"
         case .angry: return "화나"
         case .helpless: return "무력해"

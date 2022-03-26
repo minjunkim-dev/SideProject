@@ -34,6 +34,18 @@ class EmotionalDiaryViewModel: EmotionDelegate {
     
     }
     
+    @objc func resetEmotionNumber() {
+        fun.value = UserDefaults.$fun
+        happy.value = UserDefaults.$happy
+        lovely.value = UserDefaults.$lovely
+        angry.value = UserDefaults.$angry
+        helpless.value = UserDefaults.$helpless
+        tired.value = UserDefaults.$tired
+        embarrassing.value = UserDefaults.$embarrassing
+        depressed.value = UserDefaults.$depressed
+        upset.value = UserDefaults.$upset
+    }
+    
     func storeEmotionNumber() {
         UserDefaults.fun = fun.value
         UserDefaults.happy = happy.value

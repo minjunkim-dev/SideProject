@@ -28,7 +28,6 @@ class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         $0.textColor = .black
         $0.textAlignment = .center
         $0.backgroundColor = .clear
-        $0.font = .systemFont(ofSize: 15, weight: .regular)
     }
     
     let stackView = UIStackView().then {
