@@ -31,6 +31,7 @@ class DiaryView: UIView, ViewPresentable {
         addSubview(imageView)
         
         addSubview(collectionView)
+        collectionView.isScrollEnabled = false
         collectionView.backgroundColor = .clear
         collectionView.register(EmotionCollectionViewCell.self, forCellWithReuseIdentifier: EmotionCollectionViewCell.reuseIdentifier)
     }
@@ -41,10 +42,19 @@ class DiaryView: UIView, ViewPresentable {
             $0.edges.equalToSuperview()
         }
         
+        let isPortrait =
+        UIApplication.shared.windows.first?.windowScene?.interfaceOrientation.isPortrait ?? false
+        
+        isPortrait ?
         collectionView.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(40)
-            $0.height.equalTo(collectionView.snp.width).multipliedBy(1.2)
+            $0.height.equalTo(collectionView.snp.width)
+        } :
+        collectionView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.verticalEdges.equalTo(safeAreaLayoutGuide)
+            $0.width.equalTo(collectionView.snp.height)
         }
     }
     

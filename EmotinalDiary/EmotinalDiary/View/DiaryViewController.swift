@@ -172,3 +172,25 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         return CGSize(width: width, height: height)
     }
 }
+
+extension DiaryViewController {
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+        let isPortrait = UIDevice.current.orientation.isPortrait
+        isPortrait ?
+        mainView.collectionView.snp.remakeConstraints {
+            $0.center.equalToSuperview()
+            $0.horizontalEdges.equalTo(mainView.safeAreaLayoutGuide).inset(40)
+            $0.height.equalTo(mainView.collectionView.snp.width)
+        } :
+        mainView.collectionView.snp.remakeConstraints {
+            $0.center.equalToSuperview()
+            $0.verticalEdges.equalTo(mainView.safeAreaLayoutGuide)
+            $0.width.equalTo(mainView.collectionView.snp.height)
+        }
+        
+        mainView.collectionView.reloadData()
+    }
+}
