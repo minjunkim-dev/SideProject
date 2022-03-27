@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DiaryViewController: UIViewController {
+final class DiaryViewController: UIViewController {
     
     private let mainView = DiaryView()
     private let viewModel = EmotionalDiaryViewModel()
@@ -91,7 +91,7 @@ class DiaryViewController: UIViewController {
         }
     }
     
-    @objc func resetButtonClicked() {
+    @objc private func resetButtonClicked() {
         viewModel.resetEmotionNumber()
     }
     

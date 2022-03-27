@@ -11,7 +11,7 @@ protocol EmotionDelegate {
     func addEmotionNumber(tag: Int)
 }
 
-class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
+final class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     var delegate: EmotionDelegate?
     
@@ -70,7 +70,7 @@ class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         label.text = text
     }
     
-    @objc func buttonClicked() {
+    @objc private func buttonClicked() {
         
         delegate?.addEmotionNumber(tag: tag)
     }

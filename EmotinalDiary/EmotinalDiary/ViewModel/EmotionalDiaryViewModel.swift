@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmotionalDiaryViewModel: EmotionDelegate {
+final class EmotionalDiaryViewModel: EmotionDelegate {
     
     var fun: Observable<Int>
     var happy: Observable<Int>

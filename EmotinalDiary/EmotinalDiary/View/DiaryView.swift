@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class DiaryView: UIView, ViewPresentable {
+final class DiaryView: UIView, ViewPresentable {
     
     let imageView = UIImageView().then {
         $0.image = Assets.background.image
