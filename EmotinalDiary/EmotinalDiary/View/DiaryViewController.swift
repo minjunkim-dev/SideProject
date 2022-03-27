@@ -25,7 +25,7 @@ class DiaryViewController: UIViewController {
         let item = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(resetButtonClicked))
         item.tintColor = .black
         navigationItem.leftBarButtonItem = item
-        navigationItem.title = "감정 다이어리"
+        navigationItem.title = "title".localized()
         
         viewModel.fun.bind { count in
             let indexPath = IndexPath(row: Emotion.fun.rawValue, section: 0)
@@ -70,7 +70,7 @@ class DiaryViewController: UIViewController {
         }
         
         viewModel.embarrassing.bind { count in
-            let indexPath = IndexPath(row: Emotion.embarrassing.rawValue, section: 0)
+            let indexPath = IndexPath(row: Emotion.embarrassed.rawValue, section: 0)
             UIView.performWithoutAnimation {
                 self.mainView.collectionView.reloadItems(at: [indexPath])
             }
@@ -141,7 +141,7 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
                 count = viewModel.helpless.value
             case .tired:
                 count = viewModel.tired.value
-            case .embarrassing:
+            case .embarrassed:
                 count = viewModel.embarrassing.value
             case .depressed:
                 count = viewModel.depressed.value

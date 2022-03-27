@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  EmotinalDiary
+
+  Created by beneDev on 2022/03/27.
+  
+*/
+
+"title" = "Emotional Diary";
+
+"emotion1" = "fun";
+"emotion2" = "happy";
+"emotion3" = "lovely";
+"emotion4" = "angry";
+"emotion5" = "helpless";
+"emotion6" = "tired";
+"emotion7" = "perplexed";
+"emotion8" = "depressed";
+"emotion9" = "upset";

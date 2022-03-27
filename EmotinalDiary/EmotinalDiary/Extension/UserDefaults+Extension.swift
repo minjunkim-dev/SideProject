@@ -77,8 +77,8 @@ extension UserDefaults {
     @UserDefault(key: Emotion.tired.description, defaultValue: 0)
     static var tired: Int
     
-    @UserDefault(key: Emotion.embarrassing.description, defaultValue: 0)
-    static var embarrassing: Int
+    @UserDefault(key: Emotion.embarrassed.description, defaultValue: 0)
+    static var perplexed: Int
     
     @UserDefault(key: Emotion.depressed.description, defaultValue: 0)
     static var depressed: Int
@@ -94,7 +94,7 @@ extension UserDefaults {
         angry = $angry
         helpless = $helpless
         tired = $tired
-        embarrassing = $embarrassing
+        perplexed = $perplexed
         depressed = $depressed
         upset = $upset
     }
@@ -107,21 +107,21 @@ enum Emotion: Int, CaseIterable {
     case angry
     case helpless
     case tired
-    case embarrassing
+    case embarrassed
     case depressed
     case upset
     
     var description: String {
         switch self {
-        case .fun: return "즐거워"
-        case .happy: return "행복해"
-        case .lovely: return "사랑스러워"
-        case .angry: return "화나"
-        case .helpless: return "무력해"
-        case .tired: return "피곤해"
-        case .embarrassing: return "난감해"
-        case .depressed: return "우울해"
-        case .upset: return "속상해"
+        case .fun: return "emotion1".localized()
+        case .happy: return "emotion2".localized()
+        case .lovely: return "emotion3".localized()
+        case .angry: return "emotion4".localized()
+        case .helpless: return "emotion5".localized()
+        case .tired: return "emotion6".localized()
+        case .embarrassed: return "emotion7".localized()
+        case .depressed: return "emotion8".localized()
+        case .upset: return "emotion9".localized()
         }
     }
     
@@ -133,7 +133,7 @@ enum Emotion: Int, CaseIterable {
         case .angry: return Assets.angry.image
         case .helpless: return Assets.helpless.image
         case .tired: return Assets.tired.image
-        case .embarrassing: return Assets.embarrassing.image
+        case .embarrassed: return Assets.embarrassing.image
         case .depressed: return Assets.depressed.image
         case .upset: return Assets.upset.image
         }

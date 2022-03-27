@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  EmotinalDiary
+
+  Created by beneDev on 2022/03/27.
+  
+*/
+
+"title" = "감정 다이어리";
+
+"emotion1" = "즐거워";
+"emotion2" = "행복해";
+"emotion3" = "사랑스러워";
+"emotion4" = "화나";
+"emotion5" = "무력해";
+"emotion6" = "피곤해";
+"emotion7" = "난감해";
+"emotion8" = "우울해";
+"emotion9" = "속상해";

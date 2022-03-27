@@ -28,7 +28,7 @@ class EmotionalDiaryViewModel: EmotionDelegate {
         angry = Observable(UserDefaults.angry)
         helpless = Observable(UserDefaults.helpless)
         tired = Observable(UserDefaults.tired)
-        embarrassing = Observable(UserDefaults.embarrassing)
+        embarrassing = Observable(UserDefaults.perplexed)
         depressed = Observable(UserDefaults.depressed)
         upset = Observable(UserDefaults.upset)
     
@@ -41,7 +41,7 @@ class EmotionalDiaryViewModel: EmotionDelegate {
         angry.value = UserDefaults.$angry
         helpless.value = UserDefaults.$helpless
         tired.value = UserDefaults.$tired
-        embarrassing.value = UserDefaults.$embarrassing
+        embarrassing.value = UserDefaults.$perplexed
         depressed.value = UserDefaults.$depressed
         upset.value = UserDefaults.$upset
     }
@@ -53,7 +53,7 @@ class EmotionalDiaryViewModel: EmotionDelegate {
         UserDefaults.angry = angry.value
         UserDefaults.helpless = helpless.value
         UserDefaults.tired = tired.value
-        UserDefaults.embarrassing = embarrassing.value
+        UserDefaults.perplexed = embarrassing.value
         UserDefaults.depressed = depressed.value
         UserDefaults.upset = upset.value
     }
@@ -74,7 +74,7 @@ class EmotionalDiaryViewModel: EmotionDelegate {
                 helpless.value += 1
             case .tired:
                 tired.value += 1
-            case .embarrassing:
+            case .embarrassed:
                 embarrassing.value += 1
             case .depressed:
                 depressed.value += 1
