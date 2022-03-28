@@ -27,17 +27,16 @@ class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
         $0.clipsToBounds = true
     }
     
-    func configureCell(dDay: Int, date: Date) {
-        
+    func configureCell(dDay: Int, date: Date, image: UIImage) {
+        imageView.image = image
         dDayLabel.text = "D+\(dDay)"
         let format = "yyyy년\nM월 d일\nEEEE"
-        dateLabel.text = date.toString(format: format)
+        dateLabel.text = date.convertToString(format: format)
     }
     
     func setupView() {
         
         contentView.addSubview(imageView)
-        imageView.image = Assets.icecream.image
         
         [dDayLabel, dateLabel].forEach {
             imageView.addSubview($0)

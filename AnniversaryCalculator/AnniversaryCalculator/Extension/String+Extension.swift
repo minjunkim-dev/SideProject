@@ -9,7 +9,7 @@ import Foundation
 
 extension String {
     
-    func toGMT(format: String) -> Date {
+    func convertToGMT(format: String) -> Date {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: Locale.preferredLanguages.first!)
         formatter.timeZone = TimeZone(secondsFromGMT: 0)

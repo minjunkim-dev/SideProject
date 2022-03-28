@@ -12,6 +12,12 @@ final class AnniversaryCalculatorViewController: UIViewController {
     private let mainView = AnniversaryCalculatorView()
     
     private let dDayList = [100, 200, 300, 365]
+    private let imageList = [
+        Assets.icecream.image,
+        Assets.macaroon.image,
+        Assets.doughnut.image,
+        Assets.cake.image
+    ]
     
     override func loadView() {
         view = mainView
@@ -46,8 +52,10 @@ extension AnniversaryCalculatorViewController: UICollectionViewDataSource, UICol
         }
         
         let row = indexPath.row
-        let date = mainView.datePicker.date
-        cell.configureCell(dDay: dDayList[row], date: date)
+        let dDay = dDayList[row]
+        let date = mainView.datePicker.date.addDays(day: dDay)
+        let image = imageList[row]
+        cell.configureCell(dDay: dDay, date: date, image: image)
         
         return cell
     }
