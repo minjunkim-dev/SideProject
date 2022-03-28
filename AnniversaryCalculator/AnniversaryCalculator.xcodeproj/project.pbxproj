@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		CA30A15C27F08F9100470908 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A15B27F08F9100470908 /* AppDelegate.swift */; };
 		CA30A15E27F08F9100470908 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A15D27F08F9100470908 /* SceneDelegate.swift */; };
-		CA30A16527F08F9200470908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA30A16427F08F9200470908 /* Assets.xcassets */; };
 		CA30A16827F08F9200470908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA30A16627F08F9200470908 /* LaunchScreen.storyboard */; };
 		CA30A17F27F09A6000470908 /* AnniversaryCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A17E27F09A6000470908 /* AnniversaryCalculatorViewController.swift */; };
 		CA30A18227F09AAB00470908 /* AnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18127F09AAB00470908 /* AnniversaryView.swift */; };
 		CA30A18527F09ABA00470908 /* ViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18427F09ABA00470908 /* ViewPresentable.swift */; };
+		CA30A18B27F13F2B00470908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA30A18A27F13F2B00470908 /* Assets.xcassets */; };
+		CA30A18F27F13FEA00470908 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18E27F13FEA00470908 /* Assets+Generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA30A15827F08F9100470908 /* AnniversaryCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnniversaryCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA30A15B27F08F9100470908 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA30A15D27F08F9100470908 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CA30A16427F08F9200470908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA30A16727F08F9200470908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA30A16927F08F9200470908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA30A17E27F09A6000470908 /* AnniversaryCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCalculatorViewController.swift; sourceTree = "<group>"; };
 		CA30A18127F09AAB00470908 /* AnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryView.swift; sourceTree = "<group>"; };
 		CA30A18427F09ABA00470908 /* ViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentable.swift; sourceTree = "<group>"; };
+		CA30A18A27F13F2B00470908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA30A18E27F13FEA00470908 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,8 @@
 				CA30A18027F09A9A00470908 /* View */,
 				CA30A15B27F08F9100470908 /* AppDelegate.swift */,
 				CA30A15D27F08F9100470908 /* SceneDelegate.swift */,
-				CA30A16427F08F9200470908 /* Assets.xcassets */,
+				CA30A18A27F13F2B00470908 /* Assets.xcassets */,
+				CA30A18E27F13FEA00470908 /* Assets+Generated.swift */,
 				CA30A16627F08F9200470908 /* LaunchScreen.storyboard */,
 				CA30A16927F08F9200470908 /* Info.plist */,
 			);
@@ -96,6 +99,7 @@
 				CA30A15427F08F9100470908 /* Sources */,
 				CA30A15527F08F9100470908 /* Frameworks */,
 				CA30A15627F08F9100470908 /* Resources */,
+				CA30A18927F13E2100470908 /* SwiftGen Run Script */,
 			);
 			buildRules = (
 			);
@@ -145,11 +149,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA30A16827F08F9200470908 /* LaunchScreen.storyboard in Resources */,
-				CA30A16527F08F9200470908 /* Assets.xcassets in Resources */,
+				CA30A18B27F13F2B00470908 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA30A18927F13E2100470908 /* SwiftGen Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftGen Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nswiftgen run xcassets --param enumName=Assets ${TARGETNAME}/Assets.xcassets -t swift5 --output \"${TARGETNAME}/Assets+Generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CA30A15427F08F9100470908 /* Sources */ = {
@@ -158,6 +183,7 @@
 			files = (
 				CA30A18527F09ABA00470908 /* ViewPresentable.swift in Sources */,
 				CA30A15C27F08F9100470908 /* AppDelegate.swift in Sources */,
+				CA30A18F27F13FEA00470908 /* Assets+Generated.swift in Sources */,
 				CA30A18227F09AAB00470908 /* AnniversaryView.swift in Sources */,
 				CA30A17F27F09A6000470908 /* AnniversaryCalculatorViewController.swift in Sources */,
 				CA30A15E27F08F9100470908 /* SceneDelegate.swift in Sources */,
