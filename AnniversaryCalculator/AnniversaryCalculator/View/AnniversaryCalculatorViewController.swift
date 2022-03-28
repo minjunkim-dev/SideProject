@@ -9,7 +9,7 @@ import UIKit
 
 final class AnniversaryCalculatorViewController: UIViewController {
     
-    private let mainView = AnniversaryView()
+    private let mainView = AnniversaryCalculatorView()
     
     override func loadView() {
         view = mainView

@@ -11,10 +11,12 @@
 		CA30A15E27F08F9100470908 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A15D27F08F9100470908 /* SceneDelegate.swift */; };
 		CA30A16827F08F9200470908 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA30A16627F08F9200470908 /* LaunchScreen.storyboard */; };
 		CA30A17F27F09A6000470908 /* AnniversaryCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A17E27F09A6000470908 /* AnniversaryCalculatorViewController.swift */; };
-		CA30A18227F09AAB00470908 /* AnniversaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18127F09AAB00470908 /* AnniversaryView.swift */; };
+		CA30A18227F09AAB00470908 /* AnniversaryCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18127F09AAB00470908 /* AnniversaryCalculatorView.swift */; };
 		CA30A18527F09ABA00470908 /* ViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18427F09ABA00470908 /* ViewPresentable.swift */; };
 		CA30A18B27F13F2B00470908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA30A18A27F13F2B00470908 /* Assets.xcassets */; };
 		CA30A18F27F13FEA00470908 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18E27F13FEA00470908 /* Assets+Generated.swift */; };
+		CA30A19227F1419000470908 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA30A19127F1419000470908 /* SnapKit */; };
+		CA30A19527F1419B00470908 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA30A19427F1419B00470908 /* Then */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +26,7 @@
 		CA30A16727F08F9200470908 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA30A16927F08F9200470908 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA30A17E27F09A6000470908 /* AnniversaryCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCalculatorViewController.swift; sourceTree = "<group>"; };
-		CA30A18127F09AAB00470908 /* AnniversaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryView.swift; sourceTree = "<group>"; };
+		CA30A18127F09AAB00470908 /* AnniversaryCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCalculatorView.swift; sourceTree = "<group>"; };
 		CA30A18427F09ABA00470908 /* ViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentable.swift; sourceTree = "<group>"; };
 		CA30A18A27F13F2B00470908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA30A18E27F13FEA00470908 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
@@ -35,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA30A19227F1419000470908 /* SnapKit in Frameworks */,
+				CA30A19527F1419B00470908 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				CA30A17E27F09A6000470908 /* AnniversaryCalculatorViewController.swift */,
-				CA30A18127F09AAB00470908 /* AnniversaryView.swift */,
+				CA30A18127F09AAB00470908 /* AnniversaryCalculatorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,6 +110,10 @@
 			dependencies = (
 			);
 			name = AnniversaryCalculator;
+			packageProductDependencies = (
+				CA30A19127F1419000470908 /* SnapKit */,
+				CA30A19427F1419B00470908 /* Then */,
+			);
 			productName = AnniversaryCalculator;
 			productReference = CA30A15827F08F9100470908 /* AnniversaryCalculator.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +142,10 @@
 				Base,
 			);
 			mainGroup = CA30A14F27F08F9100470908;
+			packageReferences = (
+				CA30A19027F1419000470908 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CA30A19327F1419B00470908 /* XCRemoteSwiftPackageReference "Then" */,
+			);
 			productRefGroup = CA30A15927F08F9100470908 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -184,7 +196,7 @@
 				CA30A18527F09ABA00470908 /* ViewPresentable.swift in Sources */,
 				CA30A15C27F08F9100470908 /* AppDelegate.swift in Sources */,
 				CA30A18F27F13FEA00470908 /* Assets+Generated.swift in Sources */,
-				CA30A18227F09AAB00470908 /* AnniversaryView.swift in Sources */,
+				CA30A18227F09AAB00470908 /* AnniversaryCalculatorView.swift in Sources */,
 				CA30A17F27F09A6000470908 /* AnniversaryCalculatorViewController.swift in Sources */,
 				CA30A15E27F08F9100470908 /* SceneDelegate.swift in Sources */,
 			);
@@ -394,6 +406,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CA30A19027F1419000470908 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		CA30A19327F1419B00470908 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CA30A19127F1419000470908 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA30A19027F1419000470908 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		CA30A19427F1419B00470908 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA30A19327F1419B00470908 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CA30A15027F08F9100470908 /* Project object */;
 }
