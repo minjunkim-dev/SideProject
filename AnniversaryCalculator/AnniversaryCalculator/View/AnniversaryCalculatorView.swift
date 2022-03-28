@@ -26,24 +26,41 @@ final class AnniversaryCalculatorView: UIView, ViewPresentable {
         $0.timeZone = TimeZone(identifier: TimeZone.autoupdatingCurrent.identifier)
     }
     
+    let collectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.scrollDirection = .horizontal
+        flowLayout.minimumInteritemSpacing = 20
+        flowLayout.minimumLineSpacing = 20
+        flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        
+        return UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    }()
+    
     func setupView() {
         
         backgroundColor = .white
-//        datePicker.setValue(UIColor.black, forKey: "textColor")
-//        datePicker.setValue(false, forKeyPath: "highlightsToday")
+        //        datePicker.setValue(UIColor.black, forKey: "textColor")
+        //        datePicker.setValue(false, forKeyPath: "highlightsToday")
         datePicker.overrideUserInterfaceStyle = .light
-
         
         addSubview(datePicker)
-    
+        
+        addSubview(collectionView)
+        collectionView.register(AnniversaryCollectionViewCell.self, forCellWithReuseIdentifier: AnniversaryCollectionViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
         
         datePicker.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide).inset(20)
+            $0.top.equalTo(safeAreaLayoutGuide).inset(10)
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
-            $0.height.equalToSuperview().multipliedBy(0.4)
+            $0.bottom.equalTo(collectionView.snp.top).offset(-30)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
+            $0.bottom.equalTo(safeAreaLayoutGuide).inset(20)
+            $0.height.equalToSuperview().multipliedBy(0.5)
         }
     }
     

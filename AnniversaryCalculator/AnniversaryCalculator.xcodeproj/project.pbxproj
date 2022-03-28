@@ -17,6 +17,10 @@
 		CA30A18F27F13FEA00470908 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A18E27F13FEA00470908 /* Assets+Generated.swift */; };
 		CA30A19227F1419000470908 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA30A19127F1419000470908 /* SnapKit */; };
 		CA30A19527F1419B00470908 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA30A19427F1419B00470908 /* Then */; };
+		CAD1C11727F150E1004DC549 /* AnniversaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1C11627F150E1004DC549 /* AnniversaryCollectionViewCell.swift */; };
+		CAD1C11927F15107004DC549 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1C11827F15107004DC549 /* ReusableView.swift */; };
+		CAD1C11B27F15150004DC549 /* UICollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1C11A27F15150004DC549 /* UICollectionViewCellRepresentable.swift */; };
+		CAD1C11E27F151FB004DC549 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1C11D27F151FB004DC549 /* UICollectionViewCell+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		CA30A18427F09ABA00470908 /* ViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentable.swift; sourceTree = "<group>"; };
 		CA30A18A27F13F2B00470908 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA30A18E27F13FEA00470908 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
+		CAD1C11627F150E1004DC549 /* AnniversaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		CAD1C11827F15107004DC549 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		CAD1C11A27F15150004DC549 /* UICollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellRepresentable.swift; sourceTree = "<group>"; };
+		CAD1C11D27F151FB004DC549 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,8 @@
 		CA30A15A27F08F9100470908 /* AnniversaryCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				CAD1C11C27F151E9004DC549 /* Extension */,
+				CAD1C11527F150A0004DC549 /* Cell */,
 				CA30A18327F09AAF00470908 /* Protocol */,
 				CA30A18027F09A9A00470908 /* View */,
 				CA30A15B27F08F9100470908 /* AppDelegate.swift */,
@@ -89,8 +99,26 @@
 			isa = PBXGroup;
 			children = (
 				CA30A18427F09ABA00470908 /* ViewPresentable.swift */,
+				CAD1C11827F15107004DC549 /* ReusableView.swift */,
+				CAD1C11A27F15150004DC549 /* UICollectionViewCellRepresentable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CAD1C11527F150A0004DC549 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CAD1C11627F150E1004DC549 /* AnniversaryCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CAD1C11C27F151E9004DC549 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CAD1C11D27F151FB004DC549 /* UICollectionViewCell+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,9 +224,13 @@
 				CA30A18527F09ABA00470908 /* ViewPresentable.swift in Sources */,
 				CA30A15C27F08F9100470908 /* AppDelegate.swift in Sources */,
 				CA30A18F27F13FEA00470908 /* Assets+Generated.swift in Sources */,
+				CAD1C11927F15107004DC549 /* ReusableView.swift in Sources */,
+				CAD1C11727F150E1004DC549 /* AnniversaryCollectionViewCell.swift in Sources */,
 				CA30A18227F09AAB00470908 /* AnniversaryCalculatorView.swift in Sources */,
 				CA30A17F27F09A6000470908 /* AnniversaryCalculatorViewController.swift in Sources */,
 				CA30A15E27F08F9100470908 /* SceneDelegate.swift in Sources */,
+				CAD1C11E27F151FB004DC549 /* UICollectionViewCell+Extension.swift in Sources */,
+				CAD1C11B27F15150004DC549 /* UICollectionViewCellRepresentable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
