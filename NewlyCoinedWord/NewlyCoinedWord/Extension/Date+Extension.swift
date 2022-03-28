@@ -12,7 +12,7 @@ extension Date { // Date는 TimeZone을 바꾸더라도 항상 UTC 기준임을 
     static func isFirstDayOfMonth(date: Date = Date()) -> Bool {
         
         var calendar = Calendar(identifier: .gregorian)
-        calendar.locale = Locale(identifier: Locale.autoupdatingCurrent.identifier)
+        calendar.locale = Locale(identifier: Locale.preferredLanguages.first!)
         calendar.timeZone = TimeZone(identifier: TimeZone.autoupdatingCurrent.identifier)!
 
 //        print(toString(format: "yyyy-MM-dd", date: date))

@@ -11,6 +11,8 @@ final class AnniversaryCalculatorViewController: UIViewController {
     
     private let mainView = AnniversaryCalculatorView()
     
+    private let dDayList = [100, 200, 300, 365]
+    
     override func loadView() {
         view = mainView
     }
@@ -20,13 +22,21 @@ final class AnniversaryCalculatorViewController: UIViewController {
         
         mainView.collectionView.delegate = self
         mainView.collectionView.dataSource = self
+        
+        mainView.datePicker.addTarget(self, action: #selector(changeDatePickerValue), for: .valueChanged)
+    
+    }
+    
+    @objc func changeDatePickerValue() {
+        
+        mainView.collectionView.reloadData()
     }
 }
 
 extension AnniversaryCalculatorViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return dDayList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -34,6 +44,10 @@ extension AnniversaryCalculatorViewController: UICollectionViewDataSource, UICol
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AnniversaryCollectionViewCell.reuseIdentifier, for: indexPath) as? AnniversaryCollectionViewCell else {
             return UICollectionViewCell()
         }
+        
+        let row = indexPath.row
+        let date = mainView.datePicker.date
+        cell.configureCell(dDay: dDayList[row], date: date)
         
         return cell
     }

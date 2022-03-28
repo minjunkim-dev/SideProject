@@ -18,13 +18,20 @@ class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
     let dateLabel = UILabel().then {
         $0.textColor = .white
         $0.textAlignment = .center
-        $0.numberOfLines = 2
+        $0.numberOfLines = 3
     }
     
     let imageView = UIImageView().then {
         $0.contentMode = .scaleToFill
         $0.layer.cornerRadius = 20
         $0.clipsToBounds = true
+    }
+    
+    func configureCell(dDay: Int, date: Date) {
+        
+        dDayLabel.text = "D+\(dDay)"
+        let format = "yyyy년\nM월 d일\nEEEE"
+        dateLabel.text = date.toString(format: format)
     }
     
     func setupView() {
@@ -35,9 +42,6 @@ class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
         [dDayLabel, dateLabel].forEach {
             imageView.addSubview($0)
         }
-        
-        dDayLabel.text = "D+365"
-        dateLabel.text = "2022년\n01월 21일"
     }
     
     func setupConstraints() {
