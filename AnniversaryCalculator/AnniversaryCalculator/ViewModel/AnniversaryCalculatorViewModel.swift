@@ -13,10 +13,10 @@ final class AnniversaryCalculatorViewModel {
     
     init() {
         data.value = [
-            DDay(dday: 100, image: Assets.icecream.image),
-            DDay(dday: 200, image: Assets.macaroon.image),
-            DDay(dday: 300, image: Assets.doughnut.image),
-            DDay(dday: 365, image: Assets.cake.image)
+            DDay(dday: 100, image: Assets.image0.image),
+            DDay(dday: 200, image: Assets.image1.image),
+            DDay(dday: 300, image: Assets.image2.image),
+            DDay(dday: 365, image: Assets.image3.image)
         ]
     }
 }

@@ -10,15 +10,17 @@ import UIKit
 class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     let dDayLabel = UILabel().then {
-        $0.textColor = .white
+        $0.textColor = .black
         $0.textAlignment = .center
         $0.numberOfLines = 1
+        $0.font = .systemFont(ofSize: 25, weight: .heavy)
     }
     
     let dateLabel = UILabel().then {
-        $0.textColor = .white
+        $0.textColor = .black
         $0.textAlignment = .center
         $0.numberOfLines = 3
+        $0.font = .systemFont(ofSize: 20, weight: .regular)
     }
     
     let imageView = UIImageView().then {
@@ -29,6 +31,7 @@ class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     func configureCell(data: DDay, date: Date) {
         imageView.image = data.image
+//            .rotate(radians: .pi / 2)
         dDayLabel.text = "D+\(data.dday)"
         let format = "yyyy년\nM월 d일\nEEEE"
         dateLabel.text = date.convertToString(format: format)
