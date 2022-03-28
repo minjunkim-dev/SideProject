@@ -28,6 +28,7 @@ final class AnniversaryCalculatorViewController: UIViewController {
     
     @objc func changeDatePickerValue() {
         
+        UserDefaults.baseDate = mainView.datePicker.date
         mainView.collectionView.reloadData()
     }
 }

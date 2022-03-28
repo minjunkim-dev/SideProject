@@ -24,6 +24,7 @@ final class AnniversaryCalculatorView: UIView, ViewPresentable {
         $0.datePickerMode = .date
         $0.locale = Locale(identifier: Locale.preferredLanguages.first!)
         $0.timeZone = TimeZone(identifier: TimeZone.autoupdatingCurrent.identifier)
+        $0.setDate(UserDefaults.baseDate, animated: false)
     }
     
     let collectionView: UICollectionView = {

@@ -21,6 +21,7 @@
 		CAA921B527F178AC00C16D7D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA921B427F178AC00C16D7D /* Observable.swift */; };
 		CAA921B827F178CD00C16D7D /* AnniversaryCalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA921B727F178CD00C16D7D /* AnniversaryCalculatorViewModel.swift */; };
 		CAA921BA27F178F500C16D7D /* DDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA921B927F178F500C16D7D /* DDay.swift */; };
+		CAA921BC27F17D5B00C16D7D /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA921BB27F17D5B00C16D7D /* UserDefaults+Extension.swift */; };
 		CAD1C11727F150E1004DC549 /* AnniversaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1C11627F150E1004DC549 /* AnniversaryCollectionViewCell.swift */; };
 		CAD1C11927F15107004DC549 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1C11827F15107004DC549 /* ReusableView.swift */; };
 		CAD1C11B27F15150004DC549 /* UICollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAD1C11A27F15150004DC549 /* UICollectionViewCellRepresentable.swift */; };
@@ -43,6 +44,7 @@
 		CAA921B427F178AC00C16D7D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		CAA921B727F178CD00C16D7D /* AnniversaryCalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCalculatorViewModel.swift; sourceTree = "<group>"; };
 		CAA921B927F178F500C16D7D /* DDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDay.swift; sourceTree = "<group>"; };
+		CAA921BB27F17D5B00C16D7D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
 		CAD1C11627F150E1004DC549 /* AnniversaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		CAD1C11827F15107004DC549 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		CAD1C11A27F15150004DC549 /* UICollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCellRepresentable.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				CAD1C11D27F151FB004DC549 /* UICollectionViewCell+Extension.swift */,
 				CAD1C12127F164D1004DC549 /* Date+Extension.swift */,
 				CAA921B127F16E8700C16D7D /* String+Extension.swift */,
+				CAA921BB27F17D5B00C16D7D /* UserDefaults+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				CA30A18F27F13FEA00470908 /* Assets+Generated.swift in Sources */,
 				CAD1C11927F15107004DC549 /* ReusableView.swift in Sources */,
 				CAA921B827F178CD00C16D7D /* AnniversaryCalculatorViewModel.swift in Sources */,
+				CAA921BC27F17D5B00C16D7D /* UserDefaults+Extension.swift in Sources */,
 				CAA921B227F16E8700C16D7D /* String+Extension.swift in Sources */,
 				CAD1C11727F150E1004DC549 /* AnniversaryCollectionViewCell.swift in Sources */,
 				CA30A18227F09AAB00470908 /* AnniversaryCalculatorView.swift in Sources */,
