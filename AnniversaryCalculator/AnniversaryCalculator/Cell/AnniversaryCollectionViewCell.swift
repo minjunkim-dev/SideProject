@@ -33,7 +33,10 @@ class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
         imageView.image = data.image
 //            .rotate(radians: .pi / 2)
         dDayLabel.text = "D+\(data.dday)"
-        let format = "yyyy년\nM월 d일\nEEEE"
+        let yearString = "year".localized()
+        let monthString = "month".localized()
+        let dayString = "day".localized()
+        let format = "yyyy\(yearString)\nM\(monthString) d\(dayString)\nEEEE"
         dateLabel.text = date.convertToString(format: format)
     }
     

@@ -16,4 +16,8 @@ extension String {
         formatter.dateFormat = format
         return formatter.date(from: self) ?? Date()
     }
+    
+    func localized(comment: String = "") -> String {
+        return NSLocalizedString(self, comment: comment)
+    }
 }

@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  AnniversaryCalculator
+
+  Created by beneDev on 2022/03/28.
+  
+*/
+
+"year" = "";
+"month" = " /";
+"day" = "";

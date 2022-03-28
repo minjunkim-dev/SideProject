@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  AnniversaryCalculator
+
+  Created by beneDev on 2022/03/28.
+  
+*/
+
+"CFBundleDisplayName" = "기념일 계산기";

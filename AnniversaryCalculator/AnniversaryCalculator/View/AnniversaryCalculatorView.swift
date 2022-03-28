@@ -47,6 +47,7 @@ final class AnniversaryCalculatorView: UIView, ViewPresentable {
         addSubview(datePicker)
         
         addSubview(collectionView)
+        collectionView.backgroundColor = .white
         collectionView.register(AnniversaryCollectionViewCell.self, forCellWithReuseIdentifier: AnniversaryCollectionViewCell.reuseIdentifier)
     }
     
@@ -55,13 +56,13 @@ final class AnniversaryCalculatorView: UIView, ViewPresentable {
         datePicker.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).inset(10)
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(10)
-            $0.bottom.equalTo(collectionView.snp.top).offset(-30)
+            $0.bottom.equalTo(collectionView.snp.top).offset(-20)
         }
         
         collectionView.snp.makeConstraints {
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
             $0.bottom.equalTo(safeAreaLayoutGuide).inset(20)
-            $0.height.equalToSuperview().multipliedBy(0.5)
+            $0.height.equalToSuperview().multipliedBy(0.6)
         }
     }
     
