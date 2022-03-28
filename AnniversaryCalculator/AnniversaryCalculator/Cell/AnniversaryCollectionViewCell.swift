@@ -37,6 +37,7 @@ class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
         let monthString = "month".localized()
         let dayString = "day".localized()
         let format = "yyyy\(yearString)\nM\(monthString) d\(dayString)\nEEEE"
+        dateLabel.transition(0.5)
         dateLabel.text = date.convertToString(format: format)
     }
     

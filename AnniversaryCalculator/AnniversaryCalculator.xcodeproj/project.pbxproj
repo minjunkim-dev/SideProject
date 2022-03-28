@@ -20,6 +20,7 @@
 		CA86881027F181A500320E11 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86880F27F181A500320E11 /* UIImage+Extension.swift */; };
 		CA86881627F18A6E00320E11 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA86881827F18A6E00320E11 /* InfoPlist.strings */; };
 		CA86881A27F18AB100320E11 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA86881C27F18AB100320E11 /* Localizable.strings */; };
+		CA86881F27F1911E00320E11 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA86881E27F1911E00320E11 /* UIView+Extension.swift */; };
 		CAA921B227F16E8700C16D7D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA921B127F16E8700C16D7D /* String+Extension.swift */; };
 		CAA921B527F178AC00C16D7D /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA921B427F178AC00C16D7D /* Observable.swift */; };
 		CAA921B827F178CD00C16D7D /* AnniversaryCalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA921B727F178CD00C16D7D /* AnniversaryCalculatorViewModel.swift */; };
@@ -49,6 +50,7 @@
 		CA86881927F18A7000320E11 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CA86881B27F18AB100320E11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA86881D27F18AB200320E11 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CA86881E27F1911E00320E11 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CAA921B127F16E8700C16D7D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		CAA921B427F178AC00C16D7D /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		CAA921B727F178CD00C16D7D /* AnniversaryCalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryCalculatorViewModel.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				CAA921B127F16E8700C16D7D /* String+Extension.swift */,
 				CAA921BB27F17D5B00C16D7D /* UserDefaults+Extension.swift */,
 				CA86880F27F181A500320E11 /* UIImage+Extension.swift */,
+				CA86881E27F1911E00320E11 /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				CA30A18227F09AAB00470908 /* AnniversaryCalculatorView.swift in Sources */,
 				CA30A17F27F09A6000470908 /* AnniversaryCalculatorViewController.swift in Sources */,
 				CA30A15E27F08F9100470908 /* SceneDelegate.swift in Sources */,
+				CA86881F27F1911E00320E11 /* UIView+Extension.swift in Sources */,
 				CA86881027F181A500320E11 /* UIImage+Extension.swift in Sources */,
 				CAD1C11E27F151FB004DC549 /* UICollectionViewCell+Extension.swift in Sources */,
 				CAA921BA27F178F500C16D7D /* DDay.swift in Sources */,
