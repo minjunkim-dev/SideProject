@@ -12,8 +12,8 @@ import Then
 
 final class NewlyCoinedWordViewController: UIViewController {
     
-    let mainView = NewlyCoinedWordView()
-    let viewModel = NewlyCoinedWordViewModel()
+    private let mainView = NewlyCoinedWordView()
+    private let viewModel = NewlyCoinedWordViewModel()
     
     override func loadView() {
         view = mainView

@@ -15,7 +15,7 @@ final class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     var delegate: HashTagDelegate?
     
-    let button = UIButton().then {
+    private let button = UIButton().then {
         $0.setTitleColor(.black, for: .normal)
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.black.cgColor
@@ -36,7 +36,7 @@ final class HashTagCollectionViewCell: UICollectionViewCell, ViewPresentable {
         button.setTitle(newlyCoinedWord, for: .normal)
     }
     
-    @objc func buttonClicked(_ sender: UIButton) {
+    @objc private func buttonClicked(_ sender: UIButton) {
         delegate?.searchByHashTag(query: sender.currentTitle ?? "")
     }
     
