@@ -95,7 +95,6 @@
 		CA927A5727E1C5C100F90049 = {
 			isa = PBXGroup;
 			children = (
-				CAA61B5627EDB4E5003DDBA4 /* Localizable.strings */,
 				CA927A6227E1C5C100F90049 /* NewlyCoinedWord */,
 				CA927A6127E1C5C100F90049 /* Products */,
 			);
@@ -112,6 +111,8 @@
 		CA927A6227E1C5C100F90049 /* NewlyCoinedWord */ = {
 			isa = PBXGroup;
 			children = (
+				CAA61B5627EDB4E5003DDBA4 /* Localizable.strings */,
+				CAA61B4F27EDB338003DDBA4 /* InfoPlist.strings */,
 				CA927A7127E1C5C300F90049 /* Info.plist */,
 				CA927A6327E1C5C100F90049 /* AppDelegate.swift */,
 				CA927A6527E1C5C100F90049 /* SceneDelegate.swift */,
@@ -125,7 +126,6 @@
 				CA927A9627E1FA9100F90049 /* Protocol */,
 				CA927A7F27E1C7A600F90049 /* View */,
 				CA927A8027E1C7AB00F90049 /* ViewModel */,
-				CAA61B4F27EDB338003DDBA4 /* InfoPlist.strings */,
 			);
 			path = NewlyCoinedWord;
 			sourceTree = "<group>";
