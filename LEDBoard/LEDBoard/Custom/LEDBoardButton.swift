@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LEDBoardButton: UIButton {
+final class LEDBoardButton: UIButton {
     
     private func setupView() {
         layer.borderColor = UIColor.black.cgColor
