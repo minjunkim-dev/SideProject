@@ -11,15 +11,27 @@
 
 ## 이슈 및 해결방법
 > 1. UIDatePicker의 preferredDatePickerStyle 프로퍼티
-  - iOS 13.4 미만에서는 해당 프로퍼티를 지원하지 않아 별도로 style 설정을 하지 않았음
-  - .inline style의 경우 14.0부터, .wheel style의 경우 13.4부터 지원하기에 #available를 활용하여 상황에 따라 설정하였음
+  - iOS 13.4 미만에서는 해당 프로퍼티를 지원하지 않아 별도로 style 설정을 하지 않음
+  - .inline style의 경우 14.0부터, .wheel style의 경우 13.4부터 지원하기에 #available를 활용하여 상황에 따라 설정함
 > 2. Locale, TimeZone 설정
-  - 사용자 설정에 따라 유동적으로 바뀔 수 있게 autoupdatingCurrent 프로퍼티를 활용했으나 Locale은 정상적으로 동작하지 않음을 확인하였음
+  - 사용자 설정에 따라 유동적으로 바뀔 수 있게 autoupdatingCurrent 프로퍼티를 활용했으나 Locale은 정상적으로 동작하지 않음을 확인함
   - Locale.autoupdatingCurrent.identifier가 (languageCode)-(regionCode) 형식임을 알 수 있는데,
-설정에서 언어를 바꾸더라도 languageCode가 변하지 않고 계속 "en"으로 고정됨을 확인하였음
-  - Locale.preferredLanguages.first를 통해 사용자가 설정한 languageCode를 가져와 Locale에 적용하였음.
+설정에서 언어를 바꾸더라도 languageCode가 변하지 않고 계속 "en"으로 고정됨을 확인함
+  - Locale.preferredLanguages.first를 통해 사용자가 설정한 languageCode를 가져와 Locale에 적용함
 > 3. 라이트/다크모드에 따른 UIDatePicker의 색상 변화
-  - 라이트모드인 시뮬레이터에서는 UIDatePicker가 정상적으로 보였으나 다크모드인 디바이스에서는 보이지 않았음
-  - UIDatePicker가 모드에 따라 전체적인 색상 및 폰트 색상이 달라짐을 확인하였음
-  - 모드 상관없이 배경색을 흰색으로 설정해두었는데 다크모드일 때 UIDatePicker의 폰트 색상이 배경색과 동일한 흰색이라 보이지 않았던 것이었음
-  - UIDatePicker의 overrideUserInterfaceStyle 프로퍼티를 .light로 설정하여 모드에 따라 색상이 변하지 않도록 설정하였음
+  - 라이트모드인 시뮬레이터에서는 UIDatePicker가 정상적으로 보였으나 다크모드인 디바이스에서는 보이지 않음
+  - UIDatePicker가 모드에 따라 전체적인 색상 및 폰트 색상이 달라짐을 확인함
+  - 모드 상관없이 배경색을 흰색으로 설정해두었는데 다크모드일 때 UIDatePicker의 폰트 색상이 배경색과 동일한 흰색이라 보이지 않았던 것임
+  - UIDatePicker의 overrideUserInterfaceStyle 프로퍼티를 .light로 설정하여 모드에 따라 색상이 변하지 않도록 설정함
+> 4. UIImageView의 cornerRadius
+  - cornerRaidus 프로퍼티를 적용했으나 실제로 적용되지 않음을 확인함
+  - clipsToBounds 프로퍼티를 true로 설정하여 UIImageView 경계를 기준으로 바깥쪽을 잘라 원하는 효과를 얻음
+> 5. 컬렉션 뷰 내의 spacing(margin)
+  - 컬렉션 뷰의 적절한 셀 간격을 위해 minimumInteritemSpacing, minimumLineSpacing 프로퍼티를 활용함
+  - 위 두 프로퍼티는 말 그대로 item, line 사이의 간격만을 설정하므로, 컬렉션 뷰의 시작과 끝 부분에는 간격이 생기지 않음
+  - 이를 위해 처음에는 컬렉션 뷰 양 끝쪽 영역을 원하는 간격만큼 줄였으나
+이렇게 되면 간격이 있는 것처럼 보이기는 하지만 해당 영역에는 컬렉션 뷰 자체가 없는 것이므로,
+스크롤이 필요할 때 해당 영역에서는 스크롤이 안되는 이슈가 발생할 수 있음
+  - 따라서 컬렉션 뷰 영역 자체는 그대로 두되, sectionInsets 프로퍼티를 활용하여 원하는 간격을 설정함
+> 6. 컬렉션 뷰의 셀 크기 계산
+  - 이 앱에서는 각 셀의 크기가 항상 동일하므로 self-sizing은 필요가 없음
