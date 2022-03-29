@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/macos,swift,objective-c,xcode
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,swift,objective-c,xcode
 
+Constants.swift
+
 ### macOS ###
 # General
 .DS_Store
