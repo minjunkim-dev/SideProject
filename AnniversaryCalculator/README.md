@@ -7,7 +7,7 @@
 * 세로모드만 지원
 
 ## 기술스택
-> SnapKit, Then, SwiftGen
+> SnapKit, Then, SwiftGen, UIDatePicker, UICollectionView, DateFormatter, MVVM pattern, UserDefaults, Property Wrapper
 
 ## 이슈 및 해결방법
 > 1. UIDatePicker의 preferredDatePickerStyle 프로퍼티
@@ -41,4 +41,21 @@
     * 3. 컬렉션 뷰의 행과 열에서의 셀 수
   - 실제 디바이스 너비, 높이에서 1, 2를 고려하여 실제 셀들이 차지할 수 있는 너비, 높이를 먼저 계산함
   - 계산한 너비, 높이를 3을 고려하여 각 셀들에 동일하게 분배함
-  
+ > 7. 디데이를 나타내는 셀 개수의 유동성 고려
+  - 이 앱은 현재 디데이의 개수가 총 4개(D+100, 200, 300, 365)이지만 언제든지 확장 가능성이 있을 수 있음
+  - 따라서, 디데이 리스트를 별도로 관리하고 이에 기반하여 유동적으로 셀의 개수가 변하게끔 구현함
+  - 디데이에 따라 셀 내의 텍스트와 이미지가 변경되어야 하므로,
+텍스트와 이미지를 포함하는 구조체를 구성하고 이 구조체 리스트를 관리함
+ > 8. Swift Date, 그리고 String
+  - Date는 GMT 0이 기본값이므로, 이를 사용자 설정에 맞게 보여주려면 알맞게 변환할 필요가 있음
+  - DateFormatter를 통해 Locale, TimeZone, dateFormat을 적절하게 설정하고 String으로 변환하여 사용함
+  - 사용자가 선택한 Date의 디데이를 계산할 때는 addingTimeInterval 메서드를 활용하여
+D+100, 200, 300, 365일에 해당하는 Date를 계산하고, 이를 적절한 String으로 다시 변환하여 사용함
+ > 9. 유저의 편의성 고려 부족
+  - 앱 특성상 기준이 되는 Date를 한번 결정하면 자주 변하지 않으므로 사용자가 결정한 Date 정보를 유지, 관리할 필요가 있음
+  - UserDefaults를 통해 이 Date 정보를 유지 관리함
+ > 10. 가로모드에서의 UI 깨짐현상
+  - 프로젝트 설정(Targets-Deployment Info-Device Orientation, Info.plist)에서 분명히 portrait만 가능하게 설정함
+  - 그럼에도 불구하고, 디바이스를 가로로 돌렸을 때 세로모드에만 대응한 UI가 그대로 출력되어 깨짐현상이 발생함
+  - 이를 해결하기 위해 AppDelegate의 supportedInterfaceOrientationsFor 메서드에서 .portrait만 리턴하게 하여 이슈를 해결함
+(근데 아직도 프로젝트 설정은 왜 제대로 적용이 안되었는지 정확한 이유를 모르겠음)
