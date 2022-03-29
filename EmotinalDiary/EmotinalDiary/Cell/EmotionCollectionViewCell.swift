@@ -15,7 +15,7 @@ final class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
     var delegate: EmotionDelegate?
     
-    let button = UIButton().then {
+    private let button = UIButton().then {
         $0.setTitleColor(.black, for: .normal)
         $0.backgroundColor = .clear
         $0.titleLabel?.numberOfLines = 1
@@ -24,13 +24,13 @@ final class EmotionCollectionViewCell: UICollectionViewCell, ViewPresentable {
         $0.contentVerticalAlignment = .center
     }
     
-    let label = UILabel().then {
+    private let label = UILabel().then {
         $0.textColor = .black
         $0.textAlignment = .center
         $0.backgroundColor = .clear
     }
     
-    let stackView = UIStackView().then {
+    private let stackView = UIStackView().then {
         $0.axis = .vertical
         $0.backgroundColor = .clear
     }

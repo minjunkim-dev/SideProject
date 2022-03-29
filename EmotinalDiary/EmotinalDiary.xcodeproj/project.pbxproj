@@ -27,6 +27,7 @@
 		CA30A17427F0910200470908 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA30A17627F0910200470908 /* InfoPlist.strings */; };
 		CA30A17827F0910800470908 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA30A17A27F0910800470908 /* Localizable.strings */; };
 		CA30A17D27F0915100470908 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA30A17C27F0915100470908 /* String+Extension.swift */; };
+		CA9AAFD427F2BFD9007CE5E6 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9AAFD327F2BFD9007CE5E6 /* Emotion.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		CA30A17927F0910800470908 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA30A17B27F0910C00470908 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CA30A17C27F0915100470908 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		CA9AAFD327F2BFD9007CE5E6 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				CA29C8AC27EDE60200EE6246 /* EmotinalDiary */,
-				CA30A17627F0910200470908 /* InfoPlist.strings */,
-				CA30A17A27F0910800470908 /* Localizable.strings */,
 				CA29C8AB27EDE60200EE6246 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,7 +96,9 @@
 				CA29C8B627EDE60300EE6246 /* Assets.xcassets */,
 				CA29C8DA27EED0E100EE6246 /* Cell */,
 				CA29C8E127EED6EB00EE6246 /* Extension */,
+				CA30A17627F0910200470908 /* InfoPlist.strings */,
 				CA29C8B827EDE60300EE6246 /* LaunchScreen.storyboard */,
+				CA30A17A27F0910800470908 /* Localizable.strings */,
 				CA29C8F727EF090B00EE6246 /* Model */,
 				CA29C8C727EDE83E00EE6246 /* Protocol */,
 				CA29C8C827EDE84400EE6246 /* View */,
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				CA29C8F827EF093800EE6246 /* Observable.swift */,
+				CA9AAFD327F2BFD9007CE5E6 /* Emotion.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				CA30A17D27F0915100470908 /* String+Extension.swift in Sources */,
 				CA29C8CC27EDE86800EE6246 /* EmotionalDiaryView.swift in Sources */,
 				CA29C8E327EED6F700EE6246 /* UICollectionView+Extension.swift in Sources */,
+				CA9AAFD427F2BFD9007CE5E6 /* Emotion.swift in Sources */,
 				CA29C8B027EDE60200EE6246 /* SceneDelegate.swift in Sources */,
 				CA29C8DC27EED10700EE6246 /* EmotionCollectionViewCell.swift in Sources */,
 				CA29C8E027EED50C00EE6246 /* UICollectionViewCellRepresentable.swift in Sources */,
