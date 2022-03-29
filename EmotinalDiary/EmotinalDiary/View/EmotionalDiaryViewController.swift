@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class DiaryViewController: UIViewController {
+final class EmotionalDiaryViewController: UIViewController {
     
-    private let mainView = DiaryView()
+    private let mainView = EmotionalDiaryView()
     private let viewModel = EmotionalDiaryViewModel()
 
     override func loadView() {
@@ -102,7 +102,7 @@ final class DiaryViewController: UIViewController {
     }
 }
 
-extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension EmotionalDiaryViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return Emotion.allCases.count
@@ -173,7 +173,7 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 }
 
-extension DiaryViewController {
+extension EmotionalDiaryViewController {
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         super.willTransition(to: newCollection, with: coordinator)

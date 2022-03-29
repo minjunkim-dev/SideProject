@@ -1,5 +1,5 @@
 //
-//  DiaryView.swift
+//  EmotionalDiaryView.swift
 //  EmotinalDiary
 //
 //  Created by beneDev on 2022/03/25.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class DiaryView: UIView, ViewPresentable {
+final class EmotionalDiaryView: UIView, ViewPresentable {
     
     let imageView = UIImageView().then {
         $0.image = Assets.background.image
