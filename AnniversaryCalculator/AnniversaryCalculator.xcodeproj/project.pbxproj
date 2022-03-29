@@ -80,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				CA30A15A27F08F9100470908 /* AnniversaryCalculator */,
-				CA86881827F18A6E00320E11 /* InfoPlist.strings */,
 				CA30A15927F08F9100470908 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +95,8 @@
 		CA30A15A27F08F9100470908 /* AnniversaryCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				CA86881C27F18AB100320E11 /* Localizable.strings */,
+				CA86881827F18A6E00320E11 /* InfoPlist.strings */,
 				CA30A16927F08F9200470908 /* Info.plist */,
 				CA30A15B27F08F9100470908 /* AppDelegate.swift */,
 				CA30A18E27F13FEA00470908 /* Assets+Generated.swift */,
@@ -104,7 +105,6 @@
 				CAD1C11527F150A0004DC549 /* Cell */,
 				CAD1C11C27F151E9004DC549 /* Extension */,
 				CA30A16627F08F9200470908 /* LaunchScreen.storyboard */,
-				CA86881C27F18AB100320E11 /* Localizable.strings */,
 				CAA921B327F1789900C16D7D /* Model */,
 				CA30A18327F09AAF00470908 /* Protocol */,
 				CA30A18027F09A9A00470908 /* View */,
