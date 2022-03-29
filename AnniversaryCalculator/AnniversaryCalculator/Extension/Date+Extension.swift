@@ -18,7 +18,6 @@ extension Date {
     }
     
     func addDays(day: Int) -> Date {
-        
         let secondsOfDay = 24 * 60 * 60 // 시, 분, 초
         return self.addingTimeInterval(TimeInterval(day * secondsOfDay))
     }

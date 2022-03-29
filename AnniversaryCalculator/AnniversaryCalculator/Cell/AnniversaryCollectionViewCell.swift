@@ -7,23 +7,23 @@
 
 import UIKit
 
-class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
+final class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
     
-    let dDayLabel = UILabel().then {
+    private let dDayLabel = UILabel().then {
         $0.textColor = .black
         $0.textAlignment = .center
         $0.numberOfLines = 1
         $0.font = .systemFont(ofSize: 25, weight: .heavy)
     }
     
-    let dateLabel = UILabel().then {
+    private let dateLabel = UILabel().then {
         $0.textColor = .black
         $0.textAlignment = .center
         $0.numberOfLines = 3
         $0.font = .systemFont(ofSize: 20, weight: .regular)
     }
     
-    let imageView = UIImageView().then {
+    private let imageView = UIImageView().then {
         $0.contentMode = .scaleToFill
         $0.layer.cornerRadius = 20
         $0.clipsToBounds = true
@@ -37,7 +37,7 @@ class AnniversaryCollectionViewCell: UICollectionViewCell, ViewPresentable {
         let monthString = "month".localized()
         let dayString = "day".localized()
         let format = "yyyy\(yearString)\nM\(monthString) d\(dayString)\nEEEE"
-        dateLabel.transition(0.5)
+        dateLabel.pushTransition(0.5, .fromBottom)
         dateLabel.text = date.convertToString(format: format)
     }
     

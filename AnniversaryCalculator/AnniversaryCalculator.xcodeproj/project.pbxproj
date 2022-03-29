@@ -79,8 +79,8 @@
 		CA30A14F27F08F9100470908 = {
 			isa = PBXGroup;
 			children = (
-				CA86881827F18A6E00320E11 /* InfoPlist.strings */,
 				CA30A15A27F08F9100470908 /* AnniversaryCalculator */,
+				CA86881827F18A6E00320E11 /* InfoPlist.strings */,
 				CA30A15927F08F9100470908 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,19 +96,19 @@
 		CA30A15A27F08F9100470908 /* AnniversaryCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				CAA921B627F178B500C16D7D /* ViewModel */,
-				CAA921B327F1789900C16D7D /* Model */,
-				CAD1C11C27F151E9004DC549 /* Extension */,
-				CAD1C11527F150A0004DC549 /* Cell */,
-				CA30A18327F09AAF00470908 /* Protocol */,
-				CA30A18027F09A9A00470908 /* View */,
+				CA30A16927F08F9200470908 /* Info.plist */,
 				CA30A15B27F08F9100470908 /* AppDelegate.swift */,
+				CA30A18E27F13FEA00470908 /* Assets+Generated.swift */,
 				CA30A15D27F08F9100470908 /* SceneDelegate.swift */,
 				CA30A18A27F13F2B00470908 /* Assets.xcassets */,
-				CA30A18E27F13FEA00470908 /* Assets+Generated.swift */,
+				CAD1C11527F150A0004DC549 /* Cell */,
+				CAD1C11C27F151E9004DC549 /* Extension */,
 				CA30A16627F08F9200470908 /* LaunchScreen.storyboard */,
-				CA30A16927F08F9200470908 /* Info.plist */,
 				CA86881C27F18AB100320E11 /* Localizable.strings */,
+				CAA921B327F1789900C16D7D /* Model */,
+				CA30A18327F09AAF00470908 /* Protocol */,
+				CA30A18027F09A9A00470908 /* View */,
+				CAA921B627F178B500C16D7D /* ViewModel */,
 			);
 			path = AnniversaryCalculator;
 			sourceTree = "<group>";
