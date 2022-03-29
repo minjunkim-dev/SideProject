@@ -120,7 +120,7 @@ final class SignUpViewController: UIViewController {
         viewModel.location.value = textField.text ?? ""
     }
     
-    @objc func referralCodeTextFieldEditingChanged(_ textField: UITextField) {
+    @objc private func referralCodeTextFieldEditingChanged(_ textField: UITextField) {
         
         let maxLength = SignUpUserInfoValid.referralCode.range.upperBound
           
