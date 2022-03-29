@@ -67,8 +67,6 @@
 		B9484E9327D8885600B6354B = {
 			isa = PBXGroup;
 			children = (
-				CA50206827DF2A360085A13B /* InfoPlist.strings */,
-				CA50206227DF29310085A13B /* Localizable.strings */,
 				B9484E9E27D8885600B6354B /* NetflixSignUp */,
 				B9484E9D27D8885600B6354B /* Products */,
 			);
@@ -91,7 +89,9 @@
 				B9484EA827D8885800B6354B /* Assets.xcassets */,
 				CA57513127D9DEAF009B806A /* Custom */,
 				CA14840227DB315F00D748E2 /* Extension */,
+				CA50206827DF2A360085A13B /* InfoPlist.strings */,
 				B9484EAA27D8885800B6354B /* LaunchScreen.storyboard */,
+				CA50206227DF29310085A13B /* Localizable.strings */,
 				CA8F792C27D8AB8800107209 /* Model */,
 				CA8F792A27D8AB7000107209 /* View */,
 				CA8F792B27D8AB8100107209 /* ViewModel */,
