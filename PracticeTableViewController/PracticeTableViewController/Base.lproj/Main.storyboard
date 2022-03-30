@@ -196,41 +196,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gtL-mU-IZT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ofg-lh-bRV">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ofg-lh-bRV" id="aHs-vO-vSD">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MeR-PM-wUN">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MeR-PM-wUN">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="설정" id="dWR-Vd-gH5"/>
+                                    <navigationItem id="dWR-Vd-gH5"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gtL-mU-IZT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qFh-dw-Bul"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="qFh-dw-Bul" firstAttribute="bottom" secondItem="gtL-mU-IZT" secondAttribute="bottom" id="2sF-IE-EKt"/>
-                            <constraint firstItem="gtL-mU-IZT" firstAttribute="leading" secondItem="qFh-dw-Bul" secondAttribute="leading" id="HDc-cx-nSI"/>
-                            <constraint firstItem="qFh-dw-Bul" firstAttribute="trailing" secondItem="gtL-mU-IZT" secondAttribute="trailing" id="KR3-RE-Mix"/>
-                            <constraint firstItem="gtL-mU-IZT" firstAttribute="top" secondItem="qFh-dw-Bul" secondAttribute="top" id="O7T-ro-xcN"/>
+                            <constraint firstItem="MeR-PM-wUN" firstAttribute="top" secondItem="qFh-dw-Bul" secondAttribute="top" id="6Rf-7T-0mY"/>
+                            <constraint firstItem="MeR-PM-wUN" firstAttribute="trailing" secondItem="qFh-dw-Bul" secondAttribute="trailing" id="9Gg-Ra-Akc"/>
+                            <constraint firstItem="MeR-PM-wUN" firstAttribute="leading" secondItem="qFh-dw-Bul" secondAttribute="leading" id="V4r-8b-id6"/>
+                            <constraint firstItem="gtL-mU-IZT" firstAttribute="top" secondItem="MeR-PM-wUN" secondAttribute="bottom" id="duJ-3n-a6r"/>
+                            <constraint firstItem="qFh-dw-Bul" firstAttribute="bottom" secondItem="gtL-mU-IZT" secondAttribute="bottom" id="f4b-oZ-iON"/>
+                            <constraint firstItem="gtL-mU-IZT" firstAttribute="leading" secondItem="qFh-dw-Bul" secondAttribute="leading" id="hAx-Qq-qVu"/>
+                            <constraint firstItem="qFh-dw-Bul" firstAttribute="trailing" secondItem="gtL-mU-IZT" secondAttribute="trailing" id="uQm-Gt-33s"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="navigationBar" destination="MeR-PM-wUN" id="v3s-yK-2Uq"/>
+                        <outlet property="tableView" destination="gtL-mU-IZT" id="gwx-2i-8gd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsh-JL-zju" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="797" y="11"/>
+            <point key="canvasLocation" x="795.6521739130435" y="10.714285714285714"/>
         </scene>
     </scenes>
     <resources>
