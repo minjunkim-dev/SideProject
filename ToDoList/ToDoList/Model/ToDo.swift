@@ -12,19 +12,18 @@ import Foundation
 struct ToDo {
     var content: String
     var category: Category
+    var isCompleted: Bool
+    var isPinned: Bool
 }
 
 enum Category: CaseIterable {
     
-    case all
     case business
     case personal
     case others
     
     var description: String {
         switch self {
-        case .all:
-            return "전체"
         case .business:
             return "업무"
         case .personal:

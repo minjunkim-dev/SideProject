@@ -30,13 +30,22 @@ final class ToDoListView: UIView, ViewPresentable {
     
     let segmentControl = UISegmentedControl().then {
         
+        $0.insertSegment(withTitle: "전체", at: 0, animated: false)
+        $0.selectedSegmentIndex = 0
+        
         for (index, category) in Category.allCases.enumerated() {
-            $0.insertSegment(withTitle: category.description, at: index, animated: true)
+            $0.insertSegment(withTitle: category.description, at: index + 1, animated: false)
         }
         
         $0.selectedSegmentTintColor = .systemGray3
         $0.tintColor = .systemGray5
-        $0.selectedSegmentIndex = 0
+    }
+    
+    let tableView = UITableView(frame: .zero, style: .insetGrouped).then {
+        
+        /* self-sizing cell */
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = UITableView.automaticDimension
     }
     
     func setupView() {
@@ -52,6 +61,9 @@ final class ToDoListView: UIView, ViewPresentable {
         addButton.backgroundColor = .systemGray3
         
         addSubview(segmentControl)
+        
+        addSubview(tableView)
+        tableView.register(ToDoTableViewCell.self, forCellReuseIdentifier: ToDoTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
@@ -77,6 +89,12 @@ final class ToDoListView: UIView, ViewPresentable {
         segmentControl.snp.makeConstraints {
             $0.horizontalEdges.equalTo(containerView)
             $0.top.equalTo(containerView.snp.bottom).offset(20)
+        }
+        
+        tableView.snp.makeConstraints {
+            $0.top.equalTo(segmentControl.snp.bottom).offset(20)
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
+            $0.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
     
