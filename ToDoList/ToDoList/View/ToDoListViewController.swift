@@ -11,13 +11,14 @@ final class ToDoListViewController: UIViewController {
     
     private let mainView = ToDoListView()
     
-    let isPinnedMock = [
-        ToDo(content: "고정!!!", category: .personal, isCompleted: false, isPinned: true),
+    var isPinnedMock = [
+        ToDo(content: "고정 1", category: .personal, isCompleted: false, isPinned: true),
         ]
     
-    let isNotPinnedMock = [
-        ToDo(content: "고정 X!!\n\n하이", category: .others, isCompleted: true, isPinned: false),
-        ToDo(content: "고정 X!", category: .business, isCompleted: false, isPinned: false),
+    var isNotPinnedMock = [
+        ToDo(content: "고정 X 1", category: .others, isCompleted: true, isPinned: false),
+        ToDo(content: "고정 X 2", category: .business, isCompleted: false, isPinned: false),
+        ToDo(content: "고정 X 3", category: .business, isCompleted: false, isPinned: false),
     ]
     
     override func loadView() {
@@ -31,11 +32,14 @@ final class ToDoListViewController: UIViewController {
         
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
+        mainView.tableView.dragDelegate = self
+        mainView.tableView.dragInteractionEnabled = true
+
     }
 }
 
-extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
-    
+extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate {
+ 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2 // isPinned, or not
     }
@@ -71,5 +75,55 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return section == 0 ? "고정된 할 일" : "할 일"
+    }
+    
+    
+    
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let sourceSection = sourceIndexPath.section
+        let sourceRow = sourceIndexPath.row
+        let destinationSection = destinationIndexPath.section
+        let destinationRow = destinationIndexPath.row
+       
+        var data = sourceSection == 0 ? isPinnedMock.remove(at: sourceRow) : isNotPinnedMock.remove(at: sourceRow)
+        data.isPinned.toggle()
+        
+        destinationSection == 0 ? isPinnedMock.insert(data, at: destinationRow) :  isNotPinnedMock.insert(data, at: destinationRow)
+    
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+
+        let dragItem = UIDragItem(itemProvider: NSItemProvider())
+
+        let section = indexPath.section
+        let row = indexPath.row
+        section == 0 ? (dragItem.localObject = isPinnedMock[row]) : (dragItem.localObject = isNotPinnedMock[row])
+
+        return [dragItem]
+    }
+    
+
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        if editingStyle == .delete {
+            section == 0 ? isPinnedMock.remove(at: row) : isNotPinnedMock.remove(at: row)
+            tableView.reloadSections(IndexSet(integer: section), with: .automatic)
+        }
     }
 }
