@@ -58,19 +58,11 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let section = indexPath.section
         let row = indexPath.row
         
-        if section == 0 {
-            
-            let toDo = isPinnedMock[row]
-            cell.configureCell(content: toDo.content)
-            
-            return cell
-        } else {
-            
-            let toDo = isNotPinnedMock[row]
-            cell.configureCell(content: toDo.content)
-            
-            return cell
-        }
+        
+        let toDo = section == 0 ? isPinnedMock[row] :  isNotPinnedMock[row]
+        cell.configureCell(toDo: toDo)
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -13,8 +13,6 @@ import Then
 final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
 
     let checkButton = UIButton().then {
-        let image = UIImage(systemName: "checkmark.square")
-        $0.setImage(image, for: .normal)
         $0.tintColor = .black
         $0.setPreferredSymbolConfiguration(.init(pointSize: 20), forImageIn: .normal)
     }
@@ -30,9 +28,12 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
         // Configure the view for the selected state
     }
     
-    func configureCell(content: String) {
+    func configureCell(toDo: ToDo) {
         
-        contentLabel.text = content
+        checkButton.isSelected = toDo.isCompleted
+        let image = checkButton.isSelected ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
+        checkButton.setImage(image, for: .normal)
+        contentLabel.text = toDo.content
     }
     
     func setupView() {
