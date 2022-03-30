@@ -28,6 +28,17 @@ final class ToDoListView: UIView, ViewPresentable {
         $0.layer.cornerRadius = 10
     }
     
+    let segmentControl = UISegmentedControl().then {
+        
+        for (index, category) in Category.allCases.enumerated() {
+            $0.insertSegment(withTitle: category.description, at: index, animated: true)
+        }
+        
+        $0.selectedSegmentTintColor = .systemGray3
+        $0.tintColor = .systemGray5
+        $0.selectedSegmentIndex = 0
+    }
+    
     func setupView() {
         backgroundColor = .white
         
@@ -38,7 +49,9 @@ final class ToDoListView: UIView, ViewPresentable {
             containerView.addSubview($0)
         }
         
-        addButton.backgroundColor = .systemGray4
+        addButton.backgroundColor = .systemGray3
+        
+        addSubview(segmentControl)
     }
     
     func setupConstraints() {
@@ -59,6 +72,11 @@ final class ToDoListView: UIView, ViewPresentable {
             $0.leading.equalToSuperview().inset(20)
             $0.verticalEdges.equalTo(addButton)
             $0.trailing.equalTo(addButton.snp.leading).offset(-20)
+        }
+        
+        segmentControl.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(containerView)
+            $0.top.equalTo(containerView.snp.bottom).offset(20)
         }
     }
     

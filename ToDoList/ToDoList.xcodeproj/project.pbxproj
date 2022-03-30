@@ -16,6 +16,7 @@
 		CA9AB02A27F413A3007CE5E6 /* ViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9AB02927F413A3007CE5E6 /* ViewPresentable.swift */; };
 		CA9AB02D27F41AF2007CE5E6 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA9AB02C27F41AF2007CE5E6 /* Then */; };
 		CA9AB03027F41B01007CE5E6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA9AB02F27F41B01007CE5E6 /* SnapKit */; };
+		CA9AB03327F425AD007CE5E6 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9AB03227F425AD007CE5E6 /* ToDo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CA9AB02327F4137D007CE5E6 /* ToDoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewController.swift; sourceTree = "<group>"; };
 		CA9AB02627F4138E007CE5E6 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		CA9AB02927F413A3007CE5E6 /* ViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentable.swift; sourceTree = "<group>"; };
+		CA9AB03227F425AD007CE5E6 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		CA9AB00E27F41135007CE5E6 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				CA9AB03127F4258B007CE5E6 /* Model */,
 				CA9AB02827F41394007CE5E6 /* Protocol */,
 				CA9AB02527F41381007CE5E6 /* View */,
 				CA9AB00F27F41135007CE5E6 /* AppDelegate.swift */,
@@ -88,6 +91,14 @@
 				CA9AB02927F413A3007CE5E6 /* ViewPresentable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CA9AB03127F4258B007CE5E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CA9AB03227F425AD007CE5E6 /* ToDo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +182,7 @@
 				CA9AB02727F4138E007CE5E6 /* ToDoListView.swift in Sources */,
 				CA9AB02A27F413A3007CE5E6 /* ViewPresentable.swift in Sources */,
 				CA9AB01027F41135007CE5E6 /* AppDelegate.swift in Sources */,
+				CA9AB03327F425AD007CE5E6 /* ToDo.swift in Sources */,
 				CA9AB01227F41135007CE5E6 /* SceneDelegate.swift in Sources */,
 				CA9AB02427F4137D007CE5E6 /* ToDoListViewController.swift in Sources */,
 			);
