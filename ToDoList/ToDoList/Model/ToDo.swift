@@ -14,6 +14,7 @@ struct ToDo {
     var category: Category?
     var isCompleted: Bool = false
     var isPinned: Bool = false
+    var date: Date = Date()
 }
 
 //extension ToDo: Equatable {

@@ -62,7 +62,7 @@ final class ToDoListViewController: UIViewController {
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        var data = ToDo(content: content, category: category)
+        let data = ToDo(content: content, category: category)
         addData(data: data)
     }
     

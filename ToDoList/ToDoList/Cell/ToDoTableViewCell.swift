@@ -27,6 +27,14 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
     let contentLabel = UILabel().then {
         $0.textColor = .black
         $0.numberOfLines = 0
+        $0.textAlignment = .left
+    }
+    
+    let dateLabel = UILabel().then {
+        $0.textColor = .systemGray
+        $0.numberOfLines = 1
+        $0.textAlignment = .center
+        $0.sizeToFit()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -42,11 +50,12 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
         let image = checkButton.isSelected ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         checkButton.setImage(image, for: .normal)
         contentLabel.text = data.content
+        dateLabel.text = data.date.convertToString(format: "yy/M/d")
     }
     
     func setupView() {
         
-        [checkButton, contentLabel].forEach {
+        [checkButton, contentLabel, dateLabel].forEach {
             contentView.addSubview($0)
         }
     }
@@ -56,12 +65,20 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
         checkButton.snp.makeConstraints {
             $0.centerY.equalTo(contentLabel)
             $0.leading.equalToSuperview().inset(20)
+            $0.size.equalTo(20)
         }
-        
+    
         contentLabel.snp.makeConstraints {
             $0.leading.equalTo(checkButton.snp.trailing).offset(20)
-            $0.trailing.equalToSuperview().inset(20)
+            $0.trailing.lessThanOrEqualTo(dateLabel.snp.leading).offset(-20)
             $0.verticalEdges.equalToSuperview().inset(10)
+        }
+        
+        dateLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+        dateLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.verticalEdges.lessThanOrEqualToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(20)
         }
     }
     
