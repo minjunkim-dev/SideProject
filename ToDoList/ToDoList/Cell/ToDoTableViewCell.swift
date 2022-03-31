@@ -28,12 +28,12 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
         // Configure the view for the selected state
     }
     
-    func configureCell(toDo: ToDo) {
+    func configureCell(data: ToDo) {
         
-        checkButton.isSelected = toDo.isCompleted
+        checkButton.isSelected = data.isCompleted
         let image = checkButton.isSelected ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         checkButton.setImage(image, for: .normal)
-        contentLabel.text = toDo.content
+        contentLabel.text = data.content
     }
     
     func setupView() {

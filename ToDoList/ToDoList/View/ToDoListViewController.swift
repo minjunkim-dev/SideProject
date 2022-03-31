@@ -11,15 +11,19 @@ final class ToDoListViewController: UIViewController {
     
     private let mainView = ToDoListView()
     
-    var isPinnedMock = [
-        ToDo(content: "고정 1", category: .personal, isCompleted: false, isPinned: true),
-        ]
+    var isPinnedMock: [ToDo] = [] {
+        didSet {
+            let sections = IndexSet(integer: 0)
+            mainView.tableView.reloadSections(sections, with: .automatic)
+        }
+    }
     
-    var isNotPinnedMock = [
-        ToDo(content: "고정 X 1", category: .others, isCompleted: true, isPinned: false),
-        ToDo(content: "고정 X 2", category: .business, isCompleted: false, isPinned: false),
-        ToDo(content: "고정 X 3", category: .business, isCompleted: false, isPinned: false),
-    ]
+    var isNotPinnedMock: [ToDo] = [] {
+        didSet {
+            let sections = IndexSet(integer: 1)
+            mainView.tableView.reloadSections(sections, with: .automatic)
+        }
+    }
     
     override func loadView() {
         view = mainView
@@ -34,19 +38,70 @@ final class ToDoListViewController: UIViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.dragDelegate = self
         mainView.tableView.dragInteractionEnabled = true
-
+        
+        mainView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+        mainView.segmentControl.addTarget(self, action: #selector(segmentIndexChanged), for: .valueChanged)
+    }
+    
+    @objc private func segmentIndexChanged() {
+        reloadData()
+    }
+    
+    private func reloadData() {
+        let range = 0..<mainView.tableView.numberOfSections
+        let sections = IndexSet(integersIn: range)
+        mainView.tableView.reloadSections(sections, with: .automatic)
+    }
+    
+    @objc private func addButtonClicked() {
+        
+        guard let content = mainView.toDoTextField.text, !(content.isEmpty) else {
+            return
+        }
+        
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
+        
+        let data = ToDo(content: content, category: category)
+        addData(data: data)
+    }
+    
+    private func addData(data: ToDo) {
+        
+        data.isPinned ? isPinnedMock.insert(data, at: 0) : isNotPinnedMock.insert(data, at: 0)
     }
 }
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate {
- 
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2 // isPinned, or not
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 0 ? "고정된 할 일" : "할 일"
+    }
+    
+    
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return section == 0 ? isPinnedMock.count : isNotPinnedMock.count
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
+        
+        switch category {
+        case .business:
+            return section == 0 ? isPinnedMock.filter { $0.category == .business }.count : isNotPinnedMock.filter { $0.category == .business }.count
+        case .personal:
+            return section == 0 ? isPinnedMock.filter { $0.category == .personal }.count : isNotPinnedMock.filter { $0.category == .personal }.count
+        case .others:
+            return section == 0 ? isPinnedMock.filter { $0.category == .others }.count : isNotPinnedMock.filter { $0.category == .others }.count
+        default:
+            return section == 0 ? isPinnedMock.count : isNotPinnedMock.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,16 +111,26 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         }
         
         let (section, row) = (indexPath.section, indexPath.row)
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
         
-        let toDo = section == 0 ? isPinnedMock[row] :  isNotPinnedMock[row]
-        cell.configureCell(toDo: toDo)
+        var data: ToDo
+        switch category {
+        case .business:
+            data = section == 0 ? isPinnedMock.filter { $0.category == .business }[row] : isNotPinnedMock.filter { $0.category == .business }[row]
+        case .personal:
+            data = section == 0 ? isPinnedMock.filter { $0.category == .personal }[row] : isNotPinnedMock.filter { $0.category == .personal }[row]
+        case .others:
+            data = section == 0 ? isPinnedMock.filter { $0.category == .others }[row] : isNotPinnedMock.filter { $0.category == .others }[row]
+        default:
+            data = section == 0 ? isPinnedMock[row] :  isNotPinnedMock[row]
+        }
+       
+        cell.configureCell(data: data)
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "고정된 할 일" : "할 일"
-    }
     
     
     
@@ -78,26 +143,94 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         
         let (sourceSection, sourceRow) = (sourceIndexPath.section, sourceIndexPath.row)
         let (destinationSection, destinationRow) = (destinationIndexPath.section, destinationIndexPath.row)
-       
-        var data = sourceSection == 0 ? isPinnedMock.remove(at: sourceRow) : isNotPinnedMock.remove(at: sourceRow)
-        data.isPinned.toggle()
-        
-        destinationSection == 0 ? isPinnedMock.insert(data, at: destinationRow) :  isNotPinnedMock.insert(data, at: destinationRow)
     
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
+    
+        var filteredSourceIndices: [Int]
+        var filteredDestinationIndices: [Int]
+        switch category {
+        case .business:
+            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .business }.map { return $0.offset }
+            
+            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .business }.map { return $0.offset }
+        case .personal:
+            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .personal }.map { return $0.offset }
+            
+            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .personal }.map { return $0.offset }
+        case .others:
+            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .others }.map { return $0.offset }: isNotPinnedMock.enumerated().filter {
+                    $1.category == .others }.map { return $0.offset }
+            
+            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .others }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .others }.map { return $0.offset }
+        default:
+            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+            
+            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+        }
+        
+        var data = sourceSection == 0 ? isPinnedMock.remove(at: filteredSourceIndices[sourceRow]) : isNotPinnedMock.remove(at: filteredSourceIndices[sourceRow])
+        
+        if destinationSection == 0 {
+            data.isPinned = true
+            
+            if destinationRow == 0 {
+                isPinnedMock.insert(data, at: 0)
+            } else if destinationRow == filteredDestinationIndices.count {
+                isPinnedMock.insert(data, at: filteredDestinationIndices.count)
+            } else {
+                isPinnedMock.insert(data, at: filteredDestinationIndices[destinationRow])
+            }
+
+        } else {
+            data.isPinned = false
+            
+            if destinationRow == 0 {
+                isNotPinnedMock.insert(data, at: 0)
+            } else if destinationRow == filteredDestinationIndices.count {
+                isNotPinnedMock.insert(data, at: filteredDestinationIndices.count)
+            } else {
+                isNotPinnedMock.insert(data, at: filteredDestinationIndices[destinationRow])
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-
-        let dragItem = UIDragItem(itemProvider: NSItemProvider())
-
-        let (section, row) = (indexPath.section, indexPath.row)
         
-        section == 0 ? (dragItem.localObject = isPinnedMock[row]) : (dragItem.localObject = isNotPinnedMock[row])
-
+        let dragItem = UIDragItem(itemProvider: NSItemProvider())
+        
+        let (section, row) = (indexPath.section, indexPath.row)
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
+        
+        var data: ToDo
+        switch category {
+        case .business:
+            data = section == 0 ? isPinnedMock.filter { $0.category == .business }[row] : isNotPinnedMock.filter { $0.category == .business}[row]
+        case .personal:
+            data = section == 0 ? isPinnedMock.filter { $0.category == .personal }[row] : isNotPinnedMock.filter { $0.category == .personal}[row]
+        case .others:
+            data = section == 0 ? isPinnedMock.filter { $0.category == .others }[row] : isNotPinnedMock.filter { $0.category == .others}[row]
+        default:
+            data = section == 0 ? isPinnedMock[row] : isNotPinnedMock[row]
+        }
+        
+        dragItem.localObject = data
         return [dragItem]
     }
     
-
+    
     
     
     
@@ -105,36 +238,75 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         
         let (section, row) = (indexPath.section, indexPath.row)
         
-        var data = section == 0 ? isPinnedMock[row] : isNotPinnedMock[row]
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
+        
+        var filteredIndices: [Int]
+        switch category {
+        case .business:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .business }.map { return $0.offset }
+        case .personal:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .personal }.map { return $0.offset }
+        case .others:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .others }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .others }.map { return $0.offset }
+        default:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+        }
+        
+        var data = section == 0 ? isPinnedMock[filteredIndices[row]] : isNotPinnedMock[filteredIndices[row]]
         
         let pin = UIContextualAction(style: .normal, title: nil) { action, view, completion in
             
-            data.isPinned ? self.isPinnedMock.remove(at: row) : self.isNotPinnedMock.remove(at: row)
+            data.isPinned ? self.isPinnedMock.remove(at: filteredIndices[row]) : self.isNotPinnedMock.remove(at: filteredIndices[row])
             data.isPinned.toggle()
             data.isPinned ? self.isPinnedMock.insert(data, at: 0) : self.isNotPinnedMock.insert(data, at: 0)
         
-            let range = 0..<tableView.numberOfSections
-            tableView.reloadSections(IndexSet(integersIn: range), with: .automatic)
             completion(true)
         }
         
         data.isPinned ? (pin.image = UIImage(systemName: "pin.slash.fill")) : (pin.image = UIImage(systemName: "pin.fill"))
         pin.backgroundColor = .orange
-            
+        
         return UISwipeActionsConfiguration(actions: [pin])
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let (section, row) = (indexPath.section, indexPath.row)
-    
+        
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
+        
+        var filteredIndices: [Int]
+        switch category {
+        case .business:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .business }.map { return $0.offset }
+        case .personal:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .personal }.map { return $0.offset }
+        case .others:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
+                $1.category == .others }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+                    $1.category == .others }.map { return $0.offset }
+        default:
+            filteredIndices = section == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+        }
+        
         let delete = UIContextualAction(style: .destructive, title: nil) { action, view, completion in
             
-            section == 0 ? self.isPinnedMock.remove(at: row) : self.isNotPinnedMock.remove(at: row)
-            tableView.reloadSections(IndexSet(integer: section), with: .automatic)
+            section == 0 ? self.isPinnedMock.remove(at: filteredIndices[row]) : self.isNotPinnedMock.remove(at: filteredIndices[row])
             completion(true)
         }
-            
+        
         delete.image = UIImage(systemName: "trash.fill")
         delete.backgroundColor = .red
         

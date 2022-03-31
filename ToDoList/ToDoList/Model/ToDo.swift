@@ -11,14 +11,24 @@ import Foundation
 
 struct ToDo {
     var content: String
-    var category: Category
-    var isCompleted: Bool
-    var isPinned: Bool
+    var category: Category?
+    var isCompleted: Bool = false
+    var isPinned: Bool = false
 }
 
-enum Category: CaseIterable {
+//extension ToDo: Equatable {
+//
+//    static func == (lhs: ToDo, rhs: ToDo) -> Bool {
+//        return (lhs.content == rhs.content) &&
+//        (lhs.category == rhs.category) &&
+//        (lhs.isCompleted == rhs.isCompleted) &&
+//        (lhs.isPinned == rhs.isPinned)
+//    }
+//}
+
+enum Category: Int, CaseIterable {
     
-    case business
+    case business = 1
     case personal
     case others
     
