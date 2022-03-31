@@ -10,8 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
+protocol ToDoDelegate {
+    func updateIsCompleted(isCompleted: Bool, indexPath: IndexPath?)
+}
+
 final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
 
+    var delegate: ToDoDelegate?
+    var indexPath: IndexPath?
+    
     let checkButton = UIButton().then {
         $0.tintColor = .black
         $0.setPreferredSymbolConfiguration(.init(pointSize: 20), forImageIn: .normal)
@@ -28,8 +35,9 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
         // Configure the view for the selected state
     }
     
-    func configureCell(data: ToDo) {
+    func configureCell(data: ToDo, indexPath: IndexPath) {
         
+        self.indexPath = indexPath
         checkButton.isSelected = data.isCompleted
         let image = checkButton.isSelected ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         checkButton.setImage(image, for: .normal)
@@ -60,6 +68,7 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
     @objc private func checkButtonClicked(_ sender: UIButton) {
         
         sender.isSelected.toggle()
+        delegate?.updateIsCompleted(isCompleted: sender.isSelected, indexPath: indexPath)
         
         let image = sender.isSelected ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         sender.setImage(image, for: .normal)

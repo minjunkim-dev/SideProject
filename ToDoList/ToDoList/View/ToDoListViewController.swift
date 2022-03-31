@@ -62,13 +62,41 @@ final class ToDoListViewController: UIViewController {
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        let data = ToDo(content: content, category: category)
+        var data = ToDo(content: content, category: category)
         addData(data: data)
     }
     
     private func addData(data: ToDo) {
         
         data.isPinned ? isPinnedMock.insert(data, at: 0) : isNotPinnedMock.insert(data, at: 0)
+    }
+}
+
+extension ToDoListViewController: ToDoDelegate {
+    
+    func updateIsCompleted(isCompleted: Bool, indexPath: IndexPath?) {
+        
+        guard let indexPath = indexPath else { return }
+        
+        let (section, row) = (indexPath.section, indexPath.row)
+        let index = mainView.segmentControl.selectedSegmentIndex
+        let category = Category(rawValue: index)
+        
+        var indices: [Int]
+        switch category {
+        case .business:
+            indices = section == 0 ? isPinnedMock.enumerated().filter { $1.category == .business }.map { $0.offset } : isNotPinnedMock.enumerated().filter { $1.category == .business }.map { $0.offset }
+        case .personal:
+            indices = section == 0 ? isPinnedMock.enumerated().filter { $1.category == .personal }.map { $0.offset } : isNotPinnedMock.enumerated().filter { $1.category == .personal }.map { $0.offset }
+        case .others:
+            indices = section == 0 ? isPinnedMock.enumerated().filter { $1.category == .others }.map { $0.offset } : isNotPinnedMock.enumerated().filter { $1.category == .others }.map { $0.offset }
+        default:
+            indices = section == 0 ? isPinnedMock.enumerated().map { $0.offset } :  isNotPinnedMock.enumerated().map { $0.offset }
+        }
+        
+        section == 0 ? (isPinnedMock[indices[row]].isCompleted = isCompleted) : (isNotPinnedMock[indices[row]].isCompleted = isCompleted)
+        
+        mainView.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
@@ -126,7 +154,8 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
             data = section == 0 ? isPinnedMock[row] :  isNotPinnedMock[row]
         }
        
-        cell.configureCell(data: data)
+        cell.delegate = self
+        cell.configureCell(data: data, indexPath: indexPath)
         
         return cell
     }
