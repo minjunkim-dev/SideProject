@@ -50,7 +50,9 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
         let image = checkButton.isSelected ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "checkmark.square")
         checkButton.setImage(image, for: .normal)
         contentLabel.text = data.content
-        dateLabel.text = data.date.convertToString(format: "yy/M/d")
+        
+        let format = data.date.getFormat()
+        dateLabel.text = data.date.convertToString(format: format)
     }
     
     func setupView() {
