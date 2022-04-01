@@ -20,12 +20,12 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
     var indexPath: IndexPath?
     
     let checkButton = UIButton().then {
-        $0.tintColor = .white
+        $0.tintColor = .black
         $0.setPreferredSymbolConfiguration(.init(pointSize: 20), forImageIn: .normal)
     }
     
     let contentLabel = UILabel().then {
-        $0.textColor = .white
+        $0.textColor = .black
         $0.numberOfLines = 0
         $0.textAlignment = .left
     }

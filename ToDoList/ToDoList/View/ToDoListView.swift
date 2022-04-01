@@ -17,7 +17,7 @@ final class ToDoListView: UIView, ViewPresentable {
     }
     
     let toDoTextField = UITextField().then {
-        $0.textColor = .white
+        $0.textColor = .black
         $0.attributedPlaceholder = NSAttributedString(
             string: "무엇을 구매하실건가요?",
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
