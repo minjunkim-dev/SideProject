@@ -13,6 +13,7 @@ final class ToDoListViewController: UIViewController {
     
     var isPinnedMock: [ToDo] = [] {
         didSet {
+            print(#function)
             let sections = IndexSet(integer: 0)
             mainView.tableView.reloadSections(sections, with: .automatic)
         }
@@ -20,6 +21,7 @@ final class ToDoListViewController: UIViewController {
     
     var isNotPinnedMock: [ToDo] = [] {
         didSet {
+            print(#function)
             let sections = IndexSet(integer: 1)
             mainView.tableView.reloadSections(sections, with: .automatic)
         }
@@ -95,8 +97,6 @@ extension ToDoListViewController: ToDoDelegate {
         }
         
         section == 0 ? (isPinnedMock[indices[row]].isCompleted = isCompleted) : (isNotPinnedMock[indices[row]].isCompleted = isCompleted)
-        
-        mainView.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
