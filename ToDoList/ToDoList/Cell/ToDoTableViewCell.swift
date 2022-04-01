@@ -20,27 +20,21 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
     var indexPath: IndexPath?
     
     let checkButton = UIButton().then {
-        $0.tintColor = .black
+        $0.tintColor = .white
         $0.setPreferredSymbolConfiguration(.init(pointSize: 20), forImageIn: .normal)
     }
     
     let contentLabel = UILabel().then {
-        $0.textColor = .black
+        $0.textColor = .white
         $0.numberOfLines = 0
         $0.textAlignment = .left
     }
     
     let dateLabel = UILabel().then {
-        $0.textColor = .systemGray
+        $0.textColor = .darkGray
         $0.numberOfLines = 1
         $0.textAlignment = .center
         $0.sizeToFit()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func configureCell(data: ToDo, indexPath: IndexPath) {
@@ -57,6 +51,9 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
     
     func setupView() {
         
+        backgroundColor = .lightGray
+        selectionStyle = .none
+        
         [checkButton, contentLabel, dateLabel].forEach {
             contentView.addSubview($0)
         }
@@ -64,10 +61,10 @@ final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
     
     func setupConstraints() {
         
+        checkButton.setContentCompressionResistancePriority(.required, for: .horizontal)
         checkButton.snp.makeConstraints {
             $0.centerY.equalTo(contentLabel)
             $0.leading.equalToSuperview().inset(20)
-            $0.size.equalTo(20)
         }
     
         contentLabel.snp.makeConstraints {

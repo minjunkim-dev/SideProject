@@ -110,7 +110,9 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         return section == 0 ? "고정된 할 일" : "할 일"
     }
     
-    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = .lightGray
+    }
     
     
     

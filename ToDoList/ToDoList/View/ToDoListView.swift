@@ -17,14 +17,18 @@ final class ToDoListView: UIView, ViewPresentable {
     }
     
     let toDoTextField = UITextField().then {
-        $0.placeholder = "무엇을 구매하실건가요?"
+        $0.textColor = .white
+        $0.attributedPlaceholder = NSAttributedString(
+            string: "무엇을 구매하실건가요?",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
+        )
         $0.autocapitalizationType = .none
         $0.clearButtonMode = .whileEditing
     }
     
     let addButton = UIButton().then {
         $0.setTitle("추가", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
+        $0.setTitleColor(.white, for: .normal)
         $0.layer.cornerRadius = 10
     }
     
@@ -37,8 +41,10 @@ final class ToDoListView: UIView, ViewPresentable {
             $0.insertSegment(withTitle: category.description, at: index + 1, animated: false)
         }
         
-        $0.selectedSegmentTintColor = .systemGray3
-        $0.tintColor = .systemGray5
+        $0.backgroundColor = .lightGray
+        $0.selectedSegmentTintColor = .darkGray
+        $0.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .normal)
+        $0.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
     }
     
     let tableView = UITableView(frame: .zero, style: .insetGrouped).then {
@@ -46,19 +52,20 @@ final class ToDoListView: UIView, ViewPresentable {
         /* self-sizing cell */
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
+        $0.backgroundColor = .white
     }
     
     func setupView() {
         backgroundColor = .white
         
         addSubview(containerView)
-        containerView.backgroundColor = .systemGray5
+        containerView.backgroundColor = .lightGray
         
         [toDoTextField, addButton].forEach {
             containerView.addSubview($0)
         }
         
-        addButton.backgroundColor = .systemGray3
+        addButton.backgroundColor = .darkGray
         
         addSubview(segmentControl)
         
@@ -71,19 +78,19 @@ final class ToDoListView: UIView, ViewPresentable {
         containerView.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).inset(20)
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
-            $0.height.equalTo(UIScreen.main.bounds.height / 10)
+            $0.height.equalTo(UIScreen.main.bounds.height / 11)
         }
         
         addButton.snp.makeConstraints {
-            $0.verticalEdges.equalToSuperview().inset(20)
-            $0.trailing.equalToSuperview().inset(20)
+            $0.verticalEdges.equalToSuperview().inset(10)
+            $0.trailing.equalToSuperview().inset(10)
             $0.width.equalTo(addButton.snp.height).multipliedBy(1.5)
         }
         
         toDoTextField.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(20)
             $0.verticalEdges.equalTo(addButton)
-            $0.trailing.equalTo(addButton.snp.leading).offset(-20)
+            $0.trailing.equalTo(addButton.snp.leading).offset(-10)
         }
         
         segmentControl.snp.makeConstraints {
