@@ -39,8 +39,9 @@ final class ToDoListViewModel {
         UserDefaults.unpinnedData = unpinnedData
     }
     
-    func addData(data: ToDo) {
+    func addData(data: ToDo, completion: @escaping () -> Void) {
         data.isPinned ? pinnedData.insert(data, at: 0) : unpinnedData.insert(data, at: 0)
+        completion()
     }
     
     func updateIsCompleted(section: Int, index: Int, isCompletion: Bool) {

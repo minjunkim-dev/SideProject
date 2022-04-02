@@ -32,6 +32,11 @@ final class ToDoListViewController: UIViewController {
         
         mainView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         mainView.segmentControl.addTarget(self, action: #selector(segmentIndexChanged), for: .valueChanged)
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        
+        
     }
     
     @objc private func segmentIndexChanged() {
@@ -47,6 +52,9 @@ final class ToDoListViewController: UIViewController {
     @objc private func addButtonClicked() {
     
         guard let content = mainView.toDoTextField.text, !(content.isEmpty) else {
+            let message = "할 일을 입력해주세요 :)"
+            let okTitle = "확인"
+            showAlert(message: message, okTitle: okTitle)
             return
         }
         
@@ -54,7 +62,10 @@ final class ToDoListViewController: UIViewController {
         let category = Category(rawValue: index)
         
         let data = ToDo(content: content, category: category)
-        viewModel.addData(data: data)
+        viewModel.addData(data: data) {
+            self.mainView.toDoTextField.text = ""
+            self.dismissKeyboard()
+        }
     }
 }
 
