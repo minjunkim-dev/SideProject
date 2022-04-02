@@ -13,29 +13,31 @@ final class ToDoListViewModel {
     
     var pinnedData: [ToDo] = [] {
         didSet {
+            savePinnedData()
             delegate?.reloadSection(section: 0)
         }
     }
 
     var unpinnedData: [ToDo] = [] {
         didSet {
+            saveUnpinnedData()
             delegate?.reloadSection(section: 1)
         }
     }
 
-    func loadPinnedData() {
+    private func loadPinnedData() {
         pinnedData = UserDefaults.pinnedData
     }
 
-    func loadUnpinnedData() {
+    private func loadUnpinnedData() {
         unpinnedData = UserDefaults.unpinnedData
     }
 
-    func savePinnedData() {
+    private func savePinnedData() {
         UserDefaults.pinnedData = pinnedData
     }
 
-    func saveUnpinnedData() {
+    private func saveUnpinnedData() {
         UserDefaults.unpinnedData = unpinnedData
     }
     
@@ -50,7 +52,7 @@ final class ToDoListViewModel {
     
     func loadData(section: Int) {
         
-        section == 0 ? savePinnedData() : saveUnpinnedData()
+        section == 0 ? loadPinnedData() : loadUnpinnedData()
     }
 }
 

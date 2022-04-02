@@ -20,8 +20,9 @@ final class ToDoListViewController: UIViewController {
         super.viewDidLoad()
         
         viewModel.delegate = self
-        viewModel.loadPinnedData()
-        viewModel.loadUnpinnedData()
+        for section in 0..<viewModel.numberOfSections {
+            viewModel.loadData(section: section)
+        }
         
         navigationItem.title = "쇼핑"
         
@@ -74,8 +75,6 @@ extension ToDoListViewController: ToDoDelegate {
     func reloadSection(section: Int) {
         let sections = IndexSet(integer: section)
         mainView.tableView.reloadSections(sections, with: .automatic)
-        
-        viewModel.loadData(section: section)
     }
     
     func updateIsCompleted(isCompleted: Bool, indexPath: IndexPath?) {

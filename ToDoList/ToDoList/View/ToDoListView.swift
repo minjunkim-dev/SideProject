@@ -12,7 +12,7 @@ import Then
 
 final class ToDoListView: UIView, ViewPresentable {
     
-    let containerView = UIView().then {
+    private let containerView = UIView().then {
         $0.layer.cornerRadius = 10
     }
     
