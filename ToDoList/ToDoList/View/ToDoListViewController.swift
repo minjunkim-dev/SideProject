@@ -10,22 +10,7 @@ import UIKit
 final class ToDoListViewController: UIViewController {
     
     private let mainView = ToDoListView()
-    
-    var pinnedData: [ToDo] = [] {
-        didSet {
-            let sections = IndexSet(integer: 0)
-            mainView.tableView.reloadSections(sections, with: .automatic)
-            savePinnedData()
-        }
-    }
-    
-    var unpinnedData: [ToDo] = [] {
-        didSet {
-            let sections = IndexSet(integer: 1)
-            mainView.tableView.reloadSections(sections, with: .automatic)
-            saveUnpinnedData()
-        }
-    }
+    private let viewModel = ToDoListViewModel()
     
     override func loadView() {
         view = mainView
@@ -34,8 +19,9 @@ final class ToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadPinnedData()
-        loadUnpinnedData()
+        viewModel.delegate = self
+        viewModel.loadPinnedData()
+        viewModel.loadUnpinnedData()
         
         navigationItem.title = "쇼핑"
         
@@ -46,22 +32,6 @@ final class ToDoListViewController: UIViewController {
         
         mainView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         mainView.segmentControl.addTarget(self, action: #selector(segmentIndexChanged), for: .valueChanged)
-    }
-    
-    private func loadPinnedData() {
-        pinnedData = UserDefaults.pinnedData
-    }
-    
-    private func loadUnpinnedData() {
-        unpinnedData = UserDefaults.unpinnedData
-    }
-    
-    private func savePinnedData() {
-        UserDefaults.pinnedData = pinnedData
-    }
-    
-    private func saveUnpinnedData() {
-        UserDefaults.unpinnedData = unpinnedData
     }
     
     @objc private func segmentIndexChanged() {
@@ -84,16 +54,18 @@ final class ToDoListViewController: UIViewController {
         let category = Category(rawValue: index)
         
         let data = ToDo(content: content, category: category)
-        addData(data: data)
-    }
-    
-    private func addData(data: ToDo) {
-        
-        data.isPinned ? pinnedData.insert(data, at: 0) : unpinnedData.insert(data, at: 0)
+        viewModel.addData(data: data)
     }
 }
 
 extension ToDoListViewController: ToDoDelegate {
+    
+    func reloadSection(section: Int) {
+        let sections = IndexSet(integer: section)
+        mainView.tableView.reloadSections(sections, with: .automatic)
+        
+        viewModel.loadData(section: section)
+    }
     
     func updateIsCompleted(isCompleted: Bool, indexPath: IndexPath?) {
         
@@ -103,34 +75,25 @@ extension ToDoListViewController: ToDoDelegate {
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        var indices: [Int]
-        switch category {
-        case .business:
-            indices = section == 0 ? pinnedData.enumerated().filter { $1.category == .business }.map { $0.offset } : unpinnedData.enumerated().filter { $1.category == .business }.map { $0.offset }
-        case .personal:
-            indices = section == 0 ? pinnedData.enumerated().filter { $1.category == .personal }.map { $0.offset } : unpinnedData.enumerated().filter { $1.category == .personal }.map { $0.offset }
-        case .others:
-            indices = section == 0 ? pinnedData.enumerated().filter { $1.category == .others }.map { $0.offset } : unpinnedData.enumerated().filter { $1.category == .others }.map { $0.offset }
-        default:
-            indices = section == 0 ? pinnedData.enumerated().map { $0.offset } :  unpinnedData.enumerated().map { $0.offset }
-        }
         
-        section == 0 ? (pinnedData[indices[row]].isCompleted = isCompleted) : (unpinnedData[indices[row]].isCompleted = isCompleted)
+        let indices = viewModel.searchIndices(section: section, category: category)
+        let dataIndex = indices[row]
+        viewModel.updateIsCompleted(section: section, index: dataIndex, isCompletion: isCompleted)
     }
 }
 
 extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2 // isPinned, or not
+        return viewModel.numberOfSections // isPinned, or not
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "고정된 할 일" : "할 일"
+        return viewModel.titleForHeaderInSection[section]
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = .lightGray
+        (view as? UITableViewHeaderFooterView)?.textLabel?.textColor = viewModel.headerViewTextColor[section]
     }
     
     
@@ -141,16 +104,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        switch category {
-        case .business:
-            return section == 0 ? pinnedData.filter { $0.category == .business }.count : unpinnedData.filter { $0.category == .business }.count
-        case .personal:
-            return section == 0 ? pinnedData.filter { $0.category == .personal }.count : unpinnedData.filter { $0.category == .personal }.count
-        case .others:
-            return section == 0 ? pinnedData.filter { $0.category == .others }.count : unpinnedData.filter { $0.category == .others }.count
-        default:
-            return section == 0 ? pinnedData.count : unpinnedData.count
-        }
+        return viewModel.numberOfRowsInSection(section: section, category: category)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -163,17 +117,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        var data: ToDo
-        switch category {
-        case .business:
-            data = section == 0 ? pinnedData.filter { $0.category == .business }[row] : unpinnedData.filter { $0.category == .business }[row]
-        case .personal:
-            data = section == 0 ? pinnedData.filter { $0.category == .personal }[row] : unpinnedData.filter { $0.category == .personal }[row]
-        case .others:
-            data = section == 0 ? pinnedData.filter { $0.category == .others }[row] : unpinnedData.filter { $0.category == .others }[row]
-        default:
-            data = section == 0 ? pinnedData[row] :  unpinnedData[row]
-        }
+        let data = viewModel.searchData(section: section, row: row, category: category)
        
         cell.delegate = self
         cell.configureCell(data: data, indexPath: indexPath)
@@ -197,63 +141,21 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
     
-        var filteredSourceIndices: [Int]
-        var filteredDestinationIndices: [Int]
-        switch category {
-        case .business:
-            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .business }.map { return $0.offset }
-            
-            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .business }.map { return $0.offset }
-        case .personal:
-            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .personal }.map { return $0.offset }
-            
-            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .personal }.map { return $0.offset }
-        case .others:
-            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().filter {
-                $1.category == .others }.map { return $0.offset }: unpinnedData.enumerated().filter {
-                    $1.category == .others }.map { return $0.offset }
-            
-            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().filter {
-                $1.category == .others }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .others }.map { return $0.offset }
-        default:
-            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
-            
-            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
-        }
+        let filteredSourceIndices = viewModel.searchIndices(section: sourceSection, category: category)
+        let filteredDestinationIndices = viewModel.searchIndices(section: destinationSection, category: category)
         
-        var data = sourceSection == 0 ? pinnedData.remove(at: filteredSourceIndices[sourceRow]) : unpinnedData.remove(at: filteredSourceIndices[sourceRow])
+    
+        let sourceIndex = filteredSourceIndices[sourceRow]
+        let data = viewModel.removeData(section: sourceSection, index: sourceIndex)
         
-        if destinationSection == 0 {
-            data.isPinned = true
-            
-            if destinationRow == 0 {
-                pinnedData.insert(data, at: 0)
-            } else if destinationRow == filteredDestinationIndices.count {
-                pinnedData.insert(data, at: filteredDestinationIndices.count)
-            } else {
-                pinnedData.insert(data, at: filteredDestinationIndices[destinationRow])
-            }
-
+        if destinationRow == 0 {
+            viewModel.insertData(section: destinationSection, data: data, index: 0)
+        } else if destinationRow == filteredDestinationIndices.count {
+            viewModel.insertData(section: destinationSection, data: data, index: filteredDestinationIndices.count)
         } else {
-            data.isPinned = false
-            
-            if destinationRow == 0 {
-                unpinnedData.insert(data, at: 0)
-            } else if destinationRow == filteredDestinationIndices.count {
-                unpinnedData.insert(data, at: filteredDestinationIndices.count)
-            } else {
-                unpinnedData.insert(data, at: filteredDestinationIndices[destinationRow])
-            }
+            viewModel.insertData(section: destinationSection, data: data, index: filteredDestinationIndices[destinationRow])
         }
+
     }
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
@@ -264,17 +166,7 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        var data: ToDo
-        switch category {
-        case .business:
-            data = section == 0 ? pinnedData.filter { $0.category == .business }[row] : unpinnedData.filter { $0.category == .business}[row]
-        case .personal:
-            data = section == 0 ? pinnedData.filter { $0.category == .personal }[row] : unpinnedData.filter { $0.category == .personal}[row]
-        case .others:
-            data = section == 0 ? pinnedData.filter { $0.category == .others }[row] : unpinnedData.filter { $0.category == .others}[row]
-        default:
-            data = section == 0 ? pinnedData[row] : unpinnedData[row]
-        }
+        let data = viewModel.searchData(section: section, row: row, category: category)
         
         dragItem.localObject = data
         return [dragItem]
@@ -291,31 +183,18 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        var filteredIndices: [Int]
-        switch category {
-        case .business:
-            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .business }.map { return $0.offset }
-        case .personal:
-            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .personal }.map { return $0.offset }
-        case .others:
-            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
-                $1.category == .others }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .others }.map { return $0.offset }
-        default:
-            filteredIndices = section == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
-        }
+        let filteredIndices = viewModel.searchIndices(section: section, category: category)
         
-        var data = section == 0 ? pinnedData[filteredIndices[row]] : unpinnedData[filteredIndices[row]]
+        let dataIndex = filteredIndices[row]
+        var data = section == 0 ? viewModel.pinnedData[dataIndex] : viewModel.unpinnedData[dataIndex]
         
         let pin = UIContextualAction(style: .normal, title: nil) { action, view, completion in
             
-            data.isPinned ? self.pinnedData.remove(at: filteredIndices[row]) : self.unpinnedData.remove(at: filteredIndices[row])
+            data.isPinned ? self.viewModel.removeData(section: 0, index: dataIndex) : self.viewModel.removeData(section: 1, index: dataIndex)
+            
             data.isPinned.toggle()
-            data.isPinned ? self.pinnedData.insert(data, at: 0) : self.unpinnedData.insert(data, at: 0)
+            
+            data.isPinned ? self.viewModel.insertData(section: 0, data: data, index: 0) : self.viewModel.insertData(section: 1, data: data, index: 0)
         
             completion(true)
         }
@@ -333,27 +212,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         let index = mainView.segmentControl.selectedSegmentIndex
         let category = Category(rawValue: index)
         
-        var filteredIndices: [Int]
-        switch category {
-        case .business:
-            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .business }.map { return $0.offset }
-        case .personal:
-            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .personal }.map { return $0.offset }
-        case .others:
-            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
-                $1.category == .others }.map { return $0.offset } : unpinnedData.enumerated().filter {
-                    $1.category == .others }.map { return $0.offset }
-        default:
-            filteredIndices = section == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
-        }
+        let filteredIndices = viewModel.searchIndices(section: section, category: category)
         
+        let dataIndex = filteredIndices[row]
         let delete = UIContextualAction(style: .destructive, title: nil) { action, view, completion in
             
-            section == 0 ? self.pinnedData.remove(at: filteredIndices[row]) : self.unpinnedData.remove(at: filteredIndices[row])
+            self.viewModel.removeData(section: section, index: dataIndex)
+            
             completion(true)
         }
         

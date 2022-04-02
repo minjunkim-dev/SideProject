@@ -10,10 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-protocol ToDoDelegate {
-    func updateIsCompleted(isCompleted: Bool, indexPath: IndexPath?)
-}
-
 final class ToDoTableViewCell: UITableViewCell, ViewPresentable {
 
     var delegate: ToDoDelegate?
