@@ -52,7 +52,7 @@ final class ToDoListViewController: UIViewController {
     @objc private func addButtonClicked() {
     
         guard let content = mainView.toDoTextField.text, !(content.isEmpty) else {
-            let message = "할 일을 입력해주세요 :)"
+            let message = "할 일을 입력해주셔야 해요😭"
             let okTitle = "확인"
             showAlert(message: message, okTitle: okTitle)
             return
