@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct ToDo {
+struct ToDo: Codable {
     var content: String
     var category: Category?
     var isCompleted: Bool = false
@@ -27,7 +27,7 @@ struct ToDo {
 //    }
 //}
 
-enum Category: Int, CaseIterable {
+enum Category: Int, CaseIterable, Codable {
     
     case business = 1
     case personal

@@ -11,19 +11,19 @@ final class ToDoListViewController: UIViewController {
     
     private let mainView = ToDoListView()
     
-    var isPinnedMock: [ToDo] = [] {
+    var pinnedData: [ToDo] = [] {
         didSet {
-            print(#function)
             let sections = IndexSet(integer: 0)
             mainView.tableView.reloadSections(sections, with: .automatic)
+            savePinnedData()
         }
     }
     
-    var isNotPinnedMock: [ToDo] = [] {
+    var unpinnedData: [ToDo] = [] {
         didSet {
-            print(#function)
             let sections = IndexSet(integer: 1)
             mainView.tableView.reloadSections(sections, with: .automatic)
+            saveUnpinnedData()
         }
     }
     
@@ -34,6 +34,9 @@ final class ToDoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadPinnedData()
+        loadUnpinnedData()
+        
         navigationItem.title = "쇼핑"
         
         mainView.tableView.delegate = self
@@ -43,6 +46,22 @@ final class ToDoListViewController: UIViewController {
         
         mainView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         mainView.segmentControl.addTarget(self, action: #selector(segmentIndexChanged), for: .valueChanged)
+    }
+    
+    private func loadPinnedData() {
+        pinnedData = UserDefaults.pinnedData
+    }
+    
+    private func loadUnpinnedData() {
+        unpinnedData = UserDefaults.unpinnedData
+    }
+    
+    private func savePinnedData() {
+        UserDefaults.pinnedData = pinnedData
+    }
+    
+    private func saveUnpinnedData() {
+        UserDefaults.unpinnedData = unpinnedData
     }
     
     @objc private func segmentIndexChanged() {
@@ -70,7 +89,7 @@ final class ToDoListViewController: UIViewController {
     
     private func addData(data: ToDo) {
         
-        data.isPinned ? isPinnedMock.insert(data, at: 0) : isNotPinnedMock.insert(data, at: 0)
+        data.isPinned ? pinnedData.insert(data, at: 0) : unpinnedData.insert(data, at: 0)
     }
 }
 
@@ -87,16 +106,16 @@ extension ToDoListViewController: ToDoDelegate {
         var indices: [Int]
         switch category {
         case .business:
-            indices = section == 0 ? isPinnedMock.enumerated().filter { $1.category == .business }.map { $0.offset } : isNotPinnedMock.enumerated().filter { $1.category == .business }.map { $0.offset }
+            indices = section == 0 ? pinnedData.enumerated().filter { $1.category == .business }.map { $0.offset } : unpinnedData.enumerated().filter { $1.category == .business }.map { $0.offset }
         case .personal:
-            indices = section == 0 ? isPinnedMock.enumerated().filter { $1.category == .personal }.map { $0.offset } : isNotPinnedMock.enumerated().filter { $1.category == .personal }.map { $0.offset }
+            indices = section == 0 ? pinnedData.enumerated().filter { $1.category == .personal }.map { $0.offset } : unpinnedData.enumerated().filter { $1.category == .personal }.map { $0.offset }
         case .others:
-            indices = section == 0 ? isPinnedMock.enumerated().filter { $1.category == .others }.map { $0.offset } : isNotPinnedMock.enumerated().filter { $1.category == .others }.map { $0.offset }
+            indices = section == 0 ? pinnedData.enumerated().filter { $1.category == .others }.map { $0.offset } : unpinnedData.enumerated().filter { $1.category == .others }.map { $0.offset }
         default:
-            indices = section == 0 ? isPinnedMock.enumerated().map { $0.offset } :  isNotPinnedMock.enumerated().map { $0.offset }
+            indices = section == 0 ? pinnedData.enumerated().map { $0.offset } :  unpinnedData.enumerated().map { $0.offset }
         }
         
-        section == 0 ? (isPinnedMock[indices[row]].isCompleted = isCompleted) : (isNotPinnedMock[indices[row]].isCompleted = isCompleted)
+        section == 0 ? (pinnedData[indices[row]].isCompleted = isCompleted) : (unpinnedData[indices[row]].isCompleted = isCompleted)
     }
 }
 
@@ -124,13 +143,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         
         switch category {
         case .business:
-            return section == 0 ? isPinnedMock.filter { $0.category == .business }.count : isNotPinnedMock.filter { $0.category == .business }.count
+            return section == 0 ? pinnedData.filter { $0.category == .business }.count : unpinnedData.filter { $0.category == .business }.count
         case .personal:
-            return section == 0 ? isPinnedMock.filter { $0.category == .personal }.count : isNotPinnedMock.filter { $0.category == .personal }.count
+            return section == 0 ? pinnedData.filter { $0.category == .personal }.count : unpinnedData.filter { $0.category == .personal }.count
         case .others:
-            return section == 0 ? isPinnedMock.filter { $0.category == .others }.count : isNotPinnedMock.filter { $0.category == .others }.count
+            return section == 0 ? pinnedData.filter { $0.category == .others }.count : unpinnedData.filter { $0.category == .others }.count
         default:
-            return section == 0 ? isPinnedMock.count : isNotPinnedMock.count
+            return section == 0 ? pinnedData.count : unpinnedData.count
         }
     }
     
@@ -147,13 +166,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         var data: ToDo
         switch category {
         case .business:
-            data = section == 0 ? isPinnedMock.filter { $0.category == .business }[row] : isNotPinnedMock.filter { $0.category == .business }[row]
+            data = section == 0 ? pinnedData.filter { $0.category == .business }[row] : unpinnedData.filter { $0.category == .business }[row]
         case .personal:
-            data = section == 0 ? isPinnedMock.filter { $0.category == .personal }[row] : isNotPinnedMock.filter { $0.category == .personal }[row]
+            data = section == 0 ? pinnedData.filter { $0.category == .personal }[row] : unpinnedData.filter { $0.category == .personal }[row]
         case .others:
-            data = section == 0 ? isPinnedMock.filter { $0.category == .others }[row] : isNotPinnedMock.filter { $0.category == .others }[row]
+            data = section == 0 ? pinnedData.filter { $0.category == .others }[row] : unpinnedData.filter { $0.category == .others }[row]
         default:
-            data = section == 0 ? isPinnedMock[row] :  isNotPinnedMock[row]
+            data = section == 0 ? pinnedData[row] :  unpinnedData[row]
         }
        
         cell.delegate = self
@@ -182,57 +201,57 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         var filteredDestinationIndices: [Int]
         switch category {
         case .business:
-            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .business }.map { return $0.offset }
             
-            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .business }.map { return $0.offset }
         case .personal:
-            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .personal }.map { return $0.offset }
             
-            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .personal }.map { return $0.offset }
         case .others:
-            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .others }.map { return $0.offset }: isNotPinnedMock.enumerated().filter {
+            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().filter {
+                $1.category == .others }.map { return $0.offset }: unpinnedData.enumerated().filter {
                     $1.category == .others }.map { return $0.offset }
             
-            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .others }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().filter {
+                $1.category == .others }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .others }.map { return $0.offset }
         default:
-            filteredSourceIndices = sourceSection == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+            filteredSourceIndices = sourceSection == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
             
-            filteredDestinationIndices = destinationSection == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+            filteredDestinationIndices = destinationSection == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
         }
         
-        var data = sourceSection == 0 ? isPinnedMock.remove(at: filteredSourceIndices[sourceRow]) : isNotPinnedMock.remove(at: filteredSourceIndices[sourceRow])
+        var data = sourceSection == 0 ? pinnedData.remove(at: filteredSourceIndices[sourceRow]) : unpinnedData.remove(at: filteredSourceIndices[sourceRow])
         
         if destinationSection == 0 {
             data.isPinned = true
             
             if destinationRow == 0 {
-                isPinnedMock.insert(data, at: 0)
+                pinnedData.insert(data, at: 0)
             } else if destinationRow == filteredDestinationIndices.count {
-                isPinnedMock.insert(data, at: filteredDestinationIndices.count)
+                pinnedData.insert(data, at: filteredDestinationIndices.count)
             } else {
-                isPinnedMock.insert(data, at: filteredDestinationIndices[destinationRow])
+                pinnedData.insert(data, at: filteredDestinationIndices[destinationRow])
             }
 
         } else {
             data.isPinned = false
             
             if destinationRow == 0 {
-                isNotPinnedMock.insert(data, at: 0)
+                unpinnedData.insert(data, at: 0)
             } else if destinationRow == filteredDestinationIndices.count {
-                isNotPinnedMock.insert(data, at: filteredDestinationIndices.count)
+                unpinnedData.insert(data, at: filteredDestinationIndices.count)
             } else {
-                isNotPinnedMock.insert(data, at: filteredDestinationIndices[destinationRow])
+                unpinnedData.insert(data, at: filteredDestinationIndices[destinationRow])
             }
         }
     }
@@ -248,13 +267,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         var data: ToDo
         switch category {
         case .business:
-            data = section == 0 ? isPinnedMock.filter { $0.category == .business }[row] : isNotPinnedMock.filter { $0.category == .business}[row]
+            data = section == 0 ? pinnedData.filter { $0.category == .business }[row] : unpinnedData.filter { $0.category == .business}[row]
         case .personal:
-            data = section == 0 ? isPinnedMock.filter { $0.category == .personal }[row] : isNotPinnedMock.filter { $0.category == .personal}[row]
+            data = section == 0 ? pinnedData.filter { $0.category == .personal }[row] : unpinnedData.filter { $0.category == .personal}[row]
         case .others:
-            data = section == 0 ? isPinnedMock.filter { $0.category == .others }[row] : isNotPinnedMock.filter { $0.category == .others}[row]
+            data = section == 0 ? pinnedData.filter { $0.category == .others }[row] : unpinnedData.filter { $0.category == .others}[row]
         default:
-            data = section == 0 ? isPinnedMock[row] : isNotPinnedMock[row]
+            data = section == 0 ? pinnedData[row] : unpinnedData[row]
         }
         
         dragItem.localObject = data
@@ -275,28 +294,28 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         var filteredIndices: [Int]
         switch category {
         case .business:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .business }.map { return $0.offset }
         case .personal:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .personal }.map { return $0.offset }
         case .others:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .others }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
+                $1.category == .others }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .others }.map { return $0.offset }
         default:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+            filteredIndices = section == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
         }
         
-        var data = section == 0 ? isPinnedMock[filteredIndices[row]] : isNotPinnedMock[filteredIndices[row]]
+        var data = section == 0 ? pinnedData[filteredIndices[row]] : unpinnedData[filteredIndices[row]]
         
         let pin = UIContextualAction(style: .normal, title: nil) { action, view, completion in
             
-            data.isPinned ? self.isPinnedMock.remove(at: filteredIndices[row]) : self.isNotPinnedMock.remove(at: filteredIndices[row])
+            data.isPinned ? self.pinnedData.remove(at: filteredIndices[row]) : self.unpinnedData.remove(at: filteredIndices[row])
             data.isPinned.toggle()
-            data.isPinned ? self.isPinnedMock.insert(data, at: 0) : self.isNotPinnedMock.insert(data, at: 0)
+            data.isPinned ? self.pinnedData.insert(data, at: 0) : self.unpinnedData.insert(data, at: 0)
         
             completion(true)
         }
@@ -317,24 +336,24 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         var filteredIndices: [Int]
         switch category {
         case .business:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .business }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
+                $1.category == .business }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .business }.map { return $0.offset }
         case .personal:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .personal }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
+                $1.category == .personal }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .personal }.map { return $0.offset }
         case .others:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().filter {
-                $1.category == .others }.map { return $0.offset } : isNotPinnedMock.enumerated().filter {
+            filteredIndices = section == 0 ? pinnedData.enumerated().filter {
+                $1.category == .others }.map { return $0.offset } : unpinnedData.enumerated().filter {
                     $1.category == .others }.map { return $0.offset }
         default:
-            filteredIndices = section == 0 ? isPinnedMock.enumerated().map { return $0.offset } : isNotPinnedMock.enumerated().map { return $0.offset }
+            filteredIndices = section == 0 ? pinnedData.enumerated().map { return $0.offset } : unpinnedData.enumerated().map { return $0.offset }
         }
         
         let delete = UIContextualAction(style: .destructive, title: nil) { action, view, completion in
             
-            section == 0 ? self.isPinnedMock.remove(at: filteredIndices[row]) : self.isNotPinnedMock.remove(at: filteredIndices[row])
+            section == 0 ? self.pinnedData.remove(at: filteredIndices[row]) : self.unpinnedData.remove(at: filteredIndices[row])
             completion(true)
         }
         
