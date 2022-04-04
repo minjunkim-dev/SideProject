@@ -200,11 +200,13 @@ extension ToDoListViewController: UITableViewDelegate, UITableViewDataSource, UI
         
         let pin = UIContextualAction(style: .normal, title: nil) { action, view, completion in
             
-            data.isPinned ? self.viewModel.removeData(section: 0, index: dataIndex) : self.viewModel.removeData(section: 1, index: dataIndex)
-            
-            data.isPinned.toggle()
-            
-            data.isPinned ? self.viewModel.insertData(section: 0, data: data, index: 0) : self.viewModel.insertData(section: 1, data: data, index: 0)
+            if data.isPinned {
+                self.viewModel.removeData(section: 0, index: dataIndex)
+                self.viewModel.insertData(section: 1, data: data, index: 0)
+            } else {
+                self.viewModel.removeData(section: 1, index: dataIndex)
+                self.viewModel.insertData(section: 0, data: data, index: 0)
+            }
         
             completion(true)
         }

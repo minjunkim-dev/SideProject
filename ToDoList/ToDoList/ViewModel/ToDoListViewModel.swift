@@ -134,6 +134,6 @@ extension ToDoListViewModel {
         
         section == 0 ? (newData.isPinned = true) : (newData.isPinned = false)
         
-        section == 0 ? pinnedData.insert(data, at: index) : unpinnedData.insert(data, at: index)
+        section == 0 ? pinnedData.insert(newData, at: index) : unpinnedData.insert(newData, at: index)
     }
 }
