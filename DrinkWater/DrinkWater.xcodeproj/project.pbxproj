@@ -19,6 +19,7 @@
 		CA51F76A27FAC77D006B6D18 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F76927FAC77D006B6D18 /* SnapKit */; };
 		CA51F76D27FAC787006B6D18 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F76C27FAC787006B6D18 /* Then */; };
 		CA51F76F27FAC896006B6D18 /* cactus.json in Resources */ = {isa = PBXBuildFile; fileRef = CA51F76E27FAC896006B6D18 /* cactus.json */; };
+		CA51F77127FAD7B4006B6D18 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77027FAD7B4006B6D18 /* LaunchScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		CA51F76027FAC17F006B6D18 /* ViewPresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentable.swift; sourceTree = "<group>"; };
 		CA51F76327FAC6BD006B6D18 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		CA51F76E27FAC896006B6D18 /* cactus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cactus.json; sourceTree = "<group>"; };
+		CA51F77027FAD7B4006B6D18 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			children = (
 				CA51F75927FAC130006B6D18 /* DrinkWaterView.swift */,
 				CA51F75B27FAC13C006B6D18 /* DrinkWaterViewController.swift */,
+				CA51F77027FAD7B4006B6D18 /* LaunchScreenViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				CA51F74527FAC07C006B6D18 /* AppDelegate.swift in Sources */,
 				CA51F74727FAC07C006B6D18 /* SceneDelegate.swift in Sources */,
 				CA51F75C27FAC13C006B6D18 /* DrinkWaterViewController.swift in Sources */,
+				CA51F77127FAD7B4006B6D18 /* LaunchScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

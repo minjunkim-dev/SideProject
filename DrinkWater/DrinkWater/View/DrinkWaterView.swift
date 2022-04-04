@@ -7,20 +7,16 @@
 
 import UIKit
 
-import Lottie
 import SnapKit
 import Then
 
 final class DrinkWaterView: UIView, ViewPrenstable {
         
-    let animationView = AnimationView(name: "cactus").then {
-        $0.contentMode = .scaleAspectFit
-    }
-    
     let label = UILabel()
     
     func setupView() {
-    
+        
+        backgroundColor = .systemGreen
         
         addSubview(label)
         label.text = "아아아 테스트입니다!"
@@ -37,17 +33,8 @@ final class DrinkWaterView: UIView, ViewPrenstable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .systemGreen
-        addSubview(animationView)
-        animationView.snp.makeConstraints {
-            $0.center.equalToSuperview()
-        }
-        animationView.play{ _ in
-            self.animationView.removeFromSuperview()
-            
-            self.setupView()
-            self.setupConstraints()
-        }
+        setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
