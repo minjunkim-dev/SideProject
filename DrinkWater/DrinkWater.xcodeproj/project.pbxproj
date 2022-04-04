@@ -20,6 +20,10 @@
 		CA51F76D27FAC787006B6D18 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F76C27FAC787006B6D18 /* Then */; };
 		CA51F76F27FAC896006B6D18 /* cactus.json in Resources */ = {isa = PBXBuildFile; fileRef = CA51F76E27FAC896006B6D18 /* cactus.json */; };
 		CA51F77127FAD7B4006B6D18 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77027FAD7B4006B6D18 /* LaunchScreenViewController.swift */; };
+		CA51F77427FAE55D006B6D18 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77327FAE55D006B6D18 /* ProfileView.swift */; };
+		CA51F77627FAE565006B6D18 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77527FAE565006B6D18 /* ProfileViewController.swift */; };
+		CA51F77927FAEA33006B6D18 /* ProfileInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77827FAEA33006B6D18 /* ProfileInputView.swift */; };
+		CA51F77B27FAEAF2006B6D18 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77A27FAEAF2006B6D18 /* ProfileTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +39,10 @@
 		CA51F76327FAC6BD006B6D18 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		CA51F76E27FAC896006B6D18 /* cactus.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cactus.json; sourceTree = "<group>"; };
 		CA51F77027FAD7B4006B6D18 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		CA51F77327FAE55D006B6D18 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		CA51F77527FAE565006B6D18 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CA51F77827FAEA33006B6D18 /* ProfileInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInputView.swift; sourceTree = "<group>"; };
+		CA51F77A27FAEAF2006B6D18 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,7 @@
 		CA51F74327FAC07C006B6D18 /* DrinkWater */ = {
 			isa = PBXGroup;
 			children = (
+				CA51F77727FAEA16006B6D18 /* Custom */,
 				CA51F76E27FAC896006B6D18 /* cactus.json */,
 				CA51F75227FAC07D006B6D18 /* Info.plist */,
 				CA51F74427FAC07C006B6D18 /* AppDelegate.swift */,
@@ -89,6 +98,8 @@
 				CA51F75927FAC130006B6D18 /* DrinkWaterView.swift */,
 				CA51F75B27FAC13C006B6D18 /* DrinkWaterViewController.swift */,
 				CA51F77027FAD7B4006B6D18 /* LaunchScreenViewController.swift */,
+				CA51F77327FAE55D006B6D18 /* ProfileView.swift */,
+				CA51F77527FAE565006B6D18 /* ProfileViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -99,6 +110,15 @@
 				CA51F76027FAC17F006B6D18 /* ViewPresentable.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CA51F77727FAEA16006B6D18 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				CA51F77827FAEA33006B6D18 /* ProfileInputView.swift */,
+				CA51F77A27FAEAF2006B6D18 /* ProfileTextField.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,11 +224,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA51F77427FAE55D006B6D18 /* ProfileView.swift in Sources */,
 				CA51F76127FAC17F006B6D18 /* ViewPresentable.swift in Sources */,
 				CA51F75A27FAC130006B6D18 /* DrinkWaterView.swift in Sources */,
+				CA51F77927FAEA33006B6D18 /* ProfileInputView.swift in Sources */,
+				CA51F77B27FAEAF2006B6D18 /* ProfileTextField.swift in Sources */,
 				CA51F76427FAC6BD006B6D18 /* Assets+Generated.swift in Sources */,
 				CA51F74527FAC07C006B6D18 /* AppDelegate.swift in Sources */,
 				CA51F74727FAC07C006B6D18 /* SceneDelegate.swift in Sources */,
+				CA51F77627FAE565006B6D18 /* ProfileViewController.swift in Sources */,
 				CA51F75C27FAC13C006B6D18 /* DrinkWaterViewController.swift in Sources */,
 				CA51F77127FAD7B4006B6D18 /* LaunchScreenViewController.swift in Sources */,
 			);

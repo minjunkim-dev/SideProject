@@ -7,16 +7,12 @@
 
 import UIKit
 
-import SnapKit
-import Then
-
 final class DrinkWaterViewController: UIViewController {
     
     private let mainView = DrinkWaterView()
     
     
     override func loadView() {
-        print(#function)
         view = mainView
     }
     
@@ -31,11 +27,19 @@ final class DrinkWaterViewController: UIViewController {
         navigationItem.title = "물 마시기"
         
         let leftItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
-        leftItem.tintColor = .white
+        let rightItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(profileButtonClicked))
         navigationItem.leftBarButtonItems = [leftItem]
-        
-        let rightItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .done, target: self, action: nil)
-        rightItem.tintColor = .white
         navigationItem.rightBarButtonItems = [rightItem]
+//        leftItem.tintColor = .white
+//        rightItem.tintColor = .white
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
+    @objc func profileButtonClicked() {
+        
+        if let _ = navigationItem.rightBarButtonItems?.first {
+            let vc = ProfileViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
