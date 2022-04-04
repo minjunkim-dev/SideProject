@@ -36,11 +36,11 @@ enum Category: Int, CaseIterable, Codable {
     var description: String {
         switch self {
         case .business:
-            return "업무"
+            return "segment2".localized()
         case .personal:
-            return "개인"
+            return "segment3".localized()
         case .others:
-            return "기타"
+            return "segment4".localized()
         }
     }
 }

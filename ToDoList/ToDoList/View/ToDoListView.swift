@@ -19,7 +19,7 @@ final class ToDoListView: UIView, ViewPresentable {
     let toDoTextField = UITextField().then {
         $0.textColor = .black
         $0.attributedPlaceholder = NSAttributedString(
-            string: "어떤 할 일이 있으신가요?",
+            string: "textFieldPlaceholder".localized(),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         )
         $0.autocapitalizationType = .none
@@ -27,14 +27,14 @@ final class ToDoListView: UIView, ViewPresentable {
     }
     
     let addButton = UIButton().then {
-        $0.setTitle("추가", for: .normal)
+        $0.setTitle("buttonTitle".localized(), for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.layer.cornerRadius = 10
     }
     
     let segmentControl = UISegmentedControl().then {
         
-        $0.insertSegment(withTitle: "전체", at: 0, animated: false)
+        $0.insertSegment(withTitle: "segment1".localized(), at: 0, animated: false)
         $0.selectedSegmentIndex = 0
         
         for (index, category) in Category.allCases.enumerated() {

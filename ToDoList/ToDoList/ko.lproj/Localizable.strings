@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  ToDoList
+
+  Created by beneDev on 2022/04/04.
+  
+*/
+
+"title" = "할 일";
+"textFieldPlaceholder" = "어떤 할 일이 있으신가요?";
+"segment1" = "전체";
+"segment2" = "업무";
+"segment3" = "개인";
+"segment4" = "기타";
+"section1Title" = "고정된 할 일";
+"section2Title" = "할 일";
+"buttonTitle" = "추가";
+"okTitle" = "확인";
+"alertMessage" = "할 일을 입력해주셔야 해요😭";

@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  ToDoList
+
+  Created by beneDev on 2022/04/04.
+  
+*/
+
+"CFBundleDisplayName" = "to-do note";

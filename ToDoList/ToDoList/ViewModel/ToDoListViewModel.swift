@@ -63,7 +63,7 @@ extension ToDoListViewModel {
     }
     
     var titleForHeaderInSection: [String] {
-        return ["고정된 할 일", "할 일"]
+        return ["section1Title".localized(), "section2Title".localized()]
     }
     
     var headerViewTextColor: [UIColor] {

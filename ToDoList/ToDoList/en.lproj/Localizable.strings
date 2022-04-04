@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  ToDoList
+
+  Created by beneDev on 2022/04/04.
+  
+*/
+
+"title" = "to-do";
+"textFieldPlaceholder" = "What do you have to do?";
+"segment1" = "All";
+"segment2" = "Business";
+"segment3" = "Personal";
+"segment4" = "Others";
+"section1Title" = "Pinned to-do";
+"section2Title" = "to-do";
+"buttonTitle" = "Add";
+"okTitle" = "OK";
+"alertMessage" = "Please enter a to-do😭";

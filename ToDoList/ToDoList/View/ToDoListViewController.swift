@@ -24,7 +24,7 @@ final class ToDoListViewController: UIViewController {
             viewModel.loadData(section: section)
         }
         
-        navigationItem.title = "쇼핑"
+        navigationItem.title = "title".localized()
         
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
@@ -53,8 +53,8 @@ final class ToDoListViewController: UIViewController {
     @objc private func addButtonClicked() {
     
         guard let content = mainView.toDoTextField.text, !(content.isEmpty) else {
-            let message = "할 일을 입력해주셔야 해요😭"
-            let okTitle = "확인"
+            let message = "alertMessage".localized()
+            let okTitle = "okTitle".localized()
             showAlert(message: message, okTitle: okTitle)
             return
         }
