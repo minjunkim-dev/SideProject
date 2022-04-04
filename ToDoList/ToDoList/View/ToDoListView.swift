@@ -78,7 +78,7 @@ final class ToDoListView: UIView, ViewPresentable {
         containerView.snp.makeConstraints {
             $0.top.equalTo(safeAreaLayoutGuide).inset(20)
             $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
-            $0.height.equalTo(UIScreen.main.bounds.height / 11)
+            $0.height.equalTo(70)
         }
         
         addButton.snp.makeConstraints {
