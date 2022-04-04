@@ -255,7 +255,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nswiftgen xcassets --param enumName=Assets ${TARGETNAME}/Assets.xcassets -t swift5 --output \"${TARGETNAME}/Assets+Generated.swift\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\nswiftgen run xcassets --param enumName=Assets ${TARGETNAME}/Assets.xcassets -t swift5 --output \"${TARGETNAME}/Assets+Generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

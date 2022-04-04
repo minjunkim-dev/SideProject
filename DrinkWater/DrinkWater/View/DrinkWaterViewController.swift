@@ -7,9 +7,13 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 final class DrinkWaterViewController: UIViewController {
     
     private let mainView = DrinkWaterView()
+    
     
     override func loadView() {
         view = mainView
@@ -17,5 +21,6 @@ final class DrinkWaterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 }
