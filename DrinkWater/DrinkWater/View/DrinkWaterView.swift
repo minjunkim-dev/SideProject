@@ -11,22 +11,75 @@ import SnapKit
 import Then
 
 final class DrinkWaterView: UIView, ViewPrenstable {
+    
+    let todayIntakeLabel = UILabel().then {
+        $0.numberOfLines = 4
+        $0.textColor = .white
+        $0.textAlignment = .left
         
-    let label = UILabel()
+        $0.text = """
+        잘하셨어요!
+        오늘 마신 양은
+        1200ml
+        목표의 57%
+        """
+    }
+    
+    let imageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        
+        $0.image = Assets.phase1.image
+    }
+    
+    let inputIntakeTextField = UITextField().then {
+        $0.textColor = .white
+        $0.textAlignment = .center
+        $0.autocapitalizationType = .none
+    }
+    
+    let recommendedIntakeLabel = UILabel().then {
+        $0.numberOfLines = 1
+        $0.textColor = .white
+        $0.textAlignment = .center
+        
+        $0.text = "안녕하세요님의 하루 물 권장 섭취량은 2.1L 입니다."
+    }
     
     func setupView() {
         
         backgroundColor = .systemGreen
         
-        addSubview(label)
-        label.text = "아아아 테스트입니다!"
-        label.font = .systemFont(ofSize: 50)
+        [todayIntakeLabel, imageView, inputIntakeTextField, recommendedIntakeLabel].forEach {
+            addSubview($0)
+        }
+        
+        inputIntakeTextField.backgroundColor = .systemYellow
     }
     
     func setupConstraints() {
         
-        label.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide)
+        todayIntakeLabel.snp.makeConstraints {
+            $0.top.equalTo(safeAreaLayoutGuide).inset(40)
+            $0.leading.equalTo(safeAreaLayoutGuide).inset(20)
+            $0.trailing.equalTo(self.snp.centerX)
+            $0.bottom.lessThanOrEqualTo(imageView.snp.top).offset(-20)
+        }
+        
+        imageView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.size.equalTo(self).multipliedBy(0.33)
+        }
+        
+        inputIntakeTextField.snp.makeConstraints {
+            $0.top.equalTo(imageView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(40)
+            $0.bottom.lessThanOrEqualTo(recommendedIntakeLabel.snp.top).offset(-20)
+        }
+        
+        recommendedIntakeLabel.snp.makeConstraints {
+            $0.bottom.equalTo(safeAreaLayoutGuide)
+            $0.horizontalEdges.lessThanOrEqualTo(safeAreaLayoutGuide).inset(20)
+            $0.centerX.equalToSuperview()
         }
     }
     
