@@ -24,6 +24,8 @@
 		CA51F77627FAE565006B6D18 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77527FAE565006B6D18 /* ProfileViewController.swift */; };
 		CA51F77927FAEA33006B6D18 /* ProfileInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77827FAEA33006B6D18 /* ProfileInputView.swift */; };
 		CA51F77B27FAEAF2006B6D18 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F77A27FAEAF2006B6D18 /* ProfileTextField.swift */; };
+		CA51F78127FC8B60006B6D18 /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F78027FC8B60006B6D18 /* UserDefaults+Extension.swift */; };
+		CA51F78327FD3935006B6D18 /* UserInfoValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F78227FD3935006B6D18 /* UserInfoValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		CA51F77527FAE565006B6D18 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CA51F77827FAEA33006B6D18 /* ProfileInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInputView.swift; sourceTree = "<group>"; };
 		CA51F77A27FAEAF2006B6D18 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
+		CA51F78027FC8B60006B6D18 /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		CA51F78227FD3935006B6D18 /* UserInfoValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoValidation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		CA51F74327FAC07C006B6D18 /* DrinkWater */ = {
 			isa = PBXGroup;
 			children = (
+				CA51F77F27FC8B54006B6D18 /* Extension */,
 				CA51F77727FAEA16006B6D18 /* Custom */,
 				CA51F76E27FAC896006B6D18 /* cactus.json */,
 				CA51F75227FAC07D006B6D18 /* Info.plist */,
@@ -117,8 +122,17 @@
 			children = (
 				CA51F77827FAEA33006B6D18 /* ProfileInputView.swift */,
 				CA51F77A27FAEAF2006B6D18 /* ProfileTextField.swift */,
+				CA51F78227FD3935006B6D18 /* UserInfoValidation.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		CA51F77F27FC8B54006B6D18 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CA51F78027FC8B60006B6D18 /* UserDefaults+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +246,10 @@
 				CA51F76427FAC6BD006B6D18 /* Assets+Generated.swift in Sources */,
 				CA51F74527FAC07C006B6D18 /* AppDelegate.swift in Sources */,
 				CA51F74727FAC07C006B6D18 /* SceneDelegate.swift in Sources */,
+				CA51F78327FD3935006B6D18 /* UserInfoValidation.swift in Sources */,
 				CA51F77627FAE565006B6D18 /* ProfileViewController.swift in Sources */,
 				CA51F75C27FAC13C006B6D18 /* DrinkWaterViewController.swift in Sources */,
+				CA51F78127FC8B60006B6D18 /* UserDefaults+Extension.swift in Sources */,
 				CA51F77127FAD7B4006B6D18 /* LaunchScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
