@@ -68,11 +68,11 @@ extension UserDefaults {
     @UserDefault(key: "weight", defaultValue: 50)
     static var weight: Int // cm
     
-    @UserDefault(key: "todayIntake", defaultValue: 1200)
+    @UserDefault(key: "todayIntake", defaultValue: 0)
     static var todayIntake: Int // ml
     
-    @UserDefault(key: "lastIntake", defaultValue: 500)
-    static var lastIntake: Int // ml
+    @UserDefault(key: "todayLastIntake", defaultValue: [])
+    static var todayLastIntake: [Int] // ml
     
     // wrappedValue = projectedValue
     static func resetUserDefaults() {
@@ -80,6 +80,6 @@ extension UserDefaults {
         height = $height
         weight = $weight
         todayIntake = $todayIntake
-        lastIntake = $lastIntake
+        todayLastIntake = $todayLastIntake
     }
 }

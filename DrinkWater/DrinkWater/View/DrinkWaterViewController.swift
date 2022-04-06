@@ -101,7 +101,7 @@ final class DrinkWaterViewController: UIViewController {
         }
         
         UserDefaults.todayIntake += intake
-        UserDefaults.lastIntake = intake
+        UserDefaults.todayLastIntake.append(intake)
         
         reloadView()
     }
@@ -122,7 +122,7 @@ final class DrinkWaterViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont.systemFont(ofSize: 18, weight: .heavy)]
         navigationItem.title = "물 마시기"
         
-        let leftItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: nil)
+        let leftItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(revertButtonClicked))
         let rightItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(profileButtonClicked))
         navigationItem.leftBarButtonItems = [leftItem]
         navigationItem.rightBarButtonItems = [rightItem]
@@ -131,7 +131,24 @@ final class DrinkWaterViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
     }
     
-    @objc func profileButtonClicked() {
+    @objc private func revertButtonClicked() {
+        
+        if let _ = navigationItem.leftBarButtonItems?.first {
+            
+            print("정말 최근에 입력한 물의 양을 되돌릴지 여부를 다시 확인 필요")
+            
+            guard UserDefaults.todayLastIntake.last != nil else {
+                print("오늘 더이상 되돌릴 물의 양이 없음")
+                return
+            }
+            
+            UserDefaults.todayIntake -= UserDefaults.todayLastIntake.removeLast()
+            
+            reloadView()
+        }
+    }
+    
+    @objc private func profileButtonClicked() {
         
         if let _ = navigationItem.rightBarButtonItems?.first {
             let vc = ProfileViewController()
