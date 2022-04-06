@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import Lottie
 
 final class DrinkWaterViewController: UIViewController {
@@ -96,7 +97,10 @@ final class DrinkWaterViewController: UIViewController {
         
         guard let text = mainView.inputIntakeTextField.text, text.contains("ml"),
               let intake = Int(text.replacingOccurrences(of: "ml", with: "")) else {
-            print("마신 양 입력 필요")
+        
+            let message = "마신 물의 양을 입력해주세요😭"
+            let okTitle = "확인"
+            showAlert(message: message, okTitle: okTitle)
             return
         }
         
@@ -135,16 +139,24 @@ final class DrinkWaterViewController: UIViewController {
         
         if let _ = navigationItem.leftBarButtonItems?.first {
             
-            print("정말 최근에 입력한 물의 양을 되돌릴지 여부를 다시 확인 필요")
-            
-            guard UserDefaults.todayLastIntake.last != nil else {
-                print("오늘 더이상 되돌릴 물의 양이 없음")
+            let title = "최근에 마신 물의 양을 되돌릴까요?"
+            let okTitle = "확인"
+            let cancleTitle = "취소"
+            showActionSheet(title: title, okTitle: okTitle, okCompletion: {
+                
+                guard UserDefaults.todayLastIntake.last != nil else {
+                    let message = "오늘은 더이상 되돌릴\n물의 양이 없어요 :("
+                    let okTitle = "확인"
+                    self.showAlert(message: message, okTitle: okTitle)
+                    return
+                }
+                
+                UserDefaults.todayIntake -= UserDefaults.todayLastIntake.removeLast()
+                self.reloadView()
+                
+            }, cancleTitle: cancleTitle) {
                 return
             }
-            
-            UserDefaults.todayIntake -= UserDefaults.todayLastIntake.removeLast()
-            
-            reloadView()
         }
     }
     
@@ -175,15 +187,10 @@ extension DrinkWaterViewController: UITextFieldDelegate {
             let regex = UserInfoValidation.intake.regex
             
             if text.validate(regex: regex) {
-                print("유효함")
                 mainView.inputIntakeTextField.text = "\(text)ml"
             } else {
-                print("유효하지 않음")
                 mainView.inputIntakeTextField.text = ""
             }
-        
-        } else {
-            print("nil 값임")
         }
     }
 }
