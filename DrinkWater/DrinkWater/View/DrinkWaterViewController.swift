@@ -24,27 +24,86 @@ final class DrinkWaterViewController: UIViewController {
         
         mainView.inputIntakeTextField.delegate = self
         mainView.inputIntakeTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        
+        mainView.addIntakeButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        reloadView()
+    }
+    
+    private func reloadView() {
         let height = UserDefaults.height
         let weight = UserDefaults.weight
-        guard height != 0, weight != 0 else { return }
+        guard height != 0, weight != 0 else {
+            print("프로필 입력 필요")
+            return
+        }
         
         let recommendedIntake = Int(Double(height + weight) / 100 * 1000) // ml
-        let targetPercentage = Int(round((Double(UserDefaults.todayIntake) / Double(recommendedIntake)) * 100)) // %
+        let targetPercentage = round((Double(UserDefaults.todayIntake) / Double(recommendedIntake)) * 100) // %
+        
+        var targetPercentageColor: UIColor
+        if targetPercentage >= 100 {
+            targetPercentageColor = .red
+        } else if targetPercentage >= 50 {
+            targetPercentageColor = .blue
+        } else {
+            targetPercentageColor = .white
+        }
         
         let attributedText = NSMutableAttributedString()
             .attributedText(target: "잘하셨어요!\n오늘 마신 양은\n", font: .systemFont(ofSize: 22, weight: .medium), color: .white)
             .attributedText(target: "\(UserDefaults.todayIntake)ml\n", font: .systemFont(ofSize: 33, weight: .heavy), color: .white)
-            .attributedText(target: "목표의 \(targetPercentage)%", font: .systemFont(ofSize: 15, weight: .regular), color: .white)
+            .attributedText(target: "목표의 \(Int(targetPercentage))%", font: .systemFont(ofSize: 15, weight: .regular), color: targetPercentageColor)
    
         mainView.todayIntakeLabel.attributedText = attributedText
     
         let digit: Double = pow(10, 2)
         mainView.recommendedIntakeLabel.text = "\(UserDefaults.nickname)님의 하루 물 권장 섭취량은 \(round(Double(recommendedIntake) / 1000 * digit) / digit)L 입니다."
+        
+        var image: UIImage
+        if targetPercentage > 100.0 {
+            image = Assets.phase9.image
+        } else if targetPercentage > 87.5 {
+            image = Assets.phase8.image
+        } else if targetPercentage > 75.0 {
+            image = Assets.phase7.image
+        } else if targetPercentage > 62.5 {
+            image = Assets.phase6.image
+        } else if targetPercentage > 50.0 {
+            image = Assets.phase5.image
+        } else if targetPercentage > 37.5 {
+            image = Assets.phase4.image
+        } else if targetPercentage > 25.0 {
+            image = Assets.phase3.image
+        } else if targetPercentage > 12.5 {
+            image = Assets.phase2.image
+        } else { // 0 ~ 12.5%
+            image = Assets.phase1.image
+        }
+        
+        UIView.transition(with: mainView.imageView,
+                          duration: 0.75,
+                          options: .transitionCrossDissolve) {
+            self.mainView.imageView.image = image
+        }
+    }
+    
+    @objc private func addButtonClicked() {
+        
+        guard let text = mainView.inputIntakeTextField.text, text.contains("ml"),
+              let intake = Int(text.replacingOccurrences(of: "ml", with: "")) else {
+            print("마신 양 입력 필요")
+            return
+        }
+        
+        UserDefaults.todayIntake += intake
+        UserDefaults.lastIntake = intake
+        
+        reloadView()
     }
     
     @objc private func textFieldEditingChanged() {
