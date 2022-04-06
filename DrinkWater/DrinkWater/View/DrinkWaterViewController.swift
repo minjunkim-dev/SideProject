@@ -54,6 +54,7 @@ final class DrinkWaterViewController: UIViewController {
             .attributedText(target: "\(UserDefaults.todayIntake)ml\n", font: .systemFont(ofSize: 33, weight: .heavy), color: .white)
             .attributedText(target: "목표의 \(Int(achivementRate))%", font: .systemFont(ofSize: 15, weight: .regular), color: achivementRateColor)
    
+        mainView.todayIntakeLabel.transition(0.5, .fade, .none)
         mainView.todayIntakeLabel.attributedText = attributedText
     
         let digit: Double = pow(10, 2)
@@ -81,7 +82,7 @@ final class DrinkWaterViewController: UIViewController {
         }
         
         UIView.transition(with: mainView.imageView,
-                          duration: 0.75,
+                          duration: 0.5,
                           options: .transitionCrossDissolve) {
             self.mainView.imageView.image = image
         }
