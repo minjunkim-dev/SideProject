@@ -16,13 +16,6 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         $0.numberOfLines = 4
         $0.textColor = .white
         $0.textAlignment = .left
-        
-        $0.text = """
-        잘하셨어요!
-        오늘 마신 양은
-        1200ml
-        목표의 57%
-        """
     }
     
     let imageView = UIImageView().then {
@@ -35,14 +28,14 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         $0.textColor = .white
         $0.textAlignment = .center
         $0.autocapitalizationType = .none
+        $0.keyboardType = .numberPad
+        $0.doneAccessory = true
     }
     
     let recommendedIntakeLabel = UILabel().then {
         $0.numberOfLines = 1
         $0.textColor = .white
         $0.textAlignment = .center
-        
-        $0.text = "안녕하세요님의 하루 물 권장 섭취량은 2.1L 입니다."
     }
     
     func setupView() {
