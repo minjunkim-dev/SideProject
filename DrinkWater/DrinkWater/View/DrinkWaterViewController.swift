@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 final class DrinkWaterViewController: UIViewController {
     
@@ -20,6 +21,9 @@ final class DrinkWaterViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
+        
+        mainView.inputIntakeTextField.delegate = self
+        mainView.inputIntakeTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,6 +47,18 @@ final class DrinkWaterViewController: UIViewController {
         mainView.recommendedIntakeLabel.text = "\(UserDefaults.nickname)님의 하루 물 권장 섭취량은 \(round(Double(recommendedIntake) / 1000 * digit) / digit)L 입니다."
     }
     
+    @objc private func textFieldEditingChanged() {
+        
+        let maxLength = UserInfoValidation.intake.range.upperBound
+          
+        guard let text = mainView.inputIntakeTextField.text, text.count <= maxLength else {
+            mainView.inputIntakeTextField.deleteBackward()
+            return
+        }
+        
+        mainView.inputIntakeTextField.text = text
+    }
+    
     private func configureNavigationBar() {
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont.systemFont(ofSize: 18, weight: .heavy)]
         navigationItem.title = "물 마시기"
@@ -61,6 +77,37 @@ final class DrinkWaterViewController: UIViewController {
         if let _ = navigationItem.rightBarButtonItems?.first {
             let vc = ProfileViewController()
             navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
+extension DrinkWaterViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        guard let text = textField.text, text.contains("ml") else {
+            return
+        }
+        
+        textField.text = text.replacingOccurrences(of: "ml", with: "")
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if let text = textField.text {
+            
+            let regex = UserInfoValidation.intake.regex
+            
+            if text.validate(regex: regex) {
+                print("유효함")
+                mainView.inputIntakeTextField.text = "\(text)ml"
+            } else {
+                print("유효하지 않음")
+                mainView.inputIntakeTextField.text = ""
+            }
+        
+        } else {
+            print("nil 값임")
         }
     }
 }
