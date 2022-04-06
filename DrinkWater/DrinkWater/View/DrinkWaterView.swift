@@ -74,7 +74,8 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         
         inputIntakeTextField.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(20)
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(40)
+            $0.centerX.equalToSuperview()
+            $0.width.lessThanOrEqualToSuperview().inset(40)
             $0.bottom.lessThanOrEqualTo(recommendedIntakeLabel.snp.top).offset(-20)
         }
         
