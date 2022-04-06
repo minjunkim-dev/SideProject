@@ -36,13 +36,13 @@ final class DrinkWaterViewController: UIViewController {
         let recommendedIntake = Int(Double(height + weight) / 100 * 1000) // ml
         let targetPercentage = Int(round((Double(UserDefaults.todayIntake) / Double(recommendedIntake)) * 100)) // %
         
-        mainView.todayIntakeLabel.text = """
-        잘하셨어요!
-        오늘 마신 양은
-        \(UserDefaults.todayIntake)ml
-        목표의 \(targetPercentage)%
-        """
-        
+        let attributedText = NSMutableAttributedString()
+            .attributedText(target: "잘하셨어요!\n오늘 마신 양은\n", font: .systemFont(ofSize: 22, weight: .medium), color: .white)
+            .attributedText(target: "\(UserDefaults.todayIntake)ml\n", font: .systemFont(ofSize: 33, weight: .heavy), color: .white)
+            .attributedText(target: "목표의 \(targetPercentage)%", font: .systemFont(ofSize: 15, weight: .regular), color: .white)
+   
+        mainView.todayIntakeLabel.attributedText = attributedText
+    
         let digit: Double = pow(10, 2)
         mainView.recommendedIntakeLabel.text = "\(UserDefaults.nickname)님의 하루 물 권장 섭취량은 \(round(Double(recommendedIntake) / 1000 * digit) / digit)L 입니다."
     }

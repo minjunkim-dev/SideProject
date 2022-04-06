@@ -129,7 +129,6 @@
 				CA51F77827FAEA33006B6D18 /* ProfileInputView.swift */,
 				CA51F77A27FAEAF2006B6D18 /* ProfileTextField.swift */,
 				CA51F78227FD3935006B6D18 /* UserInfoValidation.swift */,
-				CA51F78427FD3E66006B6D18 /* String+Extension.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -139,6 +138,7 @@
 			children = (
 				CA51F78027FC8B60006B6D18 /* UserDefaults+Extension.swift */,
 				CA51F78627FD4003006B6D18 /* UITextField+Extension.swift */,
+				CA51F78427FD3E66006B6D18 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";

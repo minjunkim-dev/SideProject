@@ -27,6 +27,9 @@ final class DrinkWaterView: UIView, ViewPrenstable {
     let inputIntakeTextField = UITextField().then {
         $0.textColor = .white
         $0.textAlignment = .center
+        $0.font = .systemFont(ofSize: 30, weight: .regular)
+        $0.placeholder = "ml"
+        
         $0.autocapitalizationType = .none
         $0.keyboardType = .numberPad
         $0.doneAccessory = true
@@ -36,17 +39,23 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         $0.numberOfLines = 1
         $0.textColor = .white
         $0.textAlignment = .center
+        $0.font = .systemFont(ofSize: 14, weight: .regular)
+    }
+    
+    let addIntakeButton = UIButton().then {
+        $0.setTitle("물 마시기", for: .normal)
+        $0.setTitleColor(.black, for: .normal)
+        $0.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
+        $0.backgroundColor = .white
     }
     
     func setupView() {
         
         backgroundColor = .systemGreen
         
-        [todayIntakeLabel, imageView, inputIntakeTextField, recommendedIntakeLabel].forEach {
+        [todayIntakeLabel, imageView, inputIntakeTextField, recommendedIntakeLabel, addIntakeButton].forEach {
             addSubview($0)
         }
-        
-        inputIntakeTextField.backgroundColor = .systemYellow
     }
     
     func setupConstraints() {
@@ -60,7 +69,7 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         
         imageView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.size.equalTo(self).multipliedBy(0.33)
+            $0.size.equalTo(self).multipliedBy(0.3)
         }
         
         inputIntakeTextField.snp.makeConstraints {
@@ -70,9 +79,15 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         }
         
         recommendedIntakeLabel.snp.makeConstraints {
-            $0.bottom.equalTo(safeAreaLayoutGuide)
+            $0.bottom.equalTo(addIntakeButton.snp.top).offset(-10)
             $0.horizontalEdges.lessThanOrEqualTo(safeAreaLayoutGuide).inset(20)
             $0.centerX.equalToSuperview()
+        }
+        
+        addIntakeButton.snp.makeConstraints {
+            $0.bottom.equalTo(safeAreaLayoutGuide)
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
+            $0.height.equalTo(50)
         }
     }
     
