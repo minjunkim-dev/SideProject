@@ -62,10 +62,10 @@ extension UserDefaults {
     @UserDefault(key: "nickname", defaultValue: "")
     static var nickname: String
     
-    @UserDefault(key: "height", defaultValue: 160)
+    @UserDefault(key: "height", defaultValue: 0)
     static var height: Int // cm
     
-    @UserDefault(key: "weight", defaultValue: 50)
+    @UserDefault(key: "weight", defaultValue: 0)
     static var weight: Int // cm
     
     @UserDefault(key: "todayIntake", defaultValue: 0)

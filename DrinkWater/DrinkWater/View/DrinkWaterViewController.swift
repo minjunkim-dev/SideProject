@@ -36,51 +36,45 @@ final class DrinkWaterViewController: UIViewController {
     }
     
     private func reloadView() {
-        let height = UserDefaults.height
-        let weight = UserDefaults.weight
-        guard height != 0, weight != 0 else {
-            print("프로필 입력 필요")
-            return
-        }
         
-        let recommendedIntake = Int(Double(height + weight) / 100 * 1000) // ml
-        let targetPercentage = round((Double(UserDefaults.todayIntake) / Double(recommendedIntake)) * 100) // %
+        let recommendedIntake = Int(Double(UserDefaults.height + UserDefaults.weight) / 100 * 1000) // ml
+        let achivementRate: Double = recommendedIntake == 0 ? 0 : round((Double(UserDefaults.todayIntake) / Double(recommendedIntake)) * 100) // %
         
-        var targetPercentageColor: UIColor
-        if targetPercentage >= 100 {
-            targetPercentageColor = .red
-        } else if targetPercentage >= 50 {
-            targetPercentageColor = .blue
+        var achivementRateColor: UIColor
+        if achivementRate >= 100 {
+            achivementRateColor = .red
+        } else if achivementRate >= 50 {
+            achivementRateColor = .blue
         } else {
-            targetPercentageColor = .white
+            achivementRateColor = .white
         }
         
         let attributedText = NSMutableAttributedString()
             .attributedText(target: "잘하셨어요!\n오늘 마신 양은\n", font: .systemFont(ofSize: 22, weight: .medium), color: .white)
             .attributedText(target: "\(UserDefaults.todayIntake)ml\n", font: .systemFont(ofSize: 33, weight: .heavy), color: .white)
-            .attributedText(target: "목표의 \(Int(targetPercentage))%", font: .systemFont(ofSize: 15, weight: .regular), color: targetPercentageColor)
+            .attributedText(target: "목표의 \(Int(achivementRate))%", font: .systemFont(ofSize: 15, weight: .regular), color: achivementRateColor)
    
         mainView.todayIntakeLabel.attributedText = attributedText
     
         let digit: Double = pow(10, 2)
-        mainView.recommendedIntakeLabel.text = "\(UserDefaults.nickname)님의 하루 물 권장 섭취량은 \(round(Double(recommendedIntake) / 1000 * digit) / digit)L 입니다."
+        mainView.recommendedIntakeLabel.text = recommendedIntake == 0 ? "프로필 입력이 필요합니다." : "\(UserDefaults.nickname)님의 하루 물 권장 섭취량은 \(round(Double(recommendedIntake) / 1000 * digit) / digit)L 입니다."
         
         var image: UIImage
-        if targetPercentage > 100.0 {
+        if achivementRate > 100.0 {
             image = Assets.phase9.image
-        } else if targetPercentage > 87.5 {
+        } else if achivementRate > 87.5 {
             image = Assets.phase8.image
-        } else if targetPercentage > 75.0 {
+        } else if achivementRate > 75.0 {
             image = Assets.phase7.image
-        } else if targetPercentage > 62.5 {
+        } else if achivementRate > 62.5 {
             image = Assets.phase6.image
-        } else if targetPercentage > 50.0 {
+        } else if achivementRate > 50.0 {
             image = Assets.phase5.image
-        } else if targetPercentage > 37.5 {
+        } else if achivementRate > 37.5 {
             image = Assets.phase4.image
-        } else if targetPercentage > 25.0 {
+        } else if achivementRate > 25.0 {
             image = Assets.phase3.image
-        } else if targetPercentage > 12.5 {
+        } else if achivementRate > 12.5 {
             image = Assets.phase2.image
         } else { // 0 ~ 12.5%
             image = Assets.phase1.image
@@ -94,6 +88,16 @@ final class DrinkWaterViewController: UIViewController {
     }
     
     @objc private func addButtonClicked() {
+        
+        guard UserDefaults.height != UserDefaults.$height, UserDefaults.weight != UserDefaults.$weight else {
+            let message = "프로필을 먼저 입력하셔야 해요⚠️"
+            let okTitle = "확인"
+            showAlert(message: message, okTitle: okTitle, okCompletion: {
+                let vc = ProfileViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
+            return
+        }
         
         guard let text = mainView.inputIntakeTextField.text, text.contains("ml"),
               let intake = Int(text.replacingOccurrences(of: "ml", with: "")) else {
