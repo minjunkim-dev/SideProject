@@ -12,12 +12,16 @@ final class ProfileViewController: UIViewController {
     private let mainView = ProfileView()
     
     
+    var image: UIImage?
+    
     override func loadView() {
         view = mainView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mainView.profileImageView.image = image
         
         configureNavigationBar()
     }
@@ -81,6 +85,8 @@ final class ProfileViewController: UIViewController {
         
         let message = "프로필 정보가 저장되었어요 :)"
         let okTitle = "확인"
-        showAlert(message: message, okTitle: okTitle)
+        showAlert(message: message, okTitle: okTitle, okCompletion: {
+            self.navigationController?.popViewController(animated: true)
+        })
     }
 }

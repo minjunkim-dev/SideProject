@@ -11,8 +11,6 @@ final class ProfileView: UIView, ViewPrenstable {
     
     let profileImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFill
-        
-        $0.image = Assets.phase1.image
     }
     
     let profileStackView = UIStackView().then {

@@ -119,6 +119,7 @@ final class DrinkWaterViewController: UIViewController {
         
         viewModel.addTodayIntake(intake: intake)
         viewModel.todayLastIntake.append(intake)
+        mainView.inputIntakeTextField.text = ""
         
         reloadView()
     }
@@ -176,6 +177,7 @@ final class DrinkWaterViewController: UIViewController {
         
         if let _ = navigationItem.rightBarButtonItems?.first {
             let vc = ProfileViewController()
+            vc.image = mainView.imageView.image
             navigationController?.pushViewController(vc, animated: true)
         }
     }
