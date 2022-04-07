@@ -14,6 +14,8 @@ final class DrinkWaterViewController: UIViewController {
     private let mainView = DrinkWaterView()
     private let viewModel = DrinkWaterViewModel()
     
+    private let validator = UserInfoValidator.shared
+    
     override func loadView() {
         view = mainView
     }
@@ -123,13 +125,11 @@ final class DrinkWaterViewController: UIViewController {
     
     @objc private func textFieldEditingChanged() {
         
-        let maxLength = UserInfoValidation.intake.range.upperBound
-          
+        let maxLength = validator.range(info: .intake).upperBound
         guard let text = mainView.inputIntakeTextField.text, text.count <= maxLength else {
             mainView.inputIntakeTextField.deleteBackward()
             return
         }
-        
         mainView.inputIntakeTextField.text = text
     }
     
@@ -196,9 +196,9 @@ extension DrinkWaterViewController: UITextFieldDelegate {
         
         if let text = textField.text {
             
-            let regex = UserInfoValidation.intake.regex
+            let regex = validator.regex(info: .intake)
             
-            if text.validate(regex: regex) {
+            if validator.validate(target: text, regex: regex) {
                 mainView.inputIntakeTextField.text = "\(text)ml"
             } else {
                 mainView.inputIntakeTextField.text = ""

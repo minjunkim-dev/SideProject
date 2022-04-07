@@ -77,10 +77,11 @@ extension UserDefaults {
     // wrappedValue = projectedValue
     static func resetUserDefaults() {
         nickname = $nickname
-//        height = $height
-        height = 160
-//        weight = $weight
-        weight = 60
+        height = $height
+        weight = $weight
+//        nickname = "김민준"
+//        height = 180
+//        weight = 85
         todayIntake = $todayIntake
         todayLastIntake = $todayLastIntake
     }

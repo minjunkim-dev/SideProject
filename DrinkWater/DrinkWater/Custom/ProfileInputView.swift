@@ -12,15 +12,6 @@ import Then
 
 final class ProfileInputView: UIView, ViewPrenstable {
     
-    var title: String? {
-        get {
-            return titleLabel.text
-        }
-        set {
-            titleLabel.text = newValue
-        }
-    }
-    
     let titleLabel = UILabel().then {
         $0.textAlignment = .left
         $0.textColor = .white
@@ -29,11 +20,34 @@ final class ProfileInputView: UIView, ViewPrenstable {
     
     let textField = ProfileTextField()
     
+    private var info: UserInfo
+    private let validator = UserInfoValidator.shared
+    
     func setupView() {
         
         [titleLabel, textField].forEach {
             addSubview($0)
         }
+        titleLabel.text = self.info.title
+        
+        switch self.info {
+        case .nickname:
+            textField.text = UserDefaults.nickname
+            textField.keyboardType = .default
+            textField.doneAccessory = false
+        case .height:
+            textField.text = UserDefaults.height != UserDefaults.$height ? String(UserDefaults.height) : ""
+            textField.keyboardType = .numberPad
+            textField.doneAccessory = true
+        case .weight:
+            textField.text = UserDefaults.weight != UserDefaults.$weight ? String(UserDefaults.weight) : ""
+            textField.keyboardType = .numberPad
+            textField.doneAccessory = true
+        case .intake:
+            break
+        }
+        
+        validateText()
     }
     
     func setupConstraints() {
@@ -52,14 +66,55 @@ final class ProfileInputView: UIView, ViewPrenstable {
         }
     }
     
-    override init(frame: CGRect) {
+    init(frame: CGRect = .zero, info: UserInfo) {
+        self.info = info
         super.init(frame: frame)
         
         setupView()
         setupConstraints()
+        
+        textField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
+        textField.addTarget(self, action: #selector(textFieldEditingDidEndOnExit), for: .editingDidEndOnExit)
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        fatalError()
+    }
+}
+
+extension ProfileInputView {
+    
+    private func validateText() {
+        let regex = validator.regex(info: self.info)
+        if let text = textField.text, validator.validate(target: text, regex: regex) {
+            textField.underlineView.backgroundColor = .white
+            textField.underlineView.snp.updateConstraints {
+                $0.height.equalTo(2)
+            }
+        } else {
+            textField.underlineView.backgroundColor = .systemRed
+            textField.underlineView.snp.updateConstraints {
+                $0.height.equalTo(1)
+            }
+        }
+    }
+    
+    @objc private func textFieldEditingChanged() {
+        print(#function)
+        
+        let maxLength = validator.range(info: info).upperBound
+        guard let text = textField.text, text.count <= maxLength else {
+            textField.deleteBackward()
+            return
+        }
+        textField.text = text
+      
+        validateText()
+    }
+    
+    // for dismissing keyboard when returnKey clicked
+    @objc private func textFieldEditingDidEndOnExit() {
+        print(#function)
+        
     }
 }

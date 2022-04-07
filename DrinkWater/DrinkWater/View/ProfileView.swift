@@ -21,10 +21,10 @@ final class ProfileView: UIView, ViewPrenstable {
         $0.distribution = .equalSpacing
     }
     
-    let titleTextList = [
-        "닉네임을 설정해주세요",
-        "키(cm)를 설정해주세요",
-        "몸무게(kg)를 설정해주세요"
+    let infoList = [
+        UserInfo.nickname,
+        UserInfo.height,
+        UserInfo.weight,
     ]
     
     func setupView() {
@@ -34,9 +34,8 @@ final class ProfileView: UIView, ViewPrenstable {
         addSubview(profileImageView)
         
         addSubview(profileStackView)
-        for index in 0..<titleTextList.count {
-            let profileInputView = ProfileInputView()
-            profileInputView.title = titleTextList[index]
+        infoList.forEach { info in
+            let profileInputView = ProfileInputView(info: info)
             profileStackView.addArrangedSubview(profileInputView)
         }
     }

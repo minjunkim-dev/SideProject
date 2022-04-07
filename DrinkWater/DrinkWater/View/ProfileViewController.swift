@@ -20,6 +20,11 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     
     private func configureNavigationBar() {
@@ -27,10 +32,15 @@ final class ProfileViewController: UIViewController {
         navigationItem.title = ""
         
         navigationItem.backBarButtonItem?.title = "물 마시기"
-        let rightItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: nil)
+        let rightItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItems = [rightItem]
 //        rightItem.tintColor = .white
         
         navigationController?.navigationBar.tintColor = .white
+    }
+    
+    @objc private func saveButtonClicked() {
+        print(#function)
+        
     }
 }

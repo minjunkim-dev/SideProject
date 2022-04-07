@@ -38,29 +38,9 @@ final class ProfileTextField: UITextField, ViewPrenstable {
       
         setupView()
         setupConstraints()
-      
-        addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-}
-
-extension ProfileTextField {
-    
-    @objc private func textFieldEditingChanged() {
-        
-        if let text = self.text, !(text.isEmpty) {
-            underlineView.backgroundColor = .white
-            underlineView.snp.updateConstraints {
-                $0.height.equalTo(2)
-            }
-        } else {
-            underlineView.backgroundColor = .systemRed
-            underlineView.snp.updateConstraints {
-                $0.height.equalTo(1)
-            }
-        }
     }
 }
