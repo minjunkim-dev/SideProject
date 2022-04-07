@@ -31,6 +31,8 @@
 		CA51F78A27FD4612006B6D18 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F78927FD4612006B6D18 /* IQKeyboardManagerSwift */; };
 		CA51F78E27FD7339006B6D18 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F78D27FD7339006B6D18 /* UIViewController+Extension.swift */; };
 		CA51F79027FD85D7006B6D18 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F78F27FD85D7006B6D18 /* UIView+Extension.swift */; };
+		CA51F79327FD89CA006B6D18 /* DrinkWaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F79227FD89CA006B6D18 /* DrinkWaterViewModel.swift */; };
+		CA51F79527FDA5DC006B6D18 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F79427FDA5DC006B6D18 /* Double+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		CA51F78627FD4003006B6D18 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		CA51F78D27FD7339006B6D18 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		CA51F78F27FD85D7006B6D18 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		CA51F79227FD89CA006B6D18 /* DrinkWaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterViewModel.swift; sourceTree = "<group>"; };
+		CA51F79427FDA5DC006B6D18 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,17 +96,18 @@
 		CA51F74327FAC07C006B6D18 /* DrinkWater */ = {
 			isa = PBXGroup;
 			children = (
-				CA51F77F27FC8B54006B6D18 /* Extension */,
-				CA51F77727FAEA16006B6D18 /* Custom */,
 				CA51F76E27FAC896006B6D18 /* cactus.json */,
 				CA51F75227FAC07D006B6D18 /* Info.plist */,
 				CA51F74427FAC07C006B6D18 /* AppDelegate.swift */,
 				CA51F76327FAC6BD006B6D18 /* Assets+Generated.swift */,
 				CA51F74627FAC07C006B6D18 /* SceneDelegate.swift */,
 				CA51F74D27FAC07D006B6D18 /* Assets.xcassets */,
+				CA51F77727FAEA16006B6D18 /* Custom */,
+				CA51F77F27FC8B54006B6D18 /* Extension */,
 				CA51F74F27FAC07D006B6D18 /* LaunchScreen.storyboard */,
 				CA51F75D27FAC145006B6D18 /* Protocol */,
 				CA51F75827FAC121006B6D18 /* View */,
+				CA51F79127FD89C1006B6D18 /* ViewModel */,
 			);
 			path = DrinkWater;
 			sourceTree = "<group>";
@@ -145,8 +150,17 @@
 				CA51F78427FD3E66006B6D18 /* String+Extension.swift */,
 				CA51F78D27FD7339006B6D18 /* UIViewController+Extension.swift */,
 				CA51F78F27FD85D7006B6D18 /* UIView+Extension.swift */,
+				CA51F79427FDA5DC006B6D18 /* Double+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		CA51F79127FD89C1006B6D18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CA51F79227FD89CA006B6D18 /* DrinkWaterViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA51F78E27FD7339006B6D18 /* UIViewController+Extension.swift in Sources */,
+				CA51F79327FD89CA006B6D18 /* DrinkWaterViewModel.swift in Sources */,
 				CA51F78727FD4003006B6D18 /* UITextField+Extension.swift in Sources */,
 				CA51F77427FAE55D006B6D18 /* ProfileView.swift in Sources */,
 				CA51F76127FAC17F006B6D18 /* ViewPresentable.swift in Sources */,
@@ -264,6 +279,7 @@
 				CA51F79027FD85D7006B6D18 /* UIView+Extension.swift in Sources */,
 				CA51F76427FAC6BD006B6D18 /* Assets+Generated.swift in Sources */,
 				CA51F74527FAC07C006B6D18 /* AppDelegate.swift in Sources */,
+				CA51F79527FDA5DC006B6D18 /* Double+Extension.swift in Sources */,
 				CA51F74727FAC07C006B6D18 /* SceneDelegate.swift in Sources */,
 				CA51F78527FD3E66006B6D18 /* String+Extension.swift in Sources */,
 				CA51F78327FD3935006B6D18 /* UserInfoValidation.swift in Sources */,
