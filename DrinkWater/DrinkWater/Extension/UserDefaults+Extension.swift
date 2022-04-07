@@ -79,9 +79,6 @@ extension UserDefaults {
         nickname = $nickname
         height = $height
         weight = $weight
-//        nickname = "김민준"
-//        height = 180
-//        weight = 85
         todayIntake = $todayIntake
         todayLastIntake = $todayLastIntake
     }

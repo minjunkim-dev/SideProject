@@ -20,7 +20,7 @@ final class ProfileInputView: UIView, ViewPrenstable {
     
     let textField = ProfileTextField()
     
-    private var info: UserInfo
+    var info: UserInfo
     private let validator = UserInfoValidator.shared
     
     func setupView() {
@@ -84,18 +84,47 @@ final class ProfileInputView: UIView, ViewPrenstable {
 
 extension ProfileInputView {
     
-    private func validateText() {
+    func saveUserInfo() {
+        
+        switch info {
+        case .nickname:
+            UserDefaults.nickname = textField.text ?? UserDefaults.$nickname
+        case .height:
+            
+            if let text = textField.text, let height = Int(text) {
+                UserDefaults.height = height
+            } else {
+                UserDefaults.height = UserDefaults.$height
+            }
+
+        case .weight:
+            
+            if let text = textField.text, let weight = Int(text) {
+                UserDefaults.weight = weight
+            } else {
+                UserDefaults.weight = UserDefaults.$weight
+            }
+            
+        case .intake:
+            break
+        }
+    }
+    
+    @discardableResult
+    func validateText() -> Bool {
         let regex = validator.regex(info: self.info)
         if let text = textField.text, validator.validate(target: text, regex: regex) {
             textField.underlineView.backgroundColor = .white
             textField.underlineView.snp.updateConstraints {
                 $0.height.equalTo(2)
             }
+            return true
         } else {
             textField.underlineView.backgroundColor = .systemRed
             textField.underlineView.snp.updateConstraints {
                 $0.height.equalTo(1)
             }
+            return false
         }
     }
     

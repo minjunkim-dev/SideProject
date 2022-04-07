@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enableAutoToolbar = false
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
-        UserDefaults.resetUserDefaults()
+//        UserDefaults.resetUserDefaults() // for test
         
         return true
     }

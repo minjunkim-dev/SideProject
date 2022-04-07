@@ -9,7 +9,7 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(title: String? = nil, message: String? = nil, okTitle: String, okCompletion: (() -> Void)? = nil, cancleTitle: String? = nil, cancleCompletion: (() -> Void)? = nil) {
+    func showAlert(title: String? = nil, message: String, okTitle: String, okCompletion: (() -> Void)? = nil, cancleTitle: String? = nil, cancleCompletion: (() -> Void)? = nil) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
