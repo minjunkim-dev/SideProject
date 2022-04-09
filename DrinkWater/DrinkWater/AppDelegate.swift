@@ -6,12 +6,11 @@
 //
 
 import UIKit
+
 import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,10 +27,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             completionHandler: { _, _ in }
         )
         
+        DispatchQueue.global().async {
+            
+            let runLoop = RunLoop.current
+            
+            let calendar = Calendar.autoupdatingCurrent
+            let components = DateComponents(calendar: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, hour: 17, minute: 6, second: 0, nanosecond: 0)
+            
+            let now = Date()
+            let next = calendar.nextDate(after: now, matching: components, matchingPolicy: .nextTime)!
+            print("now: \(now)")
+            print("next: \(next)")
+            
+            let timer = Timer(fireAt: next, interval: 10, target: self, selector: #selector(self.resetWaterIntake), userInfo: nil, repeats: true)
+            runLoop.add(timer, forMode: .common)
+            runLoop.run()
+        }
         
         //        UserDefaults.resetUserDefaults() // for test
         
         return true
+    }
+    
+    @objc private func resetWaterIntake() {
+        
+        DispatchQueue.main.async {
+            print(#function, Date())
+            UserDefaults.todayIntake = UserDefaults.$todayIntake
+            UserDefaults.todayLastIntake = UserDefaults.$todayLastIntake
+            NotificationCenter.default.post(name: .notiToResetIntake, object: nil, userInfo: nil)
+        }
     }
     
     // MARK: UISceneSession Lifecycle

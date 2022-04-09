@@ -32,10 +32,19 @@ final class DrinkWaterViewController: UIViewController {
         mainView.addIntakeButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
         NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotification(_:)), name: .notiToSaveUserInfo, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resetWaterIntake(_:)), name: .notiToResetIntake, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        reloadView()
+    }
+    
+    @objc private func resetWaterIntake(_ noti: Notification) {
+        
+        viewModel.todayIntake = UserDefaults.todayIntake
+        viewModel.todayLastIntake = UserDefaults.todayLastIntake
         
         reloadView()
     }

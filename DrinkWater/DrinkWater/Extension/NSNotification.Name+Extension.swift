@@ -9,4 +9,6 @@ import Foundation
 
 extension NSNotification.Name {
     static let notiToSaveUserInfo = NSNotification.Name(rawValue: "saveUserInfo")
+    
+    static let notiToResetIntake = NSNotification.Name(rawValue: "resetIntake")
 }
