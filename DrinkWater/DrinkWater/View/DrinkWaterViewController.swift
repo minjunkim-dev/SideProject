@@ -8,6 +8,7 @@
 import UIKit
 
 import Lottie
+import UserNotifications
 
 final class DrinkWaterViewController: UIViewController {
     
@@ -108,14 +109,14 @@ final class DrinkWaterViewController: UIViewController {
     
     private func configureTodayIntakeLabel() {
         let achivementRateColor = getColorAccordingToAchivementRate()
-    
+        
         let attributedText = NSMutableAttributedString()
             .attributedText(target: "잘하셨어요!\n오늘 마신 양은\n", font: .systemFont(ofSize: 22, weight: .medium), color: .white)
             .attributedText(target: "\(viewModel.todayIntake)ml\n", font: .systemFont(ofSize: 33, weight: .heavy), color: .white)
             .attributedText(target: "목표의 \(Int(viewModel.achivementRate))%", font: .systemFont(ofSize: 15, weight: .regular), color: achivementRateColor)
-   
+        
         mainView.todayIntakeLabel.transition(0.5, .fade, .none)
-    mainView.todayIntakeLabel.attributedText = attributedText
+        mainView.todayIntakeLabel.attributedText = attributedText
     }
     
     private func configureImageView() {
@@ -155,7 +156,7 @@ final class DrinkWaterViewController: UIViewController {
         
         guard let text = mainView.inputIntakeTextField.text, text.contains("ml"),
               let intake = Int(text.replacingOccurrences(of: "ml", with: "")) else {
-        
+            
             let message = "마신 물의 양을 입력해주세요😭"
             let okTitle = "확인"
             showAlert(message: message, okTitle: okTitle)
@@ -187,8 +188,8 @@ final class DrinkWaterViewController: UIViewController {
         let rightItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(profileButtonClicked))
         navigationItem.leftBarButtonItems = [leftItem]
         navigationItem.rightBarButtonItems = [rightItem]
-//        leftItem.tintColor = .white
-//        rightItem.tintColor = .white
+        //        leftItem.tintColor = .white
+        //        rightItem.tintColor = .white
         navigationController?.navigationBar.tintColor = .white
     }
     
