@@ -12,13 +12,13 @@ import Then
 
 final class ProfileInputView: UIView, ViewPrenstable {
     
-    let titleLabel = UILabel().then {
+    private let titleLabel = UILabel().then {
         $0.textAlignment = .left
         $0.textColor = .white
         $0.numberOfLines = 1
     }
     
-    let textField = ProfileTextField()
+    private let textField = ProfileTextField()
     
     var info: UserInfo
     private let validator = UserInfoValidator.shared

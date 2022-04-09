@@ -75,7 +75,7 @@ final class ProfileViewController: UIViewController {
         }
     }
     
-    func saveUserInfo() {
+    private func saveUserInfo() {
         
         for subView in mainView.profileStackView.arrangedSubviews {
             if let profileInputView = subView as? ProfileInputView {

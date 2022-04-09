@@ -19,7 +19,7 @@ final class ProfileView: UIView, ViewPrenstable {
         $0.distribution = .equalSpacing
     }
     
-    let infoList = [
+    private let infoList = [
         UserInfo.nickname,
         UserInfo.height,
         UserInfo.weight,

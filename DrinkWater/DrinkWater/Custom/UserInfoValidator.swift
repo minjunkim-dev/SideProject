@@ -14,6 +14,22 @@ enum UserInfo: Int {
     case intake
 }
 
+extension UserInfo {
+    
+    var title: String? {
+        switch self {
+        case .nickname:
+            return "닉네임을 설정해주세요"
+        case .height:
+            return "키(cm)를 설정해주세요"
+        case .weight:
+            return "몸무게(kg)를 설정해주세요"
+        case .intake:
+            return nil
+        }
+    }
+}
+
 final class UserInfoValidator {
     
     static let shared = UserInfoValidator()
@@ -43,21 +59,5 @@ final class UserInfoValidator {
         
         let test = NSPredicate(format: "SELF MATCHES %@", regex)
         return test.evaluate(with: target)
-    }
-}
-
-extension UserInfo {
-    
-    var title: String? {
-        switch self {
-        case .nickname:
-            return "닉네임을 설정해주세요"
-        case .height:
-            return "키(cm)를 설정해주세요"
-        case .weight:
-            return "몸무게(kg)를 설정해주세요"
-        case .intake:
-            return nil
-        }
     }
 }
