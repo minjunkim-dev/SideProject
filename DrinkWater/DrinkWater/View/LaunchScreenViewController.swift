@@ -20,7 +20,7 @@ final class LaunchScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .white
         
         view.addSubview(animationView)
         animationView.center = view.center

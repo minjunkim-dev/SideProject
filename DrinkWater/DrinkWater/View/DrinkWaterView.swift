@@ -28,7 +28,10 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         $0.textColor = .white
         $0.textAlignment = .center
         $0.font = .systemFont(ofSize: 30, weight: .regular)
-        $0.placeholder = "ml"
+        $0.attributedPlaceholder = NSAttributedString(
+            string: "ml",
+            attributes: [NSAttributedString.Key.foregroundColor : UIColor.white]
+        )
         
         $0.autocapitalizationType = .none
         $0.keyboardType = .numberPad
@@ -68,7 +71,8 @@ final class DrinkWaterView: UIView, ViewPrenstable {
         }
         
         imageView.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().multipliedBy(1.1)
             $0.size.equalTo(self).multipliedBy(0.3)
         }
         
