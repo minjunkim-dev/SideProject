@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class DrinkWaterViewModel {
     
@@ -57,7 +58,7 @@ final class DrinkWaterViewModel {
     }
     
     func getRecommendedIntake() {
-        recommendedIntake = Double(UserDefaults.height + UserDefaults.weight) / 100 * 1000 // ml
+        recommendedIntake = Double(height + weight) / 100 * 1000 // ml
     }
     
     func getAchivementRate() {

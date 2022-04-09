@@ -84,25 +84,26 @@ final class ProfileInputView: UIView, ViewPrenstable {
 
 extension ProfileInputView {
     
-    func saveUserInfo() {
+    func sendNotiToSaveInfo() {
         
         switch info {
         case .nickname:
-            UserDefaults.nickname = textField.text ?? UserDefaults.$nickname
+            let nickname = textField.text ?? UserDefaults.$nickname
+            NotificationCenter.default.post(name: .notiToSaveUserInfo, object: info, userInfo: [info.rawValue: nickname])
         case .height:
             
             if let text = textField.text, let height = Int(text) {
-                UserDefaults.height = height
+                NotificationCenter.default.post(name: .notiToSaveUserInfo, object: info, userInfo: [info.rawValue: height])
             } else {
-                UserDefaults.height = UserDefaults.$height
+                NotificationCenter.default.post(name: .notiToSaveUserInfo, object: info, userInfo: [info.rawValue: UserDefaults.$height])
             }
 
         case .weight:
             
             if let text = textField.text, let weight = Int(text) {
-                UserDefaults.weight = weight
+                NotificationCenter.default.post(name: .notiToSaveUserInfo, object: info, userInfo: [info.rawValue: weight])
             } else {
-                UserDefaults.weight = UserDefaults.$weight
+                NotificationCenter.default.post(name: .notiToSaveUserInfo, object: info, userInfo: [info.rawValue: UserDefaults.$weight])
             }
             
         case .intake:

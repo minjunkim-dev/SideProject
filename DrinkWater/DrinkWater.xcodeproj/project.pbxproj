@@ -33,6 +33,7 @@
 		CA51F79027FD85D7006B6D18 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F78F27FD85D7006B6D18 /* UIView+Extension.swift */; };
 		CA51F79327FD89CA006B6D18 /* DrinkWaterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F79227FD89CA006B6D18 /* DrinkWaterViewModel.swift */; };
 		CA51F79527FDA5DC006B6D18 /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F79427FDA5DC006B6D18 /* Double+Extension.swift */; };
+		CA51F79728012DED006B6D18 /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F79628012DED006B6D18 /* NSNotification.Name+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		CA51F78F27FD85D7006B6D18 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		CA51F79227FD89CA006B6D18 /* DrinkWaterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkWaterViewModel.swift; sourceTree = "<group>"; };
 		CA51F79427FDA5DC006B6D18 /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
+		CA51F79628012DED006B6D18 /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				CA51F78D27FD7339006B6D18 /* UIViewController+Extension.swift */,
 				CA51F78F27FD85D7006B6D18 /* UIView+Extension.swift */,
 				CA51F79427FDA5DC006B6D18 /* Double+Extension.swift */,
+				CA51F79628012DED006B6D18 /* NSNotification.Name+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				CA51F74527FAC07C006B6D18 /* AppDelegate.swift in Sources */,
 				CA51F79527FDA5DC006B6D18 /* Double+Extension.swift in Sources */,
 				CA51F74727FAC07C006B6D18 /* SceneDelegate.swift in Sources */,
+				CA51F79728012DED006B6D18 /* NSNotification.Name+Extension.swift in Sources */,
 				CA51F78527FD3E66006B6D18 /* String+Extension.swift in Sources */,
 				CA51F78327FD3935006B6D18 /* UserInfoValidator.swift in Sources */,
 				CA51F77627FAE565006B6D18 /* ProfileViewController.swift in Sources */,

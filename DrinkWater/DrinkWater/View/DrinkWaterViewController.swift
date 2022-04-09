@@ -29,12 +29,47 @@ final class DrinkWaterViewController: UIViewController {
         mainView.inputIntakeTextField.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
         
         mainView.addIntakeButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didReceiveNotification(_:)), name: .notiToSaveUserInfo, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         reloadView()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc private func didReceiveNotification(_ noti: Notification) {
+        print(#function)
+        
+        guard let object = noti.object as? UserInfo else {
+            print("object")
+            return }
+        
+        
+        switch object {
+        case .nickname:
+            guard let nickname = noti.userInfo?[object.rawValue] as? String else {
+                print("nickname")
+                return }
+            viewModel.nickname = nickname
+        case .height:
+            guard let height = noti.userInfo?[object.rawValue] as? Int else {
+                print("height")
+                return }
+            viewModel.height = height
+        case .weight:
+            guard let weight = noti.userInfo?[object.rawValue] as? Int else {
+                print("weight")
+                return }
+            viewModel.weight = weight
+        case .intake:
+            return
+        }
     }
     
     private func getImageAccordingToAchivementRate() -> UIImage {
@@ -71,11 +106,7 @@ final class DrinkWaterViewController: UIViewController {
         }
     }
     
-    private func reloadView() {
-        
-        viewModel.getRecommendedIntake()
-        viewModel.getAchivementRate()
-        
+    private func configureTodayIntakeLabel() {
         let achivementRateColor = getColorAccordingToAchivementRate()
     
         let attributedText = NSMutableAttributedString()
@@ -84,16 +115,30 @@ final class DrinkWaterViewController: UIViewController {
             .attributedText(target: "목표의 \(Int(viewModel.achivementRate))%", font: .systemFont(ofSize: 15, weight: .regular), color: achivementRateColor)
    
         mainView.todayIntakeLabel.transition(0.5, .fade, .none)
-        mainView.todayIntakeLabel.attributedText = attributedText
-
+    mainView.todayIntakeLabel.attributedText = attributedText
+    }
+    
+    private func configureImageView() {
         let image = getImageAccordingToAchivementRate()
         UIView.transition(with: mainView.imageView,
                           duration: 0.5,
                           options: .transitionCrossDissolve) {
             self.mainView.imageView.image = image
         }
-        
+    }
+    
+    private func configureRecommendedIntakeLabel() {
         mainView.recommendedIntakeLabel.text = viewModel.recommendedIntake == 0 ? "프로필 입력이 필요합니다." : "\(viewModel.nickname)님의 하루 물 권장 섭취량은 \(viewModel.recommendedIntake.round(notation: 10, digit: 2) / 1000)L 입니다."
+    }
+    
+    private func reloadView() {
+        
+        viewModel.getRecommendedIntake()
+        viewModel.getAchivementRate()
+        
+        configureTodayIntakeLabel()
+        configureImageView()
+        configureRecommendedIntakeLabel()
     }
     
     @objc private func addButtonClicked() {
@@ -200,11 +245,9 @@ extension DrinkWaterViewController: UITextFieldDelegate {
             
             let regex = validator.regex(info: .intake)
             
-            if validator.validate(target: text, regex: regex) {
-                mainView.inputIntakeTextField.text = "\(text)ml"
-            } else {
-                mainView.inputIntakeTextField.text = ""
-            }
+            mainView.inputIntakeTextField.text = validator.validate(target: text, regex: regex)
+            ? "\(text)ml"
+            : ""
         }
     }
 }

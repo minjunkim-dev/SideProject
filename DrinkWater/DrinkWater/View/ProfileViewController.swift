@@ -11,7 +11,6 @@ final class ProfileViewController: UIViewController {
     
     private let mainView = ProfileView()
     
-    
     var image: UIImage?
     
     override func loadView() {
@@ -79,7 +78,7 @@ final class ProfileViewController: UIViewController {
         
         for subView in mainView.profileStackView.arrangedSubviews {
             if let profileInputView = subView as? ProfileInputView {
-                profileInputView.saveUserInfo()
+                profileInputView.sendNotiToSaveInfo()
             }
         }
         

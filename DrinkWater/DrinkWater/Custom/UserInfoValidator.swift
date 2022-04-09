@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserInfo: Int {
+enum UserInfo: String {
     case nickname
     case height
     case weight
