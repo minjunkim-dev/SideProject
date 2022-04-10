@@ -32,14 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let runLoop = RunLoop.current
             
             let calendar = Calendar.autoupdatingCurrent
-            let components = DateComponents(calendar: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, hour: 17, minute: 6, second: 0, nanosecond: 0)
+            let components = DateComponents(calendar: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, hour: 0, minute: 0, second: 0, nanosecond: 0)
             
             let now = Date()
             let next = calendar.nextDate(after: now, matching: components, matchingPolicy: .nextTime)!
             print("now: \(now)")
             print("next: \(next)")
             
-            let timer = Timer(fireAt: next, interval: 10, target: self, selector: #selector(self.resetWaterIntake), userInfo: nil, repeats: true)
+            let timer = Timer(fireAt: next, interval: 60 * 60 * 24, target: self, selector: #selector(self.resetWaterIntake), userInfo: nil, repeats: true)
             runLoop.add(timer, forMode: .common)
             runLoop.run()
         }
