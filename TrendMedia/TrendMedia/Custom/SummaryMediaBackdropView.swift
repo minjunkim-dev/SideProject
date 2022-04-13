@@ -46,8 +46,24 @@ final class SummaryMediaBackdropView: UIView, ViewPresentable {
         $0.textColor = .black
         $0.numberOfLines = 1
         $0.textAlignment = .center
-        
-        $0.text = "8.3" // for test
+    }
+    
+    func loadImage(imagePath: String) {
+        let url = URL(string: imagePath)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "placeholder_image"),
+            completionHandler: { result in
+                switch result {
+                case .success(let value):
+//                    dump(value)
+                    print("success")
+                case .failure(let error):
+//                    dump(error)
+                    print("failure")
+                }
+            })
     }
     
     func setupView() {

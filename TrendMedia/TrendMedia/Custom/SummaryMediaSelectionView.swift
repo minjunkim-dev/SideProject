@@ -42,8 +42,6 @@ final class SummaryMediaSelectionView: UIView, ViewPresentable {
     func setupView() {
         backgroundColor = .white
         
-        layer.cornerRadius = 10
-        
         addSubview(stackView)
 
         buttonImageName.enumerated().forEach { (index, imageName) in

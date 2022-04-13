@@ -16,9 +16,13 @@ final class SummaryMediaView: UIView, ViewPresentable {
     
     let mediaSelectionView = SummaryMediaSelectionView()
     
-//    let mediaTableView = UITableView.then {
-//
-//    }
+    let mediaTableView = UITableView(frame: .zero, style: .plain).then {
+        $0.separatorStyle = .none
+        
+        /* self-sizing cell */
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = UITableView.automaticDimension
+    }
     
     func setupView() {
         backgroundColor = .white
@@ -26,7 +30,11 @@ final class SummaryMediaView: UIView, ViewPresentable {
         addSubview(titleView)
         
         addSubview(mediaSelectionView)
+        mediaSelectionView.layer.cornerRadius = 10
         mediaSelectionView.setShadow()
+        
+        addSubview(mediaTableView)
+        mediaTableView.register(SummaryMediaTableViewCell.self, forCellReuseIdentifier: SummaryMediaTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
@@ -41,6 +49,12 @@ final class SummaryMediaView: UIView, ViewPresentable {
             $0.top.equalTo(titleView.label.snp.bottom)
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalToSuperview().multipliedBy(1.0 / 7)
+        }
+        
+        mediaTableView.snp.makeConstraints {
+            $0.top.equalTo(mediaSelectionView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
+            $0.bottom.equalTo(safeAreaLayoutGuide)
         }
     }
 
