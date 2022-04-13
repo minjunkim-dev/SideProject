@@ -24,10 +24,17 @@ final class SummaryMediaViewController: UIViewController {
         let title = "TREND MEDIA"
         let font = UIFont.systemFont(ofSize: 18, weight: .heavy)
         let leftItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: nil)
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: nil)
+        let rightItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchMediaButtonClicked))
         
         configureNavigation(title: title, titleColor: .black, titleFont: font, leftItems: [leftItem], rightItems: [rightItem], barTintColor: .black)
+    }
+    
+    @objc func searchMediaButtonClicked() {
         
+        let vc = SearchMediaViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .coverVertical
+        present(vc, animated: true)
     }
 }
 
