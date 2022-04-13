@@ -34,14 +34,14 @@ final class SummaryMediaBackdropView: UIView, ViewPresentable {
             })
     }
     
-    let descriptionLabel = UILabel().then {
+    let descriptionLabel = InsetsLabel().then {
         $0.backgroundColor = .orange
         $0.textColor = .black
         $0.numberOfLines = 1
         $0.textAlignment = .center
         $0.text = "평점"
     }
-    let rateLabel = UILabel().then {
+    let rateLabel = InsetsLabel().then {
         $0.backgroundColor = .white
         $0.textColor = .black
         $0.numberOfLines = 1

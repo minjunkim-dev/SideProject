@@ -29,6 +29,7 @@
 		CA51F7EF280411FA006B6D18 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EE280411FA006B6D18 /* ReusableView.swift */; };
 		CA51F7F1280412C9006B6D18 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7F0280412C9006B6D18 /* UITableViewCell+Extension.swift */; };
 		CA51F7F32804166D006B6D18 /* SummaryMediaDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7F22804166D006B6D18 /* SummaryMediaDescriptionView.swift */; };
+		CA6471A32806A3E2009EBCF0 /* InsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		CA51F7EE280411FA006B6D18 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		CA51F7F0280412C9006B6D18 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		CA51F7F22804166D006B6D18 /* SummaryMediaDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryMediaDescriptionView.swift; sourceTree = "<group>"; };
+		CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				CA51F7DD2803EDF3006B6D18 /* SummaryMediaSelectionView.swift */,
 				CA51F7EC28040AF8006B6D18 /* SummaryMediaBackdropView.swift */,
 				CA51F7F22804166D006B6D18 /* SummaryMediaDescriptionView.swift */,
+				CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				CA51F7E02803FA45006B6D18 /* UIView+Extension.swift in Sources */,
 				CA51F7E22804009C006B6D18 /* Sample.swift in Sources */,
 				CA51F7B42803DC24006B6D18 /* SceneDelegate.swift in Sources */,
+				CA6471A32806A3E2009EBCF0 /* InsetsLabel.swift in Sources */,
 				CA51F7ED28040AF8006B6D18 /* SummaryMediaBackdropView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
