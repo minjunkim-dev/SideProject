@@ -18,11 +18,15 @@ final class SummaryMediaDescriptionView: UIView, ViewPresentable {
         $0.textColor = .black
         $0.numberOfLines = 0
         $0.textAlignment = .left
+        
+        $0.font = .systemFont(ofSize: 20, weight: .semibold)
     }
     let releaseDateLabel = UILabel().then {
         $0.textColor = .lightGray
         $0.numberOfLines = 1
         $0.textAlignment = .center
+        
+        $0.font = .systemFont(ofSize: 15, weight: .regular)
     }
     
     let separator = UIView().then {
@@ -34,6 +38,8 @@ final class SummaryMediaDescriptionView: UIView, ViewPresentable {
         $0.textColor = .black
         $0.numberOfLines = 1
         $0.textAlignment = .center
+        
+        $0.font = .systemFont(ofSize: 15, weight: .regular)
     }
     let moreDetailButton = UIButton().then {
         $0.setImage(UIImage(systemName: "chevron.right"), for: .normal)
@@ -69,13 +75,13 @@ final class SummaryMediaDescriptionView: UIView, ViewPresentable {
         }
         
         separator.snp.makeConstraints {
-            $0.top.equalTo(releaseDateLabel.snp.bottom).offset(10)
+            $0.top.equalTo(releaseDateLabel.snp.bottom).offset(20)
             $0.height.equalTo(1)
             $0.horizontalEdges.equalToSuperview()
         }
     
         moreDetailLabel.snp.makeConstraints {
-            $0.top.equalTo(separator.snp.bottom).offset(10)
+            $0.top.equalTo(separator.snp.bottom).offset(20)
             $0.leading.equalToSuperview()
             $0.trailing.lessThanOrEqualTo(moreDetailButton.snp.leading).offset(-20)
             $0.bottom.equalToSuperview()
