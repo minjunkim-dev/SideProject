@@ -21,6 +21,12 @@ class SearchMediaViewController: UIViewController {
         mainView.tableView.delegate = self
         mainView.tableView.dataSource = self
 
+        mainView.dismissButton.addTarget(self, action: #selector(dismissButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func dismissButtonClicked() {
+        
+        dismiss(animated: true)
     }
 }
 
