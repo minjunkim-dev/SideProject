@@ -23,15 +23,24 @@ final class SearchMediaTableViewCell: UITableViewCell, ViewPresentable {
         $0.numberOfLines = 1
         $0.textAlignment = .left
         $0.backgroundColor = .white
+        
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 15, weight: .semibold)
     }
     let releaseDateAndRegionLabel = UILabel().then {
         $0.numberOfLines = 1
         $0.textAlignment = .left
         $0.backgroundColor = .white
+        
+        $0.textColor = .black
+        $0.font = .systemFont(ofSize: 15, weight: .medium)
     }
     let overviewLabel = UILabel().then {
-        $0.numberOfLines = 3
+        $0.numberOfLines = 0
         $0.textAlignment = .left
+        
+        $0.textColor = .darkGray
+        $0.font = .systemFont(ofSize: 15, weight: .regular)
     }
     
     func setupView() {
@@ -70,13 +79,15 @@ final class SearchMediaTableViewCell: UITableViewCell, ViewPresentable {
         }
         
         releaseDateAndRegionLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
+            $0.top.equalTo(titleLabel.snp.bottom)
+                .offset(10)
             $0.leading.equalTo(titleLabel)
             $0.trailing.equalToSuperview()
         }
         
         overviewLabel.snp.makeConstraints {
-            $0.top.equalTo(releaseDateAndRegionLabel.snp.bottom).offset(10)
+            $0.top.equalTo(releaseDateAndRegionLabel.snp.bottom)
+                .offset(10)
             $0.leading.equalTo(titleLabel)
             $0.trailing.equalToSuperview()
             $0.bottom.equalToSuperview().inset(5)
