@@ -32,6 +32,9 @@ final class SearchMediaView: UIView, ViewPresentable {
     
     let tableView = UITableView(frame: .zero, style: .plain).then {
         $0.separatorStyle = .none
+        
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = UITableView.automaticDimension
     }
     
     func setupView() {
@@ -43,7 +46,7 @@ final class SearchMediaView: UIView, ViewPresentable {
             tableView
         ].forEach { addSubview($0) }
         
-        tableView.backgroundColor = .orange // for test
+        tableView.register(SearchMediaTableViewCell.self, forCellReuseIdentifier: SearchMediaTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
@@ -67,7 +70,7 @@ final class SearchMediaView: UIView, ViewPresentable {
         
         tableView.snp.makeConstraints {
             $0.top.equalTo(searchBar.snp.bottom).offset(10)
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide).inset(20)
+            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
             $0.bottom.equalTo(safeAreaLayoutGuide).inset(10)
         }
     }

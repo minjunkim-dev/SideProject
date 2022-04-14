@@ -32,6 +32,7 @@
 		CA6471A32806A3E2009EBCF0 /* InsetsLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */; };
 		CA6471A52806AA3C009EBCF0 /* SearchMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A42806AA3C009EBCF0 /* SearchMediaView.swift */; };
 		CA6471A72806AA4F009EBCF0 /* SearchMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A62806AA4F009EBCF0 /* SearchMediaViewController.swift */; };
+		CA6471A92806BF33009EBCF0 /* SearchMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A82806BF33009EBCF0 /* SearchMediaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetsLabel.swift; sourceTree = "<group>"; };
 		CA6471A42806AA3C009EBCF0 /* SearchMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaView.swift; sourceTree = "<group>"; };
 		CA6471A62806AA4F009EBCF0 /* SearchMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaViewController.swift; sourceTree = "<group>"; };
+		CA6471A82806BF33009EBCF0 /* SearchMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				CA51F7EA280403FF006B6D18 /* SummaryMediaTableViewCell.swift */,
+				CA6471A82806BF33009EBCF0 /* SearchMediaTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				CA51F7D42803DF29006B6D18 /* ViewPresentable.swift in Sources */,
 				CA51F7DC2803ED07006B6D18 /* SummaryMediaTitleView.swift in Sources */,
 				CA51F7EB280403FF006B6D18 /* SummaryMediaTableViewCell.swift in Sources */,
+				CA6471A92806BF33009EBCF0 /* SearchMediaTableViewCell.swift in Sources */,
 				CA51F7F1280412C9006B6D18 /* UITableViewCell+Extension.swift in Sources */,
 				CA51F7D12803DE94006B6D18 /* SummaryMediaViewController.swift in Sources */,
 				CA51F7D62803E151006B6D18 /* Assets+Generated.swift in Sources */,

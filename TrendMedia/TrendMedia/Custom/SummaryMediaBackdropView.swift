@@ -16,22 +16,6 @@ final class SummaryMediaBackdropView: UIView, ViewPresentable {
     
     let imageView = UIImageView().then {
         $0.contentMode = .scaleToFill
-        
-        let url = URL(string: "https://www.themoviedb.org/t/p/original/oaGvjB0DvdhXhOAuADfHb261ZHa.jpg")
-        $0.kf.indicatorType = .activity
-        $0.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "placeholder_image"),
-            completionHandler: { result in
-                switch result {
-                case .success(let value):
-//                    dump(value)
-                    print("success")
-                case .failure(let error):
-//                    dump(error)
-                    print("failure")
-                }
-            })
     }
     
     let descriptionLabel = InsetsLabel().then {
