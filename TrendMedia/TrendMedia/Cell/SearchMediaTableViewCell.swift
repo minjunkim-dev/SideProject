@@ -45,6 +45,8 @@ final class SearchMediaTableViewCell: UITableViewCell, ViewPresentable {
     
     func setupView() {
         
+        selectionStyle = .none
+        
         contentView.addSubview(containerView)
         containerView.backgroundColor = .white
         
