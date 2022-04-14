@@ -19,6 +19,7 @@ final class CastProductionView: UIView, ViewPresentable {
     func setupView() {
         
         addSubview(tableView)
+        tableView.register(CastProductionTableViewCell.self, forCellReuseIdentifier: CastProductionTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {

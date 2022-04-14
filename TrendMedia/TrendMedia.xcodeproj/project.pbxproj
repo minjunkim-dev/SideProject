@@ -36,6 +36,7 @@
 		CA6471AB2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471AA2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift */; };
 		CA6471AD2807F63D009EBCF0 /* CastProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471AC2807F63D009EBCF0 /* CastProductionView.swift */; };
 		CA6471AF2807F706009EBCF0 /* CastProductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471AE2807F706009EBCF0 /* CastProductionViewController.swift */; };
+		CA6471B12807FFD8009EBCF0 /* CastProductionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471B02807FFD8009EBCF0 /* CastProductionTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		CA6471AA2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryMediaHeaderView.swift; sourceTree = "<group>"; };
 		CA6471AC2807F63D009EBCF0 /* CastProductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionView.swift; sourceTree = "<group>"; };
 		CA6471AE2807F706009EBCF0 /* CastProductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionViewController.swift; sourceTree = "<group>"; };
+		CA6471B02807FFD8009EBCF0 /* CastProductionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			children = (
 				CA51F7EA280403FF006B6D18 /* SummaryMediaTableViewCell.swift */,
 				CA6471A82806BF33009EBCF0 /* SearchMediaTableViewCell.swift */,
+				CA6471B02807FFD8009EBCF0 /* CastProductionTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA51F7D42803DF29006B6D18 /* ViewPresentable.swift in Sources */,
+				CA6471B12807FFD8009EBCF0 /* CastProductionTableViewCell.swift in Sources */,
 				CA51F7DC2803ED07006B6D18 /* SummaryMediaTitleView.swift in Sources */,
 				CA51F7EB280403FF006B6D18 /* SummaryMediaTableViewCell.swift in Sources */,
 				CA6471AD2807F63D009EBCF0 /* CastProductionView.swift in Sources */,

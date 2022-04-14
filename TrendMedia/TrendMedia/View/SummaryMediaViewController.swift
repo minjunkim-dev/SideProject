@@ -79,6 +79,8 @@ extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = CastProductionViewController()
+        let media = tvShow[indexPath.section]
+        vc.media = media
         
         let title = "뒤로"
         let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
