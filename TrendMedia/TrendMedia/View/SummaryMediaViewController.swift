@@ -20,9 +20,13 @@ final class SummaryMediaViewController: UIViewController {
         
         mainView.mediaTableView.delegate = self
         mainView.mediaTableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         let title = "TREND MEDIA"
-        let font = UIFont.systemFont(ofSize: 18, weight: .heavy)
+        let font = UIFont.systemFont(ofSize: 18, weight: .bold)
         let leftItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: nil)
         let rightItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchMediaButtonClicked))
         
@@ -70,5 +74,17 @@ extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource
         let title = tvShow[section].title
         view.configureView(genres: genres, title: title)
         return view
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = CastProductionViewController()
+        
+        let title = "뒤로"
+        let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
