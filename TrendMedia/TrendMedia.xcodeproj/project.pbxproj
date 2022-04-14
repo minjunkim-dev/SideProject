@@ -33,6 +33,7 @@
 		CA6471A52806AA3C009EBCF0 /* SearchMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A42806AA3C009EBCF0 /* SearchMediaView.swift */; };
 		CA6471A72806AA4F009EBCF0 /* SearchMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A62806AA4F009EBCF0 /* SearchMediaViewController.swift */; };
 		CA6471A92806BF33009EBCF0 /* SearchMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471A82806BF33009EBCF0 /* SearchMediaTableViewCell.swift */; };
+		CA6471AB2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471AA2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		CA6471A42806AA3C009EBCF0 /* SearchMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaView.swift; sourceTree = "<group>"; };
 		CA6471A62806AA4F009EBCF0 /* SearchMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaViewController.swift; sourceTree = "<group>"; };
 		CA6471A82806BF33009EBCF0 /* SearchMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMediaTableViewCell.swift; sourceTree = "<group>"; };
+		CA6471AA2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryMediaHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 				CA51F7EC28040AF8006B6D18 /* SummaryMediaBackdropView.swift */,
 				CA51F7F22804166D006B6D18 /* SummaryMediaDescriptionView.swift */,
 				CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */,
+				CA6471AA2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				CA6471A52806AA3C009EBCF0 /* SearchMediaView.swift in Sources */,
 				CA51F7EF280411FA006B6D18 /* ReusableView.swift in Sources */,
 				CA51F7F32804166D006B6D18 /* SummaryMediaDescriptionView.swift in Sources */,
+				CA6471AB2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift in Sources */,
 				CA51F7B22803DC24006B6D18 /* AppDelegate.swift in Sources */,
 				CA51F7E5280400C6006B6D18 /* TvShow.swift in Sources */,
 				CA51F7D92803E205006B6D18 /* UIViewController+Extension.swift in Sources */,

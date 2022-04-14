@@ -25,7 +25,6 @@ class SearchMediaViewController: UIViewController {
     }
     
     @objc func dismissButtonClicked() {
-        
         dismiss(animated: true)
     }
 }

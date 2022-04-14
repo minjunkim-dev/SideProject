@@ -16,12 +16,14 @@ final class SummaryMediaView: UIView, ViewPresentable {
     
     let mediaSelectionView = SummaryMediaSelectionView()
     
-    let mediaTableView = UITableView(frame: .zero, style: .plain).then {
+    let mediaTableView = UITableView(frame: .zero, style: .grouped).then {
         $0.separatorStyle = .none
         
         /* self-sizing cell */
         $0.rowHeight = UITableView.automaticDimension
         $0.estimatedRowHeight = UITableView.automaticDimension
+        
+        $0.sectionFooterHeight = .leastNonzeroMagnitude
     }
     
     func setupView() {

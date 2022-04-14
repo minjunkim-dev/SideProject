@@ -31,7 +31,8 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
     }
     
     func setupView() {
-        
+        backgroundColor = .white
+    
         contentView.layer.cornerRadius = 10
         contentView.setShadow()
         
