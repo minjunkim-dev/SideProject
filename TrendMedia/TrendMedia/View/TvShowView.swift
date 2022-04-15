@@ -1,5 +1,5 @@
 //
-//  SummaryMediaView.swift
+//  TvShowView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/11.
@@ -10,11 +10,11 @@ import UIKit
 import SnapKit
 import Then
 
-final class SummaryMediaView: UIView, ViewPresentable {
+final class TvShowView: UIView, ViewPresentable {
     
-    let titleView = SummaryMediaTitleView()
+    let titleView = TvShowTitleView()
     
-    let mediaSelectionView = SummaryMediaSelectionView()
+    let mediaSelectionView = TvShowSelectionView()
     
     let mediaTableView = UITableView(frame: .zero, style: .grouped).then {
         $0.separatorStyle = .none
@@ -36,7 +36,7 @@ final class SummaryMediaView: UIView, ViewPresentable {
         mediaSelectionView.setShadow()
         
         addSubview(mediaTableView)
-        mediaTableView.register(SummaryMediaTableViewCell.self, forCellReuseIdentifier: SummaryMediaTableViewCell.reuseIdentifier)
+        mediaTableView.register(TvShowTableViewCell.self, forCellReuseIdentifier: TvShowTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {

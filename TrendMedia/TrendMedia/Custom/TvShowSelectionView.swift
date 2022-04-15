@@ -1,5 +1,5 @@
 //
-//  SummaryMediaSelectionView.swift
+//  TvShowSelectionView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/11.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class SummaryMediaSelectionView: UIView, ViewPresentable {
+final class TvShowSelectionView: UIView, ViewPresentable {
     
     private let stackView = UIStackView().then {
         $0.distribution = .equalSpacing

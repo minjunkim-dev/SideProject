@@ -1,5 +1,5 @@
 //
-//  SearchMediaViewController.swift
+//  SearchTvShowViewController.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/13.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-class SearchMediaViewController: UIViewController {
+class SearchTvShowViewController: UIViewController {
     
-    private let mainView = SearchMediaView()
+    private let mainView = SearchTvShowView()
     
     var media: [TvShow] = [] {
         didSet {
@@ -36,7 +36,7 @@ class SearchMediaViewController: UIViewController {
     }
 }
 
-extension SearchMediaViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchTvShowViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -45,7 +45,7 @@ extension SearchMediaViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchMediaTableViewCell.reuseIdentifier, for: indexPath) as? SearchMediaTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchTvShowTableViewCell.reuseIdentifier, for: indexPath) as? SearchTvShowTableViewCell else {
             return UITableViewCell()
         }
         
@@ -62,7 +62,7 @@ extension SearchMediaViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
-extension SearchMediaViewController: UISearchBarDelegate {
+extension SearchTvShowViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         

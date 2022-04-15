@@ -1,5 +1,5 @@
 //
-//  SummaryMediaDescriptionView.swift
+//  TvShowDescriptionView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/11.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class SummaryMediaDescriptionView: UIView, ViewPresentable {
+final class TvShowDescriptionView: UIView, ViewPresentable {
     
     let containerView = UIView()
     

@@ -1,5 +1,5 @@
 //
-//  SearchMediaView.swift
+//  SearchTvShowView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/13.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class SearchMediaView: UIView, ViewPresentable {
+final class SearchTvShowView: UIView, ViewPresentable {
     
     let dismissButton = UIButton().then {
         let image = UIImage(systemName: "xmark")
@@ -46,7 +46,7 @@ final class SearchMediaView: UIView, ViewPresentable {
             tableView
         ].forEach { addSubview($0) }
         
-        tableView.register(SearchMediaTableViewCell.self, forCellReuseIdentifier: SearchMediaTableViewCell.reuseIdentifier)
+        tableView.register(SearchTvShowTableViewCell.self, forCellReuseIdentifier: SearchTvShowTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {

@@ -1,5 +1,5 @@
 //
-//  SummaryMediaViewController.swift
+//  TvShowViewController.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/11.
@@ -7,9 +7,9 @@
 
 import UIKit
 
-final class SummaryMediaViewController: UIViewController {
+final class TvShowViewController: UIViewController {
     
-    private let mainView = SummaryMediaView()
+    private let mainView = TvShowView()
     
     override func loadView() {
         view = mainView
@@ -35,14 +35,14 @@ final class SummaryMediaViewController: UIViewController {
     
     @objc func searchMediaButtonClicked() {
         
-        let vc = SearchMediaViewController()
+        let vc = SearchTvShowViewController()
         vc.modalPresentationStyle = .fullScreen
         vc.modalTransitionStyle = .coverVertical
         present(vc, animated: true)
     }
 }
 
-extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource {
+extension TvShowViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return tvShow.count
@@ -54,7 +54,7 @@ extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SummaryMediaTableViewCell.reuseIdentifier, for: indexPath) as? SummaryMediaTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TvShowTableViewCell.reuseIdentifier, for: indexPath) as? TvShowTableViewCell else { return UITableViewCell() }
         
         let section = indexPath.section
         
@@ -69,7 +69,7 @@ extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = SummaryMediaHeaderView()
+        let view = TvShowTableViewHeaderView()
         
         let genres = [tvShow[section].genre]
         let title = tvShow[section].title
@@ -92,7 +92,7 @@ extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-extension SummaryMediaViewController: TvShowViewDelegate {
+extension TvShowViewController: TvShowViewDelegate {
     
     func linkButtonClicked(urlString: String) {
         

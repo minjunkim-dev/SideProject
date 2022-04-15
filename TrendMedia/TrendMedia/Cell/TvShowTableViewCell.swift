@@ -1,5 +1,5 @@
 //
-//  SummaryMediaTableViewCell.swift
+//  TvShowTableViewCell.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/11.
@@ -16,15 +16,15 @@ protocol TvShowViewDelegate {
     @objc optional func linkButtonClicked(urlString: String)
 }
 
-final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
+final class TvShowTableViewCell: UITableViewCell, ViewPresentable {
     
     var delegate: TvShowViewDelegate?
     
     let containerView = UIView()
     
-    let posterView = SummaryMediaPosterView()
+    let posterView = TvShowPosterView()
     
-    let descriptionView = SummaryMediaDescriptionView()
+    let descriptionView = TvShowDescriptionView()
     
     let linkButton = UIButton().then {
         $0.tintColor = .white

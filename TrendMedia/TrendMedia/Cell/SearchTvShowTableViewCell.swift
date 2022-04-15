@@ -1,5 +1,5 @@
 //
-//  SearchMediaTableViewCell.swift
+//  SearchTvShowTableViewCell.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/13.
@@ -11,7 +11,7 @@ import SnapKit
 import Then
 import Kingfisher
 
-final class SearchMediaTableViewCell: UITableViewCell, ViewPresentable {
+final class SearchTvShowTableViewCell: UITableViewCell, ViewPresentable {
     
     let containerView = UIView()
     

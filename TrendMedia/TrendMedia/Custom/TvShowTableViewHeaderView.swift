@@ -1,5 +1,5 @@
 //
-//  SummaryMediaHeaderView.swift
+//  TvShowTableViewHeaderView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/14.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class SummaryMediaHeaderView: UIView, ViewPresentable {
+final class TvShowTableViewHeaderView: UIView, ViewPresentable {
     
     let containerView = UIView()
     

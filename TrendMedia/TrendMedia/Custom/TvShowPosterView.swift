@@ -1,5 +1,5 @@
 //
-//  SummaryMediaPosterView.swift
+//  TvShowPosterView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/11.
@@ -12,7 +12,7 @@ import Then
 
 import Kingfisher
 
-final class SummaryMediaPosterView: UIView, ViewPresentable {
+final class TvShowPosterView: UIView, ViewPresentable {
     
     let imageView = UIImageView().then {
         $0.contentMode = .scaleToFill
