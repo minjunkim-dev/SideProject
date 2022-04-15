@@ -13,19 +13,17 @@ import Then
 final class TvShowSelectionView: UIView, ViewPresentable {
     
     private let stackView = UIStackView().then {
-        $0.distribution = .equalSpacing
+        $0.distribution = .fillEqually
         $0.axis = .horizontal
     }
     
     private let buttonImageName = [
         "film",
-        "tv",
         "book.closed",
     ]
     
     private let buttonTintColor = [
         UIColor.green,
-        UIColor.systemYellow,
         UIColor.systemBlue,
     ]
     
