@@ -63,6 +63,7 @@ extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource
         let rate = tvShow[section].rate
         let imagePath = tvShow[section].backdropImage
         cell.configureCell(title: title, releaseDate: releaseDate, rate: rate, imagePath: imagePath)
+        cell.delegate = self
         
         return cell
     }
@@ -88,5 +89,18 @@ extension SummaryMediaViewController: UITableViewDelegate, UITableViewDataSource
         navigationItem.backBarButtonItem = backBarButtonItem
 
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension SummaryMediaViewController: TvShowViewDelegate {
+    
+    func linkButtonClicked(urlString: String) {
+        
+        let vc = TvShowWebKitViewController()
+        vc.url = urlString
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .popover
+        
+        present(vc, animated: true)
     }
 }

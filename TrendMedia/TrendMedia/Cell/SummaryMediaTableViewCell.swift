@@ -10,13 +10,29 @@ import UIKit
 import SnapKit
 import Then
 
+@objc
+protocol TvShowViewDelegate {
+    
+    @objc optional func linkButtonClicked(urlString: String)
+}
+
 final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
+    
+    var delegate: TvShowViewDelegate?
     
     let containerView = UIView()
     
     let posterView = SummaryMediaPosterView()
     
     let descriptionView = SummaryMediaDescriptionView()
+    
+    let linkButton = UIButton().then {
+        $0.tintColor = .white
+        
+        let image = UIImage(systemName: "link.circle.fill")
+        $0.setImage(image, for: .normal)
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 30), forImageIn: .normal)
+    }
     
     let topInset: CGFloat = 0
     let leftInset: CGFloat = 20
@@ -44,6 +60,7 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
         
         containerView.addSubview(posterView)
         containerView.addSubview(descriptionView)
+        containerView.addSubview(linkButton)
     }
     
     func setupConstraints() {
@@ -62,6 +79,11 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
             $0.top.equalTo(posterView.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
+        }
+        
+        linkButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20)
+            $0.trailing.equalToSuperview().inset(20)
         }
     }
     
@@ -92,11 +114,21 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
         descriptionView.releaseDateLabel.text = releaseDate
     }
     
+    @objc func linkButtonClicked() {
+        print(#function)
+        
+        let urlString = "https://www.themoviedb.org"
+        
+        delegate?.linkButtonClicked?(urlString: urlString)
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         setupView()
         setupConstraints()
+        
+        linkButton.addTarget(self, action: #selector(linkButtonClicked), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {

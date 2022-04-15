@@ -32,29 +32,13 @@ final class SummaryMediaPosterView: UIView, ViewPresentable {
         $0.textAlignment = .center
     }
     
-//    func loadImage(imagePath: String) {
-//        let url = URL(string: imagePath)
-//        imageView.kf.indicatorType = .activity
-//        imageView.kf.setImage(
-//            with: url,
-//            placeholder: UIImage(named: "placeholder_image"),
-//            completionHandler: { result in
-//                switch result {
-//                case .success(let value):
-////                    dump(value)
-//                    print("success")
-//                case .failure(let error):
-////                    dump(error)
-//                    print("failure")
-//                }
-//            })
-//    }
-    
     func setupView() {
         
         addSubview(imageView)
 
-        [descriptionLabel, rateLabel].forEach {
+        [
+            descriptionLabel, rateLabel,
+        ].forEach {
             imageView.addSubview($0)
         }
     }
