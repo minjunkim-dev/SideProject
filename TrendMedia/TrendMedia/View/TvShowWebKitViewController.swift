@@ -76,6 +76,8 @@ class TvShowWebKitViewController: UIViewController {
     
     func openWebPage(urlString: String) {
      
+        print(urlString)
+        
         guard let url = URL(string: urlString) else {
             return
         }
@@ -90,8 +92,16 @@ extension TvShowWebKitViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(#function)
         
-        openWebPage(urlString: searchBar.text!)
+        guard let text = searchBar.text else { return }
+        
+        var urlString = text.lowercased()
+        if !(urlString.contains("www.")) {
+            urlString = "www." + urlString
+        }
+        if !(urlString.contains("http")) {
+            urlString = "http://" + urlString
+        }
+        
+        openWebPage(urlString: urlString)
     }
 }
-
-
