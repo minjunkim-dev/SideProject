@@ -25,7 +25,7 @@
 		CA51F7E5280400C6006B6D18 /* TvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7E4280400C6006B6D18 /* TvShow.swift */; };
 		CA51F7E8280403E4006B6D18 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F7E7280403E4006B6D18 /* Kingfisher */; };
 		CA51F7EB280403FF006B6D18 /* SummaryMediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EA280403FF006B6D18 /* SummaryMediaTableViewCell.swift */; };
-		CA51F7ED28040AF8006B6D18 /* SummaryMediaBackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EC28040AF8006B6D18 /* SummaryMediaBackdropView.swift */; };
+		CA51F7ED28040AF8006B6D18 /* SummaryMediaPosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EC28040AF8006B6D18 /* SummaryMediaPosterView.swift */; };
 		CA51F7EF280411FA006B6D18 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EE280411FA006B6D18 /* ReusableView.swift */; };
 		CA51F7F1280412C9006B6D18 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7F0280412C9006B6D18 /* UITableViewCell+Extension.swift */; };
 		CA51F7F32804166D006B6D18 /* SummaryMediaDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7F22804166D006B6D18 /* SummaryMediaDescriptionView.swift */; };
@@ -37,6 +37,7 @@
 		CA6471AD2807F63D009EBCF0 /* CastProductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471AC2807F63D009EBCF0 /* CastProductionView.swift */; };
 		CA6471AF2807F706009EBCF0 /* CastProductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471AE2807F706009EBCF0 /* CastProductionViewController.swift */; };
 		CA6471B12807FFD8009EBCF0 /* CastProductionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471B02807FFD8009EBCF0 /* CastProductionTableViewCell.swift */; };
+		CA6471B328080C77009EBCF0 /* CastProductionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6471B228080C77009EBCF0 /* CastProductionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +58,7 @@
 		CA51F7E12804009C006B6D18 /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		CA51F7E4280400C6006B6D18 /* TvShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShow.swift; sourceTree = "<group>"; };
 		CA51F7EA280403FF006B6D18 /* SummaryMediaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryMediaTableViewCell.swift; sourceTree = "<group>"; };
-		CA51F7EC28040AF8006B6D18 /* SummaryMediaBackdropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryMediaBackdropView.swift; sourceTree = "<group>"; };
+		CA51F7EC28040AF8006B6D18 /* SummaryMediaPosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryMediaPosterView.swift; sourceTree = "<group>"; };
 		CA51F7EE280411FA006B6D18 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		CA51F7F0280412C9006B6D18 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 		CA51F7F22804166D006B6D18 /* SummaryMediaDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryMediaDescriptionView.swift; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 		CA6471AC2807F63D009EBCF0 /* CastProductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionView.swift; sourceTree = "<group>"; };
 		CA6471AE2807F706009EBCF0 /* CastProductionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionViewController.swift; sourceTree = "<group>"; };
 		CA6471B02807FFD8009EBCF0 /* CastProductionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionTableViewCell.swift; sourceTree = "<group>"; };
+		CA6471B228080C77009EBCF0 /* CastProductionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,10 +159,11 @@
 			children = (
 				CA51F7DB2803ED07006B6D18 /* SummaryMediaTitleView.swift */,
 				CA51F7DD2803EDF3006B6D18 /* SummaryMediaSelectionView.swift */,
-				CA51F7EC28040AF8006B6D18 /* SummaryMediaBackdropView.swift */,
+				CA51F7EC28040AF8006B6D18 /* SummaryMediaPosterView.swift */,
 				CA51F7F22804166D006B6D18 /* SummaryMediaDescriptionView.swift */,
 				CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */,
 				CA6471AA2807CF8D009EBCF0 /* SummaryMediaHeaderView.swift */,
+				CA6471B228080C77009EBCF0 /* CastProductionHeaderView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				CA6471AD2807F63D009EBCF0 /* CastProductionView.swift in Sources */,
 				CA6471A92806BF33009EBCF0 /* SearchMediaTableViewCell.swift in Sources */,
 				CA51F7F1280412C9006B6D18 /* UITableViewCell+Extension.swift in Sources */,
+				CA6471B328080C77009EBCF0 /* CastProductionHeaderView.swift in Sources */,
 				CA51F7D12803DE94006B6D18 /* SummaryMediaViewController.swift in Sources */,
 				CA51F7D62803E151006B6D18 /* Assets+Generated.swift in Sources */,
 				CA51F7DE2803EDF3006B6D18 /* SummaryMediaSelectionView.swift in Sources */,
@@ -310,7 +314,7 @@
 				CA51F7B42803DC24006B6D18 /* SceneDelegate.swift in Sources */,
 				CA6471A32806A3E2009EBCF0 /* InsetsLabel.swift in Sources */,
 				CA6471AF2807F706009EBCF0 /* CastProductionViewController.swift in Sources */,
-				CA51F7ED28040AF8006B6D18 /* SummaryMediaBackdropView.swift in Sources */,
+				CA51F7ED28040AF8006B6D18 /* SummaryMediaPosterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

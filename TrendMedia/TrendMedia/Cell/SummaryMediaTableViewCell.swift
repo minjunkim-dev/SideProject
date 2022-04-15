@@ -14,7 +14,7 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
     
     let containerView = UIView()
     
-    let backdropView = SummaryMediaBackdropView()
+    let posterView = SummaryMediaPosterView()
     
     let descriptionView = SummaryMediaDescriptionView()
     
@@ -42,7 +42,7 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
         containerView.layer.masksToBounds = true
         contentView.addSubview(containerView)
         
-        containerView.addSubview(backdropView)
+        containerView.addSubview(posterView)
         containerView.addSubview(descriptionView)
     }
     
@@ -52,14 +52,14 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
             $0.edges.equalToSuperview()
         }
         
-        backdropView.snp.makeConstraints {
+        posterView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.height.equalTo(UIScreen.main.bounds.height * 0.3)
             $0.horizontalEdges.equalToSuperview()
         }
         
         descriptionView.snp.makeConstraints {
-            $0.top.equalTo(backdropView.snp.bottom)
+            $0.top.equalTo(posterView.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
@@ -67,8 +67,26 @@ final class SummaryMediaTableViewCell: UITableViewCell, ViewPresentable {
     
     func configureCell(title: String, releaseDate: String, rate: Double, imagePath: String) {
         
-        backdropView.loadImage(imagePath: imagePath)
-        backdropView.rateLabel.text = "\(rate)"
+        var name =
+            title.lowercased()
+                .replacingOccurrences(of: "'", with: "")
+        name =
+            name.lowercased()
+                .replacingOccurrences(of: ":", with: "")
+        
+        name =
+        name.components(separatedBy: ["&"])
+            .map {
+                $0.trimmingCharacters(in: [" "])
+            }
+            .joined(separator: " ")
+        
+        name = name.replacingOccurrences(of: "-", with: "_")
+        
+        name = name.replacingOccurrences(of: " ", with: "_")
+        
+        posterView.imageView.image = UIImage(named: name)
+        posterView.rateLabel.text = "\(rate)"
         
         descriptionView.titleLabel.text = title
         descriptionView.releaseDateLabel.text = releaseDate

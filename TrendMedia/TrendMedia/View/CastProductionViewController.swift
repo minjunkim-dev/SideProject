@@ -32,6 +32,31 @@ class CastProductionViewController: UIViewController {
         configureNavigation(title: title, titleColor: .black, titleFont: font)
         
 //        navigationController?.navigationBar.topItem?.title = "뒤로"
+        
+        if let media = media {
+            let title = media.title
+            var name =
+                title.lowercased()
+                    .replacingOccurrences(of: "'", with: "")
+            name =
+                name.lowercased()
+                    .replacingOccurrences(of: ":", with: "")
+            
+            name =
+            name.components(separatedBy: ["&"])
+                .map {
+                    $0.trimmingCharacters(in: [" "])
+                }
+                .joined(separator: " ")
+            
+            name = name.replacingOccurrences(of: "-", with: "_")
+            
+            name = name.replacingOccurrences(of: " ", with: "_")
+            
+            print(name)
+            mainView.headerView.configureView(backdropImagePath: media.backdropImage, imageName: name, title: media.title)
+        }
+        
     }
 }
 
@@ -59,6 +84,15 @@ extension CastProductionViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return tableView.frame.height / 10
+        return tableView.frame.height / 6
+    }
+}
+
+extension Assets {
+    
+    var description: String {
+        switch self {
+            
+        }
     }
 }

@@ -1,5 +1,5 @@
 //
-//  SummaryMediaBackdropView.swift
+//  SummaryMediaPosterView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/11.
@@ -12,7 +12,7 @@ import Then
 
 import Kingfisher
 
-final class SummaryMediaBackdropView: UIView, ViewPresentable {
+final class SummaryMediaPosterView: UIView, ViewPresentable {
     
     let imageView = UIImageView().then {
         $0.contentMode = .scaleToFill
@@ -32,23 +32,23 @@ final class SummaryMediaBackdropView: UIView, ViewPresentable {
         $0.textAlignment = .center
     }
     
-    func loadImage(imagePath: String) {
-        let url = URL(string: imagePath)
-        imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "placeholder_image"),
-            completionHandler: { result in
-                switch result {
-                case .success(let value):
-//                    dump(value)
-                    print("success")
-                case .failure(let error):
-//                    dump(error)
-                    print("failure")
-                }
-            })
-    }
+//    func loadImage(imagePath: String) {
+//        let url = URL(string: imagePath)
+//        imageView.kf.indicatorType = .activity
+//        imageView.kf.setImage(
+//            with: url,
+//            placeholder: UIImage(named: "placeholder_image"),
+//            completionHandler: { result in
+//                switch result {
+//                case .success(let value):
+////                    dump(value)
+//                    print("success")
+//                case .failure(let error):
+////                    dump(error)
+//                    print("failure")
+//                }
+//            })
+//    }
     
     func setupView() {
         
