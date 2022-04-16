@@ -94,7 +94,7 @@ extension TvShowViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension TvShowViewController: TvShowViewDelegate {
     
-    func linkButtonClicked(urlString: String) {
+    func openWebView(urlString: String) {
         
         let vc = TvShowWebKitViewController()
         vc.url = urlString

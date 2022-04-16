@@ -12,34 +12,27 @@ import Then
 
 final class CastProductionView: UIView, ViewPresentable {
     
-    let headerView = CastProductionHeaderView()
-    
     let tableView = UITableView(frame: .zero, style: .plain).then {
         $0.separatorStyle = .singleLine
+        
+        $0.rowHeight = UITableView.automaticDimension
+        $0.estimatedRowHeight = UITableView.automaticDimension
     }
     
     func setupView() {
         
         backgroundColor = .white
-        
-        addSubview(headerView)
-        
+    
         addSubview(tableView)
         tableView.register(CastProductionTableViewCell.self, forCellReuseIdentifier: CastProductionTableViewCell.reuseIdentifier)
+        tableView.register(CastProductionHeaderTabelViewCell.self, forCellReuseIdentifier: CastProductionHeaderTabelViewCell.reuseIdentifier)
+        tableView.register(CastProductionOverviewTableViewCell.self, forCellReuseIdentifier: CastProductionOverviewTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
         
-        headerView.snp.makeConstraints {
-            $0.top.equalTo(safeAreaLayoutGuide)
-            $0.height.equalToSuperview().multipliedBy(1.0 / 3)
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
-        }
-        
         tableView.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom)
-            $0.horizontalEdges.equalTo(safeAreaLayoutGuide)
-            $0.bottom.equalTo(safeAreaLayoutGuide)
+            $0.edges.equalTo(safeAreaLayoutGuide)
         }
     }
     

@@ -10,12 +10,6 @@ import UIKit
 import SnapKit
 import Then
 
-@objc
-protocol TvShowViewDelegate {
-    
-    @objc optional func linkButtonClicked(urlString: String)
-}
-
 final class TvShowTableViewCell: UITableViewCell, ViewPresentable {
     
     var delegate: TvShowViewDelegate?
@@ -119,7 +113,7 @@ final class TvShowTableViewCell: UITableViewCell, ViewPresentable {
         
         let urlString = "https://www.themoviedb.org"
         
-        delegate?.linkButtonClicked?(urlString: urlString)
+        delegate?.openWebView?(urlString: urlString)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

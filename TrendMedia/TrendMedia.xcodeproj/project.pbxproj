@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA0DB4D6280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4D5280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift */; };
+		CA0DB4D8280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4D7280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift */; };
+		CA0DB4DA280A5C940055F1EF /* TvShowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4D9280A5C940055F1EF /* TvShowDelegate.swift */; };
 		CA51F7B22803DC24006B6D18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B12803DC24006B6D18 /* AppDelegate.swift */; };
 		CA51F7B42803DC24006B6D18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B32803DC24006B6D18 /* SceneDelegate.swift */; };
 		CA51F7BB2803DC26006B6D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA51F7BA2803DC26006B6D18 /* Assets.xcassets */; };
@@ -43,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA0DB4D5280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionHeaderTabelViewCell.swift; sourceTree = "<group>"; };
+		CA0DB4D7280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		CA0DB4D9280A5C940055F1EF /* TvShowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDelegate.swift; sourceTree = "<group>"; };
 		CA51F7AE2803DC24006B6D18 /* TrendMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA51F7B12803DC24006B6D18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA51F7B32803DC24006B6D18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +152,7 @@
 			children = (
 				CA51F7D32803DF29006B6D18 /* ViewPresentable.swift */,
 				CA51F7EE280411FA006B6D18 /* ReusableView.swift */,
+				CA0DB4D9280A5C940055F1EF /* TvShowDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -189,6 +196,8 @@
 				CA51F7EA280403FF006B6D18 /* TvShowTableViewCell.swift */,
 				CA6471A82806BF33009EBCF0 /* SearchTvShowTableViewCell.swift */,
 				CA6471B02807FFD8009EBCF0 /* CastProductionTableViewCell.swift */,
+				CA0DB4D5280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift */,
+				CA0DB4D7280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 				CA51F7F1280412C9006B6D18 /* UITableViewCell+Extension.swift in Sources */,
 				CA6471B328080C77009EBCF0 /* CastProductionHeaderView.swift in Sources */,
 				CA51F7D12803DE94006B6D18 /* TvShowViewController.swift in Sources */,
+				CA0DB4D6280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift in Sources */,
 				CA51F7D62803E151006B6D18 /* Assets+Generated.swift in Sources */,
 				CA51F7DE2803EDF3006B6D18 /* TvShowSelectionView.swift in Sources */,
 				CA6471A52806AA3C009EBCF0 /* SearchTvShowView.swift in Sources */,
@@ -315,7 +325,9 @@
 				CA51F7D92803E205006B6D18 /* UIViewController+Extension.swift in Sources */,
 				CA51F7CF2803DE8A006B6D18 /* TvShowView.swift in Sources */,
 				CA51F7E02803FA45006B6D18 /* UIView+Extension.swift in Sources */,
+				CA0DB4DA280A5C940055F1EF /* TvShowDelegate.swift in Sources */,
 				CA6471A72806AA4F009EBCF0 /* SearchTvShowViewController.swift in Sources */,
+				CA0DB4D8280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift in Sources */,
 				CA51F7E22804009C006B6D18 /* Sample.swift in Sources */,
 				CA6471B528093C0D009EBCF0 /* TvShowWebKitView.swift in Sources */,
 				CA6471B728093CD6009EBCF0 /* TvShowWebKitViewController.swift in Sources */,
