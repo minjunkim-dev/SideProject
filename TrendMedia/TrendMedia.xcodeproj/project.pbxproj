@@ -15,6 +15,8 @@
 		CA0DB4E0280A8ED10055F1EF /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4DF280A8ED10055F1EF /* UICollectionViewCell+Extension.swift */; };
 		CA0DB4E2280A8F080055F1EF /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E1280A8F080055F1EF /* BookCollectionViewCell.swift */; };
 		CA0DB4E4280A9D320055F1EF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E3280A9D320055F1EF /* UIColor+Extension.swift */; };
+		CA0DB4E6280AA6430055F1EF /* FilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E5280AA6430055F1EF /* FilmView.swift */; };
+		CA0DB4E8280AA64C0055F1EF /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E7280AA64C0055F1EF /* FilmViewController.swift */; };
 		CA51F7B22803DC24006B6D18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B12803DC24006B6D18 /* AppDelegate.swift */; };
 		CA51F7B42803DC24006B6D18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B32803DC24006B6D18 /* SceneDelegate.swift */; };
 		CA51F7BB2803DC26006B6D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA51F7BA2803DC26006B6D18 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		CA0DB4DF280A8ED10055F1EF /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		CA0DB4E1280A8F080055F1EF /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		CA0DB4E3280A9D320055F1EF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		CA0DB4E5280AA6430055F1EF /* FilmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmView.swift; sourceTree = "<group>"; };
+		CA0DB4E7280AA64C0055F1EF /* FilmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewController.swift; sourceTree = "<group>"; };
 		CA51F7AE2803DC24006B6D18 /* TrendMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA51F7B12803DC24006B6D18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA51F7B32803DC24006B6D18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +159,8 @@
 				CA6471B628093CD6009EBCF0 /* TvShowWebKitViewController.swift */,
 				CA0DB4DB280A88480055F1EF /* BookView.swift */,
 				CA0DB4DD280A88520055F1EF /* BookViewController.swift */,
+				CA0DB4E5280AA6430055F1EF /* FilmView.swift */,
+				CA0DB4E7280AA64C0055F1EF /* FilmViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 				CA6471B328080C77009EBCF0 /* CastProductionHeaderView.swift in Sources */,
 				CA51F7D12803DE94006B6D18 /* TvShowViewController.swift in Sources */,
 				CA0DB4D6280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift in Sources */,
+				CA0DB4E8280AA64C0055F1EF /* FilmViewController.swift in Sources */,
 				CA51F7D62803E151006B6D18 /* Assets+Generated.swift in Sources */,
 				CA0DB4E0280A8ED10055F1EF /* UICollectionViewCell+Extension.swift in Sources */,
 				CA51F7DE2803EDF3006B6D18 /* TvShowSelectionView.swift in Sources */,
@@ -353,6 +360,7 @@
 				CA6471B728093CD6009EBCF0 /* TvShowWebKitViewController.swift in Sources */,
 				CA51F7B42803DC24006B6D18 /* SceneDelegate.swift in Sources */,
 				CA6471A32806A3E2009EBCF0 /* InsetsLabel.swift in Sources */,
+				CA0DB4E6280AA6430055F1EF /* FilmView.swift in Sources */,
 				CA6471AF2807F706009EBCF0 /* CastProductionViewController.swift in Sources */,
 				CA51F7ED28040AF8006B6D18 /* TvShowPosterView.swift in Sources */,
 			);

@@ -21,9 +21,24 @@ final class TvShowViewController: UIViewController {
         mainView.mediaTableView.delegate = self
         mainView.mediaTableView.dataSource = self
         
+        if let filmButton = mainView.mediaSelectionView.stackView.arrangedSubviews[0] as? UIButton {
+            filmButton.addTarget(self, action: #selector(filmButtonClicked), for: .touchUpInside)
+        }
+        
         if let bookButton = mainView.mediaSelectionView.stackView.arrangedSubviews[1] as? UIButton {
             bookButton.addTarget(self, action: #selector(bookButtonClicked), for: .touchUpInside)
         }
+    }
+    
+    @objc func filmButtonClicked() {
+        let vc = FilmViewController()
+        
+        let title = "뒤로"
+        let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func bookButtonClicked() {
