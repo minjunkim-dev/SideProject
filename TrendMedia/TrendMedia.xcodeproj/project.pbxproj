@@ -10,6 +10,11 @@
 		CA0DB4D6280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4D5280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift */; };
 		CA0DB4D8280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4D7280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift */; };
 		CA0DB4DA280A5C940055F1EF /* TvShowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4D9280A5C940055F1EF /* TvShowDelegate.swift */; };
+		CA0DB4DC280A88480055F1EF /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4DB280A88480055F1EF /* BookView.swift */; };
+		CA0DB4DE280A88520055F1EF /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4DD280A88520055F1EF /* BookViewController.swift */; };
+		CA0DB4E0280A8ED10055F1EF /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4DF280A8ED10055F1EF /* UICollectionViewCell+Extension.swift */; };
+		CA0DB4E2280A8F080055F1EF /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E1280A8F080055F1EF /* BookCollectionViewCell.swift */; };
+		CA0DB4E4280A9D320055F1EF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E3280A9D320055F1EF /* UIColor+Extension.swift */; };
 		CA51F7B22803DC24006B6D18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B12803DC24006B6D18 /* AppDelegate.swift */; };
 		CA51F7B42803DC24006B6D18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B32803DC24006B6D18 /* SceneDelegate.swift */; };
 		CA51F7BB2803DC26006B6D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA51F7BA2803DC26006B6D18 /* Assets.xcassets */; };
@@ -49,6 +54,11 @@
 		CA0DB4D5280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionHeaderTabelViewCell.swift; sourceTree = "<group>"; };
 		CA0DB4D7280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastProductionOverviewTableViewCell.swift; sourceTree = "<group>"; };
 		CA0DB4D9280A5C940055F1EF /* TvShowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvShowDelegate.swift; sourceTree = "<group>"; };
+		CA0DB4DB280A88480055F1EF /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		CA0DB4DD280A88520055F1EF /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		CA0DB4DF280A8ED10055F1EF /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		CA0DB4E1280A8F080055F1EF /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		CA0DB4E3280A9D320055F1EF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		CA51F7AE2803DC24006B6D18 /* TrendMedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrendMedia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA51F7B12803DC24006B6D18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA51F7B32803DC24006B6D18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +153,8 @@
 				CA6471AE2807F706009EBCF0 /* CastProductionViewController.swift */,
 				CA6471B428093C0D009EBCF0 /* TvShowWebKitView.swift */,
 				CA6471B628093CD6009EBCF0 /* TvShowWebKitViewController.swift */,
+				CA0DB4DB280A88480055F1EF /* BookView.swift */,
+				CA0DB4DD280A88520055F1EF /* BookViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +175,8 @@
 				CA51F7D82803E205006B6D18 /* UIViewController+Extension.swift */,
 				CA51F7DF2803FA45006B6D18 /* UIView+Extension.swift */,
 				CA51F7F0280412C9006B6D18 /* UITableViewCell+Extension.swift */,
+				CA0DB4DF280A8ED10055F1EF /* UICollectionViewCell+Extension.swift */,
+				CA0DB4E3280A9D320055F1EF /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -198,6 +212,7 @@
 				CA6471B02807FFD8009EBCF0 /* CastProductionTableViewCell.swift */,
 				CA0DB4D5280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift */,
 				CA0DB4D7280A58B10055F1EF /* CastProductionOverviewTableViewCell.swift */,
+				CA0DB4E1280A8F080055F1EF /* BookCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -307,6 +322,8 @@
 				CA51F7D42803DF29006B6D18 /* ViewPresentable.swift in Sources */,
 				CA6471B12807FFD8009EBCF0 /* CastProductionTableViewCell.swift in Sources */,
 				CA51F7DC2803ED07006B6D18 /* TvShowTitleView.swift in Sources */,
+				CA0DB4E4280A9D320055F1EF /* UIColor+Extension.swift in Sources */,
+				CA0DB4DE280A88520055F1EF /* BookViewController.swift in Sources */,
 				CA51F7EB280403FF006B6D18 /* TvShowTableViewCell.swift in Sources */,
 				CA6471AD2807F63D009EBCF0 /* CastProductionView.swift in Sources */,
 				CA6471A92806BF33009EBCF0 /* SearchTvShowTableViewCell.swift in Sources */,
@@ -315,10 +332,13 @@
 				CA51F7D12803DE94006B6D18 /* TvShowViewController.swift in Sources */,
 				CA0DB4D6280A57540055F1EF /* CastProductionHeaderTabelViewCell.swift in Sources */,
 				CA51F7D62803E151006B6D18 /* Assets+Generated.swift in Sources */,
+				CA0DB4E0280A8ED10055F1EF /* UICollectionViewCell+Extension.swift in Sources */,
 				CA51F7DE2803EDF3006B6D18 /* TvShowSelectionView.swift in Sources */,
 				CA6471A52806AA3C009EBCF0 /* SearchTvShowView.swift in Sources */,
 				CA51F7EF280411FA006B6D18 /* ReusableView.swift in Sources */,
 				CA51F7F32804166D006B6D18 /* TvShowDescriptionView.swift in Sources */,
+				CA0DB4DC280A88480055F1EF /* BookView.swift in Sources */,
+				CA0DB4E2280A8F080055F1EF /* BookCollectionViewCell.swift in Sources */,
 				CA6471AB2807CF8D009EBCF0 /* TvShowTableViewHeaderView.swift in Sources */,
 				CA51F7B22803DC24006B6D18 /* AppDelegate.swift in Sources */,
 				CA51F7E5280400C6006B6D18 /* TvShow.swift in Sources */,

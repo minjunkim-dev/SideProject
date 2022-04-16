@@ -12,7 +12,7 @@ import Then
 
 final class TvShowSelectionView: UIView, ViewPresentable {
     
-    private let stackView = UIStackView().then {
+    let stackView = UIStackView().then {
         $0.distribution = .fillEqually
         $0.axis = .horizontal
     }
