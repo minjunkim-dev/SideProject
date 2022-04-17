@@ -1,5 +1,5 @@
 //
-//  CastProductionTableViewCell.swift
+//  TvShowDetailTableViewCell.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/14.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class CastProductionTableViewCell: UITableViewCell, ViewPresentable {
+final class TvShowDetailTableViewCell: UITableViewCell, ViewPresentable {
     
     let containerView = UIView()
     

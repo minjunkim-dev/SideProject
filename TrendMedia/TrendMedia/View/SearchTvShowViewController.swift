@@ -11,7 +11,7 @@ class SearchTvShowViewController: UIViewController {
     
     private let mainView = SearchTvShowView()
     
-    var media: [TvShow] = [] {
+    var tvShowList: [TvShow] = [] {
         didSet {
             mainView.tableView.reloadData()
         }
@@ -40,7 +40,7 @@ extension SearchTvShowViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return media.count
+        return tvShowList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,11 +50,11 @@ extension SearchTvShowViewController: UITableViewDelegate, UITableViewDataSource
         }
         
         let row = indexPath.row
-        let title = media[row].title
-        let releaseDate = media[row].releaseDate
-        let region = media[row].region
-        let overview = media[row].overview
-        let imagePath = media[row].backdropImage
+        let title = tvShowList[row].title
+        let releaseDate = tvShowList[row].releaseDate
+        let region = tvShowList[row].region
+        let overview = tvShowList[row].overview
+        let imagePath = tvShowList[row].backdropImage
         
         cell.configureCell(title: title, releaseDate: releaseDate, region: region ,overview: overview, imagePath: imagePath)
         
@@ -67,11 +67,11 @@ extension SearchTvShowViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         guard let text = searchText.first, text != " " else {
-            media = []
+            tvShowList = []
             return
         }
         
-        media = tvShow
+        tvShowList = tvShow
             .filter {
                 let title = $0.title.lowercased()
                 if title.contains(searchText.lowercased()) {

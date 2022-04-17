@@ -1,5 +1,5 @@
 //
-//  CastProductionHeaderView.swift
+//  TvShowDetailHeaderView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/14.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class CastProductionHeaderView: UIView, ViewPresentable {
+final class TvShowDetailHeaderView: UIView, ViewPresentable {
     
     let backdropImageView = UIImageView()
     

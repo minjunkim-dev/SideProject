@@ -1,5 +1,5 @@
 //
-//  CastProductionHeaderTabelViewCell.swift
+//  TvShowDetailHeaderTabelViewCell.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/16.
@@ -10,9 +10,9 @@ import UIKit
 import SnapKit
 import Then
 
-final class CastProductionHeaderTabelViewCell: UITableViewCell, ViewPresentable {
+final class TvShowDetailHeaderTabelViewCell: UITableViewCell, ViewPresentable {
     
-    let headerView = CastProductionHeaderView()
+    let headerView = TvShowDetailHeaderView()
 
     func setupView() {
         

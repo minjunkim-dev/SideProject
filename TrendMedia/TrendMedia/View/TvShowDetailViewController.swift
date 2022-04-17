@@ -1,5 +1,5 @@
 //
-//  CastProductionViewController.swift
+//  TvShowDetailViewController.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/14.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class CastProductionViewController: UIViewController {
+class TvShowDetailViewController: UIViewController {
 
-    private let mainView = CastProductionView()
+    private let mainView = TvShowDetailView()
     
-    var media: TvShow?
+    var tvShow: TvShow?
     
     override func loadView() {
         view = mainView
@@ -36,14 +36,14 @@ class CastProductionViewController: UIViewController {
     }
 }
 
-extension CastProductionViewController: UITableViewDelegate, UITableViewDataSource {
+extension TvShowDetailViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let starring = media?.starring.components(separatedBy: ", ")
+        let starring = tvShow?.starring.components(separatedBy: ", ")
         return section == 0 ? 2 : (starring?.count ?? 0)
     }
     
@@ -53,12 +53,12 @@ extension CastProductionViewController: UITableViewDelegate, UITableViewDataSour
         
         if section == 0 {
             if row == 0 {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: CastProductionHeaderTabelViewCell.reuseIdentifier, for: indexPath) as? CastProductionHeaderTabelViewCell else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: TvShowDetailHeaderTabelViewCell.reuseIdentifier, for: indexPath) as? TvShowDetailHeaderTabelViewCell else {
                     return UITableViewCell()
                 }
                 
-                if let media = media {
-                    let title = media.title
+                if let tvShow = tvShow {
+                    let title = tvShow.title
                     var name =
                         title.lowercased()
                             .replacingOccurrences(of: "'", with: "")
@@ -77,18 +77,18 @@ extension CastProductionViewController: UITableViewDelegate, UITableViewDataSour
                     
                     name = name.replacingOccurrences(of: " ", with: "_")
                     
-                    cell.headerView.configureView(backdropImagePath: media.backdropImage, imageName: name, title: media.title)
+                    cell.headerView.configureView(backdropImagePath: tvShow.backdropImage, imageName: name, title: tvShow.title)
                 }
                 
                 return cell
             } else {
                 
                 print("cellForRowAt: \(row)")
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: CastProductionOverviewTableViewCell.reuseIdentifier, for: indexPath) as? CastProductionOverviewTableViewCell else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: TvShowDetailOverviewTableViewCell.reuseIdentifier, for: indexPath) as? TvShowDetailOverviewTableViewCell else {
                     return UITableViewCell()
                 }
                 
-                if let overview = media?.overview {
+                if let overview = tvShow?.overview {
                     cell.delegate = self
                     cell.configureCell(overview: overview)
                 }
@@ -98,11 +98,11 @@ extension CastProductionViewController: UITableViewDelegate, UITableViewDataSour
             
         } else {
          
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: CastProductionTableViewCell.reuseIdentifier, for: indexPath) as? CastProductionTableViewCell else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: TvShowDetailTableViewCell.reuseIdentifier, for: indexPath) as? TvShowDetailTableViewCell else {
                 return UITableViewCell()
             }
             
-            if let starring = media?.starring.components(separatedBy: ", ") {
+            if let starring = tvShow?.starring.components(separatedBy: ", ") {
                 cell.configureCell(name: starring[row], role: "role", imagePath: "")
             }
             
@@ -122,7 +122,7 @@ extension CastProductionViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
-extension CastProductionViewController: TvShowViewDelegate {
+extension TvShowDetailViewController: TvShowViewDelegate {
     
     func reloadCell() {
         mainView.tableView.beginUpdates()

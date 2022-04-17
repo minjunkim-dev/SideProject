@@ -109,9 +109,9 @@ extension TvShowViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = CastProductionViewController()
-        let media = tvShow[indexPath.section]
-        vc.media = media
+        let vc = TvShowDetailViewController()
+        let tvShow = tvShow[indexPath.section]
+        vc.tvShow = tvShow
         
         let title = "뒤로"
         let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)

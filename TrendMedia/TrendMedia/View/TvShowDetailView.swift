@@ -1,5 +1,5 @@
 //
-//  CastProductionView.swift
+//  TvShowDetailView.swift
 //  TrendMedia
 //
 //  Created by beneDev on 2022/04/14.
@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class CastProductionView: UIView, ViewPresentable {
+final class TvShowDetailView: UIView, ViewPresentable {
     
     let tableView = UITableView(frame: .zero, style: .plain).then {
         $0.separatorStyle = .singleLine
@@ -24,9 +24,9 @@ final class CastProductionView: UIView, ViewPresentable {
         backgroundColor = .white
     
         addSubview(tableView)
-        tableView.register(CastProductionTableViewCell.self, forCellReuseIdentifier: CastProductionTableViewCell.reuseIdentifier)
-        tableView.register(CastProductionHeaderTabelViewCell.self, forCellReuseIdentifier: CastProductionHeaderTabelViewCell.reuseIdentifier)
-        tableView.register(CastProductionOverviewTableViewCell.self, forCellReuseIdentifier: CastProductionOverviewTableViewCell.reuseIdentifier)
+        tableView.register(TvShowDetailTableViewCell.self, forCellReuseIdentifier: TvShowDetailTableViewCell.reuseIdentifier)
+        tableView.register(TvShowDetailHeaderTabelViewCell.self, forCellReuseIdentifier: TvShowDetailHeaderTabelViewCell.reuseIdentifier)
+        tableView.register(TvShowDetailOverviewTableViewCell.self, forCellReuseIdentifier: TvShowDetailOverviewTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {
