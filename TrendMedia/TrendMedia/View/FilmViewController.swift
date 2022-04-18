@@ -209,6 +209,9 @@ extension FilmViewController: CLLocationManagerDelegate {
             }
             
             // required to open settings
+            showAlert(title: nil, message: "위치 서비스 사용 불가", okTitle: "설정", okCompletion: {
+                self.openSettings()
+            }, cancleTitle: "취소", cancleCompletion: nil)
         }
     }
     
@@ -241,6 +244,10 @@ extension FilmViewController: CLLocationManagerDelegate {
             }
 
             // required to open settings
+            showAlert(title: nil, message: "위치 서비스 사용 불가", okTitle: "설정", okCompletion: {
+                self.openSettings()
+            }, cancleTitle: "취소", cancleCompletion: nil)
+            
         case .authorizedWhenInUse:
             print("WHEN IN USE")
             locationManager.startUpdatingLocation() // 위치 접근 시작 => didUpdateLocations 실행됨
