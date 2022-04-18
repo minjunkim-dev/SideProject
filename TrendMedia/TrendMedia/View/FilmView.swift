@@ -16,17 +16,40 @@ final class FilmView: UIView, ViewPresentable {
     
     let mapView = MKMapView()
     
+    let gpsButton = UIButton().then {
+        
+        let imageView = UIImageView()
+        
+        let image = UIImage(named: "place")
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+        
+        $0.setImage(image, for: .normal)
+        
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 10
+        $0.setShadow()
+    }
+    
     func setupView() {
        
         backgroundColor = .white
         
         addSubview(mapView)
+        
+        mapView.addSubview(gpsButton)
     }
     
     func setupConstraints() {
         
         mapView.snp.makeConstraints {
             $0.edges.equalTo(safeAreaLayoutGuide)
+        }
+        
+        gpsButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(20)
+            $0.size.equalTo(50)
         }
     }
 

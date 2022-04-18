@@ -28,11 +28,17 @@ final class FilmViewController: UIViewController {
         let font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         let filterItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filterButtonClicked))
         configureNavigation(titleColor: .black, titleFont: font, rightItems: [filterItem], barTintColor: .black)
+        
+        mainView.gpsButton.addTarget(self, action: #selector(gpsButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func gpsButtonClicked() {
+        print(#function)
+        
+        checkUserLocationServicesAuthorization()
     }
     
     @objc func filterButtonClicked() {
-        
-        checkUserLocationServicesAuthorization()
         
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         

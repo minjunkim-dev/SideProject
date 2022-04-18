@@ -31,6 +31,7 @@ internal enum Assets {
   internal static let maid = ImageAsset(name: "maid")
   internal static let nevertheless = ImageAsset(name: "nevertheless")
   internal static let pawPatrol = ImageAsset(name: "paw_patrol")
+  internal static let place = ImageAsset(name: "place")
   internal static let placeholderImage = ImageAsset(name: "placeholder_image")
   internal static let sexEducation = ImageAsset(name: "sex_education")
   internal static let squidGame = ImageAsset(name: "squid_game")
