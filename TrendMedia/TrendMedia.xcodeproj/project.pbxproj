@@ -17,12 +17,13 @@
 		CA0DB4E4280A9D320055F1EF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E3280A9D320055F1EF /* UIColor+Extension.swift */; };
 		CA0DB4E6280AA6430055F1EF /* FilmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E5280AA6430055F1EF /* FilmView.swift */; };
 		CA0DB4E8280AA64C0055F1EF /* FilmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA0DB4E7280AA64C0055F1EF /* FilmViewController.swift */; };
+		CA3A86B2280D3B4B000DFAE4 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA3A86B1280D3B4B000DFAE4 /* Then */; };
+		CA3A86B5280D3B68000DFAE4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA3A86B4280D3B68000DFAE4 /* SnapKit */; };
+		CA3A86B8280D3B72000DFAE4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CA3A86B7280D3B72000DFAE4 /* Kingfisher */; };
 		CA51F7B22803DC24006B6D18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B12803DC24006B6D18 /* AppDelegate.swift */; };
 		CA51F7B42803DC24006B6D18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7B32803DC24006B6D18 /* SceneDelegate.swift */; };
 		CA51F7BB2803DC26006B6D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA51F7BA2803DC26006B6D18 /* Assets.xcassets */; };
 		CA51F7BE2803DC26006B6D18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA51F7BC2803DC26006B6D18 /* LaunchScreen.storyboard */; };
-		CA51F7C82803DD90006B6D18 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F7C72803DD90006B6D18 /* Then */; };
-		CA51F7CC2803DDA8006B6D18 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F7CB2803DDA8006B6D18 /* SnapKit */; };
 		CA51F7CF2803DE8A006B6D18 /* TvShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7CE2803DE8A006B6D18 /* TvShowView.swift */; };
 		CA51F7D12803DE94006B6D18 /* TvShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7D02803DE94006B6D18 /* TvShowViewController.swift */; };
 		CA51F7D42803DF29006B6D18 /* ViewPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7D32803DF29006B6D18 /* ViewPresentable.swift */; };
@@ -33,7 +34,6 @@
 		CA51F7E02803FA45006B6D18 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7DF2803FA45006B6D18 /* UIView+Extension.swift */; };
 		CA51F7E22804009C006B6D18 /* Sample.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7E12804009C006B6D18 /* Sample.swift */; };
 		CA51F7E5280400C6006B6D18 /* TvShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7E4280400C6006B6D18 /* TvShow.swift */; };
-		CA51F7E8280403E4006B6D18 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = CA51F7E7280403E4006B6D18 /* Kingfisher */; };
 		CA51F7EB280403FF006B6D18 /* TvShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EA280403FF006B6D18 /* TvShowTableViewCell.swift */; };
 		CA51F7ED28040AF8006B6D18 /* TvShowPosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EC28040AF8006B6D18 /* TvShowPosterView.swift */; };
 		CA51F7EF280411FA006B6D18 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA51F7EE280411FA006B6D18 /* ReusableView.swift */; };
@@ -102,9 +102,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA51F7E8280403E4006B6D18 /* Kingfisher in Frameworks */,
-				CA51F7C82803DD90006B6D18 /* Then in Frameworks */,
-				CA51F7CC2803DDA8006B6D18 /* SnapKit in Frameworks */,
+				CA3A86B8280D3B72000DFAE4 /* Kingfisher in Frameworks */,
+				CA3A86B2280D3B4B000DFAE4 /* Then in Frameworks */,
+				CA3A86B5280D3B68000DFAE4 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,9 +241,9 @@
 			);
 			name = TrendMedia;
 			packageProductDependencies = (
-				CA51F7C72803DD90006B6D18 /* Then */,
-				CA51F7CB2803DDA8006B6D18 /* SnapKit */,
-				CA51F7E7280403E4006B6D18 /* Kingfisher */,
+				CA3A86B1280D3B4B000DFAE4 /* Then */,
+				CA3A86B4280D3B68000DFAE4 /* SnapKit */,
+				CA3A86B7280D3B72000DFAE4 /* Kingfisher */,
 			);
 			productName = TrendMedia;
 			productReference = CA51F7AE2803DC24006B6D18 /* TrendMedia.app */;
@@ -274,9 +274,9 @@
 			);
 			mainGroup = CA51F7A52803DC23006B6D18;
 			packageReferences = (
-				CA51F7C62803DD90006B6D18 /* XCRemoteSwiftPackageReference "Then" */,
-				CA51F7CA2803DDA8006B6D18 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				CA51F7E6280403E3006B6D18 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				CA3A86B0280D3B4B000DFAE4 /* XCRemoteSwiftPackageReference "Then" */,
+				CA3A86B3280D3B68000DFAE4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CA3A86B6280D3B72000DFAE4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = CA51F7AF2803DC24006B6D18 /* Products */;
 			projectDirPath = "";
@@ -576,7 +576,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CA51F7C62803DD90006B6D18 /* XCRemoteSwiftPackageReference "Then" */ = {
+		CA3A86B0280D3B4B000DFAE4 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
@@ -584,7 +584,7 @@
 				kind = branch;
 			};
 		};
-		CA51F7CA2803DDA8006B6D18 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		CA3A86B3280D3B68000DFAE4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -592,7 +592,7 @@
 				kind = branch;
 			};
 		};
-		CA51F7E6280403E3006B6D18 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		CA3A86B6280D3B72000DFAE4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
 			requirement = {
@@ -603,19 +603,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CA51F7C72803DD90006B6D18 /* Then */ = {
+		CA3A86B1280D3B4B000DFAE4 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CA51F7C62803DD90006B6D18 /* XCRemoteSwiftPackageReference "Then" */;
+			package = CA3A86B0280D3B4B000DFAE4 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
-		CA51F7CB2803DDA8006B6D18 /* SnapKit */ = {
+		CA3A86B4280D3B68000DFAE4 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CA51F7CA2803DDA8006B6D18 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = CA3A86B3280D3B68000DFAE4 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		CA51F7E7280403E4006B6D18 /* Kingfisher */ = {
+		CA3A86B7280D3B72000DFAE4 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CA51F7E6280403E3006B6D18 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = CA3A86B6280D3B72000DFAE4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
