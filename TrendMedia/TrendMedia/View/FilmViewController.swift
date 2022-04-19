@@ -30,6 +30,33 @@ final class FilmViewController: UIViewController {
         configureNavigation(titleColor: .black, titleFont: font, rightItems: [filterItem], barTintColor: .black)
         
         mainView.gpsButton.addTarget(self, action: #selector(gpsButtonClicked), for: .touchUpInside)
+        
+        showTheatersWithAnnotations(type: TheaterType.all)
+    }
+    
+    func showTheatersWithAnnotations(type: TheaterType) {
+        print(#function)
+        
+        self.mainView.mapView.removeAnnotations(self.mainView.mapView.annotations)
+        
+        let typeString = type.rawValue
+        
+        theaterLocation.forEach {
+            
+            // required to filter
+            if type != .all &&
+                $0.type != typeString {
+                return
+            }
+            
+            print(type)
+            
+            let annotation = MKPointAnnotation()
+            let lat = $0.latitude
+            let long = $0.longitude
+            annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            self.mainView.mapView.addAnnotation(annotation)
+        }
     }
     
     @objc func gpsButtonClicked() {
@@ -50,13 +77,16 @@ final class FilmViewController: UIViewController {
         
         
         [
-            "메가박스",
-            "롯데시네마",
-            "CGV",
-            "전체보기",
+            TheaterType.megabox,
+            TheaterType.lottecinema,
+            TheaterType.cgv,
+            TheaterType.all,
         ].forEach {
-            let okAction = UIAlertAction(title: $0, style: .default) { _ in
-                print("ok")
+            let okAction = UIAlertAction(title: $0.rawValue, style: .default) { alertAction in
+                
+                let type = TheaterType(rawValue: alertAction.title ?? TheaterType.all.rawValue) ?? TheaterType.all
+                
+                self.showTheatersWithAnnotations(type: type)
             }
             
             alert.addAction(okAction)
@@ -152,7 +182,7 @@ extension FilmViewController: CLLocationManagerDelegate {
                 self.getCurrentAddress(location: location)
                 
                 let coordinate = location.coordinate
-                let diameter: CLLocationDistance = 250 * 2 // meter unit(지름이므로 반지름 x2)
+                let diameter: CLLocationDistance = 5000 * 2 // meter unit(지름이므로 반지름 x2)
                 self.setMapRegion(center: coordinate, diameter: diameter)
                 
             } else {
@@ -210,7 +240,7 @@ extension FilmViewController: CLLocationManagerDelegate {
                 let location = self.getDefaultLocation()
                 self.getCurrentAddress(location: location)
 
-                let diameter: CLLocationDistance = 250 * 2 // meter unit(지름이므로 반지름 x2)
+                let diameter: CLLocationDistance = 5000 * 2 // meter unit(지름이므로 반지름 x2)
                 self.setMapRegion(center: location.coordinate, diameter: diameter)
             }
             
@@ -245,7 +275,7 @@ extension FilmViewController: CLLocationManagerDelegate {
                 let location = self.getDefaultLocation()
                 self.getCurrentAddress(location: location)
 
-                let diameter: CLLocationDistance = 250 * 2 // meter unit(지름이므로 반지름 x2)
+                let diameter: CLLocationDistance = 5000 * 2 // meter unit(지름이므로 반지름 x2)
                 self.setMapRegion(center: location.coordinate, diameter: diameter)
             }
 
