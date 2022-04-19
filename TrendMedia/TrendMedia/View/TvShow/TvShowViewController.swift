@@ -24,7 +24,7 @@ final class TvShowViewController: UIViewController {
         let title = "TREND MEDIA"
         let font = UIFont.systemFont(ofSize: 18, weight: .bold)
         let leftItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: nil)
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchMediaButtonClicked))
+        let rightItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchTvShowButtonClicked))
         
         configureNavigation(title: title, titleColor: .black, titleFont: font, leftItems: [leftItem], rightItems: [rightItem], barTintColor: .black)
         
@@ -53,7 +53,7 @@ final class TvShowViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func searchMediaButtonClicked() {
+    @objc func searchTvShowButtonClicked() {
         
         let vc = SearchTvShowViewController()
         vc.modalPresentationStyle = .fullScreen
@@ -102,10 +102,7 @@ extension TvShowViewController: UITableViewDelegate, UITableViewDataSource {
         let tvShow = tvShow[indexPath.section]
         vc.tvShow = tvShow
         
-        let title = "뒤로"
-        let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
+        setNavBackButtonTitle(title: "뒤로")
 
         navigationController?.pushViewController(vc, animated: true)
     }
