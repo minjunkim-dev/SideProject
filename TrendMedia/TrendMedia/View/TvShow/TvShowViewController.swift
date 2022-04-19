@@ -89,10 +89,9 @@ extension TvShowViewController: UITableViewDelegate, UITableViewDataSource {
         let section = indexPath.section
         
         let title = tvShow[section].title
-        let releaseDate = tvShow[section].releaseDate
+        let starring = tvShow[section].starring
         let rate = tvShow[section].rate
-        let imagePath = tvShow[section].backdropImage
-        cell.configureCell(title: title, releaseDate: releaseDate, rate: rate, imagePath: imagePath)
+        cell.configureCell(title: title, starring: starring, rate: rate)
         cell.delegate = self
         
         return cell
@@ -101,9 +100,9 @@ extension TvShowViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = TvShowTableViewHeaderView()
         
+        let releaseDate = tvShow[section].releaseDate
         let genres = [tvShow[section].genre]
-        let title = tvShow[section].title
-        view.configureView(genres: genres, title: title)
+        view.configureView(releaseDate: releaseDate, genres: genres)
         return view
     }
     

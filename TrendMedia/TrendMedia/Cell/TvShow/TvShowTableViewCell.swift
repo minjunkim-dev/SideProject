@@ -25,7 +25,7 @@ final class TvShowTableViewCell: UITableViewCell, ViewPresentable {
         
         let image = UIImage(systemName: "link.circle.fill")
         $0.setImage(image, for: .normal)
-        $0.setPreferredSymbolConfiguration(.init(pointSize: 30), forImageIn: .normal)
+        $0.setPreferredSymbolConfiguration(.init(pointSize: 35), forImageIn: .normal)
     }
     
     let topInset: CGFloat = 0
@@ -81,31 +81,14 @@ final class TvShowTableViewCell: UITableViewCell, ViewPresentable {
         }
     }
     
-    func configureCell(title: String, releaseDate: String, rate: Double, imagePath: String) {
+    func configureCell(title: String, starring: String, rate: Double) {
         
-        var name =
-            title.lowercased()
-                .replacingOccurrences(of: "'", with: "")
-        name =
-            name.lowercased()
-                .replacingOccurrences(of: ":", with: "")
-        
-        name =
-        name.components(separatedBy: ["&"])
-            .map {
-                $0.trimmingCharacters(in: [" "])
-            }
-            .joined(separator: " ")
-        
-        name = name.replacingOccurrences(of: "-", with: "_")
-        
-        name = name.replacingOccurrences(of: " ", with: "_")
-        
+        let name = title.convertToResourceName()
         posterView.imageView.image = UIImage(named: name)
         posterView.rateLabel.text = "\(rate)"
         
         descriptionView.titleLabel.text = title
-        descriptionView.releaseDateLabel.text = releaseDate
+        descriptionView.starringLabel.text = starring
     }
     
     @objc func linkButtonClicked() {

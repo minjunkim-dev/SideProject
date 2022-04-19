@@ -14,15 +14,15 @@ final class TvShowTableViewHeaderView: UIView, ViewPresentable {
     
     let containerView = UIView()
     
-    let genresLabel = UILabel().then {
+    let releaseDateLabel = UILabel().then {
         $0.numberOfLines = 0
         $0.textAlignment = .left
         
         $0.font = .systemFont(ofSize: 15, weight: .regular)
-        $0.textColor = .lightGray
+        $0.textColor = .darkGray
     }
     
-    let titleLabel = UILabel().then {
+    let genresLabel = UILabel().then {
         $0.numberOfLines = 0
         $0.textAlignment = .left
         
@@ -30,7 +30,7 @@ final class TvShowTableViewHeaderView: UIView, ViewPresentable {
         $0.textColor = .black
     }
     
-    func configureView(genres: [String], title: String) {
+    func configureView(releaseDate: String, genres: [String]) {
         
         var genre = genres
         var text = "#\(genre.removeFirst())"
@@ -38,15 +38,15 @@ final class TvShowTableViewHeaderView: UIView, ViewPresentable {
             text += " #\($0)"
         }
         
+        releaseDateLabel.text = releaseDate
         genresLabel.text = text
-        titleLabel.text = title
     }
     
     func setupView() {
         
         addSubview(containerView)
         
-        [genresLabel, titleLabel].forEach { containerView.addSubview($0) }
+        [releaseDateLabel, genresLabel].forEach { containerView.addSubview($0) }
     }
     
     func setupConstraints() {
@@ -56,13 +56,13 @@ final class TvShowTableViewHeaderView: UIView, ViewPresentable {
             $0.verticalEdges.equalToSuperview().inset(10)
         }
         
-        genresLabel.snp.makeConstraints {
+        releaseDateLabel.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
         }
         
-        titleLabel.snp.makeConstraints {
-            $0.top.equalTo(genresLabel.snp.bottom)
+        genresLabel.snp.makeConstraints {
+            $0.top.equalTo(releaseDateLabel.snp.bottom)
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }

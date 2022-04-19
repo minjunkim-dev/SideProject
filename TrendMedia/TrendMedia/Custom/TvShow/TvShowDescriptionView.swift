@@ -21,8 +21,8 @@ final class TvShowDescriptionView: UIView, ViewPresentable {
         
         $0.font = .systemFont(ofSize: 20, weight: .semibold)
     }
-    let releaseDateLabel = UILabel().then {
-        $0.textColor = .lightGray
+    let starringLabel = UILabel().then {
+        $0.textColor = .darkGray
         $0.numberOfLines = 1
         $0.textAlignment = .center
         
@@ -51,7 +51,7 @@ final class TvShowDescriptionView: UIView, ViewPresentable {
         addSubview(containerView)
         
         [
-            titleLabel, releaseDateLabel,
+            titleLabel, starringLabel,
             separator,
             moreDetailLabel, moreDetailButton
         ]
@@ -69,13 +69,13 @@ final class TvShowDescriptionView: UIView, ViewPresentable {
             $0.horizontalEdges.equalToSuperview()
         }
         
-        releaseDateLabel.snp.makeConstraints {
+        starringLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom)
-            $0.leading.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
         }
         
         separator.snp.makeConstraints {
-            $0.top.equalTo(releaseDateLabel.snp.bottom).offset(20)
+            $0.top.equalTo(starringLabel.snp.bottom).offset(20)
             $0.height.equalTo(1)
             $0.horizontalEdges.equalToSuperview()
         }

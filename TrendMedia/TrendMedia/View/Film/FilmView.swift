@@ -17,14 +17,7 @@ final class FilmView: UIView, ViewPresentable {
     let mapView = MKMapView()
     
     let gpsButton = UIButton().then {
-        
-        let imageView = UIImageView()
-        
-        let image = UIImage(named: "place")
-        imageView.image = image
-        imageView.contentMode = .scaleAspectFit
-        
-        $0.setImage(image, for: .normal)
+        $0.setImage(Assets.place.image, for: .normal)
         
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 10

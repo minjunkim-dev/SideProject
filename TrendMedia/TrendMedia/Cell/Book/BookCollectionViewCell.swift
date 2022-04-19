@@ -29,25 +29,8 @@ final class BookCollectionViewCell: UICollectionViewCell, ViewPresentable {
         titleLabel.text = title
         rateLabel.text = "\(rate)"
         
-        var imageName =
-            title.lowercased()
-                .replacingOccurrences(of: "'", with: "")
-        imageName =
-        imageName.lowercased()
-                .replacingOccurrences(of: ":", with: "")
-        
-        imageName =
-        imageName.components(separatedBy: ["&"])
-            .map {
-                $0.trimmingCharacters(in: [" "])
-            }
-            .joined(separator: " ")
-        
-        imageName = imageName.replacingOccurrences(of: "-", with: "_")
-        
-        imageName = imageName.replacingOccurrences(of: " ", with: "_")
-        
-        let image = UIImage(named: imageName)
+        let name = title.convertToResourceName()
+        let image = UIImage(named: name)
         posterImageView.image = image
     }
     

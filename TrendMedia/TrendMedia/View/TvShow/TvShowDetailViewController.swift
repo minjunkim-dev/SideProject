@@ -59,23 +59,7 @@ extension TvShowDetailViewController: UITableViewDelegate, UITableViewDataSource
                 
                 if let tvShow = tvShow {
                     let title = tvShow.title
-                    var name =
-                        title.lowercased()
-                            .replacingOccurrences(of: "'", with: "")
-                    name =
-                        name.lowercased()
-                            .replacingOccurrences(of: ":", with: "")
-                    
-                    name =
-                    name.components(separatedBy: ["&"])
-                        .map {
-                            $0.trimmingCharacters(in: [" "])
-                        }
-                        .joined(separator: " ")
-                    
-                    name = name.replacingOccurrences(of: "-", with: "_")
-                    
-                    name = name.replacingOccurrences(of: " ", with: "_")
+                    let name = title.convertToResourceName()
                     
                     cell.headerView.configureView(backdropImagePath: tvShow.backdropImage, imageName: name, title: tvShow.title)
                 }
