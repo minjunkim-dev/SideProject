@@ -149,18 +149,9 @@
 		CA51F7CD2803DE2C006B6D18 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA51F7CE2803DE8A006B6D18 /* TvShowView.swift */,
-				CA51F7D02803DE94006B6D18 /* TvShowViewController.swift */,
-				CA6471A42806AA3C009EBCF0 /* SearchTvShowView.swift */,
-				CA6471A62806AA4F009EBCF0 /* SearchTvShowViewController.swift */,
-				CA6471AC2807F63D009EBCF0 /* TvShowDetailView.swift */,
-				CA6471AE2807F706009EBCF0 /* TvShowDetailViewController.swift */,
-				CA6471B428093C0D009EBCF0 /* TvShowWebKitView.swift */,
-				CA6471B628093CD6009EBCF0 /* TvShowWebKitViewController.swift */,
-				CA0DB4DB280A88480055F1EF /* BookView.swift */,
-				CA0DB4DD280A88520055F1EF /* BookViewController.swift */,
-				CA0DB4E5280AA6430055F1EF /* FilmView.swift */,
-				CA0DB4E7280AA64C0055F1EF /* FilmViewController.swift */,
+				CAB6B811280E732800883F31 /* Book */,
+				CAB6B810280E732400883F31 /* Film */,
+				CAB6B80F280E731400883F31 /* TvShow */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,9 +159,9 @@
 		CA51F7D22803DEEB006B6D18 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				CAB6B80E280E730C00883F31 /* TvShow */,
 				CA51F7D32803DF29006B6D18 /* ViewPresentable.swift */,
 				CA51F7EE280411FA006B6D18 /* ReusableView.swift */,
-				CA0DB4D9280A5C940055F1EF /* TvShowDelegate.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -190,13 +181,8 @@
 		CA51F7DA2803ECFC006B6D18 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
-				CA51F7DB2803ED07006B6D18 /* TvShowTitleView.swift */,
-				CA51F7DD2803EDF3006B6D18 /* TvShowSelectionView.swift */,
-				CA51F7EC28040AF8006B6D18 /* TvShowPosterView.swift */,
-				CA51F7F22804166D006B6D18 /* TvShowDescriptionView.swift */,
+				CAB6B80A280E72CE00883F31 /* TvShow */,
 				CA6471A22806A3E2009EBCF0 /* InsetsLabel.swift */,
-				CA6471AA2807CF8D009EBCF0 /* TvShowTableViewHeaderView.swift */,
-				CA6471B228080C77009EBCF0 /* TvShowDetailHeaderView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -204,8 +190,8 @@
 		CA51F7E3280400A3006B6D18 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA51F7E12804009C006B6D18 /* TheaterLocation.swift */,
-				CA51F7E4280400C6006B6D18 /* TvShow.swift */,
+				CAB6B80D280E72F200883F31 /* Film */,
+				CAB6B80C280E72EB00883F31 /* TvShow */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -213,14 +199,100 @@
 		CA51F7E9280403F2006B6D18 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				CAB6B809280E72C200883F31 /* Book */,
+				CAB6B808280E72AE00883F31 /* TvShow */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		CAB6B808280E72AE00883F31 /* TvShow */ = {
+			isa = PBXGroup;
+			children = (
 				CA51F7EA280403FF006B6D18 /* TvShowTableViewCell.swift */,
 				CA6471A82806BF33009EBCF0 /* SearchTvShowTableViewCell.swift */,
 				CA6471B02807FFD8009EBCF0 /* TvShowDetailTableViewCell.swift */,
 				CA0DB4D5280A57540055F1EF /* TvShowDetailHeaderTabelViewCell.swift */,
 				CA0DB4D7280A58B10055F1EF /* TvShowDetailOverviewTableViewCell.swift */,
+			);
+			path = TvShow;
+			sourceTree = "<group>";
+		};
+		CAB6B809280E72C200883F31 /* Book */ = {
+			isa = PBXGroup;
+			children = (
 				CA0DB4E1280A8F080055F1EF /* BookCollectionViewCell.swift */,
 			);
-			path = Cell;
+			path = Book;
+			sourceTree = "<group>";
+		};
+		CAB6B80A280E72CE00883F31 /* TvShow */ = {
+			isa = PBXGroup;
+			children = (
+				CA6471AA2807CF8D009EBCF0 /* TvShowTableViewHeaderView.swift */,
+				CA6471B228080C77009EBCF0 /* TvShowDetailHeaderView.swift */,
+				CA51F7DB2803ED07006B6D18 /* TvShowTitleView.swift */,
+				CA51F7DD2803EDF3006B6D18 /* TvShowSelectionView.swift */,
+				CA51F7EC28040AF8006B6D18 /* TvShowPosterView.swift */,
+				CA51F7F22804166D006B6D18 /* TvShowDescriptionView.swift */,
+			);
+			path = TvShow;
+			sourceTree = "<group>";
+		};
+		CAB6B80C280E72EB00883F31 /* TvShow */ = {
+			isa = PBXGroup;
+			children = (
+				CA51F7E4280400C6006B6D18 /* TvShow.swift */,
+			);
+			path = TvShow;
+			sourceTree = "<group>";
+		};
+		CAB6B80D280E72F200883F31 /* Film */ = {
+			isa = PBXGroup;
+			children = (
+				CA51F7E12804009C006B6D18 /* TheaterLocation.swift */,
+			);
+			path = Film;
+			sourceTree = "<group>";
+		};
+		CAB6B80E280E730C00883F31 /* TvShow */ = {
+			isa = PBXGroup;
+			children = (
+				CA0DB4D9280A5C940055F1EF /* TvShowDelegate.swift */,
+			);
+			path = TvShow;
+			sourceTree = "<group>";
+		};
+		CAB6B80F280E731400883F31 /* TvShow */ = {
+			isa = PBXGroup;
+			children = (
+				CA51F7CE2803DE8A006B6D18 /* TvShowView.swift */,
+				CA51F7D02803DE94006B6D18 /* TvShowViewController.swift */,
+				CA6471AC2807F63D009EBCF0 /* TvShowDetailView.swift */,
+				CA6471AE2807F706009EBCF0 /* TvShowDetailViewController.swift */,
+				CA6471B428093C0D009EBCF0 /* TvShowWebKitView.swift */,
+				CA6471B628093CD6009EBCF0 /* TvShowWebKitViewController.swift */,
+				CA6471A42806AA3C009EBCF0 /* SearchTvShowView.swift */,
+				CA6471A62806AA4F009EBCF0 /* SearchTvShowViewController.swift */,
+			);
+			path = TvShow;
+			sourceTree = "<group>";
+		};
+		CAB6B810280E732400883F31 /* Film */ = {
+			isa = PBXGroup;
+			children = (
+				CA0DB4E5280AA6430055F1EF /* FilmView.swift */,
+				CA0DB4E7280AA64C0055F1EF /* FilmViewController.swift */,
+			);
+			path = Film;
+			sourceTree = "<group>";
+		};
+		CAB6B811280E732800883F31 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				CA0DB4DB280A88480055F1EF /* BookView.swift */,
+				CA0DB4DD280A88520055F1EF /* BookViewController.swift */,
+			);
+			path = Book;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
