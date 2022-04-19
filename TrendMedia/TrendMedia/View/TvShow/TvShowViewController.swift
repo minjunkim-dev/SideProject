@@ -21,6 +21,13 @@ final class TvShowViewController: UIViewController {
         mainView.mediaTableView.delegate = self
         mainView.mediaTableView.dataSource = self
         
+        let title = "TREND MEDIA"
+        let font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        let leftItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: nil)
+        let rightItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchMediaButtonClicked))
+        
+        configureNavigation(title: title, titleColor: .black, titleFont: font, leftItems: [leftItem], rightItems: [rightItem], barTintColor: .black)
+        
         if let filmButton = mainView.mediaSelectionView.stackView.arrangedSubviews[0] as? UIButton {
             filmButton.addTarget(self, action: #selector(filmButtonClicked), for: .touchUpInside)
         }
@@ -44,17 +51,6 @@ final class TvShowViewController: UIViewController {
         setNavBackButtonTitle(title: "뒤로")
 
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let title = "TREND MEDIA"
-        let font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        let leftItem = UIBarButtonItem(image: UIImage(systemName: "list.dash"), style: .plain, target: self, action: nil)
-        let rightItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchMediaButtonClicked))
-        
-        configureNavigation(title: title, titleColor: .black, titleFont: font, leftItems: [leftItem], rightItems: [rightItem], barTintColor: .black)
     }
     
     @objc func searchMediaButtonClicked() {
