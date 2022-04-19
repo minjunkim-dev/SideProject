@@ -52,4 +52,10 @@ extension UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    func setNavBackButtonTitle(title: String?) {
+        let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
+        backBarButtonItem.tintColor = .black
+        navigationItem.backBarButtonItem = backBarButtonItem
+    }
 }

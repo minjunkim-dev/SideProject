@@ -33,10 +33,7 @@ final class TvShowViewController: UIViewController {
     @objc func filmButtonClicked() {
         let vc = FilmViewController()
         
-        let title = "뒤로"
-        let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
+        setNavBackButtonTitle(title: "뒤로")
 
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -44,10 +41,7 @@ final class TvShowViewController: UIViewController {
     @objc func bookButtonClicked() {
         let vc = BookViewController()
         
-        let title = "뒤로"
-        let backBarButtonItem = UIBarButtonItem(title: title, style: .plain, target: self, action: nil)
-        backBarButtonItem.tintColor = .black
-        navigationItem.backBarButtonItem = backBarButtonItem
+        setNavBackButtonTitle(title: "뒤로")
 
         navigationController?.pushViewController(vc, animated: true)
     }
