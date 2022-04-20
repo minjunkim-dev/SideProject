@@ -15,7 +15,7 @@ final class SearchTvShowTableViewCell: UITableViewCell, ViewPresentable {
     
     let containerView = UIView()
     
-    let mediaImageView = UIImageView().then {
+    let tvShowImageView = UIImageView().then {
         $0.contentMode = .scaleToFill
     }
     
@@ -51,7 +51,7 @@ final class SearchTvShowTableViewCell: UITableViewCell, ViewPresentable {
         containerView.backgroundColor = .white
         
         [
-            mediaImageView,
+            tvShowImageView,
             titleLabel, releaseDateAndRegionLabel,
             overviewLabel
         ].forEach { containerView.addSubview($0) }
@@ -66,17 +66,17 @@ final class SearchTvShowTableViewCell: UITableViewCell, ViewPresentable {
                 .priority(.low)
         }
     
-        mediaImageView.snp.makeConstraints {
+        tvShowImageView.snp.makeConstraints {
             $0.verticalEdges.equalToSuperview()
             $0.leading.equalToSuperview()
             
             $0.width.equalToSuperview().multipliedBy(0.25)
-            $0.height.equalTo(mediaImageView.snp.width).multipliedBy(1.5)
+            $0.height.equalTo(tvShowImageView.snp.width).multipliedBy(1.5)
         }
         
         titleLabel.snp.makeConstraints {
             $0.top.equalToSuperview().inset(5)
-            $0.leading.equalTo(mediaImageView.snp.trailing).offset(10)
+            $0.leading.equalTo(tvShowImageView.snp.trailing).offset(10)
             $0.trailing.equalToSuperview()
         }
         
@@ -96,27 +96,9 @@ final class SearchTvShowTableViewCell: UITableViewCell, ViewPresentable {
         }
     }
     
-    func loadImage(imagePath: String) {
-        let url = URL(string: imagePath)
-        mediaImageView.kf.indicatorType = .activity
-        mediaImageView.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "placeholder_image"),
-            completionHandler: { result in
-                switch result {
-                case .success(let value):
-                    //                    dump(value)
-                    print("success")
-                case .failure(let error):
-                    //                    dump(error)
-                    print("failure")
-                }
-            })
-    }
-    
     func configureCell(title: String, releaseDate: String, region: String, overview: String, imagePath: String) {
         
-        loadImage(imagePath: imagePath)
+        loadImage(imageView: tvShowImageView, imagePath: imagePath)
         
         titleLabel.text = title
         releaseDateAndRegionLabel.text = "\(releaseDate) | \(region)"

@@ -23,7 +23,7 @@ final class TvShowDetailHeaderView: UIView, ViewPresentable {
     
     func configureView(backdropImagePath: String, imageName: String, title: String) {
         
-        loadImage(imagePath: backdropImagePath)
+        loadImage(imageView: backdropImageView, imagePath: backdropImagePath)
         
         let image = UIImage(named: imageName)
         posterImageView.image = image
@@ -72,24 +72,6 @@ final class TvShowDetailHeaderView: UIView, ViewPresentable {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-    
-    func loadImage(imagePath: String) {
-        let url = URL(string: imagePath)
-        backdropImageView.kf.indicatorType = .activity
-        backdropImageView.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "placeholder_image"),
-            completionHandler: { result in
-                switch result {
-                case .success(let value):
-                    //                    dump(value)
-                    print("success")
-                case .failure(let error):
-                    //                    dump(error)
-                    print("failure")
-                }
-            })
     }
 }
 

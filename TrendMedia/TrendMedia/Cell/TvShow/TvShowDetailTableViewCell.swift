@@ -82,7 +82,7 @@ final class TvShowDetailTableViewCell: UITableViewCell, ViewPresentable {
     
     func configureCell(name: String, role: String, imagePath: String) {
         
-        loadImage(imagePath: imagePath)
+        loadImage(imageView: profileImageView, imagePath: imagePath)
         
         nameLabel.text = name
         roleLabel.text = role
@@ -99,23 +99,5 @@ final class TvShowDetailTableViewCell: UITableViewCell, ViewPresentable {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-    }
-    
-    func loadImage(imagePath: String) {
-        let url = URL(string: imagePath)
-        profileImageView.kf.indicatorType = .activity
-        profileImageView.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "placeholder_image"),
-            completionHandler: { result in
-                switch result {
-                case .success(let value):
-                    //                    dump(value)
-                    print("success")
-                case .failure(let error):
-                    //                    dump(error)
-                    print("failure")
-                }
-            })
     }
 }

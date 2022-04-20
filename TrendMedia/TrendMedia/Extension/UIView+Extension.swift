@@ -18,4 +18,22 @@ extension UIView {
         
         self.layer.masksToBounds = false
     }
+    
+    func loadImage(imageView: UIImageView, imagePath: String) {
+        let url = URL(string: imagePath)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(
+            with: url,
+            placeholder: Assets.placeholderImage.image,
+            completionHandler: { result in
+                switch result {
+                case .success(_):
+                    
+                    print("success")
+                case .failure(_):
+                    
+                    print("failure")
+                }
+            })
+    }
 }
