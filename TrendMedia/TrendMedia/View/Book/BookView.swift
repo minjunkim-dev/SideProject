@@ -15,10 +15,11 @@ final class BookView: UIView, ViewPresentable {
     let collectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
 
+        let inset: CGFloat = 10
         flowLayout.scrollDirection = .vertical
-        flowLayout.minimumInteritemSpacing = 10
-        flowLayout.minimumLineSpacing = 10
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        flowLayout.minimumInteritemSpacing = inset
+        flowLayout.minimumLineSpacing = inset
+        flowLayout.sectionInset = UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
         
         return UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
     }()
