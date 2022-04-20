@@ -11,6 +11,6 @@
 > UITableView, UITableViewCell(static, dynamic), Storyboard
 
 ## 이슈 및 해결방법
-> 1. table view의 cell을 static으로 설정하기 위해서는..
-  - UIViewController 위에 UITableView를 얹는 형태로는 사용이 불가능함
-  - UITableViewController 자체를 활용해야 static cell 사용이 가능함
+> 1. table view의 cell을 static cell로 사용하고자 한다면
+  - UIViewController를 상속받는 일반 뷰 컨트롤러에서는 사용이 불가능
+  - UITableViewController를 상속받는 뷰 컨트롤러를 활용해야 사용이 가능
