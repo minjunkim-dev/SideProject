@@ -141,7 +141,6 @@ extension FilmViewController: CLLocationManagerDelegate {
                 self.navigationItem.title = title
                 return }
 //            print(administrativeArea)
-            title += "\(administrativeArea)"
             
             guard let locality = place.locality else {
                 self.navigationItem.title = title
