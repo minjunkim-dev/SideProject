@@ -87,7 +87,10 @@ extension TvShowDetailViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             if let starring = tvShow?.starring.components(separatedBy: ", ") {
-                cell.configureCell(name: starring[row], role: "role", imagePath: "")
+                
+                let role = "role"
+                let imagePath = ""
+                cell.configureCell(name: starring[row], role: role, imagePath: imagePath)
             }
             
             return cell
