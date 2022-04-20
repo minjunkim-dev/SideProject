@@ -11,4 +11,5 @@
 | <center>AnniversaryCalculator</center> |[README](./AnniversaryCalculator/README.md)|
 | <center>PracticeTableViewController</center> |[README](./PracticeTableViewController/README.md)|
 | <center>ToDoList</center> |[README](./ToDoList/README.md)|
+| <center>DrinkWater</center> |[README](./DrinkWater/README.md)|
 | <center>TrendMedia</center> |[README](./TrendMedia/README.md)|
