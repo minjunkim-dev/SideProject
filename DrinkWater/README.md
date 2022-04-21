@@ -6,3 +6,9 @@
 * 다국어 지원: 한국어만 지원
 * 라이트/다크모드 모두 동일한 테마로만 지원
 * 세로모드만 지원
+
+## 기술스택
+> SnapKit, Then, SwiftGen, MVVM Architecture, UIAlert, Lottie, NotificationCenter, UserDefaults, propertyWrapper, Timer, RunLoop
+
+## 이슈 및 해결방법
+> 1. 
