@@ -7,7 +7,7 @@
 * 현재 세로모드만 지원, 가로모드 지원 예정
 
 ## 기술스택
-> SnapKit, Then, Kingfisher, SwiftGen, MVVM pattern, Localization, UITableView(+ automaticDimension), UICollectionView, UIAlert, delegate pattern, Mapkit, CoreLocation
+> SnapKit, Then, Kingfisher, SwiftGen, MVC Architecture, Localization, UITableView(+ automaticDimension), UICollectionView, UIAlert, delegate pattern, Mapkit, CoreLocation
 
 ## 이슈 및 해결방법
 > 1. UITableView의 style를 잘 활용하자
