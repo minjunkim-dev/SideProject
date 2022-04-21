@@ -7,7 +7,7 @@
 * 현재 세로모드만 지원, 가로모드 지원 예정
 
 ## 기술스택
-> SnapKit, Then, Kingfisher, SwiftGen, MVVM pattern, Localization, UITableView(+ automaticDimension), UICollectionView, UIAlert, delegate pattern
+> SnapKit, Then, Kingfisher, SwiftGen, MVVM pattern, Localization, UITableView(+ automaticDimension), UICollectionView, UIAlert, delegate pattern, Mapkit, CoreLocation
 
 ## 이슈 및 해결방법
 > 1. UITableView의 style를 잘 활용하자
@@ -45,3 +45,15 @@
 나머지 두 메서드의 경우 셀이 새로 생성되어 셀의 init() 메서드가 호출됨을 확인함
   - reloadData()의 경우 항상 셀을 "재사용"하지만,
 나머지 두 메서드는 상황에 따라서는 셀을 재사용하지 않고 새로 생성하여 기존 셀을 대체하는 것으로 보임
+> 10. mapkit의 mapView.setRegion() 메서드로 중심 및 반경 설정시 효과
+  - setRegion() 메서드만 단순히 사용하면 중심과 반경 설정을 어떻게 하느냐에 따라 불필요하게 움직이는데 오랜 시간이 소요될 수 있음
+  - MKMapView.animate() 메서드로 적절히 옵션을 주어 원하는 애니메이션으로 맵뷰가 이동하게 할 수 있음
+> 11. locationManagerDidChangeAuthorization 메서드의 정확한 호출 시기
+  - 1) CLLocationManager 인스턴스 생성시
+  - 2) 위치 권한이 변경될 때마다 감지해서 실행됨
+> 12. 사용자가 허용한 권한 상태 확인 및 권한 요청
+  - 사용자 허용 권한 상태 확인 및 권한 요청 이전에 반드시 iOS 위치 서비스 허용 여부를 먼저 확인하는 것이 필수적으로 선행되어야 함(CLLocationManager.locationServicesEnabled() 메서드 활용)
+  - locationManager.authorizationStatus(iOS 14 이상) or CLLocationManager.authorizationStatus()로 사용자 허용 권한 상태 확인 가능
+  - 앱을 사용하는 동안에 대한 위치 권한 요청은 locationManager.requestWhenInUseAuthorization()로 가능
+  - 권한이 허용된 상태에서 locationManager.startUpdatingLocation() 메서드를 호출하면 didUpdateLocations 메서드가 호출되며,
+작업이 끝난 이후에는 반드시 stopUpdatingLocation() 메서드를 호출해주어야 함
