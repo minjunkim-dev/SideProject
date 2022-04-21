@@ -7,7 +7,7 @@
 * 세로/가로모드 모두 지원
 
 ## 기술스택
-> SnapKit, Then, SwiftGen, UICollectionView, MVVM pattern, UserDefaults, propertyWrapper, Localization, delegate pattern
+> SnapKit, Then, SwiftGen, UICollectionView, MVVM Architecture, UserDefaults, propertyWrapper, Localization, delegate pattern
 
 ## 이슈 및 해결방법
 > 1. 컬렉션 뷰 셀의 크기에 대한 적절한 계산
