@@ -7,7 +7,7 @@
 * 세로/가로모드 모두 지원
 
 ## 기술스택
-> SnapKit, Then, MVVM pattern, Alamofire, JGProgresseHUD, Localization, UserDefaults, propertyWrapper, NotificationCenter, Network, UICollectionView, UIAlert, delegate pattern
+> SnapKit, Then, MVVM Architecture, Alamofire, JGProgresseHUD, Localization, UserDefaults, propertyWrapper, NotificationCenter, Network, UICollectionView, UIAlert, delegate pattern
 
 ## 이슈 및 해결방법
 > 1. 세로/가로모드에 대한 UI 대응 방법
