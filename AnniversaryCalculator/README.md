@@ -7,7 +7,7 @@
 * 세로모드만 지원
 
 ## 기술스택
-> SnapKit, Then, SwiftGen, UIDatePicker, UICollectionView, DateFormatter, MVVM pattern, UserDefaults, propertyWrapper, Localization
+> SnapKit, Then, SwiftGen, UIDatePicker, UICollectionView, DateFormatter, MVVM Architecture, UserDefaults, propertyWrapper, Localization
 
 ## 이슈 및 해결방법
 > 1. UIDatePicker의 preferredDatePickerStyle 프로퍼티
