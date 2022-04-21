@@ -7,7 +7,7 @@
 * 세로/가로모드 모두 지원
 
 ## 기술스택
-> SnapKit, Then, UIStackView, UIScrollView, MVVM pattern, Localization, UIAlert, UISwitch, NotificationCenter
+> SnapKit, Then, UIStackView, UIScrollView, MVVM Architecture, Localization, UIAlert, UISwitch, NotificationCenter
 
 ## 이슈 및 해결방법
 > 1. UISwitch의 off시 tintColor 설정법
