@@ -7,7 +7,7 @@
 * 세로/가로모드 모두 지원
 
 ## 기술스택
-> SnapKit, Then, MVVM pattern, Localization, UserDefaults, propertyWrapper, UITableView(+ automaticDimension), UIAlert, delegate pattern
+> SnapKit, Then, MVVM Architecture, Localization, UserDefaults, propertyWrapper, UITableView(+ automaticDimension), UIAlert, delegate pattern
 
 ## 이슈 및 해결방법
 > 1. UISegmentControl 사용시 주의사항
